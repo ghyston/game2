@@ -38,6 +38,10 @@ obj/local/armeabi/objs/Game2jni/Game2.o: jni/Game2.cpp \
  jni/../../../src/engine/GameEngine.h \
  jni/../../../src/engine/Renderer/Renderer.h \
  jni/../../../src/engine/Renderer/Shader.h \
+ jni/../../../src/engine/Renderer/Camera.h \
+ jni/../../../src/engine/Renderer/Matrix4f.h \
+ jni/../../../src/engine/Renderer/SceneObject.h \
+ jni/../../../src/engine/Renderer/Vector2f.h \
  jni/../../../src/engine/Renderer/Renderer.h
 
 C:/adt-bundle-windows-x86_64/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/jni.h:
@@ -117,5 +121,13 @@ jni/../../../src/engine/GameEngine.h:
 jni/../../../src/engine/Renderer/Renderer.h:
 
 jni/../../../src/engine/Renderer/Shader.h:
+
+jni/../../../src/engine/Renderer/Camera.h:
+
+jni/../../../src/engine/Renderer/Matrix4f.h:
+
+jni/../../../src/engine/Renderer/SceneObject.h:
+
+jni/../../../src/engine/Renderer/Vector2f.h:
 
 jni/../../../src/engine/Renderer/Renderer.h:

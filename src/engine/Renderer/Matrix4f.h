@@ -40,6 +40,11 @@ public:
 		//TODO: add assert index range here!
 		return val[index];
 	}
+	
+	float* get_val()
+	{
+		return &val[0];
+	}
 
 };
 

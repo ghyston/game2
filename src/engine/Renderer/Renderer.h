@@ -5,6 +5,8 @@
 #include <GLES2/gl2ext.h>
 #include <math.h>
 #include "Shader.h"
+#include "Camera.h"
+#include "SceneObject.h"
 
 /**
 * Main call for draw graphix.
@@ -17,6 +19,10 @@ private:
 	
 	void draw_grid();
 	void init_shaders();
+	
+	Camera camera;
+	
+	SceneObject dump_object;
 	
 	void setup_ortho(
 		float left, float right, 
