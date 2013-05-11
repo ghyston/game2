@@ -2,6 +2,7 @@
 #define __GAMEENGINE_H__
 
 #include "Renderer/Renderer.h"
+#include "GlobalData.h"
 
 /**
 * Main game manager. Singletone.
@@ -12,6 +13,9 @@ private:
 
 	//Work with OpenGL
 	Renderer * renderer;
+	
+	//All data
+	static GlobalData* global_data;
 
 	//Instance.
 	static GameEngine* instance;
@@ -40,6 +44,9 @@ public:
 	* Note: Call CreateInstance at first!!
 	*/
 	static GameEngine* get_instance();
+	
+	//TODO: make it singletone and remove from this!!
+	static GlobalData* get_data();
 
 	/**
 	* Create game engine instance.

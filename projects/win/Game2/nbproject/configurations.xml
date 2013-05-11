@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="88">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="src" displayName="src" projectFiles="true">
+      <logicalFolder name="engine" displayName="engine" projectFiles="true">
+        <logicalFolder name="Renderer" displayName="Renderer" projectFiles="true">
+          <itemPath>../../../src/engine/Renderer/BaseRenderable.cpp</itemPath>
+          <itemPath>../../../src/engine/Renderer/BaseRenderable.h</itemPath>
+          <itemPath>../../../src/engine/Renderer/Camera.cpp</itemPath>
+          <itemPath>../../../src/engine/Renderer/Camera.h</itemPath>
+          <itemPath>../../../src/engine/Renderer/Grid.cpp</itemPath>
+          <itemPath>../../../src/engine/Renderer/Grid.h</itemPath>
+          <itemPath>../../../src/engine/Renderer/Matrix4f.cpp</itemPath>
+          <itemPath>../../../src/engine/Renderer/Matrix4f.h</itemPath>
+          <itemPath>../../../src/engine/Renderer/Renderer.cpp</itemPath>
+          <itemPath>../../../src/engine/Renderer/Renderer.h</itemPath>
+          <itemPath>../../../src/engine/Renderer/SceneObject.h</itemPath>
+          <itemPath>../../../src/engine/Renderer/Shader.cpp</itemPath>
+          <itemPath>../../../src/engine/Renderer/Shader.h</itemPath>
+          <itemPath>../../../src/engine/Renderer/Vector2f.h</itemPath>
+          <itemPath>../../../src/engine/Renderer/shaders.h</itemPath>
+        </logicalFolder>
+        <itemPath>../../../src/engine/GameEngine.cpp</itemPath>
+        <itemPath>../../../src/engine/GameEngine.h</itemPath>
+        <itemPath>../../../src/engine/GlobalData.cpp</itemPath>
+        <itemPath>../../../src/engine/GlobalData.h</itemPath>
+        <itemPath>../../../src/engine/Player.cpp</itemPath>
+        <itemPath>../../../src/engine/Player.h</itemPath>
+      </logicalFolder>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Файлы тестов"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Важные файлы"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+    </logicalFolder>
+  </logicalFolder>
+  <sourceRootList>
+    <Elem>../../../src</Elem>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+      </compileType>
+      <item path="../../../src/engine/GameEngine.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/engine/GameEngine.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../../src/engine/GlobalData.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/engine/GlobalData.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../../src/engine/Player.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/engine/Player.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../../src/engine/Renderer/BaseRenderable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Renderer/BaseRenderable.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Renderer/Camera.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Renderer/Camera.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Renderer/Grid.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Renderer/Grid.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Renderer/Matrix4f.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Renderer/Matrix4f.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Renderer/Renderer.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Renderer/Renderer.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Renderer/SceneObject.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Renderer/Shader.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Renderer/Shader.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Renderer/Vector2f.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Renderer/shaders.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+      </compileType>
+      <item path="../../../src/engine/GameEngine.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/engine/GameEngine.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../../src/engine/GlobalData.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/engine/GlobalData.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../../src/engine/Player.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/engine/Player.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../../src/engine/Renderer/BaseRenderable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Renderer/BaseRenderable.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Renderer/Camera.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Renderer/Camera.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Renderer/Grid.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Renderer/Grid.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Renderer/Matrix4f.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Renderer/Matrix4f.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Renderer/Renderer.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Renderer/Renderer.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Renderer/SceneObject.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Renderer/Shader.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Renderer/Shader.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Renderer/Vector2f.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Renderer/shaders.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
