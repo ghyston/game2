@@ -5,6 +5,7 @@ import android.graphics.PixelFormat;
 import android.opengl.GLSurfaceView;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.MotionEvent;
 
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
@@ -35,6 +36,38 @@ public class Game2GLView extends GLSurfaceView
 		
 		setRenderer(new Renderer());
 		
+	}
+	
+	public boolean onTouchEvent(final MotionEvent event)
+	{		
+		int Action = event.getAction();
+		float x = event.getX();
+		float y = event.getY();
+        switch(Action & MotionEvent.ACTION_MASK)
+        {
+            case MotionEvent.ACTION_DOWN:
+            	Game2JNI.ontouch(0, event.getX(), event.getY());
+            break;
+            
+            case MotionEvent.ACTION_MOVE:
+            	Game2JNI.ontouch(1, event.getX(), event.getY());
+            break;
+            
+            case MotionEvent.ACTION_UP:
+            	Game2JNI.ontouch(2, event.getX(), event.getY());
+            break;
+            
+            case MotionEvent.ACTION_POINTER_DOWN:
+            	Game2JNI.ontouch(0, event.getX(), event.getY());
+            break;
+            	
+            case MotionEvent.ACTION_POINTER_UP:
+            	Game2JNI.ontouch(2, event.getX(), event.getY());
+            break;
+            	
+        }
+        
+		return true;		
 	}
 
 	

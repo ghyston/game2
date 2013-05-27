@@ -1,22 +1,24 @@
 #ifndef __CAMERA_H__
 #define __CAMERA_H__
 
-#include "Matrix4f.h"
+#include "../Common/Vector2f.h"
 
 class Camera
 {
 public:
 
-	Camera();
-	
-	~Camera();
-	
-	Matrix4f* ortho;
-	
-	void setup_ortho(
-		float left, float right, 
-		float bottom, float top, 
-		float near, float far);
+	Vec2f coords;
+	float zoom_koeff;
+
+	Camera(float x = 0.0f, float y = 0.0f, float zoom = 1.0f) :
+	coords(x, y), zoom_koeff(zoom)
+	{
+		;
+	}
+
+	void move(Vec2f diff);
+
+	void zoom(float new_val);
 
 };
 

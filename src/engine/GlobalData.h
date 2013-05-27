@@ -8,19 +8,32 @@
 #ifndef GLOBALDATA_H
 #define	GLOBALDATA_H
 
-#include "Player.h"
+#include "Renderer/Camera.h"
 
 class GlobalData
 {
 private:
-//    Scene * scene;
-    Player * player;
     
 public:
-    
-    bool init_scene(/*const char * data*/);
 	
-	Player* get_player();
+	Camera* camera;
+	
+	struct DeviceScreen
+	{		
+		void setup(int screen_h, int screen_w)
+		{
+			width = screen_w;
+			height = screen_h;
+			ratio = (float)height / (float) width;
+		}
+		
+		int width;
+		int height;
+		float ratio;
+	} screen;	
+    
+    bool init_scene();
+	
 };
 
 

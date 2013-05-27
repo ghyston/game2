@@ -4,8 +4,8 @@
 #include <GLES2/gl2.h>
 #include <GLES2/gl2ext.h>
 
-#include "Matrix4f.h"
-#include "Vector2f.h"
+#include "../Common/Matrix4f.h"
+#include "../Common/Vector2f.h"
 
 class BaseRenderable
 {
@@ -22,13 +22,14 @@ protected:
 	static Matrix4f* model_matrix_rotate;
 	static Matrix4f* model_matrix_scale;
 	static Matrix4f* model_matrix_translate;
-	static Matrix4f* temp_matrix;
-	Vec2f coords;	
+	static Matrix4f* temp_matrix;		
 	float angle;
 	float scale;
 	GLenum draw_type;
 
 public:
+	
+	Vec2f coords;
 
 	BaseRenderable();
 	

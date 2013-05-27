@@ -14,14 +14,19 @@
  */
 class Renderer {
 private:
-    int screen_width;
-    int screen_height;
+    //int screen_width;
+    //int screen_height;
 
     //void draw_grid();
     void init_shaders();
 
     Grid grid;
-    Camera camera;
+    
+	Matrix4f* ortho;
+	Matrix4f* mx_translate;
+	Matrix4f* mx_scale;
+	Matrix4f* mx_rotate;
+	
 
     void setup_ortho(
             float left, float right,
@@ -35,6 +40,10 @@ public:
     void init(int width, int height);
 
     void render_frame();
+	
+	void move_camera(Vec2f diff);
+	
+	~Renderer();
 
 };
 

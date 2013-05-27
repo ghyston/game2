@@ -35,9 +35,13 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/_ext/514568350/Matrix4f.o \
 	${OBJECTDIR}/_ext/658183900/GameEngine.o \
 	${OBJECTDIR}/_ext/658183900/GlobalData.o \
-	${OBJECTDIR}/_ext/658183900/Player.o \
+	${OBJECTDIR}/_ext/1408417640/Button.o \
+	${OBJECTDIR}/_ext/1408417640/GameGui.o \
+	${OBJECTDIR}/_ext/1408417640/TouchController.o \
+	${OBJECTDIR}/_ext/1408417640/Widget.o \
 	${OBJECTDIR}/_ext/686220982/BaseRenderable.o \
 	${OBJECTDIR}/_ext/686220982/Camera.o \
 	${OBJECTDIR}/_ext/686220982/Grid.o \
@@ -70,6 +74,11 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/game2.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/game2 ${OBJECTFILES} ${LDLIBSOPTIONS}
 
+${OBJECTDIR}/_ext/514568350/Matrix4f.o: ../../../src/engine/Common/Matrix4f.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/514568350
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/514568350/Matrix4f.o ../../../src/engine/Common/Matrix4f.cpp
+
 ${OBJECTDIR}/_ext/658183900/GameEngine.o: ../../../src/engine/GameEngine.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/658183900
 	${RM} $@.d
@@ -80,10 +89,25 @@ ${OBJECTDIR}/_ext/658183900/GlobalData.o: ../../../src/engine/GlobalData.cpp
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/658183900/GlobalData.o ../../../src/engine/GlobalData.cpp
 
-${OBJECTDIR}/_ext/658183900/Player.o: ../../../src/engine/Player.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/658183900
+${OBJECTDIR}/_ext/1408417640/Button.o: ../../../src/engine/Gui/Button.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1408417640
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/658183900/Player.o ../../../src/engine/Player.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1408417640/Button.o ../../../src/engine/Gui/Button.cpp
+
+${OBJECTDIR}/_ext/1408417640/GameGui.o: ../../../src/engine/Gui/GameGui.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1408417640
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1408417640/GameGui.o ../../../src/engine/Gui/GameGui.cpp
+
+${OBJECTDIR}/_ext/1408417640/TouchController.o: ../../../src/engine/Gui/TouchController.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1408417640
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1408417640/TouchController.o ../../../src/engine/Gui/TouchController.cpp
+
+${OBJECTDIR}/_ext/1408417640/Widget.o: ../../../src/engine/Gui/Widget.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1408417640
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1408417640/Widget.o ../../../src/engine/Gui/Widget.cpp
 
 ${OBJECTDIR}/_ext/686220982/BaseRenderable.o: ../../../src/engine/Renderer/BaseRenderable.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/686220982

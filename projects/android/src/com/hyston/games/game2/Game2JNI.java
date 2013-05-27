@@ -16,5 +16,7 @@ public class Game2JNI
      public static native void draw();
      
      public static native void step();
+     
+     public static native void ontouch(int type, float x, float y);
 
 }

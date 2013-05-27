@@ -9,12 +9,13 @@ Matrix4f* BaseRenderable::temp_matrix = new Matrix4f();
 BaseRenderable::BaseRenderable()
 {
     coords = Vec2f(0.0f, 0.0f);
+    angle = 0.0f;
     scale = 1.0f;
     draw_type = GL_TRIANGLE_STRIP;
     
-    color[0] = 1.0f;
+    /*color[0] = 1.0f;
     color[1] = 1.0f;
-    color[2] = 1.0f;
+    color[2] = 1.0f;*/
 }
 
 void BaseRenderable::set_vertexes(float * vertexes)
@@ -56,5 +57,6 @@ void BaseRenderable::Draw()
 
 BaseRenderable::~BaseRenderable()
 {
+    //TODO: delete verticles!
     delete model_matrix;
 }

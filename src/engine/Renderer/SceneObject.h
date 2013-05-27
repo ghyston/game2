@@ -1,7 +1,7 @@
 #ifndef __SCENE_OBJECT_H__
 #define __SCENE_OBJECT_H__
 
-#include "Vector2f.h"
+#include "../Common/Vector2f.h"
 #include "BaseRenderable.h"
 
 class SceneObject : public BaseRenderable

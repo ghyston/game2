@@ -3,11 +3,28 @@
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <logicalFolder name="src" displayName="src" projectFiles="true">
       <logicalFolder name="engine" displayName="engine" projectFiles="true">
+        <logicalFolder name="f1" displayName="Common" projectFiles="true">
+          <itemPath>../../../src/engine/Common/Color3f.h</itemPath>
+          <itemPath>../../../src/engine/Common/Matrix4f.cpp</itemPath>
+          <itemPath>../../../src/engine/Common/Matrix4f.h</itemPath>
+          <itemPath>../../../src/engine/Common/Vector2f.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="Gui" displayName="Gui" projectFiles="true">
+          <itemPath>../../../src/engine/Gui/Button.cpp</itemPath>
+          <itemPath>../../../src/engine/Gui/Button.h</itemPath>
+          <itemPath>../../../src/engine/Gui/GameGui.cpp</itemPath>
+          <itemPath>../../../src/engine/Gui/GameGui.h</itemPath>
+          <itemPath>../../../src/engine/Gui/TouchController.cpp</itemPath>
+          <itemPath>../../../src/engine/Gui/TouchController.h</itemPath>
+          <itemPath>../../../src/engine/Gui/Widget.cpp</itemPath>
+          <itemPath>../../../src/engine/Gui/Widget.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="Renderer" displayName="Renderer" projectFiles="true">
           <itemPath>../../../src/engine/Renderer/BaseRenderable.cpp</itemPath>
           <itemPath>../../../src/engine/Renderer/BaseRenderable.h</itemPath>
           <itemPath>../../../src/engine/Renderer/Camera.cpp</itemPath>
           <itemPath>../../../src/engine/Renderer/Camera.h</itemPath>
+          <itemPath>../../../src/engine/Renderer/Color3f.h</itemPath>
           <itemPath>../../../src/engine/Renderer/Grid.cpp</itemPath>
           <itemPath>../../../src/engine/Renderer/Grid.h</itemPath>
           <itemPath>../../../src/engine/Renderer/Matrix4f.cpp</itemPath>
@@ -24,8 +41,6 @@
         <itemPath>../../../src/engine/GameEngine.h</itemPath>
         <itemPath>../../../src/engine/GlobalData.cpp</itemPath>
         <itemPath>../../../src/engine/GlobalData.h</itemPath>
-        <itemPath>../../../src/engine/Player.cpp</itemPath>
-        <itemPath>../../../src/engine/Player.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -54,6 +69,26 @@
       </toolsSet>
       <compileType>
       </compileType>
+      <item path="../../../src/engine/Common/Color3f.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Common/Matrix4f.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Common/Matrix4f.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Common/Vector2f.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="../../../src/engine/GameEngine.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../../src/engine/GameEngine.h" ex="false" tool="3" flavor2="0">
@@ -62,9 +97,30 @@
       </item>
       <item path="../../../src/engine/GlobalData.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="../../../src/engine/Player.cpp" ex="false" tool="1" flavor2="0">
+      <item path="../../../src/engine/Gui/Button.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="../../../src/engine/Player.h" ex="false" tool="3" flavor2="0">
+      <item path="../../../src/engine/Gui/Button.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../../src/engine/Gui/GameGui.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Gui/GameGui.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../../src/engine/Gui/TouchController.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Gui/TouchController.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Gui/Widget.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/engine/Gui/Widget.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../../../src/engine/Renderer/BaseRenderable.cpp"
             ex="false"
@@ -82,6 +138,11 @@
             flavor2="0">
       </item>
       <item path="../../../src/engine/Renderer/Camera.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Renderer/Color3f.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -163,6 +224,26 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="../../../src/engine/Common/Color3f.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Common/Matrix4f.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Common/Matrix4f.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Common/Vector2f.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="../../../src/engine/GameEngine.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../../src/engine/GameEngine.h" ex="false" tool="3" flavor2="0">
@@ -171,9 +252,30 @@
       </item>
       <item path="../../../src/engine/GlobalData.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="../../../src/engine/Player.cpp" ex="false" tool="1" flavor2="0">
+      <item path="../../../src/engine/Gui/Button.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="../../../src/engine/Player.h" ex="false" tool="3" flavor2="0">
+      <item path="../../../src/engine/Gui/Button.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../../src/engine/Gui/GameGui.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Gui/GameGui.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../../src/engine/Gui/TouchController.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Gui/TouchController.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Gui/Widget.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/engine/Gui/Widget.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../../../src/engine/Renderer/BaseRenderable.cpp"
             ex="false"
@@ -191,6 +293,11 @@
             flavor2="0">
       </item>
       <item path="../../../src/engine/Renderer/Camera.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../../src/engine/Renderer/Color3f.h"
             ex="false"
             tool="3"
             flavor2="0">
