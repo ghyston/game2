@@ -12,15 +12,6 @@ BaseRenderable::BaseRenderable()
     angle = 0.0f;
     scale = 1.0f;
     draw_type = GL_TRIANGLE_STRIP;
-    
-    /*color[0] = 1.0f;
-    color[1] = 1.0f;
-    color[2] = 1.0f;*/
-}
-
-void BaseRenderable::set_vertexes(float * vertexes)
-{
-    this->vertexes = vertexes;
 }
 
 void BaseRenderable::set_shader(GLuint program)
@@ -48,15 +39,11 @@ void BaseRenderable::Draw()
     glEnableVertexAttribArray(gvPositionHandle);
 
     glUniformMatrix4fv(gModelHandle, 1, GL_FALSE, model_matrix->get_val());
-
-    //glVertexAttribPointer(gFragColorHandle, 2, GL_FLOAT, GL_FALSE, 0, color); 
-    //glEnableVertexAttribArray(gFragColorHandle);
     glDrawArrays(draw_type, 0, vertexes_count);
-
 }
 
 BaseRenderable::~BaseRenderable()
 {
-    //TODO: delete verticles!
-    delete model_matrix;
+	//TODO: delete matrixes!
+	//delete [] vertexes;
 }

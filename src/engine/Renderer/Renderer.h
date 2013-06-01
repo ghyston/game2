@@ -35,6 +35,8 @@ private:
 
     GLuint simple_shader;
     GLuint gvPositionHandle;
+	
+	void draw_game_play();
 
 public:
     void init(int width, int height);

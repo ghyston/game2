@@ -1,11 +1,11 @@
 #include "Button.h"
 
-bool Button::is_touched(float x, float y)
+bool Button::is_touched(Vec2f touch_coords)
 {
-    if((x > (coords.x - width / 2)) && 
-       (x < (coords.x + width / 2)) &&
-       (y > (coords.y - height / 2)) &&
-       (y < (coords.y + height / 2)))
+    if((touch_coords.x > (coords.x - width / 2)) && 
+       (touch_coords.x < (coords.x + width / 2)) &&
+       (touch_coords.y > (coords.y - height / 2)) &&
+       (touch_coords.y < (coords.y + height / 2)))
     {
         on_touch();
         //is touched!
@@ -34,7 +34,7 @@ void Button::on_release()
 void Button::setup_vertexes()
 {
 	float h2 = height / 2;
-		float w2 = width / 2;
+	float w2 = width / 2;
 		
 	vertexes = new float[8];
 	vertexes[0] = -w2;

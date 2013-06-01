@@ -12,7 +12,7 @@ void Renderer::init(int width, int height)
 	init_shaders();
 
 	grid.set_shader(simple_shader);
-	grid.generate_grid();
+	grid.setup_vertexes();
 
 	ortho = new Matrix4f();
 	mx_translate = new Matrix4f();
@@ -25,10 +25,14 @@ void Renderer::init(int width, int height)
 	//while(widget != NULL)
 	//{
 	widget->set_shader(simple_shader);
-	//widget = GameEngine::get_gui()->get_next_widget();        
-	//}
-	//GameEngine::get_gui()->get_test_button()->set_shader(simple_shader);
-
+	
+	//TODO: remove it!
+	for(size_t i = 0; i < GameEngine::get_instance()->get_data()->towers.size(); i++)
+	{
+		BaseTower* tower = GameEngine::get_instance()->get_data()->towers[i];
+		tower->setup_vertexes();
+		tower->set_shader(simple_shader);
+	}	
 }
 
 void Renderer::render_frame()
@@ -45,6 +49,7 @@ void Renderer::render_frame()
 
 
 	GameEngine::get_gui()->draw_gui();
+	draw_game_play();
 }
 
 void Renderer::init_shaders()
@@ -78,6 +83,12 @@ void Renderer::setup_ortho(float left, float right, float bottom, float top, flo
 void Renderer::move_camera(Vec2f diff)
 {
 
+}
+
+void Renderer::draw_game_play()
+{
+	for(size_t i = 0; i < GameEngine::get_instance()->get_data()->towers.size(); i++)	
+		GameEngine::get_instance()->get_data()->towers[i]->Draw();			
 }
 
 Renderer::~Renderer()

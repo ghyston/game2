@@ -39,11 +39,11 @@ void GameGui::reset_widget_iterator()
     widget_iter = widgets.begin();
 }*/
 
-Widget* GameGui::on_touch(float x, float y)
+Widget* GameGui::on_touch(Vec2f coords)
 {    
     for(size_t i = 0; i < widgets.size(); i++)
     {
-        if(widgets[i]->is_touched(x, y))
+        if(widgets[i]->is_touched(coords))
             return widgets[i];        
     }
 }

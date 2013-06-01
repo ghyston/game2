@@ -1,9 +1,11 @@
 #include "GameEngine.h"
+#include "Gui/TouchManager.h"
 
 GameEngine*     GameEngine::instance    = (GameEngine*) 0;
 GlobalData*     GameEngine::global_data = new GlobalData();
 GameGui*        GameEngine::game_gui    = new GameGui();
-TouchController* GameEngine::controller = new TouchController();
+//TouchController* GameEngine::controller = new TouchController();
+TouchManager*	GameEngine::touch_manager = new TouchManager();
 
 GameEngine::GameEngine()
 {
@@ -41,9 +43,16 @@ GameGui* GameEngine::get_gui()
     return game_gui;
 }
 
-void GameEngine::process_touch(float x, float y, short touch_type)
+void GameEngine::process_touch(int id, int touch_type, float x, float y)
 {
-    switch(touch_type)
+	TouchEvent event;
+	event.id = id;
+	event.type = (TouchEvent::Enum)touch_type;
+	event.coords = Vec2f(x, y);
+	
+	touch_manager->process(event);
+	
+    /*switch(touch_type)
     {
     case 0:
         controller->process_down(x, y);
@@ -56,8 +65,7 @@ void GameEngine::process_touch(float x, float y, short touch_type)
     case 2:
         controller->process_up(x, y);
         break;
-    }
-    
+    }*/    
 }
 
 void GameEngine::init(int width, int height)

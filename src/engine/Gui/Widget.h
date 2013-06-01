@@ -2,15 +2,16 @@
 #define __WIDGET_H__
 
 #include "../Renderer/BaseRenderable.h"
+#include "ITouchable.h"
 #include <vector>
 
-class Widget : public BaseRenderable
+class Widget : public BaseRenderable, public ITouchable
 {
 public:
 	
 	Widget() : BaseRenderable() {}
 	
-	virtual bool is_touched(float x, float y) = 0;
+	//virtual bool is_touched(Vec2f touch_coords) = 0;
 	
 	virtual void on_touch() = 0;
 	

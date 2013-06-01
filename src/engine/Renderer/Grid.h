@@ -20,7 +20,7 @@ public:
     int count_y;
     float step;
 	
-    void generate_grid();	
+    virtual void setup_vertexes();	
     
 };
 

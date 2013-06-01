@@ -43,26 +43,27 @@ public class Game2GLView extends GLSurfaceView
 		int Action = event.getAction();
 		float x = event.getX();
 		float y = event.getY();
+		
         switch(Action & MotionEvent.ACTION_MASK)
         {
             case MotionEvent.ACTION_DOWN:
-            	Game2JNI.ontouch(0, event.getX(), event.getY());
+            	Game2JNI.ontouch(0, 0, event.getX(), event.getY());
             break;
             
             case MotionEvent.ACTION_MOVE:
-            	Game2JNI.ontouch(1, event.getX(), event.getY());
+            	Game2JNI.ontouch(0, 1, event.getX(), event.getY());
             break;
             
             case MotionEvent.ACTION_UP:
-            	Game2JNI.ontouch(2, event.getX(), event.getY());
+            	Game2JNI.ontouch(0, 2, event.getX(), event.getY());
             break;
             
             case MotionEvent.ACTION_POINTER_DOWN:
-            	Game2JNI.ontouch(0, event.getX(), event.getY());
+            	Game2JNI.ontouch(0, 0, event.getX(), event.getY());
             break;
             	
             case MotionEvent.ACTION_POINTER_UP:
-            	Game2JNI.ontouch(2, event.getX(), event.getY());
+            	Game2JNI.ontouch(0, 2, event.getX(), event.getY());
             break;
             	
         }

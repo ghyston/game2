@@ -13,7 +13,12 @@ protected:
 
 	float * vertexes;
 	int vertexes_count;
+	
 	float color [4];
+	float angle;
+	float scale;
+	GLenum draw_type;
+	
 	GLuint shader;
 	GLuint gvPositionHandle;
 	GLuint gModelHandle;
@@ -22,10 +27,8 @@ protected:
 	static Matrix4f* model_matrix_rotate;
 	static Matrix4f* model_matrix_scale;
 	static Matrix4f* model_matrix_translate;
-	static Matrix4f* temp_matrix;		
-	float angle;
-	float scale;
-	GLenum draw_type;
+	static Matrix4f* temp_matrix;	
+	
 
 public:
 	
@@ -33,7 +36,7 @@ public:
 
 	BaseRenderable();
 	
-	virtual void set_vertexes(float * vertexes);
+	virtual void setup_vertexes() = 0;
 
 	virtual void set_shader(GLuint program);
 

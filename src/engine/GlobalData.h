@@ -9,6 +9,8 @@
 #define	GLOBALDATA_H
 
 #include "Renderer/Camera.h"
+#include "GamePlay/BaseTower.h"
+#include <vector>
 
 class GlobalData
 {
@@ -17,6 +19,8 @@ private:
 public:
 	
 	Camera* camera;
+	
+	std::vector<BaseTower*> towers;
 	
 	struct DeviceScreen
 	{		
@@ -33,6 +37,11 @@ public:
 	} screen;	
     
     bool init_scene();
+	
+	//TODO: add to GamePlay!
+	BaseTower* add_tower(Vec2f coords);
+	
+	BaseTower* touch_tower(Vec2f coords);
 	
 };
 

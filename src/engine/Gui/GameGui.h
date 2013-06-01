@@ -33,7 +33,7 @@ public:
 	void reset_widget_iterator();
 	
 	//Find widget at (x,y) and touch them.
-	Widget* on_touch(float x, float y);
+	Widget* on_touch(Vec2f coords);
 	
 };
 

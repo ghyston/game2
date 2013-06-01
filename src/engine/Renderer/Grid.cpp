@@ -1,6 +1,6 @@
 #include "Grid.h"
 
-void Grid::generate_grid()
+void Grid::setup_vertexes()
 {
     //float points[42];
     vertexes = new float [count_x * 4 + count_y * 4];

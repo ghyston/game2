@@ -33,7 +33,7 @@ public:
 		setup_vertexes();		
 	}
 	
-	virtual bool is_touched(float x, float y);
+	virtual bool is_touched(Vec2f touch_coords);
 	
 	virtual void on_touch();
 	

@@ -5,6 +5,8 @@
 #include "GlobalData.h"
 #include "Gui/GameGui.h"
 #include "Gui/TouchController.h"
+#include "Gui/TouchManager.h"
+
 
 /**
 * Main game manager. Singletone.
@@ -25,7 +27,10 @@ private:
 	//Game gui, cap.
 	static GameGui* game_gui;
 	
-	static TouchController* controller;
+	//TODO: would be old, when TouchManager will be finished.
+	//static TouchController* controller;
+	
+	static TouchManager* touch_manager;
 
 	//Private c-tor.
 	GameEngine();
@@ -61,7 +66,7 @@ public:
 	static GameGui* get_gui();
 	
 	//TODO: make it to controller or something..
-	static void process_touch(float x, float y, short touch_type);
+	static void process_touch(int id, int touch_type, float x, float y);
 
 	/**
 	* Create game engine instance.
