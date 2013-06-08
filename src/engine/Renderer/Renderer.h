@@ -45,6 +45,8 @@ public:
 	
 	void move_camera(Vec2f diff);
 	
+	void set_default_shader(BaseRenderable * object);	
+	
 	~Renderer();
 
 };

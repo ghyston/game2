@@ -3,8 +3,9 @@
 
 void TowerTouchProcessor::process_down(Vec2f coords)
 {
-	BaseTower* new_tower = new BaseTower(coords.x, coords.y);
-	GameEngine::get_instance()->get_data()->towers.push_back(new_tower);
+	BaseTower* new_tower = 
+	  GameEngine::get_instance()->get_data()->add_tower(coords);
+	
 	//tower = new_tower;
 	
 	//towers.push_back(new_tower);

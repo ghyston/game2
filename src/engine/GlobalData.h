@@ -8,9 +8,10 @@
 #ifndef GLOBALDATA_H
 #define	GLOBALDATA_H
 
+#include <vector>
+#include "Common/ThreadLock.h"
 #include "Renderer/Camera.h"
 #include "GamePlay/BaseTower.h"
-#include <vector>
 
 class GlobalData
 {
@@ -21,6 +22,8 @@ public:
 	Camera* camera;
 	
 	std::vector<BaseTower*> towers;
+	
+	MyCThreadLock* tower_mutex;
 	
 	struct DeviceScreen
 	{		

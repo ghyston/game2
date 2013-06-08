@@ -3,6 +3,33 @@
 #include "../GameEngine.h"
 #include "TowerTouchProcessor.h"
 
+void TouchManager::process()
+{
+	is_processed = true;
+	//TODO: pop loop
+	for(size_t i = 0; i < touch_events.size(); i++)
+	{
+		process(touch_events[i]);
+	}
+	touch_events.clear();
+	is_processed = false;
+}
+
+void TouchManager::push_event(const TouchEvent& touch_event)
+{
+	//GameEngine::get_instance()->get_data()->tower_mutex.Lock();
+	BaseTower* last_tower = 
+	  GameEngine::get_instance()->get_data()->towers.back();
+	GameEngine::get_instance()->get_data()->add_tower(
+	  Vec2f(last_tower->coords.x + 0.01f, last_tower->coords.x + 0.01f));
+	//GameEngine::get_instance()->get_data()->tower_mutex.Unlock();
+	
+	
+	
+	//if(!is_processed)
+	//	touch_events.push_back(touch_event);	
+}
+
 void TouchManager::process(TouchEvent& touch_event)
 {	
 	//On new finger - create new processor

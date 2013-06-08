@@ -47,7 +47,10 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/686220982/Grid.o \
 	${OBJECTDIR}/_ext/686220982/Matrix4f.o \
 	${OBJECTDIR}/_ext/686220982/Renderer.o \
-	${OBJECTDIR}/_ext/686220982/Shader.o
+	${OBJECTDIR}/_ext/686220982/Shader.o \
+	${OBJECTDIR}/_ext/2139180284/TouchManager.o \
+	${OBJECTDIR}/_ext/2139180284/TowerTouchProcessor.o \
+	${OBJECTDIR}/main.o
 
 
 # C Compiler Flags
@@ -138,6 +141,21 @@ ${OBJECTDIR}/_ext/686220982/Shader.o: ../../../src/engine/Renderer/Shader.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/686220982
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/686220982/Shader.o ../../../src/engine/Renderer/Shader.cpp
+
+${OBJECTDIR}/_ext/2139180284/TouchManager.o: /cygdrive/D/projects/Game2/src/engine/Gui/TouchManager.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/2139180284
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/2139180284/TouchManager.o /cygdrive/D/projects/Game2/src/engine/Gui/TouchManager.cpp
+
+${OBJECTDIR}/_ext/2139180284/TowerTouchProcessor.o: /cygdrive/D/projects/Game2/src/engine/Gui/TowerTouchProcessor.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/2139180284
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/2139180284/TowerTouchProcessor.o /cygdrive/D/projects/Game2/src/engine/Gui/TowerTouchProcessor.cpp
+
+${OBJECTDIR}/main.o: main.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.cpp
 
 # Subprojects
 .build-subprojects:

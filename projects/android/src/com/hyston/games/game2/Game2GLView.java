@@ -40,9 +40,10 @@ public class Game2GLView extends GLSurfaceView
 	
 	public boolean onTouchEvent(final MotionEvent event)
 	{		
+		//int pointers_count = event.getPointerCount();
 		int Action = event.getAction();
-		float x = event.getX();
-		float y = event.getY();
+		//float x = event.getX();
+		//float y = event.getY();
 		
         switch(Action & MotionEvent.ACTION_MASK)
         {

@@ -14,9 +14,9 @@
 class GameEngine
 {
 private:
-
+public:
 	//Work with OpenGL
-	Renderer * renderer;
+	static Renderer * renderer;
 	
 	//All data
 	static GlobalData* global_data;

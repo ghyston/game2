@@ -22,7 +22,7 @@
 					<folderInfo id="com.android.toolchain.gcc.1788406529.1950734623" name="/" resourcePath="">
 						<toolChain id="com.android.toolchain.gcc.973935124" name="com.android.toolchain.gcc" superClass="com.android.toolchain.gcc">
 							<targetPlatform binaryParser="org.eclipse.cdt.core.ELF" id="com.android.targetPlatform.965344520" isAbstract="false" superClass="com.android.targetPlatform"/>
-							<builder id="com.android.builder.938961593" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Android Builder" superClass="com.android.builder">
+							<builder arguments="NDK_DEBUG=1" command="ndk-build" id="com.android.builder.938961593" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Android Builder" superClass="com.android.builder">
 								<outputEntries>
 									<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="outputPath" name="obj"/>
 									<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="outputPath" name="libs"/>
@@ -49,5 +49,8 @@
 		<scannerConfigBuildInfo instanceId="com.android.toolchain.gcc.1788406529;com.android.toolchain.gcc.1788406529.1950734623;com.android.gcc.compiler.1405708040;com.android.gcc.inputType.935361230">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.android.AndroidPerProjectProfile"/>
 		</scannerConfigBuildInfo>
+	</storageModule>
+	<storageModule moduleId="refreshScope" versionNumber="1">
+		<resource resourceType="PROJECT" workspacePath="/Game2"/>
 	</storageModule>
 </cproject>

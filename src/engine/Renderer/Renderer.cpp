@@ -85,10 +85,22 @@ void Renderer::move_camera(Vec2f diff)
 
 }
 
+void Renderer::set_default_shader(BaseRenderable * object)
+{
+	object->set_shader(simple_shader);
+}
+
 void Renderer::draw_game_play()
 {
-	for(size_t i = 0; i < GameEngine::get_instance()->get_data()->towers.size(); i++)	
-		GameEngine::get_instance()->get_data()->towers[i]->Draw();			
+	GameEngine::get_instance()->get_data()->tower_mutex->Lock();
+	for(size_t i = 0; 
+	  i < GameEngine::get_instance()->get_data()->towers.size(); i++)
+	{
+		GameEngine::get_instance()->get_data()->towers[i]->set_shader(simple_shader);
+		GameEngine::get_instance()->get_data()->towers[i]->Draw();
+	}
+	
+	GameEngine::get_instance()->get_data()->tower_mutex->Unlock();
 }
 
 Renderer::~Renderer()

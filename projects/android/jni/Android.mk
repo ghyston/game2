@@ -6,6 +6,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE    := Game2jni
 LOCAL_SRC_FILES := Game2.cpp
 LOCAL_SRC_FILES += $(ENGINE_PATH)Common/Matrix4f.cpp
+LOCAL_SRC_FILES += $(ENGINE_PATH)Common/ThreadLock.cpp
 LOCAL_SRC_FILES += $(ENGINE_PATH)Renderer/Renderer.cpp
 LOCAL_SRC_FILES += $(ENGINE_PATH)Renderer/Shader.cpp
 LOCAL_SRC_FILES += $(ENGINE_PATH)Renderer/Camera.cpp
