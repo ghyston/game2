@@ -5,22 +5,39 @@
 #include <GLES2/gl2ext.h>
 #include <math.h>
 #include "Shader.h"
-#include "Grid.h"
+//#include "Grid.h"
 #include "Camera.h"
 #include "SceneObject.h"
 
 /**
  * Main call for draw graphix.
  */
-class Renderer {
-private:
-    //int screen_width;
-    //int screen_height;
+class Renderer 
+{
+public:
+	
+	Renderer() {;}
+	
+	~Renderer();
+	
+    void init(int width, int height);
 
-    //void draw_grid();
+    //void render_frame();
+	
+	void clear_frame();
+	
+	//void move_camera(Vec2f diff);
+	
+	//void set_default_shader(BaseRenderable * object);	
+	
+	GLuint get_simple_shader()	{ return simple_shader; }
+	
+	
+private:
+    
     void init_shaders();
 
-    Grid grid;
+  //  Grid grid;
     
 	Matrix4f* ortho;
 	Matrix4f* mx_translate;
@@ -36,18 +53,7 @@ private:
     GLuint simple_shader;
     GLuint gvPositionHandle;
 	
-	void draw_game_play();
-
-public:
-    void init(int width, int height);
-
-    void render_frame();
-	
-	void move_camera(Vec2f diff);
-	
-	void set_default_shader(BaseRenderable * object);	
-	
-	~Renderer();
+//	void draw_game_play();
 
 };
 

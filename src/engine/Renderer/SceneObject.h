@@ -4,7 +4,7 @@
 #include "../Common/Vector2f.h"
 #include "BaseRenderable.h"
 
-class SceneObject : public BaseRenderable
+/*class SceneObject : public BaseRenderable
 {
 public:
 
@@ -15,10 +15,10 @@ public:
 	
 	//float angle;
 	
-	/*const float* get_vertex() const
+	const float* get_vertex() const
 	{
 		return &vertex[0];
-	}*/
-};
+	}
+};*/
 
 #endif //__SCENE_OBJECT_H__

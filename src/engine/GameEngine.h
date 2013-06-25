@@ -3,10 +3,6 @@
 
 #include "Renderer/Renderer.h"
 #include "GlobalData.h"
-#include "Gui/GameGui.h"
-#include "Gui/TouchController.h"
-#include "Gui/TouchManager.h"
-
 
 /**
 * Main game manager. Singletone.
@@ -24,14 +20,6 @@ public:
 	//Instance.
 	static GameEngine* instance;
 	
-	//Game gui, cap.
-	static GameGui* game_gui;
-	
-	//TODO: would be old, when TouchManager will be finished.
-	//static TouchController* controller;
-	
-	static TouchManager* touch_manager;
-
 	//Private c-tor.
 	GameEngine();
 
@@ -42,16 +30,9 @@ public:
 	void init(int width, int height);
 
 	/**
-	* Draw all objects.
+	* One game loop step.
 	*/
-	void draw_all();
-
-
-	/**
-	* Move all objects.
-	*/
-	void move_all();
-	
+	void step();
 
 	/**
 	* Get game engine instance.
@@ -62,8 +43,8 @@ public:
 	//TODO: make it singletone and remove from this!!
 	static GlobalData* get_data();
 	
-	//Return pointer to game gui main class;
-	static GameGui* get_gui();
+	// @todo: renderer should be private, but shaders should be on g_data.
+	static Renderer* get_renderer();
 	
 	//TODO: make it to controller or something..
 	static void process_touch(int id, int touch_type, float x, float y);

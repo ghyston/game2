@@ -34,17 +34,17 @@ JNIEXPORT void Java_com_hyston_games_game2_Game2JNI_init(JNIEnv * env, jobject o
 
 JNIEXPORT void Java_com_hyston_games_game2_Game2JNI_draw(JNIEnv * env, jobject obj)
 {
-	engine->draw_all();
+	//engine->draw_all();
 }
 
 JNIEXPORT void Java_com_hyston_games_game2_Game2JNI_step(JNIEnv * env, jobject obj)
 {
-	engine->move_all();
+	engine->step();
 }
 
 JNIEXPORT void Java_com_hyston_games_game2_Game2JNI_ontouch(JNIEnv * env, jobject obj, int id, int type, float x, float y)
 {
-	engine->process_touch(id, type, x, y);
+	//engine->process_touch(id, type, x, y);
 }
 
 

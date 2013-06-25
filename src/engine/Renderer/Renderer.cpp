@@ -6,13 +6,11 @@
 
 void Renderer::init(int width, int height)
 {
-	//screen_width = width;
-	//screen_height = height;
 	glViewport(0, 0, width, height);
 	init_shaders();
 
-	grid.set_shader(simple_shader);
-	grid.setup_vertexes();
+	//grid.set_shader(simple_shader);
+	//grid.setup_vertexes();
 
 	ortho = new Matrix4f();
 	mx_translate = new Matrix4f();
@@ -21,7 +19,7 @@ void Renderer::init(int width, int height)
 
 	//setup gui. TODO: move it to fabric or somewhat
 	//GameEngine::get_gui()->reset_widget_iterator();
-	Widget* widget = GameEngine::get_gui()->get_first_widget();
+	/*Widget* widget = GameEngine::get_gui()->get_first_widget();
 	//while(widget != NULL)
 	//{
 	widget->set_shader(simple_shader);
@@ -32,10 +30,21 @@ void Renderer::init(int width, int height)
 		BaseTower* tower = GameEngine::get_instance()->get_data()->towers[i];
 		tower->setup_vertexes();
 		tower->set_shader(simple_shader);
-	}	
+	}	*/
 }
 
-void Renderer::render_frame()
+void Renderer::clear_frame()
+{
+	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
+	Vec2f cam_pos = GameEngine::get_data()->camera->coords;
+	float koeff = GameEngine::get_data()->screen.ratio;
+	setup_ortho(
+		cam_pos.x - 1.0f, cam_pos.x + 1.0f,
+		cam_pos.y - koeff, cam_pos.y + koeff);
+}
+
+/*void Renderer::render_frame()
 {
 	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
@@ -50,7 +59,7 @@ void Renderer::render_frame()
 
 	GameEngine::get_gui()->draw_gui();
 	draw_game_play();
-}
+}*/
 
 void Renderer::init_shaders()
 {
@@ -80,17 +89,17 @@ void Renderer::setup_ortho(float left, float right, float bottom, float top, flo
 
 }
 
-void Renderer::move_camera(Vec2f diff)
+/*void Renderer::move_camera(Vec2f diff)
 {
 
-}
+}*/
 
-void Renderer::set_default_shader(BaseRenderable * object)
+/*void Renderer::set_default_shader(BaseRenderable * object)
 {
 	object->set_shader(simple_shader);
-}
+}*/
 
-void Renderer::draw_game_play()
+/*void Renderer::draw_game_play()
 {
 	GameEngine::get_instance()->get_data()->tower_mutex->Lock();
 	for(size_t i = 0; 
@@ -101,7 +110,7 @@ void Renderer::draw_game_play()
 	}
 	
 	GameEngine::get_instance()->get_data()->tower_mutex->Unlock();
-}
+}*/
 
 Renderer::~Renderer()
 {

@@ -11,7 +11,9 @@
 #include <vector>
 #include "Common/ThreadLock.h"
 #include "Renderer/Camera.h"
-#include "GamePlay/BaseTower.h"
+//#include "GamePlay/BaseTower.h"
+
+#include "ECS/GameLogic.h"
 
 class GlobalData
 {
@@ -19,11 +21,9 @@ private:
     
 public:
 	
+	GameLogic logic;
+	
 	Camera* camera;
-	
-	std::vector<BaseTower*> towers;
-	
-	MyCThreadLock* tower_mutex;
 	
 	struct DeviceScreen
 	{		
@@ -40,11 +40,6 @@ public:
 	} screen;	
     
     bool init_scene();
-	
-	//TODO: add to GamePlay!
-	BaseTower* add_tower(Vec2f coords);
-	
-	BaseTower* touch_tower(Vec2f coords);
 	
 };
 

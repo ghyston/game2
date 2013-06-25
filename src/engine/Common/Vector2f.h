@@ -37,6 +37,13 @@ struct Vec2f
 		this->y -= vec.y;
 		return *this;
 	}
+	
+	Vec2f& operator* (float coeff)
+	{
+		this->x *= coeff;
+		this->y *= coeff;
+		return *this;
+	}
 };
 
 #endif //__VECTOR_2F_H__

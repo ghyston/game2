@@ -9,7 +9,8 @@
 
 class BaseRenderable
 {
-protected:
+//protected:
+public:
 
 	float * vertexes;
 	int vertexes_count;
@@ -36,7 +37,7 @@ public:
 
 	BaseRenderable();
 	
-	virtual void setup_vertexes() = 0;
+	//virtual void setup_vertexes() = 0;
 
 	virtual void set_shader(GLuint program);
 
