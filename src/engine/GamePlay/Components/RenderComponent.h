@@ -8,8 +8,9 @@
 #ifndef __RENDERCOMPONENT_H__
 #define	__RENDERCOMPONENT_H__
 
-#include <GLES2/gl2.h>
-#include <GLES2/gl2ext.h>
+//#include <GLES2/gl2.h>
+//#include <GLES2/gl2ext.h>
+#include <OpenGL/gl.h>
 
 class RenderComponent : public IComponent
 {

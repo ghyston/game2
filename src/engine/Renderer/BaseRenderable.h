@@ -1,8 +1,9 @@
 #ifndef __IRENDERABLE_H__
 #define __IRENDERABLE_H__
 
-#include <GLES2/gl2.h>
-#include <GLES2/gl2ext.h>
+//#include <GLES2/gl2.h>
+//#include <GLES2/gl2ext.h>
+#include <OpenGL/gl.h>
 
 #include "../Common/Matrix4f.h"
 #include "../Common/Vector2f.h"
