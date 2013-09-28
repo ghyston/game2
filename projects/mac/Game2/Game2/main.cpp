@@ -7,14 +7,39 @@
 //
 
 #include <iostream>
-#include "../../../../src/engine/Timer.h"
+#include <GLUT/glut.h>
+#include "../../../../src/engine/GameEngine.h"
 
-int main(int argc, const char * argv[])
+GameEngine * instance;
+
+void display();
+void reshape(int width, int height);
+
+int main(int argc, char ** argv)
 {
-    //GameEngine::create_instance();
-    //Timer::tick();
-    //GameEngine* engine;// = GameEngine::get_instance();
-    std::cout << "Game Engine created!\n";
+    GameEngine::create_instance();
+    instance = GameEngine::get_instance();
+    instance->init(512, 512);
+    
+    glutInit(&argc, argv);
+    glutInitWindowSize(512, 512);
+    glutInitDisplayMode(GLUT_RGBA | GLUT_DEPTH | GLUT_DOUBLE);
+    glutCreateWindow("Game 2");
+    glutDisplayFunc(display);
+    glutReshapeFunc(reshape);
+
+    glutMainLoop();
+    
     return 0;
 }
 
+
+void display()
+{
+    instance->step();
+}
+
+void reshape(int width, int height)
+{
+    //@todo: reshape engine renderer!
+}

@@ -3,7 +3,7 @@
 GLuint Shader::loadShader(GLenum shaderType, const char* pSource) 
 {
     GLuint shader = glCreateShader(shaderType);    
-    glShaderSource(shader, 1, &pSource, NULL);
+    glShaderSource(shader, 1, &pSource, 0); //@todo: 0 should be NULL!
     glCompileShader(shader);    
     return shader;
 }

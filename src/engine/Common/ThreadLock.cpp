@@ -3,7 +3,7 @@
 MyCThreadLock::MyCThreadLock()
 {
     // init lock here
-    int test = pthread_mutex_init(&mutexlock, 0);
+    pthread_mutex_init(&mutexlock, 0);
 }
 
 MyCThreadLock::~MyCThreadLock()

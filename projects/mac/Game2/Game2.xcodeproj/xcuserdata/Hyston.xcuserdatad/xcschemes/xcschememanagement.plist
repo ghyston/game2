@@ -9,10 +9,20 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>Game2_engine.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>3FDE0ABA17F61D8D000A7DE1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3FDE0B1717F6FF13000A7DE1</key>
 		<dict>
 			<key>primary</key>
 			<true/>

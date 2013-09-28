@@ -1,7 +1,5 @@
 #include "Timer.h"
 
-BLABLABLA
-
 clock_t Timer::last_tick = clock();
 float Timer::delta_tick = 0.0f;
 

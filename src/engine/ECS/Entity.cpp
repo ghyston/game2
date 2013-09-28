@@ -30,6 +30,6 @@ void Entity::clear()
 		
 		// @todo: может ёбнуть
 		components[i].mark_deleted();*/
-		components[i] == NULL;		
+		components[i] = NULL;		
 	}
 }
