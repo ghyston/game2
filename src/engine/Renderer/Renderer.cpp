@@ -35,7 +35,7 @@ void Renderer::init(int width, int height)
 
 void Renderer::clear_frame()
 {
-	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+	glClearColor(0.9f, 0.9f, 0.9f, 1.0f);
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 	Vec2f cam_pos = GameEngine::get_data()->camera->coords;
 	float koeff = GameEngine::get_data()->screen.ratio;

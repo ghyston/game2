@@ -62,7 +62,7 @@ void GameEngine::init(int width, int height)
 	global_data->logic.add_system(new CollisionSystem());
 	
 	///--------TEST_TOWER----------	
-	global_data->logic.add_entity(EntityFabric::get_tower(Vec2f(0.0f, 0.1f)));	  
+	global_data->logic.add_entity(EntityFabric::get_tower(Vec2f(0.0f, 0.0f)));
 	  ///--------TEST_TOWER----------
 	
     

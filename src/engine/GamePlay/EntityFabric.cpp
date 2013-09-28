@@ -45,8 +45,8 @@ Entity * EntityFabric::get_tower(Vec2f coords)
 	
 	//setup move component
 	MovementComponent * move_com = new MovementComponent();
-	move_com->speed = Vec2f(-0.4f, 0.1f);
-	move_com->velocity = Vec2f(0.1f, -0.23f);
+	move_com->speed = Vec2f(0.0f, 0.0f);
+	move_com->velocity = Vec2f(0.0f, 0.0f);
 	tower->add_component(ComponentsType::MOVEMENT_COMPONENT, move_com);
 	return tower;
 }

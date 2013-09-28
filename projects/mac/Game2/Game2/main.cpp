@@ -12,22 +12,24 @@
 
 GameEngine * instance;
 
+void idle();
 void display();
 void reshape(int width, int height);
 
 int main(int argc, char ** argv)
 {
+    glutInit(&argc, argv);
+    glutInitWindowSize(512, 512);
+    glutInitDisplayMode(GLUT_3_2_CORE_PROFILE | GLUT_RGBA | GLUT_DEPTH | GLUT_DOUBLE);
+    glutCreateWindow("Game 2");
+    glutDisplayFunc(display);
+    glutReshapeFunc(reshape);
+    glutIdleFunc(idle);
+    
     GameEngine::create_instance();
     instance = GameEngine::get_instance();
     instance->init(512, 512);
     
-    glutInit(&argc, argv);
-    glutInitWindowSize(512, 512);
-    glutInitDisplayMode(GLUT_RGBA | GLUT_DEPTH | GLUT_DOUBLE);
-    glutCreateWindow("Game 2");
-    glutDisplayFunc(display);
-    glutReshapeFunc(reshape);
-
     glutMainLoop();
     
     return 0;
@@ -37,6 +39,14 @@ int main(int argc, char ** argv)
 void display()
 {
     instance->step();
+    //glutSwapBuffers();
+}
+
+void idle()
+{
+    instance->step();
+    glutSwapBuffers();
+
 }
 
 void reshape(int width, int height)

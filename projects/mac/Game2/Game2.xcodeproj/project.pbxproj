@@ -29,7 +29,6 @@
 		3FDE0B7017F7029A000A7DE1 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FDE0B5B17F70217000A7DE1 /* Shader.cpp */; };
 		3FDE0B7117F7029A000A7DE1 /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FDE0B5E17F70217000A7DE1 /* Timer.cpp */; };
 		3FDE0B7417F703DC000A7DE1 /* Game2_engine.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FDE0B1817F6FF13000A7DE1 /* Game2_engine.dylib */; };
-		3FDE0B7517F70E7C000A7DE1 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FDE0AFB17F61FB8000A7DE1 /* OpenGL.framework */; };
 		3FDE0B7617F70F54000A7DE1 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FDE0AFB17F61FB8000A7DE1 /* OpenGL.framework */; };
 /* End PBXBuildFile section */
 
@@ -118,7 +117,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FDE0B7517F70E7C000A7DE1 /* OpenGL.framework in Frameworks */,
 				3FDE0AFE17F62E69000A7DE1 /* GLUT.framework in Frameworks */,
 				3FDE0B7417F703DC000A7DE1 /* Game2_engine.dylib in Frameworks */,
 			);
@@ -188,9 +186,9 @@
 			children = (
 				3FDE0B2D17F70217000A7DE1 /* Common */,
 				3FDE0B3417F70217000A7DE1 /* ECS */,
-				3FDE0B3C17F70217000A7DE1 /* GameEngine.cpp */,
-				3FDE0B3D17F70217000A7DE1 /* GameEngine.h */,
 				3FDE0B3E17F70217000A7DE1 /* GamePlay */,
+				3FDE0B3D17F70217000A7DE1 /* GameEngine.h */,
+				3FDE0B3C17F70217000A7DE1 /* GameEngine.cpp */,
 				3FDE0B4D17F70217000A7DE1 /* GlobalData.cpp */,
 				3FDE0B4E17F70217000A7DE1 /* GlobalData.h */,
 				3FDE0B4F17F70217000A7DE1 /* Renderer */,
@@ -232,10 +230,10 @@
 			isa = PBXGroup;
 			children = (
 				3FDE0B3F17F70217000A7DE1 /* Components */,
-				3FDE0B4317F70217000A7DE1 /* Components.h */,
+				3FDE0B4617F70217000A7DE1 /* Systems */,
 				3FDE0B4417F70217000A7DE1 /* EntityFabric.cpp */,
 				3FDE0B4517F70217000A7DE1 /* EntityFabric.h */,
-				3FDE0B4617F70217000A7DE1 /* Systems */,
+				3FDE0B4317F70217000A7DE1 /* Components.h */,
 			);
 			path = GamePlay;
 			sourceTree = "<group>";
