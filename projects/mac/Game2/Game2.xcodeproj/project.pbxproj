@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F5262CD17FA291C006E4A3C /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5262CC17FA291C006E4A3C /* libglfw3.a */; };
+		3F5262CF17FA2D64006E4A3C /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5262CE17FA2D64006E4A3C /* IOKit.framework */; };
+		3F5262D117FA2D6F006E4A3C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5262D017FA2D6F006E4A3C /* Cocoa.framework */; };
+		3F5262D217FA2D98006E4A3C /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FDE0AFB17F61FB8000A7DE1 /* OpenGL.framework */; };
 		3FDE0ABF17F61D8D000A7DE1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FDE0ABE17F61D8D000A7DE1 /* main.cpp */; };
 		3FDE0AC117F61D8D000A7DE1 /* Game2.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3FDE0AC017F61D8D000A7DE1 /* Game2.1 */; };
-		3FDE0AFE17F62E69000A7DE1 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FDE0AFD17F62E69000A7DE1 /* GLUT.framework */; };
 		3FDE0B6017F7022F000A7DE1 /* GameEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FDE0B3C17F70217000A7DE1 /* GameEngine.cpp */; };
 		3FDE0B6117F7029A000A7DE1 /* Matrix4f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FDE0B2F17F70217000A7DE1 /* Matrix4f.cpp */; };
 		3FDE0B6217F7029A000A7DE1 /* ThreadLock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FDE0B3117F70217000A7DE1 /* ThreadLock.cpp */; };
@@ -56,6 +59,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3F5262CC17FA291C006E4A3C /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = ../../../../glfw/libglfw3.a; sourceTree = "<group>"; };
+		3F5262CE17FA2D64006E4A3C /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		3F5262D017FA2D6F006E4A3C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		3FDE0ABB17F61D8D000A7DE1 /* Game2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Game2; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FDE0ABE17F61D8D000A7DE1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		3FDE0AC017F61D8D000A7DE1 /* Game2.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Game2.1; sourceTree = "<group>"; };
@@ -117,7 +123,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FDE0AFE17F62E69000A7DE1 /* GLUT.framework in Frameworks */,
+				3F5262D217FA2D98006E4A3C /* OpenGL.framework in Frameworks */,
+				3F5262D117FA2D6F006E4A3C /* Cocoa.framework in Frameworks */,
+				3F5262CF17FA2D64006E4A3C /* IOKit.framework in Frameworks */,
+				3F5262CD17FA291C006E4A3C /* libglfw3.a in Frameworks */,
 				3FDE0B7417F703DC000A7DE1 /* Game2_engine.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,6 +145,9 @@
 		3FDE0AB217F61D8D000A7DE1 = {
 			isa = PBXGroup;
 			children = (
+				3F5262D017FA2D6F006E4A3C /* Cocoa.framework */,
+				3F5262CE17FA2D64006E4A3C /* IOKit.framework */,
+				3F5262CC17FA291C006E4A3C /* libglfw3.a */,
 				3FDE0AFD17F62E69000A7DE1 /* GLUT.framework */,
 				3FDE0AFB17F61FB8000A7DE1 /* OpenGL.framework */,
 				3FDE0ABD17F61D8D000A7DE1 /* Game2 */,
@@ -473,6 +485,16 @@
 		3FDE0AC517F61D8D000A7DE1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Hyston/projects/glfw,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -480,6 +502,16 @@
 		3FDE0AC617F61D8D000A7DE1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Hyston/projects/glfw,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -532,6 +564,7 @@
 				3FDE0B2417F6FF13000A7DE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

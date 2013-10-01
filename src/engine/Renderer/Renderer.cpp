@@ -7,8 +7,9 @@
 void Renderer::init(int width, int height)
 {
 	glViewport(0, 0, width, height);
+    
 	init_shaders();
-
+    
 	//grid.set_shader(simple_shader);
 	//grid.setup_vertexes();
 
@@ -35,7 +36,7 @@ void Renderer::init(int width, int height)
 
 void Renderer::clear_frame()
 {
-	glClearColor(0.9f, 0.9f, 0.9f, 1.0f);
+	glClearColor(0.5f, 0.9f, 0.9f, 1.0f);
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 	Vec2f cam_pos = GameEngine::get_data()->camera->coords;
 	float koeff = GameEngine::get_data()->screen.ratio;
@@ -63,8 +64,22 @@ void Renderer::clear_frame()
 
 void Renderer::init_shaders()
 {
+    int error = 0;
+    if ( (error = glGetError()) != GL_NO_ERROR )
+    {
+        int i = 3;
+    }
+    
 	simple_shader = Shader::createProgram(gVertexShader, gFragmentShader);
+    if ( (error = glGetError()) != GL_NO_ERROR )
+    {
+        int i = 3;
+    }
 	gvPositionHandle = glGetAttribLocation(simple_shader, "vPosition");
+    if ( (error = glGetError()) != GL_NO_ERROR )
+    {
+        int i = 3;
+    }
 }
 
 void Renderer::setup_ortho(float left, float right, float bottom, float top, float near, float far)

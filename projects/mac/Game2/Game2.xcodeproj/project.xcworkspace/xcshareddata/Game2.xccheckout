@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>BA79C39B-1B79-4C49-987F-FA5DCE73F42A</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Game2</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2D75DCA0-1FBE-4854-B2D4-7FA64BDBEEF1</key>
+		<string>https://github.com/glfw/glfw.git</string>
+		<key>82298534-F535-4D77-B2FD-6125871061FA</key>
+		<string>https://github.com/ghyston/game2.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>projects/mac/Game2/Game2.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2D75DCA0-1FBE-4854-B2D4-7FA64BDBEEF1</key>
+		<string>../../../../../../glfw</string>
+		<key>82298534-F535-4D77-B2FD-6125871061FA</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/ghyston/game2.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>82298534-F535-4D77-B2FD-6125871061FA</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>82298534-F535-4D77-B2FD-6125871061FA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>game2_github</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2D75DCA0-1FBE-4854-B2D4-7FA64BDBEEF1</string>
+			<key>IDESourceControlWCCName</key>
+			<string>glfw</string>
+		</dict>
+	</array>
+</dict>
+</plist>

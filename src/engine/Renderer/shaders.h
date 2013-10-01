@@ -7,8 +7,7 @@ static const char gVertexShader[] =
     "}\n";
 
 static const char gFragmentShader[] = 
-    "precision mediump float;\n"
-	"uniform vec3 fragColor;\n"
+    "uniform vec3 fragColor;\n"
     "void main() {\n"
     "  gl_FragColor = vec4(fragColor, 1.0);\n"
     "}\n";
