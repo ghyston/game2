@@ -8,7 +8,7 @@
 #include "Shader.h"
 //#include "Grid.h"
 #include "Camera.h"
-#include "SceneObject.h"
+#include "../Common/Matrix4f.h"
 
 /**
  * Main call for draw graphix.

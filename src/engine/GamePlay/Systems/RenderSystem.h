@@ -32,4 +32,3 @@ public:
 };
 
 #endif	/* __RENDERSYSTEM_H__ */
-

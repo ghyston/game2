@@ -110,7 +110,6 @@
 		3FDE0B5717F70217000A7DE1 /* RectRenderable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RectRenderable.h; sourceTree = "<group>"; };
 		3FDE0B5817F70217000A7DE1 /* Renderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Renderer.cpp; sourceTree = "<group>"; };
 		3FDE0B5917F70217000A7DE1 /* Renderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
-		3FDE0B5A17F70217000A7DE1 /* SceneObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneObject.h; sourceTree = "<group>"; };
 		3FDE0B5B17F70217000A7DE1 /* Shader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
 		3FDE0B5C17F70217000A7DE1 /* Shader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
 		3FDE0B5D17F70217000A7DE1 /* shaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shaders.h; sourceTree = "<group>"; };
@@ -199,11 +198,11 @@
 				3FDE0B2D17F70217000A7DE1 /* Common */,
 				3FDE0B3417F70217000A7DE1 /* ECS */,
 				3FDE0B3E17F70217000A7DE1 /* GamePlay */,
-				3FDE0B3D17F70217000A7DE1 /* GameEngine.h */,
+				3FDE0B4F17F70217000A7DE1 /* Renderer */,
 				3FDE0B3C17F70217000A7DE1 /* GameEngine.cpp */,
+				3FDE0B3D17F70217000A7DE1 /* GameEngine.h */,
 				3FDE0B4D17F70217000A7DE1 /* GlobalData.cpp */,
 				3FDE0B4E17F70217000A7DE1 /* GlobalData.h */,
-				3FDE0B4F17F70217000A7DE1 /* Renderer */,
 				3FDE0B5E17F70217000A7DE1 /* Timer.cpp */,
 				3FDE0B5F17F70217000A7DE1 /* Timer.h */,
 			);
@@ -286,7 +285,6 @@
 				3FDE0B5717F70217000A7DE1 /* RectRenderable.h */,
 				3FDE0B5817F70217000A7DE1 /* Renderer.cpp */,
 				3FDE0B5917F70217000A7DE1 /* Renderer.h */,
-				3FDE0B5A17F70217000A7DE1 /* SceneObject.h */,
 				3FDE0B5B17F70217000A7DE1 /* Shader.cpp */,
 				3FDE0B5C17F70217000A7DE1 /* Shader.h */,
 				3FDE0B5D17F70217000A7DE1 /* shaders.h */,
