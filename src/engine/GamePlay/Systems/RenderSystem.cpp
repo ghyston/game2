@@ -2,12 +2,13 @@
 #include <vector>
 
 #include "RenderSystem.h"
+#include "../../GameEngine.h"
 
 void RenderSystem::update(Entity * entity)
 {
 	position_com = (PositionComponent*)entity->
 	  get_component(ComponentsType::POSITION_COMPONENT);
-	render_com = (RenderComponent*)entity->
+/*	render_com = (RenderComponent*)entity->
 	  get_component(ComponentsType::RENDER_COMPONENT);
 	
 	renderable.coords = position_com->position;
@@ -22,7 +23,9 @@ void RenderSystem::update(Entity * entity)
 	
 	renderable.set_shader(render_com->shader);
 	
-	renderable.Draw();
+	renderable.Draw();*/
+    
+    GameEngine::renderer->draw_rect(position_com->position);
 }
 
 

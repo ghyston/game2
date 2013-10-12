@@ -34,17 +34,7 @@ void BaseRenderable::Draw()
     
     glUseProgram(shader);
     glUniform3f(gFragColorHandle, color[0], color[1], color[2]);
-
-    if ( glGetError() != GL_NO_ERROR )
-    {
-        int i = 3;
-    }
-
     glVertexAttribPointer(gvPositionHandle, 2, GL_FLOAT, GL_FALSE, 0, vertexes);
-    if ( glGetError() != GL_NO_ERROR )
-    {
-        int i = 3;
-    }
     glEnableVertexAttribArray(gvPositionHandle);
 
     glUniformMatrix4fv(gModelHandle, 1, GL_FALSE, model_matrix->get_val());

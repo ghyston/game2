@@ -8,7 +8,7 @@ GLuint Shader::loadShader(GLenum shaderType, const char* pSource)
     glCompileShader(shader);
     
     ///-----CHECKING---------
-    GLint params = -1;
+/*    GLint params = -1;
     glGetShaderiv(shader, GL_COMPILE_STATUS, &params);
     if(params == GL_FALSE)
     {
@@ -21,7 +21,7 @@ GLuint Shader::loadShader(GLenum shaderType, const char* pSource)
     else
     {
         int dump = 66;
-    }
+    }*/
     
     ///-----CHECKING---------
     
@@ -40,13 +40,13 @@ GLuint Shader::createProgram(const char* pVertexSource, const char* pFragmentSou
     
     
     ///-----CHECKING---------
-    glValidateProgram(program);
+  /*  glValidateProgram(program);
     GLint params = -1;
     glGetProgramiv(program, GL_VALIDATE_STATUS, &params);
     if(params == GL_FALSE)
     {
         int dump = 66;
-    }
+    }*/
     ///-----CHECKING---------
     
     return program;

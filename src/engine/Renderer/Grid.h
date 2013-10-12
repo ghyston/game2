@@ -12,8 +12,8 @@ public:
         count_x = 21;
         count_y = 21;
         step = 0.5f;		
-	vertexes_count = (count_x + count_y) * 2;
-	draw_type = GL_LINES;
+        vertexes_count = (count_x + count_y) * 2;
+        draw_type = GL_LINES;
     }
     
     int count_x;

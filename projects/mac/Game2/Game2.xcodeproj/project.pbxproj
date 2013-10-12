@@ -383,6 +383,8 @@
 				3FDE0B6117F7029A000A7DE1 /* Matrix4f.cpp in Sources */,
 				3FDE0B6217F7029A000A7DE1 /* ThreadLock.cpp in Sources */,
 				3FDE0B6317F7029A000A7DE1 /* BaseSystem.cpp in Sources */,
+				3FDE0B6017F7022F000A7DE1 /* GameEngine.cpp in Sources */,
+				3FDE0B6F17F7029A000A7DE1 /* Renderer.cpp in Sources */,
 				3FDE0B6417F7029A000A7DE1 /* Entity.cpp in Sources */,
 				3FDE0B6517F7029A000A7DE1 /* GameLogic.cpp in Sources */,
 				3FDE0B6617F7029A000A7DE1 /* EntityFabric.cpp in Sources */,
@@ -394,10 +396,8 @@
 				3FDE0B6C17F7029A000A7DE1 /* Camera.cpp in Sources */,
 				3FDE0B6D17F7029A000A7DE1 /* Grid.cpp in Sources */,
 				3FDE0B6E17F7029A000A7DE1 /* RectRenderable.cpp in Sources */,
-				3FDE0B6F17F7029A000A7DE1 /* Renderer.cpp in Sources */,
 				3FDE0B7017F7029A000A7DE1 /* Shader.cpp in Sources */,
 				3FDE0B7117F7029A000A7DE1 /* Timer.cpp in Sources */,
-				3FDE0B6017F7022F000A7DE1 /* GameEngine.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +484,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = MAC_OS_PLATFORM;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -501,6 +502,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = MAC_OS_PLATFORM;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -520,6 +522,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
+					MAC_OS_PLATFORM,
 				);
 				MACH_O_TYPE = mh_dylib;
 				PRODUCT_NAME = "$(TARGET_NAME)";

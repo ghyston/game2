@@ -33,7 +33,16 @@ void GameEngine::step()
 {
 	Timer::tick();
     renderer->clear_frame();
+    renderer->draw_grid();
 	global_data->logic.step();
+    
+    ///-----TEST_TIME-----
+    static float sec_counter = 0;
+    sec_counter += Timer::get_delta();
+    
+   // printf("Time: %f\n", sec_counter);
+    
+    ///-----TEST_TIME-----
 }
 
 GlobalData* GameEngine::get_data()
@@ -54,15 +63,18 @@ void GameEngine::process_touch(int id, int touch_type, float x, float y)
 void GameEngine::init(int width, int height)
 {
     global_data->init_scene();
-	global_data->screen.setup(height, width);
-    renderer->init(width, height);
-	
+	global_data->screen.setup(height, width); // @todo: do we need that?
+    renderer->init();
+    renderer->resize(width, height);
+
 	global_data->logic.add_system(new RenderSystem());
 	global_data->logic.add_system(new MoveSystem());
 	global_data->logic.add_system(new CollisionSystem());
+    
+    Timer::start();
 	
-	///--------TEST_TOWER----------	
-	global_data->logic.add_entity(EntityFabric::get_tower(Vec2f(0.0f, 0.0f)));
+	///--------TEST_TOWER----------
+	global_data->logic.add_entity(EntityFabric::get_tower(Vec2f(-0.5f, 0.0f)));
 	  ///--------TEST_TOWER----------
 	
     

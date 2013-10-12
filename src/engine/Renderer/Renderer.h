@@ -6,9 +6,10 @@
 #include <OpenGL/gl.h>
 #include <math.h>
 #include "Shader.h"
-//#include "Grid.h"
 #include "Camera.h"
 #include "../Common/Matrix4f.h"
+#include "RectRenderable.h"
+#include "Grid.h"
 
 /**
  * Main call for draw graphix.
@@ -17,28 +18,25 @@ class Renderer
 {
 public:
 	
-	Renderer() {;}
+	Renderer();
 	
 	~Renderer();
 	
-    void init(int width, int height);
+    void init();
+    
+    void resize(int width, int height);
 
-    //void render_frame();
-	
 	void clear_frame();
-	
-	//void move_camera(Vec2f diff);
-	
-	//void set_default_shader(BaseRenderable * object);	
-	
-	GLuint get_simple_shader()	{ return simple_shader; }
-	
+    
+    void draw_rect(Vec2f coords);
+    
+    void draw_grid();
 	
 private:
     
     void init_shaders();
-
-  //  Grid grid;
+    
+    GLuint get_simple_shader()	{ return simple_shader; }
     
 	Matrix4f* ortho;
 	Matrix4f* mx_translate;
@@ -53,8 +51,16 @@ private:
 
     GLuint simple_shader;
     GLuint gvPositionHandle;
-	
-//	void draw_game_play();
+    
+    //Primitives.
+    
+    void init_rect();
+    
+    void init_grid();
+    
+    RectRenderable * rect;
+    
+    Grid * grid;
 
 };
 

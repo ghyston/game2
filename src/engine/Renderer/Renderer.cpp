@@ -4,39 +4,77 @@
 #include "Grid.h"
 #include "../GameEngine.h"
 
-void Renderer::init(int width, int height)
+Renderer::Renderer()
 {
-	glViewport(0, 0, width, height);
-    
+    rect = NULL;
+    grid = NULL;
+}
+
+Renderer::~Renderer()
+{
+    if(grid != NULL) delete grid;
+    if(rect != NULL) delete rect;
+	delete ortho;
+}
+
+void Renderer::init()
+{
 	init_shaders();
-    
-	//grid.set_shader(simple_shader);
-	//grid.setup_vertexes();
 
 	ortho = new Matrix4f();
 	mx_translate = new Matrix4f();
 	mx_scale = new Matrix4f();
 	mx_rotate = new Matrix4f();
+    
+    init_rect();
+    init_grid();
+}
 
-	//setup gui. TODO: move it to fabric or somewhat
-	//GameEngine::get_gui()->reset_widget_iterator();
-	/*Widget* widget = GameEngine::get_gui()->get_first_widget();
-	//while(widget != NULL)
-	//{
-	widget->set_shader(simple_shader);
-	
-	//TODO: remove it!
-	for(size_t i = 0; i < GameEngine::get_instance()->get_data()->towers.size(); i++)
-	{
-		BaseTower* tower = GameEngine::get_instance()->get_data()->towers[i];
-		tower->setup_vertexes();
-		tower->set_shader(simple_shader);
-	}	*/
+void Renderer::init_rect()
+{
+    // @todo: height and width is temparable
+    rect = new RectRenderable(0.1f, 0.1f);
+    rect->setup_vertexes();
+    rect->set_shader(simple_shader);
+    rect->color[0] = 0.0f;
+	rect->color[1] = 0.0f;
+	rect->color[2] = 1.0f;
+}
+
+void Renderer::init_grid()
+{
+    grid = new Grid();
+    grid->step = 0.5f;
+    grid->setup_vertexes();
+    grid->set_shader(simple_shader);
+    grid->color[0] = 0.8f;
+	grid->color[1] = 0.8f;
+	grid->color[2] = 0.8f;
+}
+
+void Renderer::draw_grid()
+{
+    if(grid != NULL)
+        grid->Draw();
+}
+
+void Renderer::draw_rect(Vec2f coords)
+{
+    if(rect != NULL)
+    {
+        rect->coords = coords;
+        rect->Draw();
+    }
+}
+
+void Renderer::resize(int width, int height)
+{
+    glViewport(0, 0, width, height);
 }
 
 void Renderer::clear_frame()
 {
-	glClearColor(0.5f, 0.9f, 0.9f, 1.0f);
+	glClearColor(0.95f, 0.95f, 0.95f, 1.0f);
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 	Vec2f cam_pos = GameEngine::get_data()->camera->coords;
 	float koeff = GameEngine::get_data()->screen.ratio;
@@ -45,41 +83,11 @@ void Renderer::clear_frame()
 		cam_pos.y - koeff, cam_pos.y + koeff);
 }
 
-/*void Renderer::render_frame()
-{
-	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
-	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
-	Vec2f cam_pos = GameEngine::get_data()->camera->coords;
-	float koeff = GameEngine::get_data()->screen.ratio;
-	setup_ortho(
-		cam_pos.x - 1.0f, cam_pos.x + 1.0f,
-		cam_pos.y - koeff, cam_pos.y + koeff);
-	
-	grid.Draw();
-
-
-	GameEngine::get_gui()->draw_gui();
-	draw_game_play();
-}*/
-
 void Renderer::init_shaders()
 {
-    int error = 0;
-    if ( (error = glGetError()) != GL_NO_ERROR )
-    {
-        int i = 3;
-    }
-    
+    // @todo: add glGetError() checking!
 	simple_shader = Shader::createProgram(gVertexShader, gFragmentShader);
-    if ( (error = glGetError()) != GL_NO_ERROR )
-    {
-        int i = 3;
-    }
 	gvPositionHandle = glGetAttribLocation(simple_shader, "vPosition");
-    if ( (error = glGetError()) != GL_NO_ERROR )
-    {
-        int i = 3;
-    }
 }
 
 void Renderer::setup_ortho(float left, float right, float bottom, float top, float near, float far)
@@ -96,38 +104,7 @@ void Renderer::setup_ortho(float left, float right, float bottom, float top, flo
 	mx_scale->Scale(a, b, c);
 	mx_rotate->Identity();
 	matrixMultiply(*mx_scale, *mx_translate, *ortho);
-	//ortho->Translate(tx, ty, tz);
-	//ortho->Scale(a, b, c);
-
 	GLint projectionUniform = glGetUniformLocation(simple_shader, "Projection");
-	glUniformMatrix4fv(projectionUniform, 1, GL_FALSE, ortho->get_val()/*&ortho[0]*/);
+	glUniformMatrix4fv(projectionUniform, 1, GL_FALSE, ortho->get_val());
 
-}
-
-/*void Renderer::move_camera(Vec2f diff)
-{
-
-}*/
-
-/*void Renderer::set_default_shader(BaseRenderable * object)
-{
-	object->set_shader(simple_shader);
-}*/
-
-/*void Renderer::draw_game_play()
-{
-	GameEngine::get_instance()->get_data()->tower_mutex->Lock();
-	for(size_t i = 0; 
-	  i < GameEngine::get_instance()->get_data()->towers.size(); i++)
-	{
-		GameEngine::get_instance()->get_data()->towers[i]->set_shader(simple_shader);
-		GameEngine::get_instance()->get_data()->towers[i]->Draw();
-	}
-	
-	GameEngine::get_instance()->get_data()->tower_mutex->Unlock();
-}*/
-
-Renderer::~Renderer()
-{
-	delete ortho;
 }

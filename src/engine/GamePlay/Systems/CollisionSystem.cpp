@@ -9,7 +9,7 @@ void CollisionSystem::update(Entity* entity)
 	
 	/// ---------JFT------------------------
 	
-	Vec2f borders(-1.0f, 1.0f);	
+	Vec2f borders(-1.0f, 1.0f);
 	
 	if(	position_com->position.x < borders.x || 
 		position_com->position.x > borders.y || 
@@ -42,7 +42,7 @@ void CollisionSystem::update(Entity* entity)
 			move_com->velocity.y = move_com->velocity.y * -1.0f;
 		}
 		
-		//GameEngine::get_data()->logic.add_entity(EntityFabric::get_tower(Vec2f(0.0f, 0.0f)));
+		GameEngine::get_data()->logic.add_entity(EntityFabric::get_tower(Vec2f(0.0f, 0.0f)));
 	}
 	/// ---------JFT------------------------
 }

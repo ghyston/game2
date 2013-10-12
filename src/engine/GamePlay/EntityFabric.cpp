@@ -13,7 +13,7 @@ Entity * EntityFabric::get_tower(Vec2f coords)
 	//setup render component
 	RenderComponent * render_com = new RenderComponent();
 	
-	float t_width = 0.2f;
+	/*float t_width = 0.2f;
 	float t_height = 0.2f;
 	
 	float h2 = t_height / 2;
@@ -40,13 +40,13 @@ Entity * EntityFabric::get_tower(Vec2f coords)
 	
 	render_com->draw_type = GL_TRIANGLE_STRIP;
 	render_com->shader = GameEngine::get_renderer()->get_simple_shader();
-	
+	*/
 	tower->add_component(ComponentsType::RENDER_COMPONENT, render_com);
 	
 	//setup move component
 	MovementComponent * move_com = new MovementComponent();
-	move_com->speed = Vec2f(5.1f, 0.0f);
-	move_com->velocity = Vec2f(-1.0f, 0.7f);
+	move_com->speed = Vec2f(0.0f, 0.0f);
+	move_com->velocity = Vec2f(0.2f, -0.03f);
 	tower->add_component(ComponentsType::MOVEMENT_COMPONENT, move_com);
 	return tower;
 }

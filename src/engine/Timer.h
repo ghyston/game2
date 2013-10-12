@@ -8,22 +8,30 @@
 #ifndef __TIMER_H__
 #define	__TIMER_H__
 
+#include <sys/time.h>
 #include <time.h>
+
 
 class Timer
 {
 private:
 
+    static timeval last;
+    static timeval delta;
+    
 	//Last time, when tick() was called.	
 	static clock_t last_tick;
-	
 	static float delta_tick;
 
 
 	//We shouldn't create instance of this.
 	Timer()	{} 
 
-	Timer(Timer& t) {}	
+	Timer(Timer& t) {}
+    
+    static void tick_mac();
+    
+    static float get_delta_mac();
 	
 public:	
 	
@@ -34,6 +42,9 @@ public:
 	static void tick();
 	
 	static float get_delta();
+    
+    // Init timer by start values.
+    static void start();
 
 	/**
 	* Return time since programm start

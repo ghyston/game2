@@ -20,7 +20,7 @@
 
 class RenderSystem : public BaseSystem
 {
-	BaseRenderable renderable;
+	//BaseRenderable renderable;
 	
 	PositionComponent* position_com;
 	RenderComponent* render_com;
