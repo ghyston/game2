@@ -17,6 +17,7 @@ struct ComponentsType
 		POSITION_COMPONENT = __FIRST,
 		RENDER_COMPONENT,
 		MOVEMENT_COMPONENT,
+        CONNECTOR_COMPONENT,
 		__COUNT
 	};
 };
@@ -24,6 +25,7 @@ struct ComponentsType
 #include "Components/MovementComponent.h"
 #include "Components/PositionComponent.h"
 #include "Components/RenderComponent.h"
+#include "Components/ConnectorComponent.h"
 
 #endif	/* COMPONENTS_H */
 

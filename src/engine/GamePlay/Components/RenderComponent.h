@@ -10,19 +10,25 @@
 
 //#include <GLES2/gl2.h>
 //#include <GLES2/gl2ext.h>
-#include <OpenGL/gl.h>
+//#include <OpenGL/gl.h>
 
 class RenderComponent : public IComponent
 {
 public:
 	
 	int get_id() { return ComponentsType::RENDER_COMPONENT; }
+    
+    enum
+    {
+        DRAW_RECT,
+        DRAW_LINE
+    } draw_type;
 	
-	float * vertexes;
+/*	float * vertexes;
 	int vertexes_count;	
 	float color [4];
 	GLenum draw_type;	
-	GLuint shader;
+	GLuint shader;*/
 };
 
 #endif	/* __RENDERCOMPONENT_H__ */

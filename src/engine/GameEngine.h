@@ -24,8 +24,6 @@ public:
 	GameEngine();
 
 public:
-	
-	
 
 	void init(int width, int height);
 

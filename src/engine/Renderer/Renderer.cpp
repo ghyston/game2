@@ -28,6 +28,7 @@ void Renderer::init()
     
     init_rect();
     init_grid();
+    init_line();
 }
 
 void Renderer::init_rect()
@@ -52,6 +53,18 @@ void Renderer::init_grid()
 	grid->color[2] = 0.8f;
 }
 
+void Renderer::init_line()
+{
+    line = new LineRenderable();
+    line->set_shader(simple_shader);
+    line->vertexes = new float [4];
+    
+    line->color[0] = 0.0f;
+    line->color[1] = 1.0f;
+    line->color[2] = 0.0f;
+    line->color[3] = 1.0f;
+}
+
 void Renderer::draw_grid()
 {
     if(grid != NULL)
@@ -65,6 +78,17 @@ void Renderer::draw_rect(Vec2f coords)
         rect->coords = coords;
         rect->Draw();
     }
+}
+
+void Renderer::draw_line(Vec2f coord_1, Vec2f coord_2)
+{
+    if(line == NULL)
+        return;
+    
+    line->start = coord_1;
+    line->end = coord_2;
+    line->setup_vertexes();
+    line->Draw();
 }
 
 void Renderer::resize(int width, int height)

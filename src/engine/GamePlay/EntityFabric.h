@@ -9,14 +9,16 @@
 #define	__ENTITYFABRIC_H__
 
 #include "../Common/Vector2f.h"
-#include "../ECS/Entity.h"
 #include "Components.h"
+#include "../ECS/Entity.h"
 
 class EntityFabric
 {
 public:
 	
 	static Entity * get_tower(Vec2f coords);
+    
+    static Entity * get_connector(Entity * tower_1, Entity * tower_2);
 	
 };
 

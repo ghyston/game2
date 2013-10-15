@@ -6,26 +6,38 @@
 
 void RenderSystem::update(Entity * entity)
 {
-	position_com = (PositionComponent*)entity->
-	  get_component(ComponentsType::POSITION_COMPONENT);
-/*	render_com = (RenderComponent*)entity->
-	  get_component(ComponentsType::RENDER_COMPONENT);
-	
-	renderable.coords = position_com->position;
-	// @todo: not good!
-	renderable.color[0] = render_com->color[0];
-	renderable.color[1] = render_com->color[1];
-	renderable.color[2] = render_com->color[2];
-	renderable.color[3] = render_com->color[3];
-	renderable.draw_type = render_com->draw_type;
-	renderable.vertexes = render_com->vertexes;
-	renderable.vertexes_count = render_com->vertexes_count;
-	
-	renderable.set_shader(render_com->shader);
-	
-	renderable.Draw();*/
+    //@todo: check, is there a render/position component!
     
-    GameEngine::renderer->draw_rect(position_com->position);
+	render_com = (RenderComponent*)entity->
+	  get_component(ComponentsType::RENDER_COMPONENT);
+    
+    if( render_com->draw_type == RenderComponent::DRAW_RECT)
+    {
+        position_com = (PositionComponent*)entity->
+            get_component(ComponentsType::POSITION_COMPONENT);
+        
+        GameEngine::renderer->draw_rect(position_com->position);
+        return;
+    }
+    
+    if( render_com->draw_type == RenderComponent::DRAW_LINE)
+    {
+        Vec2f pos_1, pos_2; //@todo: check, will alias work!
+        
+        connector_com = (ConnectorComponent*)entity->
+            get_component(ComponentsType::CONNECTOR_COMPONENT);
+        
+        position_com = (PositionComponent*)connector_com->obj_1->get_component(ComponentsType::POSITION_COMPONENT);
+        
+        pos_1 = position_com->position;
+        
+        position_com = (PositionComponent*)connector_com->obj_2->get_component(ComponentsType::POSITION_COMPONENT);
+        
+        pos_2 = position_com->position;
+        GameEngine::renderer->draw_line(pos_1, pos_2);
+        return;
+    }
+    
 }
 
 

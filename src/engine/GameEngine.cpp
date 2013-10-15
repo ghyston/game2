@@ -35,14 +35,6 @@ void GameEngine::step()
     renderer->clear_frame();
     renderer->draw_grid();
 	global_data->logic.step();
-    
-    ///-----TEST_TIME-----
-    static float sec_counter = 0;
-    sec_counter += Timer::get_delta();
-    
-   // printf("Time: %f\n", sec_counter);
-    
-    ///-----TEST_TIME-----
 }
 
 GlobalData* GameEngine::get_data()
@@ -74,7 +66,11 @@ void GameEngine::init(int width, int height)
     Timer::start();
 	
 	///--------TEST_TOWER----------
-	global_data->logic.add_entity(EntityFabric::get_tower(Vec2f(-0.5f, 0.0f)));
+    Entity* tower_1 = EntityFabric::get_tower(Vec2f(0.2f, 0.0f));
+    Entity* tower_2 = EntityFabric::get_tower(Vec2f(-0.5f, 0.3f));
+	global_data->logic.add_entity(tower_1);
+    global_data->logic.add_entity(tower_2);
+    global_data->logic.add_entity(EntityFabric::get_connector(tower_1, tower_2));    
 	  ///--------TEST_TOWER----------
 	
     

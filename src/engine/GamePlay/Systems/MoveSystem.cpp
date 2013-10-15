@@ -2,6 +2,12 @@
 
 void MoveSystem::update(Entity* entity)
 {
+    if(
+       !entity->has_component(ComponentsType::POSITION_COMPONENT) ||
+       !entity->has_component(ComponentsType::MOVEMENT_COMPONENT))
+        return;
+    
+    
 	position_com = (PositionComponent*)entity->get_component(ComponentsType::POSITION_COMPONENT);
 	move_com = (MovementComponent*)entity->get_component(ComponentsType::MOVEMENT_COMPONENT);
 	

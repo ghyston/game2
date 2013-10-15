@@ -9,6 +9,7 @@
 #include "Camera.h"
 #include "../Common/Matrix4f.h"
 #include "RectRenderable.h"
+#include "LineRenderable.h"
 #include "Grid.h"
 
 /**
@@ -29,6 +30,8 @@ public:
 	void clear_frame();
     
     void draw_rect(Vec2f coords);
+    
+    void draw_line(Vec2f coord_1, Vec2f coord_2);
     
     void draw_grid();
 	
@@ -58,9 +61,13 @@ private:
     
     void init_grid();
     
+    void init_line();
+    
     RectRenderable * rect;
     
     Grid * grid;
+    
+    LineRenderable * line;
 
 };
 

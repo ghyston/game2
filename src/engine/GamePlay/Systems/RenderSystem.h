@@ -24,6 +24,7 @@ class RenderSystem : public BaseSystem
 	
 	PositionComponent* position_com;
 	RenderComponent* render_com;
+    ConnectorComponent* connector_com;
 	
 public:
 	
