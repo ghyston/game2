@@ -21,6 +21,7 @@ public:
     enum
     {
         DRAW_RECT,
+		DRAW_SMALL_RECT,
         DRAW_LINE
     } draw_type;
 	

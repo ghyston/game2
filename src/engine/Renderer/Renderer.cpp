@@ -40,6 +40,14 @@ void Renderer::init_rect()
     rect->color[0] = 0.0f;
 	rect->color[1] = 0.0f;
 	rect->color[2] = 1.0f;
+    
+    // @todo: height and width is temparable
+    small_rect = new RectRenderable(0.02f, 0.02f);
+    small_rect->setup_vertexes();
+    small_rect->set_shader(simple_shader);
+    small_rect->color[0] = 1.0f;
+	small_rect->color[1] = 0.2f;
+	small_rect->color[2] = 0.2f;
 }
 
 void Renderer::init_grid()
@@ -77,6 +85,15 @@ void Renderer::draw_rect(Vec2f coords)
     {
         rect->coords = coords;
         rect->Draw();
+    }
+}
+
+void Renderer::draw_small_rect(Vec2f coords)
+{
+    if(small_rect != NULL)
+    {
+        small_rect->coords = coords;
+        small_rect->Draw();
     }
 }
 

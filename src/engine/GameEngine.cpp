@@ -4,6 +4,7 @@
 #include "GamePlay/Components.h"
 #include "GamePlay/Systems/RenderSystem.h"
 #include "GamePlay/Systems/MoveSystem.h"
+#include "GamePlay/Systems/TargetEnergySystem.h"
 #include "Renderer/RectRenderable.h"
 #include "Timer.h"
 #include "GamePlay/EntityFabric.h"
@@ -62,16 +63,20 @@ void GameEngine::init(int width, int height)
 	global_data->logic.add_system(new RenderSystem());
 	global_data->logic.add_system(new MoveSystem());
 	global_data->logic.add_system(new CollisionSystem());
+	global_data->logic.add_system(new TargetEnergySystem());
     
     Timer::start();
 	
-	///--------TEST_TOWER----------
+	///--------TEST----------
     Entity* tower_1 = EntityFabric::get_tower(Vec2f(0.2f, 0.0f));
     Entity* tower_2 = EntityFabric::get_tower(Vec2f(-0.5f, 0.3f));
 	global_data->logic.add_entity(tower_1);
     global_data->logic.add_entity(tower_2);
-    global_data->logic.add_entity(EntityFabric::get_connector(tower_1, tower_2));    
-	  ///--------TEST_TOWER----------
+    global_data->logic.add_entity(
+		EntityFabric::get_connector(tower_1,tower_2));
+	global_data->logic.add_entity(
+		EntityFabric::create_energy(Vec2f(0.1f, -0.3f)));
+	  ///--------TEST----------
 	
     
 }

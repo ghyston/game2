@@ -40,3 +40,30 @@ Entity * EntityFabric::get_connector(Entity * tower_1, Entity * tower_2)
     
     return connector;
 }
+
+Entity * EntityFabric::create_energy(Vec2f coords)
+{
+	Entity * energy = new Entity();
+	
+	PositionComponent * pos_com = new PositionComponent();
+	pos_com->position = coords;
+	energy->add_component(ComponentsType::POSITION_COMPONENT, pos_com);
+	
+	//setup render component
+	RenderComponent * render_com = new RenderComponent();
+    render_com->draw_type = RenderComponent::DRAW_SMALL_RECT;
+	energy->add_component(ComponentsType::RENDER_COMPONENT, render_com);
+	
+	//setup move component
+	MovementComponent * move_com = new MovementComponent();
+	move_com->speed = Vec2f(0.0f, -0.1f);
+	move_com->velocity = Vec2f(0.0f, 0.0f);
+	energy->add_component(ComponentsType::MOVEMENT_COMPONENT, move_com);
+	
+	//add target component
+	TargetComponent * target_com = new TargetComponent();
+	target_com->target = NULL;
+	energy->add_component(ComponentsType::TARGET_COMPONENT, target_com);
+	
+	return energy;
+}

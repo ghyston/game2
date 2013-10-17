@@ -18,6 +18,7 @@ struct ComponentsType
 		RENDER_COMPONENT,
 		MOVEMENT_COMPONENT,
         CONNECTOR_COMPONENT,
+		TARGET_COMPONENT,
 		__COUNT
 	};
 };
@@ -26,6 +27,7 @@ struct ComponentsType
 #include "Components/PositionComponent.h"
 #include "Components/RenderComponent.h"
 #include "Components/ConnectorComponent.h"
+#include "Components/TargetComponent.h"
 
 #endif	/* COMPONENTS_H */
 

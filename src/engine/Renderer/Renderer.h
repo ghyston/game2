@@ -31,6 +31,8 @@ public:
     
     void draw_rect(Vec2f coords);
     
+    void draw_small_rect(Vec2f coords);
+    
     void draw_line(Vec2f coord_1, Vec2f coord_2);
     
     void draw_grid();
@@ -64,6 +66,9 @@ private:
     void init_line();
     
     RectRenderable * rect;
+    
+	//@todo: not good
+    RectRenderable * small_rect;
     
     Grid * grid;
     

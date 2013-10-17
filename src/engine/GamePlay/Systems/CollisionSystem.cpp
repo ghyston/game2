@@ -7,6 +7,24 @@ void CollisionSystem::update(Entity* entity)
 	position_com = (PositionComponent*)entity->get_component(ComponentsType::POSITION_COMPONENT);
 	move_com = (MovementComponent*)entity->get_component(ComponentsType::MOVEMENT_COMPONENT);
 	
+	if(entity->has_component(ComponentsType::TARGET_COMPONENT))
+	{
+		TargetComponent * target_com = (TargetComponent *)
+			entity->get_component(ComponentsType::TARGET_COMPONENT);
+		
+		if(target_com->target == NULL)
+			return;
+		
+		PositionComponent * target_pos = (PositionComponent*)target_com->target->get_component(ComponentsType::POSITION_COMPONENT);
+		
+		Vec2f dist = Vec2f(target_pos->position.x - position_com->position.x,
+						   target_pos->position.y - position_com->position.y);
+		
+		if(dist.x < 0.1f && dist.y < 0.1f)
+			entity->clear();
+		
+	}
+	
 	/// ---------JFT------------------------
 	
 	/*Vec2f borders(-1.0f, 1.0f);

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F409CC518105F0C00A8063B /* TargetComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F409CC418105F0C00A8063B /* TargetComponent.h */; };
+		3F409CC81810606D00A8063B /* TargetEnergySystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F409CC61810606D00A8063B /* TargetEnergySystem.cpp */; };
+		3F409CC91810606D00A8063B /* TargetEnergySystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F409CC71810606D00A8063B /* TargetEnergySystem.h */; };
 		3F5262CD17FA291C006E4A3C /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5262CC17FA291C006E4A3C /* libglfw3.a */; };
 		3F5262CF17FA2D64006E4A3C /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5262CE17FA2D64006E4A3C /* IOKit.framework */; };
 		3F5262D117FA2D6F006E4A3C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5262D017FA2D6F006E4A3C /* Cocoa.framework */; };
@@ -62,6 +65,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3F409CC418105F0C00A8063B /* TargetComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TargetComponent.h; sourceTree = "<group>"; };
+		3F409CC61810606D00A8063B /* TargetEnergySystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TargetEnergySystem.cpp; sourceTree = "<group>"; };
+		3F409CC71810606D00A8063B /* TargetEnergySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TargetEnergySystem.h; sourceTree = "<group>"; };
 		3F5262CC17FA291C006E4A3C /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = ../../../../glfw/libglfw3.a; sourceTree = "<group>"; };
 		3F5262CE17FA2D64006E4A3C /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		3F5262D017FA2D6F006E4A3C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -262,6 +268,7 @@
 				3FDE0B4117F70217000A7DE1 /* PositionComponent.h */,
 				3FDE0B4217F70217000A7DE1 /* RenderComponent.h */,
 				3F7464DB180DD790000650C3 /* ConnectorComponent.h */,
+				3F409CC418105F0C00A8063B /* TargetComponent.h */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -275,6 +282,8 @@
 				3FDE0B4A17F70217000A7DE1 /* MoveSystem.h */,
 				3FDE0B4B17F70217000A7DE1 /* RenderSystem.cpp */,
 				3FDE0B4C17F70217000A7DE1 /* RenderSystem.h */,
+				3F409CC61810606D00A8063B /* TargetEnergySystem.cpp */,
+				3F409CC71810606D00A8063B /* TargetEnergySystem.h */,
 			);
 			path = Systems;
 			sourceTree = "<group>";
@@ -308,6 +317,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F409CC91810606D00A8063B /* TargetEnergySystem.h in Headers */,
+				3F409CC518105F0C00A8063B /* TargetComponent.h in Headers */,
 				3F7464DE180DDD10000650C3 /* LineRenderable.h in Headers */,
 				3F7464DC180DD790000650C3 /* ConnectorComponent.h in Headers */,
 			);
@@ -396,6 +407,7 @@
 				3FDE0B6317F7029A000A7DE1 /* BaseSystem.cpp in Sources */,
 				3FDE0B6017F7022F000A7DE1 /* GameEngine.cpp in Sources */,
 				3FDE0B6F17F7029A000A7DE1 /* Renderer.cpp in Sources */,
+				3F409CC81810606D00A8063B /* TargetEnergySystem.cpp in Sources */,
 				3FDE0B6417F7029A000A7DE1 /* Entity.cpp in Sources */,
 				3FDE0B6517F7029A000A7DE1 /* GameLogic.cpp in Sources */,
 				3FDE0B6617F7029A000A7DE1 /* EntityFabric.cpp in Sources */,
