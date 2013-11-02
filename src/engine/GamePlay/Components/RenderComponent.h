@@ -16,8 +16,6 @@ class RenderComponent : public IComponent
 {
 public:
 	
-	int get_id() { return ComponentsType::RENDER_COMPONENT; }
-    
     enum
     {
         DRAW_RECT,

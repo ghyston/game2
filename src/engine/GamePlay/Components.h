@@ -8,7 +8,7 @@
 #ifndef __COMPONENTS_H__
 #define	__COMPONENTS_H__
 
-struct ComponentsType
+/*struct ComponentsType
 {
 	enum Enum
 	{
@@ -21,7 +21,7 @@ struct ComponentsType
 		TARGET_COMPONENT,
 		__COUNT
 	};
-};
+};*/
 
 #include "Components/MovementComponent.h"
 #include "Components/PositionComponent.h"

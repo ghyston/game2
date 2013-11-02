@@ -17,6 +17,8 @@
 		3F7464DC180DD790000650C3 /* ConnectorComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F7464DB180DD790000650C3 /* ConnectorComponent.h */; };
 		3F7464DE180DDD10000650C3 /* LineRenderable.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F7464DD180DDD10000650C3 /* LineRenderable.h */; };
 		3F7464E0180DDDE6000650C3 /* LineRenderable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F7464DF180DDDE6000650C3 /* LineRenderable.cpp */; };
+		3FDB01901825734D003396A4 /* RefEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FDB018E1825734D003396A4 /* RefEntity.h */; };
+		3FDB01921825750E003396A4 /* TargetComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FDB01911825750E003396A4 /* TargetComponent.cpp */; };
 		3FDE0ABF17F61D8D000A7DE1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FDE0ABE17F61D8D000A7DE1 /* main.cpp */; };
 		3FDE0AC117F61D8D000A7DE1 /* Game2.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3FDE0AC017F61D8D000A7DE1 /* Game2.1 */; };
 		3FDE0B6017F7022F000A7DE1 /* GameEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FDE0B3C17F70217000A7DE1 /* GameEngine.cpp */; };
@@ -74,6 +76,8 @@
 		3F7464DB180DD790000650C3 /* ConnectorComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectorComponent.h; sourceTree = "<group>"; };
 		3F7464DD180DDD10000650C3 /* LineRenderable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineRenderable.h; sourceTree = "<group>"; };
 		3F7464DF180DDDE6000650C3 /* LineRenderable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LineRenderable.cpp; sourceTree = "<group>"; };
+		3FDB018E1825734D003396A4 /* RefEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefEntity.h; sourceTree = "<group>"; };
+		3FDB01911825750E003396A4 /* TargetComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TargetComponent.cpp; sourceTree = "<group>"; };
 		3FDE0ABB17F61D8D000A7DE1 /* Game2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Game2; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FDE0ABE17F61D8D000A7DE1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		3FDE0AC017F61D8D000A7DE1 /* Game2.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Game2.1; sourceTree = "<group>"; };
@@ -245,6 +249,7 @@
 				3FDE0B3917F70217000A7DE1 /* Entity.h */,
 				3FDE0B3A17F70217000A7DE1 /* GameLogic.cpp */,
 				3FDE0B3B17F70217000A7DE1 /* GameLogic.h */,
+				3FDB018E1825734D003396A4 /* RefEntity.h */,
 			);
 			path = ECS;
 			sourceTree = "<group>";
@@ -269,6 +274,7 @@
 				3FDE0B4217F70217000A7DE1 /* RenderComponent.h */,
 				3F7464DB180DD790000650C3 /* ConnectorComponent.h */,
 				3F409CC418105F0C00A8063B /* TargetComponent.h */,
+				3FDB01911825750E003396A4 /* TargetComponent.cpp */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -319,6 +325,7 @@
 			files = (
 				3F409CC91810606D00A8063B /* TargetEnergySystem.h in Headers */,
 				3F409CC518105F0C00A8063B /* TargetComponent.h in Headers */,
+				3FDB01901825734D003396A4 /* RefEntity.h in Headers */,
 				3F7464DE180DDD10000650C3 /* LineRenderable.h in Headers */,
 				3F7464DC180DD790000650C3 /* ConnectorComponent.h in Headers */,
 			);
@@ -413,6 +420,7 @@
 				3FDE0B6617F7029A000A7DE1 /* EntityFabric.cpp in Sources */,
 				3FDE0B6717F7029A000A7DE1 /* CollisionSystem.cpp in Sources */,
 				3FDE0B6817F7029A000A7DE1 /* MoveSystem.cpp in Sources */,
+				3FDB01921825750E003396A4 /* TargetComponent.cpp in Sources */,
 				3F7464E0180DDDE6000650C3 /* LineRenderable.cpp in Sources */,
 				3FDE0B6917F7029A000A7DE1 /* RenderSystem.cpp in Sources */,
 				3FDE0B6A17F7029A000A7DE1 /* GlobalData.cpp in Sources */,

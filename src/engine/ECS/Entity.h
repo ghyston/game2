@@ -9,23 +9,79 @@
 #define	__ENTITY_H__
 
 #include <map>
+#include <vector>
 #include "../GamePlay/Components.h"
+#include "RefEntity.h"
 
 class Entity
 {
 public:
 	
-	Entity();
+	// @todo: move to EntityFabric!
+	struct Types
+	{
+		enum Enum
+		{
+			TOWER,
+			ENERGY,
+			CONNECT
+		};
+	};
 	
-	std::map<int, IComponent*> components;
+	Types::Enum type;
 	
-	void add_component(int component_id, IComponent* component);
+	static Entity * create();
 	
-	IComponent* get_component(int component_id);
+	template <typename T>
+	void add_component(T* component)
+	{
+		components[typeid(T).hash_code()] = (IComponent*)component;
+	}
 	
-	bool has_component(int component_id);
+	template <typename T>
+	T* get_component()
+	{
+		return (T*)components[typeid(T).hash_code()];
+	}
+	
+	template <typename T>
+	bool has_component()
+	{
+		return (components.count(typeid(T).hash_code()) > 0);
+	}
 	
 	void clear();
+	
+	size_t get_id() { return this->id; }
+	
+	void mark_deleted();	
+	bool is_deleted() { return deleted_mark; }
+	
+	void register_listener(RefEntity * ref);
+	void unregister_listener(RefEntity * ref);
+
+	
+private:
+	
+	// New entities should be created throw create();
+	Entity();
+	
+	//@todo: do we need id?
+	static size_t first_unused_id;
+	
+	// Unique entity id.
+	size_t id;
+	
+	void set_id(size_t id) { this->id = id; }
+	
+	// Entity components.
+	std::map<size_t, IComponent*> components;
+	
+	bool deleted_mark;
+	
+	// listeners
+	std::vector<RefEntity*> waitors;
+
 };
 
 #endif	/* __ENTITY_H__ */

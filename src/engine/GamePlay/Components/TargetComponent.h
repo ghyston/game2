@@ -9,15 +9,16 @@
 #ifndef Game2_TargetComponent_h
 #define Game2_TargetComponent_h
 
-class Entity; //@todo: is it good?
+#include "../../ECS/RefEntity.h"
+#include "../../ECS/BaseComponent.h"
 
 class TargetComponent : public IComponent
 {
 public:
-	
-	int get_id() { return ComponentsType::TARGET_COMPONENT; }
     
-    Entity * target;
+    RefEntity target;
+	
+	~TargetComponent();
 
 };
 

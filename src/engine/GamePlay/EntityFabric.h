@@ -21,7 +21,7 @@ public:
     static Entity * get_connector(Entity * tower_1, Entity * tower_2);
 	
 	static Entity * create_energy(Vec2f coords);
-	
+		
 };
 
 

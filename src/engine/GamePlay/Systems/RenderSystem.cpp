@@ -6,18 +6,14 @@
 
 void RenderSystem::update(Entity * entity)
 {
-    //@todo: check, is there a render/position component!
-	
-	if(!entity->has_component(ComponentsType::RENDER_COMPONENT))
+	if(!entity->has_component<RenderComponent>())
 		return;
     
-	render_com = (RenderComponent*)entity->
-	  get_component(ComponentsType::RENDER_COMPONENT);
+	render_com = entity->get_component<RenderComponent>();
     
     if( render_com->draw_type == RenderComponent::DRAW_RECT)
     {
-        position_com = (PositionComponent*)entity->
-            get_component(ComponentsType::POSITION_COMPONENT);
+        position_com = entity->get_component<PositionComponent>();
         
         GameEngine::renderer->draw_rect(position_com->position);
         return;
@@ -25,8 +21,7 @@ void RenderSystem::update(Entity * entity)
     
 	if( render_com->draw_type == RenderComponent::DRAW_SMALL_RECT)
     {
-        position_com = (PositionComponent*)entity->
-		get_component(ComponentsType::POSITION_COMPONENT);
+        position_com = entity->get_component<PositionComponent>();
         
         GameEngine::renderer->draw_small_rect(position_com->position);
         return;
@@ -36,16 +31,13 @@ void RenderSystem::update(Entity * entity)
     {
         Vec2f pos_1, pos_2; //@todo: check, will alias work!
         
-        connector_com = (ConnectorComponent*)entity->
-            get_component(ComponentsType::CONNECTOR_COMPONENT);
+        connector_com = entity->get_component<ConnectorComponent>();
         
-        position_com = (PositionComponent*)connector_com->obj_1->get_component(ComponentsType::POSITION_COMPONENT);
-        
+        position_com = connector_com->obj_1->get_component<PositionComponent>();
         pos_1 = position_com->position;
-        
-        position_com = (PositionComponent*)connector_com->obj_2->get_component(ComponentsType::POSITION_COMPONENT);
-        
+        position_com = connector_com->obj_2->get_component<PositionComponent>();
         pos_2 = position_com->position;
+		
         GameEngine::renderer->draw_line(pos_1, pos_2);
         return;
     }

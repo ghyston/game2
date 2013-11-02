@@ -16,6 +16,13 @@ void idle();
 void display();
 void reshape(int width, int height);
 
+void My_Key_Callback(GLFWwindow* wnd, int key, int action, int, int)
+{
+	if (key == 'A' and action == GLFW_RELEASE)
+		instance->process_input(key);
+}
+
+
 int main(int argc, char ** argv)
 {
     GLFWwindow* window;
@@ -34,6 +41,8 @@ int main(int argc, char ** argv)
     
     glfwMakeContextCurrent(window);
        // glfwSetKeyCallback(window, key_callback);
+	
+	glfwSetKeyCallback(window, My_Key_Callback);
     
     GameEngine::create_instance();
        instance = GameEngine::get_instance();
@@ -41,11 +50,14 @@ int main(int argc, char ** argv)
     
     while (!glfwWindowShouldClose(window))
     {
-        //float ratio;
-        //int width, height;
-        
-        //glfwGetFramebufferSize(window, &width, &height);
-        instance->step();
+		try
+		{
+			instance->step();
+		}
+		catch (int error)
+		{
+			(void)0;
+		}
         
         glfwSwapBuffers(window);
         glfwPollEvents();

@@ -22,6 +22,8 @@ public:
 	
 	//Private c-tor.
 	GameEngine();
+	
+	static Entity * test;
 
 public:
 
@@ -46,6 +48,9 @@ public:
 	
 	//TODO: make it to controller or something..
 	static void process_touch(int id, int touch_type, float x, float y);
+	
+	//@todo: test only?
+	static void process_input(int key);
 
 	/**
 	* Create game engine instance.
@@ -53,5 +58,6 @@ public:
 	static bool create_instance();
 
 };
+
 
 #endif //__GAMEENGINE_H__

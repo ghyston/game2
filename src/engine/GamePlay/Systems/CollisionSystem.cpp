@@ -1,66 +1,49 @@
 #include "CollisionSystem.h"
 #include "../../GameEngine.h"
 #include "../EntityFabric.h"
+#include <cmath>
+#include <cstdlib>
 
 void CollisionSystem::update(Entity* entity)
 {
-	position_com = (PositionComponent*)entity->get_component(ComponentsType::POSITION_COMPONENT);
-	move_com = (MovementComponent*)entity->get_component(ComponentsType::MOVEMENT_COMPONENT);
+	if(!entity->has_component<PositionComponent>() ||
+	   !entity->has_component<MovementComponent>() ||
+	   !entity->has_component<TargetComponent>())
+		return;
 	
-	if(entity->has_component(ComponentsType::TARGET_COMPONENT))
+	position_com = entity->get_component<PositionComponent>();
+	move_com = entity->get_component<MovementComponent>();
+	target_com = entity->get_component<TargetComponent>();
+	
+	if(target_com->target.pointer == NULL)
+		return;
+	
+	if(!target_com->target.pointer->has_component<PositionComponent>())
+		return;
+		
+	PositionComponent * target_pos;
+	target_pos = target_com->target.pointer->get_component<PositionComponent>();
+		
+	Vec2f dist;
+	dist.x = fabs(target_pos->position.x - position_com->position.x);
+	dist.y = fabs(target_pos->position.y - position_com->position.y);
+		
+	if((dist.x < 0.1f) && (dist.y < 0.1f))
 	{
-		TargetComponent * target_com = (TargetComponent *)
-			entity->get_component(ComponentsType::TARGET_COMPONENT);
+		entity->mark_deleted();
 		
-		if(target_com->target == NULL)
-			return;
+		Vec2f coords;
+		// @todo: remove this magic magic magic magic!
+		coords.x = 0.5f * ((rand() % 100) * 0.02f - 1.0f);
+		coords.y = 0.5f * ((rand() % 100) * 0.02f - 1.0f);
 		
-		PositionComponent * target_pos = (PositionComponent*)target_com->target->get_component(ComponentsType::POSITION_COMPONENT);
-		
-		Vec2f dist = Vec2f(target_pos->position.x - position_com->position.x,
-						   target_pos->position.y - position_com->position.y);
-		
-		if(dist.x < 0.1f && dist.y < 0.1f)
-			entity->clear();
-		
+		Entity* new_energy = EntityFabric::create_energy(coords);
+		MovementComponent* move_com;
+		move_com = new_energy->get_component<MovementComponent>();
+			
+		Vec2f new_speed(0.0f, 0.0f);
+		move_com->speed = new_speed;
+		GameEngine::global_data->logic.add_entity(new_energy);
 	}
 	
-	/// ---------JFT------------------------
-	
-	/*Vec2f borders(-1.0f, 1.0f);
-	
-	if(	position_com->position.x < borders.x || 
-		position_com->position.x > borders.y || 
-		position_com->position.y < borders.x || 
-		position_com->position.y > borders.y)
-	{
-		move_com->speed = Vec2f(0.0f, 0.0f);
-		
-		if(position_com->position.x < borders.x)
-		{
-			position_com->position.x = borders.x;
-			move_com->velocity.x = move_com->velocity.x * -1.0f;
-		}
-		
-		if(position_com->position.x > borders.y)
-		{
-			position_com->position.x = borders.y;
-			move_com->velocity.x = move_com->velocity.x * -1.0f;
-		}
-		
-		if(position_com->position.y < borders.x)
-		{
-			position_com->position.y = borders.x;
-			move_com->velocity.y = move_com->velocity.y * -1.0f;
-		}
-		
-		if(position_com->position.y > borders.y)
-		{
-			position_com->position.y = borders.y;
-			move_com->velocity.y = move_com->velocity.y * -1.0f;
-		}
-		
-		GameEngine::get_data()->logic.add_entity(EntityFabric::get_tower(Vec2f(0.0f, 0.0f)));
-	}*/
-	/// ---------JFT------------------------
 }

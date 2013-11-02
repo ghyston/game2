@@ -14,9 +14,7 @@
 class MovementComponent : public IComponent
 {
 public:
-	
-	int get_id() { return ComponentsType::MOVEMENT_COMPONENT; }
-	
+
 	Vec2f speed;
 	
 	Vec2f velocity;

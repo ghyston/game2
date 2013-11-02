@@ -14,7 +14,6 @@ class PositionComponent : public IComponent
 {
 public:
 	
-	int get_id() { return ComponentsType::POSITION_COMPONENT; }
 	
 	Vec2f position;
 };

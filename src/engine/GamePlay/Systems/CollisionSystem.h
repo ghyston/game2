@@ -15,6 +15,7 @@ class CollisionSystem : public BaseSystem
 	private:
 		PositionComponent * position_com;
 		MovementComponent * move_com;
+		TargetComponent * target_com;
 		
 	public:
 		

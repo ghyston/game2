@@ -16,13 +16,12 @@ class BaseSystem
 {
 public:
 	
-	std::vector<int> components_types;
+	void process(Entity * entity);
+	
+protected:
 	
 	virtual void update(Entity * entity) = 0;
 	
-	bool check_components(Entity * entity);
-	
-	void process(Entity * entity);
 };
 
 #endif	/* __BASESYSTEM_H__ */

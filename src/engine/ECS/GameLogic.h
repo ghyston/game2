@@ -17,9 +17,12 @@ class GameLogic
 {
 public:
 	
+	typedef std::map<size_t, Entity*>::iterator EntityIt;
+	
 	std::vector<BaseSystem*> systems;
 	
-	std::vector<Entity*> entities;
+//	std::vector<Entity*> entities;
+	std::map<size_t, Entity*> entities;
 	
 	void start();
 	
@@ -27,22 +30,20 @@ public:
 	
 	void stop();
 	
-	void add_system(BaseSystem * system)
-	{
-		systems.push_back(system);
-	}
+	void add_system(BaseSystem * system);
 	
-	void add_entity(Entity * entity)
-	{
-		entities.push_back(entity);
-	}
+	void add_entity(Entity * entity);
 	
-	void remove_entity(Entity * entity)
-	{
-		// @todo: removing all systems/entities correctly!
-	}
+	// Mark entity as deleted.
+	void remove_entity(Entity * entity);
 	
+	// Mark entity as deleted.
+	// @note: Prefer to call by pointer, not by id!
+	void remove_entity(size_t entity_id);
 	
+private:
+	
+	void erase_removed_entities();
 	
 };
 

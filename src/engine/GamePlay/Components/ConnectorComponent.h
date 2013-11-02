@@ -15,8 +15,6 @@ class Entity; //@todo: is it good?
 class ConnectorComponent : public IComponent
 {
 public:
-	
-	int get_id() { return ComponentsType::CONNECTOR_COMPONENT; }
     
     Entity * obj_1;
     Entity * obj_2;

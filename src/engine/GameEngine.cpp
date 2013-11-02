@@ -13,6 +13,7 @@
 GameEngine*     GameEngine::instance    = (GameEngine*) 0;
 GlobalData*     GameEngine::global_data = new GlobalData();
 Renderer *		GameEngine::renderer = new Renderer();
+Entity *		GameEngine::test = NULL;
 
 GameEngine::GameEngine()
 {
@@ -53,6 +54,11 @@ void GameEngine::process_touch(int id, int touch_type, float x, float y)
 	// @todo: process touch inputs here!
 }
 
+void GameEngine::process_input(int key)
+{
+	global_data->logic.remove_entity(GameEngine::test);
+}
+
 void GameEngine::init(int width, int height)
 {
     global_data->init_scene();
@@ -70,13 +76,18 @@ void GameEngine::init(int width, int height)
 	///--------TEST----------
     Entity* tower_1 = EntityFabric::get_tower(Vec2f(0.2f, 0.0f));
     Entity* tower_2 = EntityFabric::get_tower(Vec2f(-0.5f, 0.3f));
+	GameEngine::test = tower_1;
 	global_data->logic.add_entity(tower_1);
     global_data->logic.add_entity(tower_2);
-    global_data->logic.add_entity(
-		EntityFabric::get_connector(tower_1,tower_2));
-	global_data->logic.add_entity(
-		EntityFabric::create_energy(Vec2f(0.1f, -0.3f)));
-	  ///--------TEST----------
+    //global_data->logic.add_entity(
+	//	EntityFabric::get_connector(tower_1,tower_2));
+	
+	for(int i = 0; i < 100; ++i)
+	{
+		global_data->logic.add_entity(
+			EntityFabric::create_energy(Vec2f(0.1f, -0.3f)));
+	}
+	///--------TEST----------
 	
     
 }

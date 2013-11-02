@@ -13,15 +13,8 @@
 #include "../Components.h"
 #include "../../Renderer/BaseRenderable.h"
 
-/*class IRenderable
-{
-	virtual void render() = 0;
-};*/
-
 class RenderSystem : public BaseSystem
 {
-	//BaseRenderable renderable;
-	
 	PositionComponent* position_com;
 	RenderComponent* render_com;
     ConnectorComponent* connector_com;
