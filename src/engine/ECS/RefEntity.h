@@ -17,6 +17,7 @@ struct RefEntity
 {
 	Entity * pointer;
 	void del_ref() { pointer = NULL; }
+	void unregister();
 };
 
 #endif /* defined(__Game2__RefEntity__) */

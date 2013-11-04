@@ -49,6 +49,13 @@ public:
 	{
 		return (components.count(typeid(T).hash_code()) > 0);
 	}
+
+	template <typename T>
+	void remove_component()
+	{
+		delete components[typeid(T).hash_code()];
+		components.erase(typeid(T).hash_code());
+	}
 	
 	void clear();
 	

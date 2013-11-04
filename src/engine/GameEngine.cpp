@@ -56,7 +56,11 @@ void GameEngine::process_touch(int id, int touch_type, float x, float y)
 
 void GameEngine::process_input(int key)
 {
-	global_data->logic.remove_entity(GameEngine::test);
+	if(GameEngine::test != NULL)
+	{
+		global_data->logic.remove_entity(GameEngine::test);
+		GameEngine::test = NULL;
+	}
 }
 
 void GameEngine::init(int width, int height)
@@ -79,10 +83,10 @@ void GameEngine::init(int width, int height)
 	GameEngine::test = tower_1;
 	global_data->logic.add_entity(tower_1);
     global_data->logic.add_entity(tower_2);
-    //global_data->logic.add_entity(
-	//	EntityFabric::get_connector(tower_1,tower_2));
+    global_data->logic.add_entity(
+		EntityFabric::get_connector(tower_1,tower_2));
 	
-	for(int i = 0; i < 100; ++i)
+	for(int i = 0; i < 1000; ++i)
 	{
 		global_data->logic.add_entity(
 			EntityFabric::create_energy(Vec2f(0.1f, -0.3f)));

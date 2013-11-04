@@ -31,8 +31,11 @@ Entity * EntityFabric::get_connector(Entity * tower_1, Entity * tower_2)
 	connector->type = Entity::Types::CONNECT;
     
     ConnectorComponent * connector_com = new ConnectorComponent();
-    connector_com->obj_1 = tower_1;
-    connector_com->obj_2 = tower_2;
+    connector_com->obj_1.pointer = tower_1;
+    connector_com->obj_2.pointer = tower_2;
+	tower_1->register_listener(&connector_com->obj_1);
+	tower_2->register_listener(&connector_com->obj_2);
+	
     connector->add_component<ConnectorComponent>(connector_com);
     
     RenderComponent * render_com = new RenderComponent();

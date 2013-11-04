@@ -33,9 +33,18 @@ void RenderSystem::update(Entity * entity)
         
         connector_com = entity->get_component<ConnectorComponent>();
         
-        position_com = connector_com->obj_1->get_component<PositionComponent>();
+		// Connector has lost one of towers
+		if(connector_com->obj_1.pointer == NULL ||
+		   connector_com->obj_2.pointer == NULL)
+		{
+			GameEngine::global_data->logic.remove_entity(entity);
+			return;
+		}
+		
+		
+        position_com = connector_com->obj_1.pointer->get_component<PositionComponent>();
         pos_1 = position_com->position;
-        position_com = connector_com->obj_2->get_component<PositionComponent>();
+        position_com = connector_com->obj_2.pointer->get_component<PositionComponent>();
         pos_2 = position_com->position;
 		
         GameEngine::renderer->draw_line(pos_1, pos_2);

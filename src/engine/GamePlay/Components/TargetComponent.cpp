@@ -11,5 +11,5 @@
 
 TargetComponent::~TargetComponent()
 {
-	target.pointer->unregister_listener(&target);
+	target.unregister();
 }

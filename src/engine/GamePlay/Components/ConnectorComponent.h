@@ -9,15 +9,18 @@
 #ifndef Game2_ConnectorComponent_h
 #define Game2_ConnectorComponent_h
 
-class Entity; //@todo: is it good?
+#include "../../ECS/RefEntity.h"
+#include "../../ECS/BaseComponent.h"
 
 // This component we need to connect two entities (towers)
 class ConnectorComponent : public IComponent
 {
 public:
     
-    Entity * obj_1;
-    Entity * obj_2;
+    RefEntity obj_1;
+    RefEntity obj_2;
+	
+	~ConnectorComponent();
 };
 
 #endif
