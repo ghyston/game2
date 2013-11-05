@@ -18,6 +18,7 @@ class TargetEnergySystem : public BaseSystem
 private:
 	
 	TargetComponent * target_com;
+	EnergyStorageComponent * es_com;
 	
 public:
 	

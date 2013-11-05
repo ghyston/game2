@@ -18,6 +18,9 @@ public:
 	
 	void process(Entity * entity);
 	
+	virtual void pre_step() {;}
+	virtual void post_step() {;}
+	
 protected:
 	
 	virtual void update(Entity * entity) = 0;

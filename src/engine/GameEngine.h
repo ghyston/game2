@@ -23,8 +23,6 @@ public:
 	//Private c-tor.
 	GameEngine();
 	
-	static Entity * test;
-
 public:
 
 	void init(int width, int height);

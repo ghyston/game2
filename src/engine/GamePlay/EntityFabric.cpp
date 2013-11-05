@@ -14,7 +14,7 @@ Entity * EntityFabric::get_tower(Vec2f coords)
 	
 	//setup render component
 	RenderComponent * render_com = new RenderComponent();
-    render_com->draw_type = RenderComponent::DRAW_RECT;
+    render_com->draw_type = RenderComponent::DRAW_TOWER;
 	tower->add_component<RenderComponent>(render_com);
 	
 	//setup move component
@@ -22,6 +22,12 @@ Entity * EntityFabric::get_tower(Vec2f coords)
 	move_com->speed = Vec2f(0.0f, 0.0f);
 	move_com->velocity = Vec2f(0.0f, 0.0f);
 	tower->add_component<MovementComponent>(move_com);
+	
+	EnergyStorageComponent * es_com = new EnergyStorageComponent();
+	es_com->limit = 100;
+	es_com->value = 25;
+	tower->add_component<EnergyStorageComponent>(es_com);
+	
 	return tower;
 }
 

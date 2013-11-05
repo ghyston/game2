@@ -11,9 +11,7 @@
 #include <vector>
 #include "Common/ThreadLock.h"
 #include "Renderer/Camera.h"
-//#include "GamePlay/BaseTower.h"
-
-#include "ECS/GameLogic.h"
+#include "GamePlay/Game2Logic.h"
 
 class GlobalData
 {
@@ -21,7 +19,7 @@ private:
     
 public:
 	
-	GameLogic logic;
+	Game2Logic logic;
 	
 	Camera* camera;
 	

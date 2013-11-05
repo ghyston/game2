@@ -3,7 +3,7 @@
 
 void BaseSystem::process(Entity * entity)
 {
-	if(entity == NULL)
+	if(entity == NULL || entity->is_deleted())
 		return;
 	update(entity);
 }

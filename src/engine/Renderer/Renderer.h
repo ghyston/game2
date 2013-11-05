@@ -10,6 +10,7 @@
 #include "../Common/Matrix4f.h"
 #include "RectRenderable.h"
 #include "LineRenderable.h"
+#include "TowerRenderable.h"
 #include "Grid.h"
 
 /**
@@ -36,6 +37,9 @@ public:
     void draw_line(Vec2f coord_1, Vec2f coord_2);
     
     void draw_grid();
+	
+	//@note: energy should be 0.0f .. 1.0f!
+	void draw_tower(Vec2f coords, float energy);
 	
 private:
     
@@ -64,6 +68,8 @@ private:
     void init_grid();
     
     void init_line();
+	
+	void init_tower();
     
     RectRenderable * rect;
     
@@ -73,6 +79,8 @@ private:
     Grid * grid;
     
     LineRenderable * line;
+	
+	TowerRenderable * tower_rend;
 
 };
 

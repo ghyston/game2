@@ -28,6 +28,7 @@
 #include "Components/RenderComponent.h"
 #include "Components/ConnectorComponent.h"
 #include "Components/TargetComponent.h"
+#include "Components/EnergyStorageComponent.h"
 
 #endif	/* COMPONENTS_H */
 

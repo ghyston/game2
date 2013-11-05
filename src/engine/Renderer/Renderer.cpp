@@ -29,6 +29,7 @@ void Renderer::init()
     init_rect();
     init_grid();
     init_line();
+	init_tower();
 }
 
 void Renderer::init_rect()
@@ -73,6 +74,13 @@ void Renderer::init_line()
     line->color[3] = 1.0f;
 }
 
+void Renderer::init_tower()
+{
+	tower_rend = new TowerRenderable();
+	tower_rend->set_shader(simple_shader);
+	tower_rend->Init();
+}
+
 void Renderer::draw_grid()
 {
     if(grid != NULL)
@@ -106,6 +114,13 @@ void Renderer::draw_line(Vec2f coord_1, Vec2f coord_2)
     line->end = coord_2;
     line->setup_vertexes();
     line->Draw();
+}
+
+void Renderer::draw_tower(Vec2f coords, float energy)
+{
+	tower_rend->coords = coords;
+	tower_rend->set_energy(energy);
+	tower_rend->Draw();
 }
 
 void Renderer::resize(int width, int height)

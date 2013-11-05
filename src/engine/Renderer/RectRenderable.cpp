@@ -20,7 +20,7 @@ void RectRenderable::setup_vertexes()
     
 	vertexes_count = 4;
 		
-	color[0] = 0.0f;
+/*	color[0] = 0.0f;
 	color[1] = 0.0f;
-	color[2] = 1.0f;
+	color[2] = 1.0f;*/
 }

@@ -44,6 +44,12 @@ void CollisionSystem::update(Entity* entity)
 		Vec2f new_speed(0.0f, 0.0f);
 		move_com->speed = new_speed;
 		GameEngine::global_data->logic.add_entity(new_energy);
+		
+		//@todo: add has_component!
+		EnergyStorageComponent * enesto =
+			target_com->target.pointer->get_component<EnergyStorageComponent>();
+		if(!enesto->is_full())
+			enesto->value++;
 	}
 	
 }

@@ -20,7 +20,8 @@ public:
     {
         DRAW_RECT,
 		DRAW_SMALL_RECT,
-        DRAW_LINE
+        DRAW_LINE,
+		DRAW_TOWER
     } draw_type;
 	
 /*	float * vertexes;

@@ -8,6 +8,7 @@
 
 #include "TargetEnergySystem.h"
 #include "../../GameEngine.h"
+#include "../../ECS/GameLogic.h"
 
 //@todo: убрать\прокомментить этот феерический высер
 void TargetEnergySystem::update(Entity * entity)
@@ -20,8 +21,7 @@ void TargetEnergySystem::update(Entity * entity)
 	if(target_com->target.pointer == NULL)
 	{
 		//@todo: find closest tower in radius
-		std::map<size_t, Entity*>& entities =
-			GameEngine::global_data->logic.entities;
+		Entities& entities = GameEngine::global_data->logic.get_entities();
 		
 		//@todo: too ugly
 		PositionComponent * pos_com = entity->get_component<PositionComponent>();
@@ -29,14 +29,17 @@ void TargetEnergySystem::update(Entity * entity)
 		float min_dist = 10000.0f;
 		Entity* closest_target = NULL;
 		
-		for(std::map<size_t, Entity*>::iterator it = entities.begin();
-			it != entities.end(); it++)
+		for(EntityIt it = entities.begin();	it != entities.end(); it++)
 		{
 			Entity * temp = it->second;
-			if(temp->type != Entity::Types::TOWER)
+			//if(temp->type != Entity::Types::TOWER)
+			//	continue;
+			
+			if(!temp->has_component<EnergyStorageComponent>() || temp == entity)
 				continue;
 			
-			if(!temp->has_component<PositionComponent>() || temp == entity)
+			es_com = temp->get_component<EnergyStorageComponent>();
+			if(es_com->is_full())
 				continue;
 			
 			PositionComponent * target_pos;
@@ -59,9 +62,28 @@ void TargetEnergySystem::update(Entity * entity)
 			target_com->target.pointer = closest_target;
 			closest_target->register_listener(&target_com->target);
 		}
+		else
+		{
+			MovementComponent * move_com = entity->
+				get_component<MovementComponent>();
+			
+			move_com->velocity = move_com->speed * -0.1f;
+			//move_com->velocity.x = move_com->speed.x * -0.1f;
+			//move_com->velocity.y = move_com->speed.y * -0.1f;
+			int temp = 600;
+		}
 	}
 	else
 	{
+		EnergyStorageComponent * enesto = target_com->target.pointer->get_component<EnergyStorageComponent>();
+		if(enesto->is_full())
+		{
+			//@todo: check, is del_ref work correctly!
+			target_com->target.del_ref();
+			return;
+		}
+		
+		
 		MovementComponent * move_com = entity->get_component<MovementComponent>();
 		
 		PositionComponent * pos_com;

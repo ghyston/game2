@@ -14,6 +14,13 @@
 		3F5262CF17FA2D64006E4A3C /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5262CE17FA2D64006E4A3C /* IOKit.framework */; };
 		3F5262D117FA2D6F006E4A3C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5262D017FA2D6F006E4A3C /* Cocoa.framework */; };
 		3F5262D217FA2D98006E4A3C /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FDE0AFB17F61FB8000A7DE1 /* OpenGL.framework */; };
+		3F548CC41827AC9B00BAE9A4 /* TowerRenderable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F548CC21827AC9B00BAE9A4 /* TowerRenderable.cpp */; };
+		3F548CC51827AC9B00BAE9A4 /* TowerRenderable.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F548CC31827AC9B00BAE9A4 /* TowerRenderable.h */; };
+		3F548CC91829726D00BAE9A4 /* EnergyStorageComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F548CC71829726D00BAE9A4 /* EnergyStorageComponent.h */; };
+		3F548CCC18297EA000BAE9A4 /* EnergyBalanceSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F548CCA18297EA000BAE9A4 /* EnergyBalanceSystem.cpp */; };
+		3F548CCD18297EA000BAE9A4 /* EnergyBalanceSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F548CCB18297EA000BAE9A4 /* EnergyBalanceSystem.h */; };
+		3F548CD01829871E00BAE9A4 /* Game2Logic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F548CCE1829871E00BAE9A4 /* Game2Logic.cpp */; };
+		3F548CD11829871E00BAE9A4 /* Game2Logic.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F548CCF1829871E00BAE9A4 /* Game2Logic.h */; };
 		3F7464DC180DD790000650C3 /* ConnectorComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F7464DB180DD790000650C3 /* ConnectorComponent.h */; };
 		3F7464DE180DDD10000650C3 /* LineRenderable.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F7464DD180DDD10000650C3 /* LineRenderable.h */; };
 		3F7464E0180DDDE6000650C3 /* LineRenderable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F7464DF180DDDE6000650C3 /* LineRenderable.cpp */; };
@@ -75,6 +82,13 @@
 		3F5262CC17FA291C006E4A3C /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = ../../../../glfw/libglfw3.a; sourceTree = "<group>"; };
 		3F5262CE17FA2D64006E4A3C /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		3F5262D017FA2D6F006E4A3C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		3F548CC21827AC9B00BAE9A4 /* TowerRenderable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TowerRenderable.cpp; sourceTree = "<group>"; };
+		3F548CC31827AC9B00BAE9A4 /* TowerRenderable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerRenderable.h; sourceTree = "<group>"; };
+		3F548CC71829726D00BAE9A4 /* EnergyStorageComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnergyStorageComponent.h; sourceTree = "<group>"; };
+		3F548CCA18297EA000BAE9A4 /* EnergyBalanceSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnergyBalanceSystem.cpp; sourceTree = "<group>"; };
+		3F548CCB18297EA000BAE9A4 /* EnergyBalanceSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnergyBalanceSystem.h; sourceTree = "<group>"; };
+		3F548CCE1829871E00BAE9A4 /* Game2Logic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Game2Logic.cpp; sourceTree = "<group>"; };
+		3F548CCF1829871E00BAE9A4 /* Game2Logic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game2Logic.h; sourceTree = "<group>"; };
 		3F7464DB180DD790000650C3 /* ConnectorComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectorComponent.h; sourceTree = "<group>"; };
 		3F7464DD180DDD10000650C3 /* LineRenderable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineRenderable.h; sourceTree = "<group>"; };
 		3F7464DF180DDDE6000650C3 /* LineRenderable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LineRenderable.cpp; sourceTree = "<group>"; };
@@ -267,6 +281,8 @@
 				3FDE0B4417F70217000A7DE1 /* EntityFabric.cpp */,
 				3FDE0B4517F70217000A7DE1 /* EntityFabric.h */,
 				3FDE0B4317F70217000A7DE1 /* Components.h */,
+				3F548CCE1829871E00BAE9A4 /* Game2Logic.cpp */,
+				3F548CCF1829871E00BAE9A4 /* Game2Logic.h */,
 			);
 			path = GamePlay;
 			sourceTree = "<group>";
@@ -281,6 +297,7 @@
 				3FD1F6F018265A3F003B0BF4 /* ConnectorComponent.cpp */,
 				3F409CC418105F0C00A8063B /* TargetComponent.h */,
 				3FDB01911825750E003396A4 /* TargetComponent.cpp */,
+				3F548CC71829726D00BAE9A4 /* EnergyStorageComponent.h */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -296,6 +313,8 @@
 				3FDE0B4C17F70217000A7DE1 /* RenderSystem.h */,
 				3F409CC61810606D00A8063B /* TargetEnergySystem.cpp */,
 				3F409CC71810606D00A8063B /* TargetEnergySystem.h */,
+				3F548CCA18297EA000BAE9A4 /* EnergyBalanceSystem.cpp */,
+				3F548CCB18297EA000BAE9A4 /* EnergyBalanceSystem.h */,
 			);
 			path = Systems;
 			sourceTree = "<group>";
@@ -318,6 +337,8 @@
 				3FDE0B5D17F70217000A7DE1 /* shaders.h */,
 				3F7464DD180DDD10000650C3 /* LineRenderable.h */,
 				3F7464DF180DDDE6000650C3 /* LineRenderable.cpp */,
+				3F548CC21827AC9B00BAE9A4 /* TowerRenderable.cpp */,
+				3F548CC31827AC9B00BAE9A4 /* TowerRenderable.h */,
 			);
 			path = Renderer;
 			sourceTree = "<group>";
@@ -329,10 +350,14 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F548CCD18297EA000BAE9A4 /* EnergyBalanceSystem.h in Headers */,
 				3F409CC91810606D00A8063B /* TargetEnergySystem.h in Headers */,
 				3F409CC518105F0C00A8063B /* TargetComponent.h in Headers */,
 				3FDB01901825734D003396A4 /* RefEntity.h in Headers */,
 				3F7464DE180DDD10000650C3 /* LineRenderable.h in Headers */,
+				3F548CC51827AC9B00BAE9A4 /* TowerRenderable.h in Headers */,
+				3F548CD11829871E00BAE9A4 /* Game2Logic.h in Headers */,
+				3F548CC91829726D00BAE9A4 /* EnergyStorageComponent.h in Headers */,
 				3F7464DC180DD790000650C3 /* ConnectorComponent.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,7 +449,9 @@
 				3F409CC81810606D00A8063B /* TargetEnergySystem.cpp in Sources */,
 				3FDE0B6417F7029A000A7DE1 /* Entity.cpp in Sources */,
 				3FDE0B6517F7029A000A7DE1 /* GameLogic.cpp in Sources */,
+				3F548CC41827AC9B00BAE9A4 /* TowerRenderable.cpp in Sources */,
 				3FDE0B6617F7029A000A7DE1 /* EntityFabric.cpp in Sources */,
+				3F548CCC18297EA000BAE9A4 /* EnergyBalanceSystem.cpp in Sources */,
 				3FDE0B6717F7029A000A7DE1 /* CollisionSystem.cpp in Sources */,
 				3FDE0B6817F7029A000A7DE1 /* MoveSystem.cpp in Sources */,
 				3FDB01921825750E003396A4 /* TargetComponent.cpp in Sources */,
@@ -434,6 +461,7 @@
 				3FDE0B6B17F7029A000A7DE1 /* BaseRenderable.cpp in Sources */,
 				3FDE0B6C17F7029A000A7DE1 /* Camera.cpp in Sources */,
 				3FD1F6F118265A3F003B0BF4 /* ConnectorComponent.cpp in Sources */,
+				3F548CD01829871E00BAE9A4 /* Game2Logic.cpp in Sources */,
 				3FDE0B6D17F7029A000A7DE1 /* Grid.cpp in Sources */,
 				3FDE0B6E17F7029A000A7DE1 /* RectRenderable.cpp in Sources */,
 				3FDE0B7017F7029A000A7DE1 /* Shader.cpp in Sources */,

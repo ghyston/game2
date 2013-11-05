@@ -1,31 +1,15 @@
 #include "GameLogic.h"
 
-void GameLogic::start()
-{
-	//render_system = new RenderSystem();
-}
-	
 void GameLogic::step()
-{
-	// @todo: remove deleted components here!
-	
+{	
 	for(size_t i = 0; i < systems.size(); i++)
 	{
-		// @todo: add init_system
-		for(std::map<size_t, Entity*>::iterator it = entities.begin();
-			it != entities.end(); it++)
-
-		{
-			if(!it->second->is_deleted())
-				systems[i]->process(it->second);
-		}
+		systems[i]->pre_step();
+		for(EntityIt it = entities.begin();	it != entities.end(); it++)
+			systems[i]->process(it->second);
+		systems[i]->post_step();
 		erase_removed_entities();
 	}
-}
-	
-void GameLogic::stop()
-{
-	;
 }
 
 void GameLogic::add_system(BaseSystem * system)
@@ -37,7 +21,6 @@ void GameLogic::add_entity(Entity * entity)
 {
 	entities[entity->get_id()] = entity;
 }
-
 
 void GameLogic::remove_entity(Entity * entity)
 {

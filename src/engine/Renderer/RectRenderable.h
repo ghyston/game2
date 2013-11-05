@@ -25,6 +25,11 @@ public:
 	}
 
 	virtual void setup_vertexes();
+	
+	//@note: call setup_vertexes() after that!
+	void set_height(float height) { this->height = height; }
+	//@note: call setup_vertexes() after that!
+	void set_width(float width) { this->width = width; }
 
 private:
 };
