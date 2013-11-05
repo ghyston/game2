@@ -70,7 +70,6 @@ void TargetEnergySystem::update(Entity * entity)
 			move_com->velocity = move_com->speed * -0.1f;
 			//move_com->velocity.x = move_com->speed.x * -0.1f;
 			//move_com->velocity.y = move_com->speed.y * -0.1f;
-			int temp = 600;
 		}
 	}
 	else
