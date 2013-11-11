@@ -16,11 +16,13 @@ class EntityFabric
 {
 public:
 	// @todo: rename to create!
-	static Entity * get_tower(Vec2f coords);
+	static Entity * get_tower(Entity* parent, Vec2f coords);
     
     static Entity * get_connector(Entity * tower_1, Entity * tower_2);
 	
 	static Entity * create_energy(Vec2f coords);
+	
+	static Entity * create_energy_generator(Vec2f coords, float rad, float intensivity);
 		
 };
 

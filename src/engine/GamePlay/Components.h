@@ -29,6 +29,8 @@
 #include "Components/ConnectorComponent.h"
 #include "Components/TargetComponent.h"
 #include "Components/EnergyStorageComponent.h"
+#include "Components/NodeComponent.h"
+#include "Components/EnergyGeneratorComponent.h"
 
 #endif	/* COMPONENTS_H */
 

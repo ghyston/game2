@@ -13,42 +13,38 @@
 //@todo: убрать\прокомментить этот феерический высер
 void TargetEnergySystem::update(Entity * entity)
 {
-	if(!entity->has_component<TargetComponent>())
+	if(!HasCmpt(TargetComponent, entity))
 		return;
 		
-	target_com = entity->get_component<TargetComponent>();
+	GetCmpt(TargetComponent, target_com, entity);
 	
+	//We doesn't have target now, find.
 	if(target_com->target.pointer == NULL)
 	{
-		//@todo: find closest tower in radius
+		//@todo: find closest tower in radius (not by square)
 		Entities& entities = GameEngine::global_data->logic.get_entities();
 		
-		//@todo: too ugly
-		PositionComponent * pos_com = entity->get_component<PositionComponent>();
+		GetCmpt(PositionComponent, pos_com, entity);
 		
-		float min_dist = 10000.0f;
+		float min_dist = 10000.0f; //@todo: remove this dirty hack!
 		Entity* closest_target = NULL;
 		
 		for(EntityIt it = entities.begin();	it != entities.end(); it++)
 		{
 			Entity * temp = it->second;
-			//if(temp->type != Entity::Types::TOWER)
-			//	continue;
 			
-			if(!temp->has_component<EnergyStorageComponent>() || temp == entity)
+			if(!HasCmpt(EnergyStorageComponent, temp) || temp == entity)
 				continue;
 			
-			es_com = temp->get_component<EnergyStorageComponent>();
+			GetCmpt(EnergyStorageComponent, es_com, temp);
 			if(es_com->is_full())
 				continue;
+
+			GetCmpt(PositionComponent, target_pos, temp);
 			
-			PositionComponent * target_pos;
-			target_pos = temp->get_component<PositionComponent>();
-			
-			// @todo: wtf?! Why it doesn't work anymore?
-			Vec2f dist = Vec2f(
-				fabs(target_pos->position.x - pos_com->position.x),
-				fabs(target_pos->position.y - pos_com->position.y));
+			Vec2f dist = target_pos->position - pos_com->position;
+			dist.x = fabs(dist.x);
+			dist.y = fabs(dist.y);
 			
 			if((dist.x + dist.y) < min_dist)
 			{
@@ -64,16 +60,41 @@ void TargetEnergySystem::update(Entity * entity)
 		}
 		else
 		{
-			MovementComponent * move_com = entity->
-				get_component<MovementComponent>();
-			
+			GetCmpt(MovementComponent, move_com, entity);
 			move_com->velocity = move_com->speed * -0.1f;
-			//move_com->velocity.x = move_com->speed.x * -0.1f;
 		}
 	}
-	else
+	else //entity has target
 	{
-		EnergyStorageComponent * enesto = target_com->target.pointer->get_component<EnergyStorageComponent>();
+		Entity * target = target_com->target.pointer;
+		GetCmpt(EnergyStorageComponent, enesto, target);
+		GetCmpt(PositionComponent, target_pos_com, target);
+		GetCmpt(NodeComponent, target_node_com, target);
+		
+		GetCmpt(MovementComponent, move_com, entity);
+		GetCmpt(PositionComponent, pos_com, entity);
+
+		Vec2f dist = target_pos_com->position - pos_com->position;
+		if(dist.x < 0.01f && dist.y < 0.01f) //@todo: square collision!
+		{
+			pos_com->position = target_pos_com->position;
+			if(target_node_com->parent != NULL)
+			{
+				GetCmpt(EnergyStorageComponent, parent_es_com, target_node_com->parent);
+				if(!parent_es_com->is_full())
+				{
+					
+					target_com->target.pointer = target_node_com->parent;
+				}
+				else
+				{
+					merge_energy(target, entity);
+				}
+			}
+			else
+				merge_energy(target, entity);
+		}
+		
 		if(enesto->is_full())
 		{
 			//@todo: check, is del_ref work correctly!
@@ -82,20 +103,17 @@ void TargetEnergySystem::update(Entity * entity)
 		}
 		
 		
-		MovementComponent * move_com = entity->get_component<MovementComponent>();
-		
-		PositionComponent * pos_com;
-		pos_com = target_com->target.pointer->get_component<PositionComponent>();
-		
-		Vec2f target_pos = pos_com->position;
-		
-		pos_com = entity->get_component<PositionComponent>();
-		
-		Vec2f velocity = Vec2f(
-			(- pos_com->position.x + target_pos.x),
-			(- pos_com->position.y + target_pos.y));
-				
-		//@todo: too ugly here
-		move_com->velocity = velocity;
+		move_com->speed = dist;
+		move_com->speed.lenth(0.5f); //0.5 per sec.
 	}
+}
+
+void TargetEnergySystem::merge_energy(Entity * tower, Entity * energy)
+{
+	GetCmpt(EnergyStorageComponent, enesto, tower);
+	if(!enesto->is_full())
+		enesto->value++;
+	GetCmpt(TargetComponent, target_com, energy);
+	target_com->target.del_ref();
+	energy->mark_deleted();
 }

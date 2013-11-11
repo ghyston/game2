@@ -13,6 +13,9 @@
 #include "../GamePlay/Components.h"
 #include "RefEntity.h"
 
+#define GetCmpt(type,name,entity) type* name = entity->get_component<type>();
+#define HasCmpt(type,entity) entity->has_component<type>()
+
 class Entity
 {
 public:

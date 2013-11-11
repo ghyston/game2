@@ -6,27 +6,26 @@
 
 void CollisionSystem::update(Entity* entity)
 {
-	if(!entity->has_component<PositionComponent>() ||
-	   !entity->has_component<MovementComponent>() ||
-	   !entity->has_component<TargetComponent>())
+	if(!HasCmpt(PositionComponent, entity) ||
+	   !HasCmpt(MovementComponent, entity) ||
+	   !HasCmpt(TargetComponent, entity))
 		return;
 	
-	position_com = entity->get_component<PositionComponent>();
-	move_com = entity->get_component<MovementComponent>();
-	target_com = entity->get_component<TargetComponent>();
+	GetCmpt(PositionComponent,	position_com,	entity);
+	GetCmpt(TargetComponent,		target_com,		entity);
 	
 	if(target_com->target.pointer == NULL)
 		return;
 	
-	if(!target_com->target.pointer->has_component<PositionComponent>())
+	if(!HasCmpt(PositionComponent, target_com->target.pointer))
 		return;
 		
 	PositionComponent * target_pos;
 	target_pos = target_com->target.pointer->get_component<PositionComponent>();
 		
-	Vec2f dist;
-	dist.x = fabs(target_pos->position.x - position_com->position.x);
-	dist.y = fabs(target_pos->position.y - position_com->position.y);
+	Vec2f dist = target_pos->position - position_com->position;
+	dist.x = fabs(dist.x);
+	dist.y = fabs(dist.y);
 		
 	if((dist.x < 0.1f) && (dist.y < 0.1f))
 	{
@@ -38,16 +37,17 @@ void CollisionSystem::update(Entity* entity)
 		coords.y = 0.5f * ((rand() % 100) * 0.02f - 1.0f);
 		
 		Entity* new_energy = EntityFabric::create_energy(coords);
-		MovementComponent* move_com;
-		move_com = new_energy->get_component<MovementComponent>();
+		GetCmpt(MovementComponent, move_com, new_energy);
 			
 		Vec2f new_speed(0.0f, 0.0f);
 		move_com->speed = new_speed;
 		GameEngine::global_data->logic.add_entity(new_energy);
 		
 		//@todo: add has_component!
-		EnergyStorageComponent * enesto =
-			target_com->target.pointer->get_component<EnergyStorageComponent>();
+		if(!HasCmpt(EnergyStorageComponent, target_com->target.pointer))
+			return;
+		
+		GetCmpt(EnergyStorageComponent, enesto, target_com->target.pointer);
 		if(!enesto->is_full())
 			enesto->value++;
 	}

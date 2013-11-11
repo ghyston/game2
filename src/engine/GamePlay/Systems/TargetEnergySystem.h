@@ -15,14 +15,16 @@
 
 class TargetEnergySystem : public BaseSystem
 {
-private:
-	
-	TargetComponent * target_com;
-	EnergyStorageComponent * es_com;
-	
 public:
 	
 	void update(Entity * entity);
+	
+private:
+	
+	//bool has_collision(PositionComponent * pos_1, PositionComponent * pos_2);
+	
+	void merge_energy(Entity * tower, Entity * energy);
+
 };
 
 #endif /* defined(__Game2__TargetEnergySystem__) */

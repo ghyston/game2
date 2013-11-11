@@ -3,17 +3,15 @@
 void MoveSystem::update(Entity* entity)
 {
     if(
-       !entity->has_component<PositionComponent>() ||
-       !entity->has_component<MovementComponent>())
+       !HasCmpt(PositionComponent, entity) ||
+       !HasCmpt(MovementComponent, entity))
         return;
     
-	position_com = entity->get_component<PositionComponent>();
-	move_com = entity->get_component<MovementComponent>();
+	GetCmpt(PositionComponent, pos_com, entity);
+	GetCmpt(MovementComponent, move_com, entity);
 	
 	float delta = Timer::get_delta();
 	
-	position_com->position.x += move_com->speed.x * delta;
-	position_com->position.y += move_com->speed.y * delta;
-	move_com->speed.x += move_com->velocity.x * delta;
-	move_com->speed.y += move_com->velocity.y * delta;
+	pos_com->position += move_com->speed * delta;
+	move_com->speed += move_com->velocity * delta;
 }

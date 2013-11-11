@@ -11,6 +11,7 @@
 #include "RectRenderable.h"
 #include "LineRenderable.h"
 #include "TowerRenderable.h"
+#include "CircleRenderable.h"
 #include "Grid.h"
 
 /**
@@ -41,6 +42,8 @@ public:
 	//@note: energy should be 0.0f .. 1.0f!
 	void draw_tower(Vec2f coords, float energy);
 	
+	void draw_circle(Vec2f coords);
+	
 private:
     
     void init_shaders();
@@ -70,6 +73,8 @@ private:
     void init_line();
 	
 	void init_tower();
+	
+	void init_circle();
     
     RectRenderable * rect;
     
@@ -81,6 +86,8 @@ private:
     LineRenderable * line;
 	
 	TowerRenderable * tower_rend;
+	
+	CircleRenderable * circle;
 
 };
 

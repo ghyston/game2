@@ -10,7 +10,7 @@
 
 void TowerRenderable::Init()
 {
-	back = new RectRenderable(size * 1.1f, size * 1.1f);
+	back = new RectRenderable(size, size);
     back->setup_vertexes();
     back->set_shader(this->shader);
     back->color[0] = 0.1f;

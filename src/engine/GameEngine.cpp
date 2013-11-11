@@ -6,6 +6,9 @@
 #include "Timer.h"
 #include "GamePlay/EntityFabric.h"
 
+//@todo: delete this include on release
+#include "Common/Tests.h"
+
 
 GameEngine*     GameEngine::instance    = (GameEngine*) 0;
 GlobalData*     GameEngine::global_data = new GlobalData();
@@ -57,6 +60,7 @@ void GameEngine::process_input(int key)
 
 void GameEngine::init(int width, int height)
 {
+	test_vectors();
     global_data->init_scene();
 	global_data->screen.setup(height, width); // @todo: do we need that?
     renderer->init();

@@ -2,8 +2,10 @@
 #include "../GameEngine.h"
 
 
-Entity * EntityFabric::get_tower(Vec2f coords)
+Entity * EntityFabric::get_tower(Entity* parent, Vec2f coords)
 {
+	//@todo: assert, has parend NodeComponent or not!
+	
 	Entity* tower = Entity::create();
 	tower->type = Entity::Types::TOWER;
 	
@@ -25,8 +27,18 @@ Entity * EntityFabric::get_tower(Vec2f coords)
 	
 	EnergyStorageComponent * es_com = new EnergyStorageComponent();
 	es_com->limit = 100;
-	es_com->value = 25;
+	es_com->value = 0;
 	tower->add_component<EnergyStorageComponent>(es_com);
+	
+	NodeComponent * node_com = new NodeComponent();
+	node_com->parent = parent;
+	tower->add_component<NodeComponent>(node_com);
+	
+	if(parent != NULL)
+	{
+		GetCmpt(NodeComponent, parent_node_com, parent);
+		parent_node_com->children.push_back(tower);
+	}
 	
 	return tower;
 }
@@ -77,4 +89,24 @@ Entity * EntityFabric::create_energy(Vec2f coords)
 	energy->add_component<TargetComponent>(target_com);
 	
 	return energy;
+}
+
+Entity * EntityFabric::create_energy_generator(Vec2f coords, float rad, float intensivity)
+{
+	Entity * generator = Entity::create();
+	
+	PositionComponent * pos_com = new PositionComponent();
+	pos_com->position = coords;
+	generator->add_component<PositionComponent>(pos_com);
+	
+	EnergyGeneratorComponent * en_gen_com = new EnergyGeneratorComponent();
+	en_gen_com->radius = rad;
+	en_gen_com->intensivity = intensivity;
+	generator->add_component<EnergyGeneratorComponent>(en_gen_com);
+	
+	RenderComponent * render_com = new RenderComponent();
+    render_com->draw_type = RenderComponent::DRAW_CIRCLE;
+	generator->add_component<RenderComponent>(render_com);
+	
+	return generator;
 }

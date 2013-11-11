@@ -8,6 +8,7 @@ Renderer::Renderer()
 {
     rect = NULL;
     grid = NULL;
+	circle = NULL;
 }
 
 Renderer::~Renderer()
@@ -30,6 +31,7 @@ void Renderer::init()
     init_grid();
     init_line();
 	init_tower();
+	init_circle();
 }
 
 void Renderer::init_rect()
@@ -81,6 +83,19 @@ void Renderer::init_tower()
 	tower_rend->Init();
 }
 
+void Renderer::init_circle()
+{
+	circle = new CircleRenderable();
+	circle->set_shader(simple_shader);
+	circle->radius(0.3f); //value here is hardcoded
+	circle->setup_vertexes();
+	circle->color[0] = 0.2f;
+    circle->color[1] = 0.5f;
+    circle->color[2] = 0.2f;
+    circle->color[3] = 1.0f;
+}
+
+
 void Renderer::draw_grid()
 {
     if(grid != NULL)
@@ -121,6 +136,15 @@ void Renderer::draw_tower(Vec2f coords, float energy)
 	tower_rend->coords = coords;
 	tower_rend->set_energy(energy);
 	tower_rend->Draw();
+}
+
+void Renderer::draw_circle(Vec2f coords)
+{
+	if(circle == NULL)
+		return;
+	
+	circle->coords = coords;
+	circle->Draw();
 }
 
 void Renderer::resize(int width, int height)
