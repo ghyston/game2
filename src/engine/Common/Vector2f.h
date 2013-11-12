@@ -23,6 +23,12 @@ struct Vec2f
 		this->y = vec.y;
 	}
 	
+	Vec2f(float size)
+	{
+		this->x = size;
+		this->y = size;
+	}
+	
 	Vec2f& operator+= (const Vec2f& vec)
 	{
 		this->x += vec.x;

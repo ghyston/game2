@@ -3,13 +3,13 @@
 
 #include "Renderer/Renderer.h"
 #include "GlobalData.h"
+#include "InputProcessor.h"
 
 /**
 * Main game manager. Singletone.
 */
 class GameEngine
 {
-private:
 public:
 	//Work with OpenGL
 	static Renderer * renderer;
@@ -19,6 +19,8 @@ public:
 
 	//Instance.
 	static GameEngine* instance;
+	
+	static InputProcessor* input_processor;
 	
 	//Private c-tor.
 	GameEngine();

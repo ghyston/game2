@@ -13,6 +13,7 @@
 GameEngine*     GameEngine::instance    = (GameEngine*) 0;
 GlobalData*     GameEngine::global_data = new GlobalData();
 Renderer *		GameEngine::renderer = new Renderer();
+InputProcessor* GameEngine::input_processor = new InputProcessor();
 
 GameEngine::GameEngine()
 {
@@ -50,7 +51,7 @@ Renderer* GameEngine::get_renderer()
 
 void GameEngine::process_touch(int id, int touch_type, float x, float y)
 {
-	// @todo: process touch inputs here!
+	input_processor->process_touch(touch_type, x, y);
 }
 
 void GameEngine::process_input(int key)
@@ -60,7 +61,7 @@ void GameEngine::process_input(int key)
 
 void GameEngine::init(int width, int height)
 {
-	test_vectors();
+	//test_vectors();
     global_data->init_scene();
 	global_data->screen.setup(height, width); // @todo: do we need that?
     renderer->init();

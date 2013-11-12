@@ -30,3 +30,12 @@ bool GlobalData::init_scene()
 	
     return true;
 }
+
+Vec2f GlobalData::convert_coordinates(Vec2f screen_coord)
+{
+	Vec2f result;
+	result.x = - 2.0f * screen_coord.x / screen.width + 1.0f;
+	result.y = 2.0f * screen.ratio * screen_coord.y / screen.height - screen.ratio; // @todo: too expencive every time
+	
+	return result;
+}

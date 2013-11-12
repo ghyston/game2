@@ -31,6 +31,7 @@
 #include "Components/EnergyStorageComponent.h"
 #include "Components/NodeComponent.h"
 #include "Components/EnergyGeneratorComponent.h"
+#include "Components/TouchableComponent.h"
 
 #endif	/* COMPONENTS_H */
 

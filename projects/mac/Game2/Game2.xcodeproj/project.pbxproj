@@ -13,6 +13,8 @@
 		3F409CC518105F0C00A8063B /* TargetComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F409CC418105F0C00A8063B /* TargetComponent.h */; };
 		3F409CC81810606D00A8063B /* TargetEnergySystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F409CC61810606D00A8063B /* TargetEnergySystem.cpp */; };
 		3F409CC91810606D00A8063B /* TargetEnergySystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F409CC71810606D00A8063B /* TargetEnergySystem.h */; };
+		3F49B7B31832B02B00EE7639 /* InputProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F49B7B11832B02B00EE7639 /* InputProcessor.cpp */; };
+		3F49B7B41832B02B00EE7639 /* InputProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F49B7B21832B02B00EE7639 /* InputProcessor.h */; };
 		3F4ECCE2182F9540002425F7 /* CircleRenderable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F4ECCE0182F9540002425F7 /* CircleRenderable.cpp */; };
 		3F4ECCE3182F9540002425F7 /* CircleRenderable.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F4ECCE1182F9540002425F7 /* CircleRenderable.h */; };
 		3F5262CD17FA291C006E4A3C /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5262CC17FA291C006E4A3C /* libglfw3.a */; };
@@ -92,6 +94,9 @@
 		3F409CC418105F0C00A8063B /* TargetComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TargetComponent.h; sourceTree = "<group>"; };
 		3F409CC61810606D00A8063B /* TargetEnergySystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TargetEnergySystem.cpp; sourceTree = "<group>"; };
 		3F409CC71810606D00A8063B /* TargetEnergySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TargetEnergySystem.h; sourceTree = "<group>"; };
+		3F49B7B11832B02B00EE7639 /* InputProcessor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputProcessor.cpp; sourceTree = "<group>"; };
+		3F49B7B21832B02B00EE7639 /* InputProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputProcessor.h; sourceTree = "<group>"; };
+		3F49B7B51832B79B00EE7639 /* TouchableComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchableComponent.h; sourceTree = "<group>"; };
 		3F4ECCE0182F9540002425F7 /* CircleRenderable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CircleRenderable.cpp; sourceTree = "<group>"; };
 		3F4ECCE1182F9540002425F7 /* CircleRenderable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleRenderable.h; sourceTree = "<group>"; };
 		3F5262CC17FA291C006E4A3C /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = ../../../../glfw/libglfw3.a; sourceTree = "<group>"; };
@@ -259,6 +264,8 @@
 				3FDE0B4E17F70217000A7DE1 /* GlobalData.h */,
 				3FDE0B5E17F70217000A7DE1 /* Timer.cpp */,
 				3FDE0B5F17F70217000A7DE1 /* Timer.h */,
+				3F49B7B11832B02B00EE7639 /* InputProcessor.cpp */,
+				3F49B7B21832B02B00EE7639 /* InputProcessor.h */,
 			);
 			name = engine;
 			path = ../../../../src/engine;
@@ -324,6 +331,7 @@
 				3F708DB5182D5B3300BF964E /* NodeComponent.cpp */,
 				3F708DB6182D5B3300BF964E /* NodeComponent.h */,
 				3F01CA2218315BB6004DCCE5 /* EnergyGeneratorComponent.h */,
+				3F49B7B51832B79B00EE7639 /* TouchableComponent.h */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -381,6 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F548CCD18297EA000BAE9A4 /* EnergyBalanceSystem.h in Headers */,
+				3F49B7B41832B02B00EE7639 /* InputProcessor.h in Headers */,
 				3F409CC91810606D00A8063B /* TargetEnergySystem.h in Headers */,
 				3F4ECCE3182F9540002425F7 /* CircleRenderable.h in Headers */,
 				3F409CC518105F0C00A8063B /* TargetComponent.h in Headers */,
@@ -494,6 +503,7 @@
 				3FDE0B6817F7029A000A7DE1 /* MoveSystem.cpp in Sources */,
 				3FDB01921825750E003396A4 /* TargetComponent.cpp in Sources */,
 				3F7464E0180DDDE6000650C3 /* LineRenderable.cpp in Sources */,
+				3F49B7B31832B02B00EE7639 /* InputProcessor.cpp in Sources */,
 				3FDE0B6917F7029A000A7DE1 /* RenderSystem.cpp in Sources */,
 				3FDE0B6A17F7029A000A7DE1 /* GlobalData.cpp in Sources */,
 				3FDE0B6B17F7029A000A7DE1 /* BaseRenderable.cpp in Sources */,

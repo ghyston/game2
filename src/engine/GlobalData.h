@@ -39,6 +39,8 @@ public:
     
     bool init_scene();
 	
+	Vec2f convert_coordinates(Vec2f screen_coord);
+	
 };
 
 

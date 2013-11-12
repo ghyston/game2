@@ -23,6 +23,28 @@ void My_Key_Callback(GLFWwindow* wnd, int key, int action, int, int)
 }
 
 
+void MouseClickCallback(GLFWwindow * wnd, int button, int action, int mods)
+{
+	if(button != GLFW_MOUSE_BUTTON_LEFT)
+		return;
+	
+	double mouse_x = 0.0f;
+	double mouse_y = 0.0f;
+	
+	glfwGetCursorPos(wnd, &mouse_x, &mouse_y);
+	
+	//@todo: not good, may be other actions on da futurum
+	int touch_type = (action == GLFW_PRESS) ?
+	InputProcessor::TouchTypes::PRESS : InputProcessor::TouchTypes::RELEASE;
+	instance->process_touch(0, touch_type, mouse_x, mouse_y);
+}
+
+void MouseCursorCallback(GLFWwindow * wnd, double x, double y)
+{
+	instance->process_touch(0, InputProcessor::TouchTypes::MOVE, x, y);
+}
+
+
 int main(int argc, char ** argv)
 {
     GLFWwindow* window;
@@ -43,6 +65,8 @@ int main(int argc, char ** argv)
        // glfwSetKeyCallback(window, key_callback);
 	
 	glfwSetKeyCallback(window, My_Key_Callback);
+	glfwSetMouseButtonCallback(window, MouseClickCallback);
+	glfwSetCursorPosCallback(window, MouseCursorCallback);
     
     GameEngine::create_instance();
        instance = GameEngine::get_instance();
