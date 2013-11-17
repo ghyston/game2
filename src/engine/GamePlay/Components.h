@@ -32,6 +32,7 @@
 #include "Components/NodeComponent.h"
 #include "Components/EnergyGeneratorComponent.h"
 #include "Components/TouchableComponent.h"
+#include "Components/PlayerIdComponent.h"
 
 #endif	/* COMPONENTS_H */
 

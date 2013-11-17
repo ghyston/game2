@@ -21,8 +21,6 @@ public:
 	
 private:
 	
-	//bool has_collision(PositionComponent * pos_1, PositionComponent * pos_2);
-	
 	void merge_energy(Entity * tower, Entity * energy);
 
 };

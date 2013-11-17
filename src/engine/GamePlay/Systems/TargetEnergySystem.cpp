@@ -11,6 +11,7 @@
 #include "../../ECS/GameLogic.h"
 
 //@todo: убрать\прокомментить этот феерический высер
+// @todo: и сделать это, видимо, перед релизом
 void TargetEnergySystem::update(Entity * entity)
 {
 	if(!HasCmpt(TargetComponent, entity))
@@ -18,101 +19,104 @@ void TargetEnergySystem::update(Entity * entity)
 		
 	GetCmpt(TargetComponent, target_com, entity);
 	
-	//We doesn't have target now, find.
+	//If target is null, dissappear
 	if(target_com->target.pointer == NULL)
 	{
-		//@todo: find closest tower in radius (not by square)
-		Entities& entities = GameEngine::global_data->logic.get_entities();
-		
-		GetCmpt(PositionComponent, pos_com, entity);
-		
-		float min_dist = 10000.0f; //@todo: remove this dirty hack!
-		Entity* closest_target = NULL;
-		
-		for(EntityIt it = entities.begin();	it != entities.end(); it++)
-		{
-			Entity * temp = it->second;
-			
-			if(!HasCmpt(EnergyStorageComponent, temp) || temp == entity)
-				continue;
-			
-			GetCmpt(EnergyStorageComponent, es_com, temp);
-			if(es_com->is_full())
-				continue;
-
-			GetCmpt(PositionComponent, target_pos, temp);
-			
-			Vec2f dist = target_pos->position - pos_com->position;
-			dist.x = fabs(dist.x);
-			dist.y = fabs(dist.y);
-			
-			if((dist.x + dist.y) < min_dist)
-			{
-				closest_target = temp;
-				min_dist = dist.x + dist.y;
-			}
-		}
-		
-		if(closest_target != NULL)
-		{
-			target_com->target.pointer = closest_target;
-			closest_target->register_listener(&target_com->target);
-		}
-		else
-		{
-			GetCmpt(MovementComponent, move_com, entity);
-			move_com->velocity = move_com->speed * -0.1f;
-		}
+		target_com->target.del_ref();
+		entity->mark_deleted();
+		return;
 	}
-	else //entity has target
-	{
-		Entity * target = target_com->target.pointer;
-		GetCmpt(EnergyStorageComponent, enesto, target);
-		GetCmpt(PositionComponent, target_pos_com, target);
-		GetCmpt(NodeComponent, target_node_com, target);
 		
-		GetCmpt(MovementComponent, move_com, entity);
-		GetCmpt(PositionComponent, pos_com, entity);
+	Entity * target = target_com->target.pointer;
+	GetCmpt(EnergyStorageComponent, enesto, target);
+	GetCmpt(PositionComponent, target_pos_com, target);
+	GetCmpt(NodeComponent, target_node_com, target);
+		
+	GetCmpt(MovementComponent, move_com, entity);
+	GetCmpt(PositionComponent, pos_com, entity);
 
-		Vec2f dist = target_pos_com->position - pos_com->position;
-		if(dist.x < 0.01f && dist.y < 0.01f) //@todo: square collision!
+	//If energy reached target
+	Vec2f dist = target_pos_com->position - pos_com->position;
+	bool target_changed = false;
+	if(dist.length() < 0.01f)
+	{
+		//@todo: Check, is target enemy tower
+		if(target_com->target_enemy)
 		{
-			pos_com->position = target_pos_com->position;
-			if(target_node_com->parent != NULL)
-			{
-				GetCmpt(EnergyStorageComponent, parent_es_com, target_node_com->parent);
-				if(!parent_es_com->is_full())
-				{
-					
-					target_com->target.pointer = target_node_com->parent;
-				}
-				else
-				{
-					merge_energy(target, entity);
-				}
-			}
-			else
-				merge_energy(target, entity);
-		}
-		
-		if(enesto->is_full())
-		{
-			//@todo: check, is del_ref work correctly!
+			GetCmpt(EnergyStorageComponent, target_enesto_cmpt, target_com->target.pointer);
+			
+			target_enesto_cmpt->value -= 1;
 			target_com->target.del_ref();
+			entity->mark_deleted();
+			
+			if(target_enesto_cmpt-> value == 0)
+			{
+				// @todo: tower deleting realized not really good
+				// @uncomment this, when deleting towers would be done
+			//	target_com->target.pointer->mark_deleted();
+			}
 			return;
 		}
 		
+		pos_com->position = target_pos_com->position;
 		
-		move_com->speed = dist;
-		move_com->speed.lenth(0.5f); //0.5 per sec.
+		std::vector<Entity*>::iterator it = target_node_com->children.begin();
+		
+		Entity * next_target = target;
+		
+		float min_energy_balance = 1.0f;
+		while (it != target_node_com->children.end())
+		{
+			GetCmpt(EnergyStorageComponent, enesto_child, (*it));
+			if(enesto_child->balance < min_energy_balance)
+			{
+				next_target = *it;
+				min_energy_balance = enesto_child->balance;
+			}
+			it++;
+		}
+			
+		if(min_energy_balance == 1.0) //children are full (or not exist)
+		{
+			if(!enesto->is_full())
+				merge_energy(target, entity);
+			else
+			{
+				// All childs are full and we have reached base tower.
+				if(target_node_com->parent == NULL)
+				{
+					target_com->target.del_ref();
+					entity->mark_deleted();
+					return;
+				}
+				
+				target_com->target.pointer = target_node_com->parent;
+				target_changed = true;
+			}
+		}
+		else
+		{
+			target_com->target.pointer = next_target;
+			target_changed = true;
+		}
+
 	}
+	
+	if(target_changed)
+	{
+		GetCmpt(PositionComponent, new_target_pos, target_com->target.pointer);
+		dist = new_target_pos->position - pos_com->position;
+	}
+			
+	move_com->speed = dist;
+	move_com->speed.lenth(0.5f); //0.5 per sec.
+
 }
 
 void TargetEnergySystem::merge_energy(Entity * tower, Entity * energy)
 {
 	GetCmpt(EnergyStorageComponent, enesto, tower);
-	if(!enesto->is_full())
-		enesto->value++;
+	enesto->add_energy(1); // @todo: this should be out constant!
 	GetCmpt(TargetComponent, target_com, energy);
 	target_com->target.del_ref();
 	energy->mark_deleted();

@@ -32,6 +32,7 @@ void Renderer::init()
     init_line();
 	init_tower();
 	init_circle();
+	init_ring();
 }
 
 void Renderer::init_rect()
@@ -95,6 +96,19 @@ void Renderer::init_circle()
     circle->color[3] = 1.0f;
 }
 
+void Renderer::init_ring()
+{
+	ring = new RingRenderable();
+	ring->set_shader(simple_shader);
+	ring->radius(0.05f);
+	ring->setup_vertexes();
+	ring->color[0] = 0.2f;
+    ring->color[1] = 0.5f;
+    ring->color[2] = 0.2f;
+    ring->color[3] = 1.0f;
+}
+
+
 
 void Renderer::draw_grid()
 {
@@ -147,6 +161,15 @@ void Renderer::draw_circle(Vec2f coords)
 	circle->Draw();
 }
 
+void Renderer::draw_ring(Vec2f coords)
+{
+	if(ring == NULL)
+		return;
+	
+	ring->coords = coords;
+	ring->Draw();
+}
+
 void Renderer::resize(int width, int height)
 {
     glViewport(0, 0, width, height);
@@ -157,10 +180,11 @@ void Renderer::clear_frame()
 	glClearColor(0.95f, 0.95f, 0.95f, 1.0f);
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 	Vec2f cam_pos = GameEngine::get_data()->camera->coords;
+	float zoom = GameEngine::get_data()->camera->zoom_koeff;
 	float koeff = GameEngine::get_data()->screen.ratio;
 	setup_ortho(
-		cam_pos.x - 1.0f, cam_pos.x + 1.0f,
-		cam_pos.y - koeff, cam_pos.y + koeff);
+		cam_pos.x - zoom * 1.0f, cam_pos.x + zoom * 1.0f,
+		cam_pos.y - zoom * koeff, cam_pos.y + zoom * koeff);
 }
 
 void Renderer::init_shaders()
@@ -176,8 +200,8 @@ void Renderer::setup_ortho(float left, float right, float bottom, float top, flo
 	float b = 2.0f / (top - bottom);
 	float c = -2.0f / (far - near);
 
-	float tx = -(right + left) / (right - left);
-	float ty = -(top + bottom) / (top - bottom);
+	float tx = -(right + left) / 2.0f;
+	float ty = -(top + bottom) / 2.0f;
 	float tz = -(far + near) / (far - near);
 
 	mx_translate->Translate(tx, ty, tz);

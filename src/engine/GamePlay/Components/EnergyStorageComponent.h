@@ -17,10 +17,13 @@ public:
 	
 	unsigned int limit;
 	unsigned int value;
+	float balance;
 	
 	float get_percentage() { return (float)value / (float)limit; }
 	bool is_full() { return value >= limit; }
 	bool is_empty() { return value == 0; }
+	void add_energy(int count);
+	
 };
 
 #endif /* defined(__Game2__EnergyStorage__) */

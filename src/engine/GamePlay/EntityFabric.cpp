@@ -35,7 +35,7 @@ Entity * EntityFabric::get_tower(Entity* parent, Vec2f coords)
 	tower->add_component<NodeComponent>(node_com);
 	
 	TouchableComponent * touch_com = new TouchableComponent();
-	touch_com->touch_size = 0.3f;
+	touch_com->touch_size = 0.05f;
 	tower->add_component<TouchableComponent>(touch_com);
 	
 	if(parent != NULL)
@@ -43,6 +43,9 @@ Entity * EntityFabric::get_tower(Entity* parent, Vec2f coords)
 		GetCmpt(NodeComponent, parent_node_com, parent);
 		parent_node_com->children.push_back(tower);
 	}
+	
+	PlayerIdComponent * plr_id_cmpt = new PlayerIdComponent();
+	tower->add_component<PlayerIdComponent>(plr_id_cmpt);
 	
 	return tower;
 }

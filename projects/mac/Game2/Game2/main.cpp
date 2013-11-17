@@ -18,8 +18,7 @@ void reshape(int width, int height);
 
 void My_Key_Callback(GLFWwindow* wnd, int key, int action, int, int)
 {
-	if (key == 'A' and action == GLFW_RELEASE)
-		instance->process_input(key);
+	instance->process_input(key);
 }
 
 

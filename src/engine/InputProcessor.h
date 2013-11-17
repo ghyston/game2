@@ -9,6 +9,9 @@
 #ifndef __Game2__InputProcessor__
 #define __Game2__InputProcessor__
 
+#include <string.h>
+#include <sstream>
+
 #include "GlobalData.h"
 
 class InputProcessor
@@ -26,7 +29,7 @@ public:
 	};
 
 	
-	InputProcessor() : touched_entity(NULL) {;}
+	InputProcessor() : touched_entity(NULL), new_entity_created(false) {;}
 	
 	void process_touch(int type, float screen_x, float screen_y);
 	
@@ -38,9 +41,12 @@ private:
 	//@todo: entity can be destroyed here, be carefull!
 	Entity * touched_entity;
 	Vec2f old_entity_coords;
+	bool new_entity_created;
 	
 	// return pointer to founded entity or NULL if not found.
 	Entity * find_entity(Vec2f world_coords);
+	
+	
 	
 };
 

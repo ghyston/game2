@@ -37,6 +37,8 @@ void GameEngine::step()
     renderer->clear_frame();
     renderer->draw_grid();
 	global_data->logic.step();
+	global_data->cursor.Draw();
+	renderer->draw_small_rect(global_data->camera->coords);
 }
 
 GlobalData* GameEngine::get_data()
@@ -56,7 +58,23 @@ void GameEngine::process_touch(int id, int touch_type, float x, float y)
 
 void GameEngine::process_input(int key)
 {
-	// @todo: process key/mouse events here!
+	//@todo: this is test feature, not fhinished correctly
+	if(key == 'A') //inrease
+	{
+		float current_zoom = global_data->camera->zoom_koeff;
+		current_zoom += 0.1;
+		global_data->camera->zoom(current_zoom);
+	}
+	else if (key == 'S')
+	{
+		float current_zoom = global_data->camera->zoom_koeff;
+		current_zoom -= 0.1;
+		global_data->camera->zoom(current_zoom);
+	}
+	else if (key == 'R')
+	{
+		global_data->camera->zoom(1.0f);
+	}
 }
 
 void GameEngine::init(int width, int height)

@@ -15,8 +15,11 @@
 class TargetComponent : public IComponent
 {
 public:
+	
+	TargetComponent() : target_enemy (false) {;}
     
     RefEntity target;
+	bool target_enemy;
 	
 	~TargetComponent();
 

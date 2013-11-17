@@ -20,6 +20,10 @@ class EnergyBalanceSystem : public BaseSystem
 	
 public:
 	
+	EnergyBalanceSystem() :
+		sum_energy(0), count_storage(0), last_time_feeded(0.0f)
+	{;}
+	
 	// This keep sum_energy/count_storage, that calculates every step.
 	static int average_energy;
 	
@@ -27,6 +31,12 @@ public:
 
 	virtual void pre_step();
 	virtual void post_step();
+	
+private:
+	
+	float calc_energy(Entity * tower);
+	
+	float last_time_feeded;
 	
 };
 

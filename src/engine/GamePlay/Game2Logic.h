@@ -17,6 +17,11 @@ public:
 	void start();
 	void stop();
 	
+	void add_tower(Entity * tower);
+	void add_energy(Entity * energy, Entity * generator);
+	
+	void tower_attack(Entity * from, Entity * to);
+	
 };
 
 #endif /* defined(__Game2__Game2Logic__) */

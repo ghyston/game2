@@ -16,14 +16,17 @@ class EnergyGeneratorComponent : public IComponent
 public:
 	
 	EnergyGeneratorComponent() :
-		radius(0.0f),
+		radius(0.2f),
 		intensivity(0.0f),
-		activated(true) // @todo: this is just a hack
+		activated(false) // @todo: this is just a hack
 	{;}
 	
 	float radius;	
 	float intensivity;
 	bool activated;
+	
+	//this is a towers nearby.
+	std::vector<Entity*> towers;
 };
 
 #endif

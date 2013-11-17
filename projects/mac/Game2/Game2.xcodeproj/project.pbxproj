@@ -36,6 +36,11 @@
 		3F7464DC180DD790000650C3 /* ConnectorComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F7464DB180DD790000650C3 /* ConnectorComponent.h */; };
 		3F7464DE180DDD10000650C3 /* LineRenderable.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F7464DD180DDD10000650C3 /* LineRenderable.h */; };
 		3F7464E0180DDDE6000650C3 /* LineRenderable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F7464DF180DDDE6000650C3 /* LineRenderable.cpp */; };
+		3FB125811837E2AA00494376 /* EnergyStorageComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FB1257F1837E2AA00494376 /* EnergyStorageComponent.cpp */; };
+		3FC2B00F1838D7DA00FA5B5E /* Cursor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FC2B00D1838D7DA00FA5B5E /* Cursor.cpp */; };
+		3FC2B0101838D7DA00FA5B5E /* Cursor.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC2B00E1838D7DA00FA5B5E /* Cursor.h */; };
+		3FC2B0131838DCAD00FA5B5E /* RingRenderable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FC2B0111838DCAD00FA5B5E /* RingRenderable.cpp */; };
+		3FC2B0141838DCAD00FA5B5E /* RingRenderable.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC2B0121838DCAD00FA5B5E /* RingRenderable.h */; };
 		3FD1F6F118265A3F003B0BF4 /* ConnectorComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1F6F018265A3F003B0BF4 /* ConnectorComponent.cpp */; };
 		3FD1F6F31826693D003B0BF4 /* RefEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1F6F21826693D003B0BF4 /* RefEntity.cpp */; };
 		3FDB01901825734D003396A4 /* RefEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FDB018E1825734D003396A4 /* RefEntity.h */; };
@@ -117,6 +122,12 @@
 		3F7464DB180DD790000650C3 /* ConnectorComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectorComponent.h; sourceTree = "<group>"; };
 		3F7464DD180DDD10000650C3 /* LineRenderable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineRenderable.h; sourceTree = "<group>"; };
 		3F7464DF180DDDE6000650C3 /* LineRenderable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LineRenderable.cpp; sourceTree = "<group>"; };
+		3FB1257F1837E2AA00494376 /* EnergyStorageComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnergyStorageComponent.cpp; sourceTree = "<group>"; };
+		3FC2B00D1838D7DA00FA5B5E /* Cursor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Cursor.cpp; sourceTree = "<group>"; };
+		3FC2B00E1838D7DA00FA5B5E /* Cursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cursor.h; sourceTree = "<group>"; };
+		3FC2B0111838DCAD00FA5B5E /* RingRenderable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RingRenderable.cpp; sourceTree = "<group>"; };
+		3FC2B0121838DCAD00FA5B5E /* RingRenderable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RingRenderable.h; sourceTree = "<group>"; };
+		3FC2B0151838EA3500FA5B5E /* PlayerIdComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerIdComponent.h; sourceTree = "<group>"; };
 		3FD1F6F018265A3F003B0BF4 /* ConnectorComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConnectorComponent.cpp; sourceTree = "<group>"; };
 		3FD1F6F21826693D003B0BF4 /* RefEntity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RefEntity.cpp; sourceTree = "<group>"; };
 		3FDB018E1825734D003396A4 /* RefEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefEntity.h; sourceTree = "<group>"; };
@@ -266,6 +277,8 @@
 				3FDE0B5F17F70217000A7DE1 /* Timer.h */,
 				3F49B7B11832B02B00EE7639 /* InputProcessor.cpp */,
 				3F49B7B21832B02B00EE7639 /* InputProcessor.h */,
+				3FC2B00D1838D7DA00FA5B5E /* Cursor.cpp */,
+				3FC2B00E1838D7DA00FA5B5E /* Cursor.h */,
 			);
 			name = engine;
 			path = ../../../../src/engine;
@@ -328,10 +341,12 @@
 				3F409CC418105F0C00A8063B /* TargetComponent.h */,
 				3FDB01911825750E003396A4 /* TargetComponent.cpp */,
 				3F548CC71829726D00BAE9A4 /* EnergyStorageComponent.h */,
+				3FB1257F1837E2AA00494376 /* EnergyStorageComponent.cpp */,
 				3F708DB5182D5B3300BF964E /* NodeComponent.cpp */,
 				3F708DB6182D5B3300BF964E /* NodeComponent.h */,
 				3F01CA2218315BB6004DCCE5 /* EnergyGeneratorComponent.h */,
 				3F49B7B51832B79B00EE7639 /* TouchableComponent.h */,
+				3FC2B0151838EA3500FA5B5E /* PlayerIdComponent.h */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -377,6 +392,8 @@
 				3F548CC31827AC9B00BAE9A4 /* TowerRenderable.h */,
 				3F4ECCE0182F9540002425F7 /* CircleRenderable.cpp */,
 				3F4ECCE1182F9540002425F7 /* CircleRenderable.h */,
+				3FC2B0111838DCAD00FA5B5E /* RingRenderable.cpp */,
+				3FC2B0121838DCAD00FA5B5E /* RingRenderable.h */,
 			);
 			path = Renderer;
 			sourceTree = "<group>";
@@ -398,8 +415,10 @@
 				3F01CA2318315BB6004DCCE5 /* EnergyGeneratorComponent.h in Headers */,
 				3F01CA2118315B34004DCCE5 /* EnergyCreatorSystem.h in Headers */,
 				3F7464DE180DDD10000650C3 /* LineRenderable.h in Headers */,
+				3FC2B0141838DCAD00FA5B5E /* RingRenderable.h in Headers */,
 				3F548CC51827AC9B00BAE9A4 /* TowerRenderable.h in Headers */,
 				3F548CD11829871E00BAE9A4 /* Game2Logic.h in Headers */,
+				3FC2B0101838D7DA00FA5B5E /* Cursor.h in Headers */,
 				3F548CC91829726D00BAE9A4 /* EnergyStorageComponent.h in Headers */,
 				3F708DB2182D4AF500BF964E /* Tests.h in Headers */,
 				3F7464DC180DD790000650C3 /* ConnectorComponent.h in Headers */,
@@ -501,6 +520,7 @@
 				3F548CCC18297EA000BAE9A4 /* EnergyBalanceSystem.cpp in Sources */,
 				3FDE0B6717F7029A000A7DE1 /* CollisionSystem.cpp in Sources */,
 				3FDE0B6817F7029A000A7DE1 /* MoveSystem.cpp in Sources */,
+				3FB125811837E2AA00494376 /* EnergyStorageComponent.cpp in Sources */,
 				3FDB01921825750E003396A4 /* TargetComponent.cpp in Sources */,
 				3F7464E0180DDDE6000650C3 /* LineRenderable.cpp in Sources */,
 				3F49B7B31832B02B00EE7639 /* InputProcessor.cpp in Sources */,
@@ -508,7 +528,9 @@
 				3FDE0B6A17F7029A000A7DE1 /* GlobalData.cpp in Sources */,
 				3FDE0B6B17F7029A000A7DE1 /* BaseRenderable.cpp in Sources */,
 				3FDE0B6C17F7029A000A7DE1 /* Camera.cpp in Sources */,
+				3FC2B00F1838D7DA00FA5B5E /* Cursor.cpp in Sources */,
 				3F01CA2018315B34004DCCE5 /* EnergyCreatorSystem.cpp in Sources */,
+				3FC2B0131838DCAD00FA5B5E /* RingRenderable.cpp in Sources */,
 				3FD1F6F118265A3F003B0BF4 /* ConnectorComponent.cpp in Sources */,
 				3F548CD01829871E00BAE9A4 /* Game2Logic.cpp in Sources */,
 				3FDE0B6D17F7029A000A7DE1 /* Grid.cpp in Sources */,

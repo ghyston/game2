@@ -10,7 +10,7 @@ public:
 	Vec2f coords;
 	float zoom_koeff;
 
-	Camera(float x = 0.0f, float y = 0.0f, float zoom = 1.0f) :
+	Camera(float x = 0.0f, float y = -0.0f, float zoom = 1.0f) :
 	coords(x, y), zoom_koeff(zoom)
 	{
 		;
