@@ -16,7 +16,26 @@
 #define GetCmpt(type,name,entity) type* name = entity->get_component<type>();
 #define HasCmpt(type,entity) entity->has_component<type>()
 
-class Entity
+//@todo: move to Common, template it!
+class Listnerable
+{
+public:
+	void mark_deleted();
+	bool is_deleted() { return deleted_mark; }
+	
+	void register_listener(RefEntity * ref);
+	void unregister_listener(RefEntity * ref);
+	
+protected:
+	
+	bool deleted_mark; //@todo: set as false at Listnerable c-tor, not Entity
+	
+	// listeners
+	std::vector<RefEntity*> waitors;
+	
+};
+
+class Entity : public Listnerable
 {
 public:
 	
@@ -63,12 +82,6 @@ public:
 	void clear();
 	
 	size_t get_id() { return this->id; }
-	
-	void mark_deleted();	
-	bool is_deleted() { return deleted_mark; }
-	
-	void register_listener(RefEntity * ref);
-	void unregister_listener(RefEntity * ref);
 
 	
 private:
@@ -87,11 +100,6 @@ private:
 	// Entity components.
 	std::map<size_t, IComponent*> components;
 	
-	bool deleted_mark;
-	
-	// listeners
-	std::vector<RefEntity*> waitors;
-
 };
 
 #endif	/* __ENTITY_H__ */

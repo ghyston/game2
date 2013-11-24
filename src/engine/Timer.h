@@ -12,6 +12,7 @@
 #include <time.h>
 
 
+
 class Timer
 {
 private:
@@ -23,6 +24,7 @@ private:
 	static clock_t last_tick;
 	static float delta_tick;
 
+	static int milliseconds_per_frame;
 
 	//We shouldn't create instance of this.
 	Timer()	{} 

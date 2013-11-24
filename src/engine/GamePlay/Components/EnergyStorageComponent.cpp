@@ -14,3 +14,8 @@ void EnergyStorageComponent::add_energy(int count)
 	if(value > limit)
 		value = limit;
 }
+
+void EnergyStorageComponent::rem_energy(int count)
+{
+	value = (value >= count) ? (value - count) : 0;
+}

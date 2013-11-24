@@ -33,6 +33,7 @@ void TowerRenderable::Draw()
 	front->coords.x = coords.x;
 	front->coords.y = coords.y - (1.0f - energy) * size / 2;
 	front->set_height(size * energy);
+	front->delete_vertexes();
 	front->setup_vertexes(); //@todo: do it by shader!
 	back->Draw();
 	front->Draw();

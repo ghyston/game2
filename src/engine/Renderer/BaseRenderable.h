@@ -7,6 +7,7 @@
 
 #include "../Common/Matrix4f.h"
 #include "../Common/Vector2f.h"
+#include <cstddef>
 
 class BaseRenderable
 {
@@ -39,6 +40,8 @@ public:
 	BaseRenderable();
 	
 	virtual void setup_vertexes() = 0;
+	
+	virtual void delete_vertexes();
 
 	virtual void set_shader(GLuint program);
 

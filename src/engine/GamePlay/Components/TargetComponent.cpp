@@ -9,7 +9,3 @@
 #include "TargetComponent.h"
 #include "../../ECS/Entity.h"
 
-TargetComponent::~TargetComponent()
-{
-	target.unregister();
-}

@@ -14,14 +14,13 @@ void CollisionSystem::update(Entity* entity)
 	GetCmpt(PositionComponent,	position_com,	entity);
 	GetCmpt(TargetComponent,		target_com,		entity);
 	
-	if(target_com->target.pointer == NULL)
+	if(!target_com->target.IsSet())
 		return;
 	
-	if(!HasCmpt(PositionComponent, target_com->target.pointer))
+	if(!HasCmpt(PositionComponent, target_com->target.Get()))
 		return;
-		
-	PositionComponent * target_pos;
-	target_pos = target_com->target.pointer->get_component<PositionComponent>();
+	
+	GetCmpt(PositionComponent, target_pos, target_com->target.Get());
 		
 	Vec2f dist = target_pos->position - position_com->position;
 	dist.x = fabs(dist.x);
@@ -44,10 +43,10 @@ void CollisionSystem::update(Entity* entity)
 		GameEngine::global_data->logic.add_entity(new_energy);
 		
 		//@todo: add has_component!
-		if(!HasCmpt(EnergyStorageComponent, target_com->target.pointer))
+		if(!HasCmpt(EnergyStorageComponent, target_com->target.Get()))
 			return;
 		
-		GetCmpt(EnergyStorageComponent, enesto, target_com->target.pointer);
+		GetCmpt(EnergyStorageComponent, enesto, target_com->target.Get());
 		if(!enesto->is_full())
 			enesto->value++;
 	}

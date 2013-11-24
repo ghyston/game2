@@ -38,6 +38,8 @@ private:
 	
 	float last_time_feeded;
 	
+	void process_base_tower(Entity * base);
+	
 };
 
 #endif /* defined(__Game2__EnergyBalanceSystem__) */

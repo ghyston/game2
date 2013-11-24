@@ -12,6 +12,7 @@ BaseRenderable::BaseRenderable()
     angle = 0.0f;
     scale = 1.0f;
     draw_type = GL_TRIANGLE_STRIP;
+	vertexes = NULL;
 }
 
 void BaseRenderable::set_shader(GLuint program)
@@ -39,6 +40,14 @@ void BaseRenderable::Draw()
 
     glUniformMatrix4fv(gModelHandle, 1, GL_FALSE, model_matrix->get_val());
     glDrawArrays(draw_type, 0, vertexes_count);
+}
+
+void BaseRenderable::delete_vertexes()
+{
+	if(vertexes != NULL)
+	{
+		delete [] vertexes;
+	}
 }
 
 BaseRenderable::~BaseRenderable()

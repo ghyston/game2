@@ -13,11 +13,22 @@
 
 class Entity;
 
-struct RefEntity
+class RefEntity
 {
+private:
 	Entity * pointer;
-	void del_ref() { pointer = NULL; }
-	void unregister();
+	
+public:
+	RefEntity() : pointer(NULL) {;}
+	~RefEntity();
+	
+	//@todo: DelRef() should be just friend func to Storage class (Listnerable)!
+	void DelRef() { pointer = NULL; }
+	Entity * Get() { return pointer; }
+	bool IsSet() { return pointer != NULL; };
+	void SetPointer(Entity * pointer);
+	void UnsetPointer();
+	void Unregister();
 };
 
 #endif /* defined(__Game2__RefEntity__) */

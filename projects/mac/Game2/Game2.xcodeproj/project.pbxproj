@@ -10,6 +10,8 @@
 		3F01CA2018315B34004DCCE5 /* EnergyCreatorSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F01CA1E18315B34004DCCE5 /* EnergyCreatorSystem.cpp */; };
 		3F01CA2118315B34004DCCE5 /* EnergyCreatorSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F01CA1F18315B34004DCCE5 /* EnergyCreatorSystem.h */; };
 		3F01CA2318315BB6004DCCE5 /* EnergyGeneratorComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F01CA2218315BB6004DCCE5 /* EnergyGeneratorComponent.h */; };
+		3F20BB60184229C30051003D /* AISystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F20BB5E184229C30051003D /* AISystem.cpp */; };
+		3F20BB61184229C30051003D /* AISystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F20BB5F184229C30051003D /* AISystem.h */; };
 		3F409CC518105F0C00A8063B /* TargetComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F409CC418105F0C00A8063B /* TargetComponent.h */; };
 		3F409CC81810606D00A8063B /* TargetEnergySystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F409CC61810606D00A8063B /* TargetEnergySystem.cpp */; };
 		3F409CC91810606D00A8063B /* TargetEnergySystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F409CC71810606D00A8063B /* TargetEnergySystem.h */; };
@@ -96,6 +98,8 @@
 		3F01CA1E18315B34004DCCE5 /* EnergyCreatorSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnergyCreatorSystem.cpp; sourceTree = "<group>"; };
 		3F01CA1F18315B34004DCCE5 /* EnergyCreatorSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnergyCreatorSystem.h; sourceTree = "<group>"; };
 		3F01CA2218315BB6004DCCE5 /* EnergyGeneratorComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnergyGeneratorComponent.h; sourceTree = "<group>"; };
+		3F20BB5E184229C30051003D /* AISystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AISystem.cpp; sourceTree = "<group>"; };
+		3F20BB5F184229C30051003D /* AISystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AISystem.h; sourceTree = "<group>"; };
 		3F409CC418105F0C00A8063B /* TargetComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TargetComponent.h; sourceTree = "<group>"; };
 		3F409CC61810606D00A8063B /* TargetEnergySystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TargetEnergySystem.cpp; sourceTree = "<group>"; };
 		3F409CC71810606D00A8063B /* TargetEnergySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TargetEnergySystem.h; sourceTree = "<group>"; };
@@ -366,6 +370,8 @@
 				3F548CCB18297EA000BAE9A4 /* EnergyBalanceSystem.h */,
 				3F01CA1E18315B34004DCCE5 /* EnergyCreatorSystem.cpp */,
 				3F01CA1F18315B34004DCCE5 /* EnergyCreatorSystem.h */,
+				3F20BB5E184229C30051003D /* AISystem.cpp */,
+				3F20BB5F184229C30051003D /* AISystem.h */,
 			);
 			path = Systems;
 			sourceTree = "<group>";
@@ -414,6 +420,7 @@
 				3F708DB8182D5B3300BF964E /* NodeComponent.h in Headers */,
 				3F01CA2318315BB6004DCCE5 /* EnergyGeneratorComponent.h in Headers */,
 				3F01CA2118315B34004DCCE5 /* EnergyCreatorSystem.h in Headers */,
+				3F20BB61184229C30051003D /* AISystem.h in Headers */,
 				3F7464DE180DDD10000650C3 /* LineRenderable.h in Headers */,
 				3FC2B0141838DCAD00FA5B5E /* RingRenderable.h in Headers */,
 				3F548CC51827AC9B00BAE9A4 /* TowerRenderable.h in Headers */,
@@ -531,6 +538,7 @@
 				3FC2B00F1838D7DA00FA5B5E /* Cursor.cpp in Sources */,
 				3F01CA2018315B34004DCCE5 /* EnergyCreatorSystem.cpp in Sources */,
 				3FC2B0131838DCAD00FA5B5E /* RingRenderable.cpp in Sources */,
+				3F20BB60184229C30051003D /* AISystem.cpp in Sources */,
 				3FD1F6F118265A3F003B0BF4 /* ConnectorComponent.cpp in Sources */,
 				3F548CD01829871E00BAE9A4 /* Game2Logic.cpp in Sources */,
 				3FDE0B6D17F7029A000A7DE1 /* Grid.cpp in Sources */,

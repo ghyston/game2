@@ -56,7 +56,7 @@ public:
 	* Create game engine instance.
 	*/
 	static bool create_instance();
-
+	
 };
 
 

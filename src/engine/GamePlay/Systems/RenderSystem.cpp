@@ -38,17 +38,17 @@ void RenderSystem::update(Entity * entity)
 			
 			// Connector has lost one of towers
 			// @todo: remove this chaecking to other place!
-			if(connector_com->obj_1.pointer == NULL ||
-			   connector_com->obj_2.pointer == NULL)
+			if(!connector_com->obj_1.IsSet() ||
+			   !connector_com->obj_2.IsSet())
 			{
 				GameEngine::global_data->logic.remove_entity(entity);
 				break;
 			}
 			
-			GetCmpt(PositionComponent, pos_com_1, connector_com->obj_1.pointer);
+			GetCmpt(PositionComponent, pos_com_1, connector_com->obj_1.Get());
 			pos_1 = pos_com_1->position;
 			
-			GetCmpt(PositionComponent, pos_com_2, connector_com->obj_2.pointer);
+			GetCmpt(PositionComponent, pos_com_2, connector_com->obj_2.Get());
 			pos_2 = pos_com_2->position;
 			
 			GameEngine::renderer->draw_line(pos_1, pos_2);
@@ -64,11 +64,11 @@ void RenderSystem::update(Entity * entity)
 				position_com->position, enesto_com->get_percentage());
 			
 			GetCmpt(NodeComponent, node_com, entity);
-			std::vector<Entity*>::iterator it = node_com->children.begin();
+			std::vector<RefEntity>::iterator it = node_com->children.begin();
 			while (it != node_com->children.end())
 			{
 				//@todo: not optimizable, create ref to cmpt every step!
-				GetCmpt(PositionComponent, pos_com, (*it));
+				GetCmpt(PositionComponent, pos_com, (it->Get()));
 				GameEngine::renderer->draw_line(position_com->position, pos_com->position);
 				it++;
 			}

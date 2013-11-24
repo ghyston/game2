@@ -22,6 +22,9 @@ public:
 private:
 	
 	void merge_energy(Entity * tower, Entity * energy);
+	
+	//@todo: move to GameLogic!
+	void del_energy(Entity * energy);
 
 };
 

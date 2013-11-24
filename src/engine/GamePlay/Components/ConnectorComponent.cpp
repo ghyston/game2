@@ -8,10 +8,3 @@
 
 #include "ConnectorComponent.h"
 #include "../../ECS/Entity.h"
-
-ConnectorComponent::~ConnectorComponent()
-{
-	obj_1.unregister();
-    obj_2.unregister();
-
-}

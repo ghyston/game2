@@ -2,6 +2,7 @@
 
 clock_t Timer::last_tick = clock();
 float Timer::delta_tick = 0.0f;
+int Timer::milliseconds_per_frame = 40; //25 FPS
 
 timeval Timer::last;
 timeval Timer::delta;
@@ -36,6 +37,7 @@ void Timer::tick_mac()
     timeval new_tick;
     gettimeofday(&new_tick, NULL);
     timersub(&new_tick, &Timer::last, &Timer::delta);
+	//new_tick.tv_sec * 1000 * new_tick.tv_usec
     Timer::last = new_tick;
 }
 

@@ -89,9 +89,9 @@ void InputProcessor::process_touch(int type, float screen_x, float screen_y)
 				GetCmpt(EnergyStorageComponent, enesto_cmpt, touched_entity);
 				Vec2f diff = world_coords - pos_com->position;
 			
-				if(diff.length() > 0.2 && enesto_cmpt->value > 50)
+				if(diff.length() > 0.2 && enesto_cmpt->value > 60)
 				{
-					enesto_cmpt->value -= 50;
+					enesto_cmpt->rem_energy(50);
 					Entity * new_tower =
 						EntityFabric::get_tower(touched_entity, world_coords);
 					GameEngine::get_data()->logic.add_tower(new_tower);

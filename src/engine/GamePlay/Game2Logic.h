@@ -20,6 +20,8 @@ public:
 	void add_tower(Entity * tower);
 	void add_energy(Entity * energy, Entity * generator);
 	
+	void remove_tower(Entity * tower);
+	
 	void tower_attack(Entity * from, Entity * to);
 	
 };

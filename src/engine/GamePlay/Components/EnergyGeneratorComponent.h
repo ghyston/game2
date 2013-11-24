@@ -10,6 +10,7 @@
 #define Game2_EnergyGeneratorComponent_h
 
 #include "../../ECS/BaseComponent.h"
+#include "../../ECS/RefEntity.h"
 
 class EnergyGeneratorComponent : public IComponent
 {
@@ -26,7 +27,7 @@ public:
 	bool activated;
 	
 	//this is a towers nearby.
-	std::vector<Entity*> towers;
+	std::vector<RefEntity> towers;
 };
 
 #endif

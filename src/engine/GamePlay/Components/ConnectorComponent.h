@@ -19,8 +19,6 @@ public:
     
     RefEntity obj_1;
     RefEntity obj_2;
-	
-	~ConnectorComponent();
 };
 
 #endif

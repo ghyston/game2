@@ -27,22 +27,24 @@ Entity * EntityFabric::get_tower(Entity* parent, Vec2f coords)
 	
 	EnergyStorageComponent * es_com = new EnergyStorageComponent();
 	es_com->limit = 100;
-	es_com->value = 0;
+	es_com->value = 10;
 	tower->add_component<EnergyStorageComponent>(es_com);
 	
 	NodeComponent * node_com = new NodeComponent();
-	node_com->parent = parent;
+	node_com->parent.SetPointer(parent);
+	
+	if(node_com->parent.IsSet())
+	{
+		GetCmpt(NodeComponent, parent_node_com, parent);
+		RefEntity * child_ref = new RefEntity();
+		child_ref->SetPointer(tower);
+		parent_node_com->children.push_back(*child_ref);
+	}
 	tower->add_component<NodeComponent>(node_com);
 	
 	TouchableComponent * touch_com = new TouchableComponent();
 	touch_com->touch_size = 0.05f;
 	tower->add_component<TouchableComponent>(touch_com);
-	
-	if(parent != NULL)
-	{
-		GetCmpt(NodeComponent, parent_node_com, parent);
-		parent_node_com->children.push_back(tower);
-	}
 	
 	PlayerIdComponent * plr_id_cmpt = new PlayerIdComponent();
 	tower->add_component<PlayerIdComponent>(plr_id_cmpt);
@@ -56,10 +58,8 @@ Entity * EntityFabric::get_connector(Entity * tower_1, Entity * tower_2)
 	connector->type = Entity::Types::CONNECT;
     
     ConnectorComponent * connector_com = new ConnectorComponent();
-    connector_com->obj_1.pointer = tower_1;
-    connector_com->obj_2.pointer = tower_2;
-	tower_1->register_listener(&connector_com->obj_1);
-	tower_2->register_listener(&connector_com->obj_2);
+    connector_com->obj_1.SetPointer(tower_1);
+    connector_com->obj_2.SetPointer(tower_2);
 	
     connector->add_component<ConnectorComponent>(connector_com);
     
@@ -92,7 +92,6 @@ Entity * EntityFabric::create_energy(Vec2f coords)
 	
 	//add target component
 	TargetComponent * target_com = new TargetComponent();
-	target_com->target.pointer = NULL;
 	energy->add_component<TargetComponent>(target_com);
 	
 	return energy;

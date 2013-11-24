@@ -20,8 +20,6 @@ public:
     
     RefEntity target;
 	bool target_enemy;
-	
-	~TargetComponent();
 
 };
 

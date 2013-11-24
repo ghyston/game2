@@ -23,6 +23,7 @@ public:
 	bool is_full() { return value >= limit; }
 	bool is_empty() { return value == 0; }
 	void add_energy(int count);
+	void rem_energy(int count);
 	
 };
 

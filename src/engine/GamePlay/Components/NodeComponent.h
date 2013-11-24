@@ -17,8 +17,8 @@ class NodeComponent : public IComponent
 {
 public:
 	//@todo: use some smart pointers!
-	Entity * parent;
-	std::vector<Entity*> children;
+	RefEntity parent;
+	std::vector<RefEntity> children;
 	
 };
 

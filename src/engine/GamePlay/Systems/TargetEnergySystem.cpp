@@ -20,14 +20,13 @@ void TargetEnergySystem::update(Entity * entity)
 	GetCmpt(TargetComponent, target_com, entity);
 	
 	//If target is null, dissappear
-	if(target_com->target.pointer == NULL)
+	if(!target_com->target.IsSet())
 	{
-		target_com->target.del_ref();
-		entity->mark_deleted();
+		del_energy(entity);
 		return;
 	}
 		
-	Entity * target = target_com->target.pointer;
+	Entity * target = target_com->target.Get();
 	GetCmpt(EnergyStorageComponent, enesto, target);
 	GetCmpt(PositionComponent, target_pos_com, target);
 	GetCmpt(NodeComponent, target_node_com, target);
@@ -43,34 +42,26 @@ void TargetEnergySystem::update(Entity * entity)
 		//@todo: Check, is target enemy tower
 		if(target_com->target_enemy)
 		{
-			GetCmpt(EnergyStorageComponent, target_enesto_cmpt, target_com->target.pointer);
+			GetCmpt(EnergyStorageComponent, target_enesto_cmpt, target_com->target.Get());
 			
-			target_enesto_cmpt->value -= 1;
-			target_com->target.del_ref();
-			entity->mark_deleted();
-			
-			if(target_enesto_cmpt-> value == 0)
-			{
-				// @todo: tower deleting realized not really good
-				// @uncomment this, when deleting towers would be done
-			//	target_com->target.pointer->mark_deleted();
-			}
+			target_enesto_cmpt->rem_energy(5);
+			del_energy(entity);
 			return;
 		}
 		
 		pos_com->position = target_pos_com->position;
 		
-		std::vector<Entity*>::iterator it = target_node_com->children.begin();
+		std::vector<RefEntity>::iterator it = target_node_com->children.begin();
 		
 		Entity * next_target = target;
 		
 		float min_energy_balance = 1.0f;
 		while (it != target_node_com->children.end())
 		{
-			GetCmpt(EnergyStorageComponent, enesto_child, (*it));
+			GetCmpt(EnergyStorageComponent, enesto_child, (it->Get()));
 			if(enesto_child->balance < min_energy_balance)
 			{
-				next_target = *it;
+				next_target = it->Get();
 				min_energy_balance = enesto_child->balance;
 			}
 			it++;
@@ -83,20 +74,21 @@ void TargetEnergySystem::update(Entity * entity)
 			else
 			{
 				// All childs are full and we have reached base tower.
-				if(target_node_com->parent == NULL)
+				if(!target_node_com->parent.IsSet())
 				{
-					target_com->target.del_ref();
-					entity->mark_deleted();
+					del_energy(entity);
 					return;
 				}
 				
-				target_com->target.pointer = target_node_com->parent;
+				target_com->target.UnsetPointer();
+				target_com->target.SetPointer(target_node_com->parent.Get());
+
 				target_changed = true;
 			}
 		}
 		else
 		{
-			target_com->target.pointer = next_target;
+			target_com->target.SetPointer(next_target);
 			target_changed = true;
 		}
 
@@ -104,7 +96,7 @@ void TargetEnergySystem::update(Entity * entity)
 	
 	if(target_changed)
 	{
-		GetCmpt(PositionComponent, new_target_pos, target_com->target.pointer);
+		GetCmpt(PositionComponent, new_target_pos, target_com->target.Get());
 		dist = new_target_pos->position - pos_com->position;
 	}
 			
@@ -117,7 +109,12 @@ void TargetEnergySystem::merge_energy(Entity * tower, Entity * energy)
 {
 	GetCmpt(EnergyStorageComponent, enesto, tower);
 	enesto->add_energy(1); // @todo: this should be out constant!
+	del_energy(energy);
+}
+
+void TargetEnergySystem::del_energy(Entity * energy)
+{
 	GetCmpt(TargetComponent, target_com, energy);
-	target_com->target.del_ref();
+	target_com->target.UnsetPointer();
 	energy->mark_deleted();
 }

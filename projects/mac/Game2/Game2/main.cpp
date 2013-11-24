@@ -79,7 +79,7 @@ int main(int argc, char ** argv)
 		}
 		catch (int error)
 		{
-			(void)0;
+			
 		}
         
         glfwSwapBuffers(window);

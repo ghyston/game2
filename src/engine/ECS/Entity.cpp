@@ -25,27 +25,28 @@ void Entity::clear()
 	components.clear();
 }
 
-void Entity::mark_deleted()
+void Listnerable::mark_deleted()
 {
 	deleted_mark = true;
 	
 	std::vector<RefEntity*>::iterator it = waitors.begin();
 	while (it != waitors.end())
 	{
-		(*it)->del_ref();
+		(*it)->DelRef();
 		it++;
 	}
 }
 
-void Entity::register_listener(RefEntity * ref)
+void Listnerable::register_listener(RefEntity * ref)
 {
 	waitors.push_back(ref);
 }
 
-void Entity::unregister_listener(RefEntity * ref)
+void Listnerable::unregister_listener(RefEntity * ref)
 {
 	// @todo: only one listener?
 	std::vector<RefEntity*>::iterator it =
 	std::find(waitors.begin(), waitors.end(), ref);
-	waitors.erase(it);
+	if(it != waitors.end())
+		waitors.erase(it);
 }
