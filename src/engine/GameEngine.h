@@ -5,6 +5,9 @@
 #include "GlobalData.h"
 #include "InputProcessor.h"
 
+//@todo: delete this include on release
+#include "Common/Tests.h"
+
 /**
 * Main game manager. Singletone.
 */

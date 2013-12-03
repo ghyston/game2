@@ -38,6 +38,8 @@
 		3F7464DC180DD790000650C3 /* ConnectorComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F7464DB180DD790000650C3 /* ConnectorComponent.h */; };
 		3F7464DE180DDD10000650C3 /* LineRenderable.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F7464DD180DDD10000650C3 /* LineRenderable.h */; };
 		3F7464E0180DDDE6000650C3 /* LineRenderable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F7464DF180DDDE6000650C3 /* LineRenderable.cpp */; };
+		3F8C3925184B5F5E003E8DD1 /* ShrPtr.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F8C3923184B5F5E003E8DD1 /* ShrPtr.h */; };
+		3F8C392B184B9CB6003E8DD1 /* Obj.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F8C392A184B9CB6003E8DD1 /* Obj.h */; };
 		3FB125811837E2AA00494376 /* EnergyStorageComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FB1257F1837E2AA00494376 /* EnergyStorageComponent.cpp */; };
 		3FC2B00F1838D7DA00FA5B5E /* Cursor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FC2B00D1838D7DA00FA5B5E /* Cursor.cpp */; };
 		3FC2B0101838D7DA00FA5B5E /* Cursor.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC2B00E1838D7DA00FA5B5E /* Cursor.h */; };
@@ -126,6 +128,8 @@
 		3F7464DB180DD790000650C3 /* ConnectorComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectorComponent.h; sourceTree = "<group>"; };
 		3F7464DD180DDD10000650C3 /* LineRenderable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineRenderable.h; sourceTree = "<group>"; };
 		3F7464DF180DDDE6000650C3 /* LineRenderable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LineRenderable.cpp; sourceTree = "<group>"; };
+		3F8C3923184B5F5E003E8DD1 /* ShrPtr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShrPtr.h; path = ../ECS/ShrPtr.h; sourceTree = "<group>"; };
+		3F8C392A184B9CB6003E8DD1 /* Obj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Obj.h; sourceTree = "<group>"; };
 		3FB1257F1837E2AA00494376 /* EnergyStorageComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnergyStorageComponent.cpp; sourceTree = "<group>"; };
 		3FC2B00D1838D7DA00FA5B5E /* Cursor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Cursor.cpp; sourceTree = "<group>"; };
 		3FC2B00E1838D7DA00FA5B5E /* Cursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cursor.h; sourceTree = "<group>"; };
@@ -291,6 +295,8 @@
 		3FDE0B2D17F70217000A7DE1 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				3F8C392A184B9CB6003E8DD1 /* Obj.h */,
+				3F8C3923184B5F5E003E8DD1 /* ShrPtr.h */,
 				3FDE0B2E17F70217000A7DE1 /* Color3f.h */,
 				3FDE0B2F17F70217000A7DE1 /* Matrix4f.cpp */,
 				3FDE0B3017F70217000A7DE1 /* Matrix4f.h */,
@@ -422,8 +428,10 @@
 				3F01CA2118315B34004DCCE5 /* EnergyCreatorSystem.h in Headers */,
 				3F20BB61184229C30051003D /* AISystem.h in Headers */,
 				3F7464DE180DDD10000650C3 /* LineRenderable.h in Headers */,
+				3F8C3925184B5F5E003E8DD1 /* ShrPtr.h in Headers */,
 				3FC2B0141838DCAD00FA5B5E /* RingRenderable.h in Headers */,
 				3F548CC51827AC9B00BAE9A4 /* TowerRenderable.h in Headers */,
+				3F8C392B184B9CB6003E8DD1 /* Obj.h in Headers */,
 				3F548CD11829871E00BAE9A4 /* Game2Logic.h in Headers */,
 				3FC2B0101838D7DA00FA5B5E /* Cursor.h in Headers */,
 				3F548CC91829726D00BAE9A4 /* EnergyStorageComponent.h in Headers */,

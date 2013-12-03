@@ -19,3 +19,16 @@ void test_vectors()
 	//test_3 = test_1 + test_2;
 	//test_1 = test_2 - test_3;
 }
+
+void test_shr_ptr()
+{
+	Test * vec = new Test(2);
+	ShrPtr<Test> ptr_2(vec);
+	int i = 0;
+	while(true)
+	{
+		ShrPtr<Test> ptr_1(ptr_2);
+		ptr_1->temp = i++;
+		ptr_2 = ptr_1;
+	}
+}
