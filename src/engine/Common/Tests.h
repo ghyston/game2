@@ -11,6 +11,7 @@
 
 #include "Obj.h"
 #include "ShrPtr.h"
+#include "VecShrPtr.h"
 
 #include <iostream>
 #include "Vector2f.h"

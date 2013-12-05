@@ -22,13 +22,24 @@ void test_vectors()
 
 void test_shr_ptr()
 {
-	Test * vec = new Test(2);
-	ShrPtr<Test> ptr_2(vec);
-	int i = 0;
-	while(true)
+
+	std::list<ShrPtr<Test>> tests;
+	
 	{
-		ShrPtr<Test> ptr_1(ptr_2);
-		ptr_1->temp = i++;
-		ptr_2 = ptr_1;
+		ShrPtr<Test> ptr_1(new Test(1));
+		ShrPtr<Test> ptr_2(new Test(2));
+		ShrPtr<Test> ptr_3(new Test(3));
+		ShrPtr<Test> ptr_4(new Test(4));
+
+		tests.push_back(ptr_1);
+		tests.push_back(ptr_2);
+		ptr_3->mark_deleted();
+		tests.push_back(ptr_3);
+		tests.push_back(ptr_4);
 	}
+	
+	
+	ShrPtr<Test> ptr_3_back = tests.back();
+	RemoveDeletedObjectsFromVector(tests);
+	int test = 55;
 }

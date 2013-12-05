@@ -76,7 +76,7 @@ void GameEngine::process_input(int key)
 void GameEngine::init(int width, int height)
 {
 	//test_vectors();
-	//test_shr_ptr();
+	test_shr_ptr();
     global_data->init_scene();
 	global_data->screen.setup(height, width); // @todo: do we need that?
     renderer->init();

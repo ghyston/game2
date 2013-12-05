@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../src/engine/Common/Tests.cpp"
-            timestampString = "407796858.364656"
+            timestampString = "407968893.447423"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "test_shr_ptr()"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,133 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../src/engine/Common/Tests.cpp"
-            timestampString = "407796448.971239"
+            timestampString = "407967286.714715"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "test_shr_ptr()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../src/engine/Common/VecShrPtr.h"
+            timestampString = "407966920.803668"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "RemoveDeletedObjectsFromVector(std::list&lt;ShrPtr&lt;T&gt;&gt;&amp; vec)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "void RemoveDeletedObjectsFromVector&lt;Test&gt;(std::__1::list&lt;ShrPtr&lt;Test&gt;, std::__1::allocator&lt;ShrPtr&lt;Test&gt; &gt; &gt;&amp;)"
+                  moduleName = "Game2_engine.dylib"
+                  urlString = "file:///Users/Hyston/projects/game2_github/src/engine/Common/VecShrPtr.h"
+                  timestampString = "407966921.099145"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "172">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "void RemoveDeletedObjectsFromVector&lt;Test&gt;(std::__1::list&lt;ShrPtr&lt;Test&gt;, std::__1::allocator&lt;ShrPtr&lt;Test&gt; &gt; &gt;&amp;)"
+                  moduleName = "Game2_engine.dylib"
+                  urlString = "file:///Users/Hyston/projects/game2_github/src/engine/Common/VecShrPtr.h"
+                  timestampString = "407966921.09951"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "275">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "void RemoveDeletedObjectsFromVector&lt;Test&gt;(std::__1::list&lt;ShrPtr&lt;Test&gt;, std::__1::allocator&lt;ShrPtr&lt;Test&gt; &gt; &gt;&amp;)"
+                  moduleName = "Game2_engine.dylib"
+                  urlString = "file:///Users/Hyston/projects/game2_github/src/engine/Common/VecShrPtr.h"
+                  timestampString = "407966921.099927"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "328">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../src/engine/Common/VecShrPtr.h"
+            timestampString = "407966748.518143"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "RemoveDeletedObjectsFromVector(std::list&lt;ShrPtr&lt;T&gt;&gt;&amp; vec)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "void RemoveDeletedObjectsFromVector&lt;Test&gt;(std::__1::list&lt;ShrPtr&lt;Test&gt;, std::__1::allocator&lt;ShrPtr&lt;Test&gt; &gt; &gt;&amp;)"
+                  moduleName = "Game2_engine.dylib"
+                  urlString = "file:///Users/Hyston/projects/game2_github/src/engine/Common/VecShrPtr.h"
+                  timestampString = "407966921.100271"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "25">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "void RemoveDeletedObjectsFromVector&lt;Test&gt;(std::__1::list&lt;ShrPtr&lt;Test&gt;, std::__1::allocator&lt;ShrPtr&lt;Test&gt; &gt; &gt;&amp;)"
+                  moduleName = "Game2_engine.dylib"
+                  urlString = "file:///Users/Hyston/projects/game2_github/src/engine/Common/VecShrPtr.h"
+                  timestampString = "407966921.100625"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "144">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../src/engine/Common/Tests.cpp"
+            timestampString = "407969299.286819"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "test_shr_ptr()"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,11 +180,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../src/engine/Common/Tests.cpp"
-            timestampString = "407796679.387393"
+            timestampString = "407969303.615817"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "test_shr_ptr()"
             landmarkType = "7">
          </BreakpointContent>
