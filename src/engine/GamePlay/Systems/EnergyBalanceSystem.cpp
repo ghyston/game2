@@ -13,7 +13,7 @@
 
 int EnergyBalanceSystem::average_energy = 0;
 
-void EnergyBalanceSystem::update(Entity * entity)
+void EnergyBalanceSystem::update(EntityPtr entity)
 {
 	if(!HasCmpt(EnergyStorageComponent, entity))
 		return;
@@ -35,14 +35,14 @@ void EnergyBalanceSystem::pre_step()
 	count_storage = 0;
 	
 	// Main work is here, calculate balance by tree.	
-	Entity * base_1 = GameEngine::global_data->base_tower_player_1.Get();
-	Entity * base_2 = GameEngine::global_data->base_tower_player_2.Get();
+	EntityPtr base_1 = GameEngine::global_data->base_tower_player_1;
+	EntityPtr base_2 = GameEngine::global_data->base_tower_player_2;
 	
-	if(base_1 != NULL)	process_base_tower(base_1);
-	if(base_2 != NULL)	process_base_tower(base_2);
+	if(base_1.is_set())	process_base_tower(base_1);
+	if(base_2.is_set())	process_base_tower(base_2);
 }
 
-void EnergyBalanceSystem::process_base_tower(Entity * base)
+void EnergyBalanceSystem::process_base_tower(EntityPtr base)
 {
 	calc_energy(base);
 	
@@ -57,9 +57,9 @@ void EnergyBalanceSystem::process_base_tower(Entity * base)
 	}
 }
 
-float EnergyBalanceSystem::calc_energy(Entity * tower)
+float EnergyBalanceSystem::calc_energy(EntityPtr tower)
 {
-	if(tower == NULL ||
+	if(!tower.is_set() ||
 	   !HasCmpt(EnergyStorageComponent, tower) ||
 	   !HasCmpt(NodeComponent, tower))
 		return 0.0f;
@@ -71,10 +71,10 @@ float EnergyBalanceSystem::calc_energy(Entity * tower)
 	
 	int child_count = 0;
 	float childs_energy = 0.0f;
-	std::vector<RefEntity>::iterator it = node_com->children.begin();
+	EntityIt it = node_com->children.begin();
 	while (it != node_com->children.end())
 	{
-		childs_energy += calc_energy(it->Get());
+		childs_energy += calc_energy(*it);
 		child_count++;
 		it++;
 	}

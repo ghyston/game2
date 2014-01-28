@@ -9,7 +9,7 @@
 #ifndef Game2_TargetComponent_h
 #define Game2_TargetComponent_h
 
-#include "../../ECS/RefEntity.h"
+#include "../../ECS/Types.h"
 #include "../../ECS/BaseComponent.h"
 
 class TargetComponent : public IComponent
@@ -18,7 +18,7 @@ public:
 	
 	TargetComponent() : target_enemy (false) {;}
     
-    RefEntity target;
+    EntityPtr target;
 	bool target_enemy;
 
 };

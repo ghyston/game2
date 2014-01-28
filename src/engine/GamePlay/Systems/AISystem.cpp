@@ -8,7 +8,7 @@
 
 #include "AISystem.h"
 
-void AISystem::update(Entity * entity)
+void AISystem::update(EntityPtr entity)
 {
 	if(!HasCmpt(PlayerIdComponent, entity))
 		return;
@@ -35,7 +35,7 @@ void AISystem::update(Entity * entity)
 	Vec2f new_coords = pos_com->position + coords;
 	
 	enesto_cmpt->rem_energy(70);
-	Entity * new_tower =
+	EntityPtr new_tower =
 		EntityFabric::get_tower(entity, new_coords);
 	GameEngine::get_data()->logic.add_tower(new_tower);
 

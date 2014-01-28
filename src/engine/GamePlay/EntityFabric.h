@@ -10,19 +10,19 @@
 
 #include "../Common/Vector2f.h"
 #include "Components.h"
-#include "../ECS/Entity.h"
+#include "../ECS/Types.h"
 
 class EntityFabric
 {
 public:
 	// @todo: rename to create!
-	static Entity * get_tower(Entity* parent, Vec2f coords);
+	static EntityPtr get_tower(EntityPtr parent, Vec2f coords);
     
-    static Entity * get_connector(Entity * tower_1, Entity * tower_2);
+    static EntityPtr get_connector(EntityPtr tower_1, EntityPtr tower_2);
 	
-	static Entity * create_energy(Vec2f coords);
+	static EntityPtr create_energy(Vec2f coords);
 	
-	static Entity * create_energy_generator(Vec2f coords, float rad, float intensivity);
+	static EntityPtr create_energy_generator(Vec2f coords, float rad, float intensivity);
 		
 };
 

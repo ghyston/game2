@@ -4,7 +4,7 @@
 #include "RenderSystem.h"
 #include "../../GameEngine.h"
 
-void RenderSystem::update(Entity * entity)
+void RenderSystem::update(EntityPtr entity)
 {
 	if(!HasCmpt(RenderComponent, entity))
 		return;
@@ -33,7 +33,7 @@ void RenderSystem::update(Entity * entity)
 			//draw just regular line
 			return;
 			
-			Vec2f pos_1, pos_2; //@todo: check, will alias work!
+			/*Vec2f pos_1, pos_2; //@todo: check, will alias work!
 			GetCmpt(ConnectorComponent, connector_com, entity);
 			
 			// Connector has lost one of towers
@@ -51,7 +51,7 @@ void RenderSystem::update(Entity * entity)
 			GetCmpt(PositionComponent, pos_com_2, connector_com->obj_2.Get());
 			pos_2 = pos_com_2->position;
 			
-			GameEngine::renderer->draw_line(pos_1, pos_2);
+			GameEngine::renderer->draw_line(pos_1, pos_2);*/
 		}
 		break;
 			
@@ -64,11 +64,11 @@ void RenderSystem::update(Entity * entity)
 				position_com->position, enesto_com->get_percentage());
 			
 			GetCmpt(NodeComponent, node_com, entity);
-			std::vector<RefEntity>::iterator it = node_com->children.begin();
+			EntityIt it = node_com->children.begin();
 			while (it != node_com->children.end())
 			{
 				//@todo: not optimizable, create ref to cmpt every step!
-				GetCmpt(PositionComponent, pos_com, (it->Get()));
+				GetCmpt(PositionComponent, pos_com, (it->get()));
 				GameEngine::renderer->draw_line(position_com->position, pos_com->position);
 				it++;
 			}

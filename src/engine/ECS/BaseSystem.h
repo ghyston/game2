@@ -16,14 +16,14 @@ class BaseSystem
 {
 public:
 	
-	void process(Entity * entity);
+	void process(EntityPtr entity);
 	
 	virtual void pre_step() {;}
 	virtual void post_step() {;}
 	
 protected:
 	
-	virtual void update(Entity * entity) = 0;
+	virtual void update(EntityPtr entity) = 0;
 	
 };
 

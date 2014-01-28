@@ -21,7 +21,7 @@ class RenderSystem : public BaseSystem
 	
 public:
 	
-	void update(Entity * entity);
+	void update(EntityPtr entity);
 
 };
 

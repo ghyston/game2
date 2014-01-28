@@ -17,12 +17,12 @@ public:
 	void start();
 	void stop();
 	
-	void add_tower(Entity * tower);
-	void add_energy(Entity * energy, Entity * generator);
+	void add_tower(EntityPtr tower);
+	void add_energy(EntityPtr energy, EntityPtr generator);
 	
-	void remove_tower(Entity * tower);
+	void remove_tower(EntityPtr tower);
 	
-	void tower_attack(Entity * from, Entity * to);
+	void tower_attack(EntityPtr from, EntityPtr to);
 	
 };
 

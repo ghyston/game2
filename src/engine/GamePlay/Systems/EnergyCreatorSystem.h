@@ -15,7 +15,7 @@ class EnergyGeneratorSystem : public BaseSystem
 {
 public:
 	
-	void update(Entity * entity);
+	void update(EntityPtr entity);
 };
 
 #endif /* defined(__Game2__EnergyCreatorSystem__) */

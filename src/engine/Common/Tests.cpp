@@ -20,6 +20,12 @@ void test_vectors()
 	//test_1 = test_2 - test_3;
 }
 
+ShrPtr<Test> test_ptr_funk(ShrPtr<Test> teest)
+{
+	ShrPtr<Test> temp = teest;
+	return temp;
+}
+
 void test_shr_ptr()
 {
 
@@ -30,16 +36,21 @@ void test_shr_ptr()
 		ShrPtr<Test> ptr_2(new Test(2));
 		ShrPtr<Test> ptr_3(new Test(3));
 		ShrPtr<Test> ptr_4(new Test(4));
+		ShrPtr<Test> ptr_5(new Test(5));
+		
+		ShrPtr<Test> ptr_6 = test_ptr_funk(ptr_4);
 
 		tests.push_back(ptr_1);
 		tests.push_back(ptr_2);
 		ptr_3->mark_deleted();
 		tests.push_back(ptr_3);
-		tests.push_back(ptr_4);
+	//	tests.push_back(ptr_4);
+		tests.push_back(ptr_5);
 	}
 	
 	
-	ShrPtr<Test> ptr_3_back = tests.back();
-	RemoveDeletedObjectsFromVector(tests);
+	ShrPtr<Test> ptr_5_back = tests.back();
+	
+	RemoveDeletedObjectsFromContainer(tests);
 	int test = 55;
 }

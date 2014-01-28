@@ -46,8 +46,8 @@ void InputProcessor::process_touch(int type, float screen_x, float screen_y)
 		// here we should check gui for input
 		
 		// if gui is not activated, find scene object
-		Entity * temp = find_entity(world_coords);
-		if(temp != NULL)
+		EntityPtr temp = find_entity(world_coords);
+		if(temp.is_set())
 		{
 			GetCmpt(PlayerIdComponent, plr_it_cmpt, temp);
 			if(plr_it_cmpt->player_id != GlobalData::PLAYER_ID_1)
@@ -67,13 +67,13 @@ void InputProcessor::process_touch(int type, float screen_x, float screen_y)
 	
 	if(type == TouchTypes::RELEASE)
 	{
-		if (touched_entity != NULL)
+		if (touched_entity.is_set())
 		{
 			//@todo: here would bew checking, is release coords belong to
 			// tower at another player.
 			
-			Entity * tower_at_release = find_entity(world_coords);
-			if(tower_at_release != NULL)
+			EntityPtr tower_at_release = find_entity(world_coords);
+			if(tower_at_release.is_set())
 			{
 				GetCmpt(PlayerIdComponent, dist_plr_id_cmpt, tower_at_release);
 				GetCmpt(PlayerIdComponent, from_plr_id_cmpt, touched_entity);
@@ -92,7 +92,7 @@ void InputProcessor::process_touch(int type, float screen_x, float screen_y)
 				if(diff.length() > 0.2 && enesto_cmpt->value > 60)
 				{
 					enesto_cmpt->rem_energy(50);
-					Entity * new_tower =
+					EntityPtr new_tower =
 						EntityFabric::get_tower(touched_entity, world_coords);
 					GameEngine::get_data()->logic.add_tower(new_tower);
 				}
@@ -112,7 +112,7 @@ void InputProcessor::process_touch(int type, float screen_x, float screen_y)
 	if(type == TouchTypes::MOVE)
 	{
 		//if we get deal with entities
-		if (touched_entity != NULL)
+		if (touched_entity.is_set())
 		{
 			Vec2f diff = world_coords - press_coords;
 				
@@ -141,20 +141,20 @@ void InputProcessor::process_touch(int type, float screen_x, float screen_y)
 }
 
 // @todo: loop throw all entities, not good!
-Entity * InputProcessor::find_entity(Vec2f world_coords)
+EntityPtr InputProcessor::find_entity(Vec2f world_coords)
 {
 	Entities& entities = GameEngine::global_data->logic.get_entities();
 	EntityIt it = entities.begin();
 	while(it != entities.end())
 	{
-		if(!HasCmpt(TouchableComponent, it->second))
+		if(!HasCmpt(TouchableComponent, (*it)))
 		{
 			it++;
 			continue;
 		}
 		
-		GetCmpt(TouchableComponent, touch_com, it->second);
-		GetCmpt(PositionComponent, pos_com, it->second);
+		GetCmpt(TouchableComponent, touch_com, (*it));
+		GetCmpt(PositionComponent, pos_com, (*it));
 		
 		Vec2f left_bottom = pos_com->position - Vec2f(touch_com->touch_size);
 		Vec2f right_top = pos_com->position + Vec2f(touch_com->touch_size);
@@ -163,9 +163,9 @@ Entity * InputProcessor::find_entity(Vec2f world_coords)
 			world_coords.y > left_bottom.y && world_coords.y < right_top.y)
 		{
 			//touched_entity = it->second;
-			return it->second;
+			return (*it);
 		}
 		it++;
 	}
-	return NULL;
+	return EntityPtr(NULL);
 }

@@ -37,8 +37,7 @@ public:
 	// Set pointer to this ShrPtr. @note: prev pointer, if exist, realesed
 	void set(T* ptr)
 	{
-		if(is_set())
-			decr_counter();
+		decr_counter();
 			
 		this->ptr = (Obj*)ptr;
 		if(is_set())
@@ -48,10 +47,7 @@ public:
 	/// assignment of clPtr
 	ShrPtr& operator = ( const ShrPtr& pointer )
 	{
-		if(is_set())
-			decr_counter();
-		ptr = pointer.get();
-		incr_counter();
+		set(pointer.get());
 		return *this;
 	}
 	
@@ -83,6 +79,7 @@ private:
 	
 	void decr_counter()
 	{
+		if(!is_set()) return;
 		ptr->ref_counter--;
 		check();
 	}

@@ -1,6 +1,6 @@
 #include "MoveSystem.h"
 
-void MoveSystem::update(Entity* entity)
+void MoveSystem::update(EntityPtr entity)
 {
     if(
        !HasCmpt(PositionComponent, entity) ||

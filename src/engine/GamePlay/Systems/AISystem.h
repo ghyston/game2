@@ -22,7 +22,7 @@ public:
 	
 protected:
 	
-	virtual void update(Entity * entity);
+	virtual void update(EntityPtr entity);
 	
 };
 

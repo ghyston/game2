@@ -10,15 +10,15 @@
 #define __Game2__NodeComponent__
 
 #include "../../ECS/BaseComponent.h"
-#include "../../ECS/RefEntity.h"
-#include <vector>
+#include "../../ECS/Types.h"
+#include <list>
 
 class NodeComponent : public IComponent
 {
 public:
-	//@todo: use some smart pointers!
-	RefEntity parent;
-	std::vector<RefEntity> children;
+
+	EntityPtr parent;
+	Entities children;
 	
 };
 

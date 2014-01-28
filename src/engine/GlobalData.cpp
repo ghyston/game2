@@ -13,32 +13,32 @@ bool GlobalData::init_scene()
 {	
 	camera = new Camera();
 
-	Entity * generator1 =
+	EntityPtr generator1 =
 		EntityFabric::create_energy_generator(Vec2f(-0.6f, -0.4f), 0.3, 0.4);
 	logic.add_entity(generator1);
 	
-	Entity * generator2 =
+	EntityPtr generator2 =
 		EntityFabric::create_energy_generator(Vec2f(0.4f, 0.5f), 0.3, 0.2);
 	logic.add_entity(generator2);
 	
-    Entity * base_1 = EntityFabric::get_tower(NULL, Vec2f(0.0f,-0.4f));
+    EntityPtr base_1 = EntityFabric::get_tower(NULL, Vec2f(0.0f,-0.4f));
 	GetCmpt(PlayerIdComponent, plr_id_1_cmpt, base_1);
 	plr_id_1_cmpt->player_id = PLAYER_ID_1;
 	GetCmpt(EnergyStorageComponent, enesto_1, base_1);
 	enesto_1->value = enesto_1->limit;
 	logic.add_tower(base_1);
-	base_tower_player_1.SetPointer(base_1);
+	base_tower_player_1 = base_1;
 	
-	Entity * base_2 = EntityFabric::get_tower(NULL, Vec2f(-0.2f, 0.4f));
+	EntityPtr base_2 = EntityFabric::get_tower(NULL, Vec2f(-0.2f, 0.4f));
 	GetCmpt(PlayerIdComponent, plr_id_2_cmpt, base_2);
 	plr_id_2_cmpt->player_id = PLAYER_ID_2;
 	GetCmpt(EnergyStorageComponent, enesto_2, base_2);
 	enesto_2->value = 30;
 	logic.add_tower(base_2);
-	base_tower_player_2.SetPointer(base_2);
+	base_tower_player_2 = base_2;
 	
 	//-----TEST-----
-	Entity * temp_1 = EntityFabric::get_tower(base_2, Vec2f(0.3f, 0.4f));
+	EntityPtr temp_1 = EntityFabric::get_tower(base_2, Vec2f(0.3f, 0.4f));
 	GetCmpt(PlayerIdComponent, temp_1_plr_cmpt, temp_1);
 	temp_1_plr_cmpt->player_id = PLAYER_ID_2;
 	GetCmpt(EnergyStorageComponent, temp_1_enesto, temp_1);

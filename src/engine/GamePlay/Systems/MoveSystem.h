@@ -14,13 +14,10 @@
 
 class MoveSystem : public BaseSystem
 {
-private:
-	PositionComponent* position_com;
-	MovementComponent* move_com;
 	
 public:
 		
-	void update(Entity * entity);
+	void update(EntityPtr entity);
 	
 };
 

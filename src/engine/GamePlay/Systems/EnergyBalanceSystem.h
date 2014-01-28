@@ -27,18 +27,18 @@ public:
 	// This keep sum_energy/count_storage, that calculates every step.
 	static int average_energy;
 	
-	virtual void update(Entity * entity);
+	virtual void update(EntityPtr entity);
 
 	virtual void pre_step();
 	virtual void post_step();
 	
 private:
 	
-	float calc_energy(Entity * tower);
+	float calc_energy(EntityPtr tower);
 	
 	float last_time_feeded;
 	
-	void process_base_tower(Entity * base);
+	void process_base_tower(EntityPtr base);
 	
 };
 

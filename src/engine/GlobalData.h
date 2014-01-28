@@ -53,8 +53,8 @@ public:
 	static unsigned int PLAYER_ID_1;
 	static unsigned int PLAYER_ID_2;
 	
-	RefEntity base_tower_player_1;
-	RefEntity base_tower_player_2;
+	EntityPtr base_tower_player_1;
+	EntityPtr base_tower_player_2;
 	
 };
 

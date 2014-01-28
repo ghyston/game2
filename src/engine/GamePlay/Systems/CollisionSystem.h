@@ -19,7 +19,7 @@ class CollisionSystem : public BaseSystem
 		
 	public:
 		
-		void update(Entity * entity);
+		void update(EntityPtr entity);
 };
 
 #endif	/* COLLISIONSYSTEM_H */

@@ -34,15 +34,15 @@ void Game2Logic::stop()
 	//@todo: remove all systems!
 }
 
-void Game2Logic::add_tower(Entity * tower)
+void Game2Logic::add_tower(EntityPtr tower)
 {
 	GameLogic::add_entity(tower);
 	
 	//setup player id
 	GetCmpt(NodeComponent, node_com, tower);
-	if(node_com->parent.IsSet())
+	if(node_com->parent.is_set())
 	{
-		GetCmpt(PlayerIdComponent, parent_plr_id_cmpt, node_com->parent.Get());
+		GetCmpt(PlayerIdComponent, parent_plr_id_cmpt, node_com->parent);
 		GetCmpt(PlayerIdComponent, self_plr_id_cmpt, tower);
 		self_plr_id_cmpt->player_id = parent_plr_id_cmpt->player_id;
 	}
@@ -51,32 +51,28 @@ void Game2Logic::add_tower(Entity * tower)
 	EntityIt it = entities.begin();
 	while (it != entities.end())
 	{
-		if(!HasCmpt(EnergyGeneratorComponent, it->second))
+		if(!HasCmpt(EnergyGeneratorComponent, (*it)))
 		{
 			it++;
 			continue;
 		}
 		
-		GetCmpt(PositionComponent, generator_pos_com, it->second);
-		GetCmpt(EnergyGeneratorComponent, gen_com, it->second);
+		GetCmpt(PositionComponent, generator_pos_com, (*it));
+		GetCmpt(EnergyGeneratorComponent, gen_com, (*it));
 		GetCmpt(PositionComponent, pos_com, tower);
 		
 		Vec2f diff = generator_pos_com->position - pos_com->position;
 		
 		if(gen_com->radius > diff.length())
 		{
-			//@todo: add sugar for this (arrays of RefEntity init)!
-			RefEntity new_tower;
-			gen_com->towers.push_back(new_tower);
-			RefEntity * ref = &gen_com->towers.back();
-			ref->SetPointer(tower);
+			gen_com->towers.push_back(tower);
 			break;
 		}
 		it++;
 	}
 }
 
-void Game2Logic::add_energy(Entity * energy, Entity * generator)
+void Game2Logic::add_energy(EntityPtr energy, EntityPtr generator)
 {
 	GetCmpt(TargetComponent, tar_cmpt, energy);
 	GetCmpt(EnergyGeneratorComponent, engen_cmpt, generator);
@@ -86,27 +82,27 @@ void Game2Logic::add_energy(Entity * energy, Entity * generator)
 		return;
 	
 	float min_dist = engen_cmpt->radius;
-	std::vector<RefEntity>::iterator it = engen_cmpt->towers.begin();
-	Entity * closest_tower = it->Get();
+	EntityIt it = engen_cmpt->towers.begin();
+	EntityPtr closest_tower = *it;
 	while (it != engen_cmpt->towers.end())
 	{
-		GetCmpt(PositionComponent, tower_pos_com, (it->Get()));
+		GetCmpt(PositionComponent, tower_pos_com, (*it));
 			
 		Vec2f dist = energy_pos_cmpt->position - tower_pos_com->position;
 			
 		if(dist.length() < min_dist)
 		{
-			closest_tower = it->Get();
+			closest_tower = *it;
 			min_dist = dist.length();
 		}
 		it++;
 	}
 	
-	tar_cmpt->target.SetPointer(closest_tower);
+	tar_cmpt->target = closest_tower;
 	GameLogic::add_entity(energy);
 }
 
-void Game2Logic::tower_attack(Entity * from, Entity * to)
+void Game2Logic::tower_attack(EntityPtr from, EntityPtr to)
 {
 	GetCmpt(EnergyStorageComponent, from_enesto_cmpt, from);
 	GetCmpt(PositionComponent, from_pos_cmpt, from);
@@ -116,32 +112,31 @@ void Game2Logic::tower_attack(Entity * from, Entity * to)
 	{
 		// 10 - count energys, that would attack enemy tower
 		from_enesto_cmpt->value -= 10;
-		Entity * energy;
+		EntityPtr energy;
 		for(int i = 0; i < 10; i++)
 		{
 			energy = EntityFabric::create_energy(from_pos_cmpt->position);
 			GetCmpt(TargetComponent, targ_cmpt, energy);
-			targ_cmpt->target.SetPointer(to);
+			targ_cmpt->target = to;
 			targ_cmpt->target_enemy = true;
 			add_entity(energy);
 		}
 	}
 }
 
-void Game2Logic::remove_tower(Entity * tower)
+void Game2Logic::remove_tower(EntityPtr tower)
 {
 	GetCmpt(NodeComponent, node_com, tower);
 	
-	//remove from parents' children.
-	if(node_com->parent.IsSet())
+	//remove child from parent
+	if(node_com->parent.is_set())
 	{
-		GetCmpt(NodeComponent, parent_node_cmpt, node_com->parent.Get());
-		std::vector<RefEntity>::iterator it = parent_node_cmpt->children.begin();
+		GetCmpt(NodeComponent, parent_node_cmpt, node_com->parent);
+		EntityIt it = parent_node_cmpt->children.begin();
 		while (it != parent_node_cmpt->children.end())
 		{
-			if(it->Get() == tower)
+			if(it->get() == tower.get())
 			{
-				it->UnsetPointer(); //?
 				parent_node_cmpt->children.erase(it);
 				break;
 			}
@@ -153,12 +148,11 @@ void Game2Logic::remove_tower(Entity * tower)
 	}
 	
 	//Remove parent's from children
-	std::vector<RefEntity>::iterator it = node_com->children.begin();
+	EntityIt it = node_com->children.begin();
 	while (it != node_com->children.end())
 	{
-		GetCmpt(NodeComponent, child_node_comp, it->Get());
-		child_node_comp->parent.UnsetPointer();
-		it->UnsetPointer();
+		GetCmpt(NodeComponent, child_node_comp, (*it));
+		child_node_comp->parent.set(NULL);
 		it++;
 	}
 	node_com->children.clear();

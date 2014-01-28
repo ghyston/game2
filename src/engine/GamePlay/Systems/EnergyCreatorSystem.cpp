@@ -11,8 +11,9 @@
 #include "../../GameEngine.h"
 #include "../../GamePlay/Game2Logic.h"
 #include "../../GamePlay/EntityFabric.h"
+#include "../../Common/VecShrPtr.h"
 
-void EnergyGeneratorSystem::update(Entity * entity)
+void EnergyGeneratorSystem::update(EntityPtr entity)
 {
 	if(!HasCmpt(EnergyGeneratorComponent, entity))
 		return;
@@ -20,6 +21,7 @@ void EnergyGeneratorSystem::update(Entity * entity)
 	GetCmpt(EnergyGeneratorComponent, en_gen_cmpt, entity);
 	GetCmpt(PositionComponent, pos_cmpt, entity);
 	
+	RemoveDeletedObjectsFromContainer(en_gen_cmpt->towers);
 	if(en_gen_cmpt->towers.size() == 0)
 		return;
 	
@@ -32,7 +34,7 @@ void EnergyGeneratorSystem::update(Entity * entity)
 		coords += pos_cmpt->position;
 		
 		GameEngine::global_data->logic.add_energy(
-			EntityFabric::create_energy(coords), entity);
+			EntityFabric::create_energy(coords), entity.get());
 	}
 	
 }

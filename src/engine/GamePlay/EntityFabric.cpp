@@ -2,11 +2,11 @@
 #include "../GameEngine.h"
 
 
-Entity * EntityFabric::get_tower(Entity* parent, Vec2f coords)
+EntityPtr EntityFabric::get_tower(EntityPtr parent, Vec2f coords)
 {
 	//@todo: assert, has parend NodeComponent or not!
 	
-	Entity* tower = Entity::create();
+	EntityPtr tower = Entity::create();
 	tower->type = Entity::Types::TOWER;
 	
 	//setup pos component
@@ -31,14 +31,12 @@ Entity * EntityFabric::get_tower(Entity* parent, Vec2f coords)
 	tower->add_component<EnergyStorageComponent>(es_com);
 	
 	NodeComponent * node_com = new NodeComponent();
-	node_com->parent.SetPointer(parent);
+	node_com->parent = parent;
 	
-	if(node_com->parent.IsSet())
+	if(parent.is_set())
 	{
 		GetCmpt(NodeComponent, parent_node_com, parent);
-		RefEntity * child_ref = new RefEntity();
-		child_ref->SetPointer(tower);
-		parent_node_com->children.push_back(*child_ref);
+		parent_node_com->children.push_back(tower);
 	}
 	tower->add_component<NodeComponent>(node_com);
 	
@@ -52,14 +50,14 @@ Entity * EntityFabric::get_tower(Entity* parent, Vec2f coords)
 	return tower;
 }
 
-Entity * EntityFabric::get_connector(Entity * tower_1, Entity * tower_2)
+EntityPtr EntityFabric::get_connector(EntityPtr tower_1, EntityPtr tower_2)
 {
-    Entity * connector = Entity::create();
+    EntityPtr connector = Entity::create();
 	connector->type = Entity::Types::CONNECT;
     
     ConnectorComponent * connector_com = new ConnectorComponent();
-    connector_com->obj_1.SetPointer(tower_1);
-    connector_com->obj_2.SetPointer(tower_2);
+    connector_com->obj_1 = tower_1;
+    connector_com->obj_2 = tower_2;
 	
     connector->add_component<ConnectorComponent>(connector_com);
     
@@ -70,9 +68,9 @@ Entity * EntityFabric::get_connector(Entity * tower_1, Entity * tower_2)
     return connector;
 }
 
-Entity * EntityFabric::create_energy(Vec2f coords)
+EntityPtr EntityFabric::create_energy(Vec2f coords)
 {
-	Entity * energy = Entity::create();
+	EntityPtr energy = Entity::create();
 	energy->type = Entity::Types::ENERGY;
 	
 	PositionComponent * pos_com = new PositionComponent();
@@ -97,9 +95,9 @@ Entity * EntityFabric::create_energy(Vec2f coords)
 	return energy;
 }
 
-Entity * EntityFabric::create_energy_generator(Vec2f coords, float rad, float intensivity)
+EntityPtr EntityFabric::create_energy_generator(Vec2f coords, float rad, float intensivity)
 {
-	Entity * generator = Entity::create();
+	EntityPtr generator = Entity::create();
 	
 	PositionComponent * pos_com = new PositionComponent();
 	pos_com->position = coords;

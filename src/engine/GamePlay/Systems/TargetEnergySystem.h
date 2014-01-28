@@ -17,15 +17,12 @@ class TargetEnergySystem : public BaseSystem
 {
 public:
 	
-	void update(Entity * entity);
+	void update(EntityPtr entity);
 	
 private:
 	
-	void merge_energy(Entity * tower, Entity * energy);
+	void merge_energy(EntityPtr tower, EntityPtr energy);
 	
-	//@todo: move to GameLogic!
-	void del_energy(Entity * energy);
-
 };
 
 #endif /* defined(__Game2__TargetEnergySystem__) */

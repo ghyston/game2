@@ -9,7 +9,7 @@
 #ifndef Game2_ConnectorComponent_h
 #define Game2_ConnectorComponent_h
 
-#include "../../ECS/RefEntity.h"
+#include "../../ECS/Types.h"
 #include "../../ECS/BaseComponent.h"
 
 // This component we need to connect two entities (towers)
@@ -17,8 +17,8 @@ class ConnectorComponent : public IComponent
 {
 public:
     
-    RefEntity obj_1;
-    RefEntity obj_2;
+    EntityPtr obj_1;
+    EntityPtr obj_2;
 };
 
 #endif

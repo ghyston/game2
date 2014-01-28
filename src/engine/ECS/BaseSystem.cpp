@@ -1,9 +1,9 @@
 #include "BaseSystem.h"
 #include "Entity.h"
 
-void BaseSystem::process(Entity * entity)
+void BaseSystem::process(EntityPtr entity)
 {
-	if(entity == NULL || entity->is_deleted())
+	if(entity->is_deleted())
 		return;
 	update(entity);
 }

@@ -39,12 +39,12 @@ private:
 	Vec2f old_cam_pos;
 	
 	//@todo: entity can be destroyed here, be carefull!
-	Entity * touched_entity;
+	EntityPtr touched_entity;
 	Vec2f old_entity_coords;
 	bool new_entity_created;
 	
 	// return pointer to founded entity or NULL if not found.
-	Entity * find_entity(Vec2f world_coords);
+	EntityPtr find_entity(Vec2f world_coords);
 	
 	
 	
