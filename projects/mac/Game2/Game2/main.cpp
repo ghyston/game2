@@ -34,13 +34,13 @@ void MouseClickCallback(GLFWwindow * wnd, int button, int action, int mods)
 	
 	//@todo: not good, may be other actions on da futurum
 	int touch_type = (action == GLFW_PRESS) ?
-	InputProcessor::TouchTypes::PRESS : InputProcessor::TouchTypes::RELEASE;
+	NewInputProcessor::TouchTypes::PRESS : NewInputProcessor::TouchTypes::RELEASE;
 	instance->process_touch(0, touch_type, mouse_x, mouse_y);
 }
 
 void MouseCursorCallback(GLFWwindow * wnd, double x, double y)
 {
-	instance->process_touch(0, InputProcessor::TouchTypes::MOVE, x, y);
+	instance->process_touch(0, NewInputProcessor::TouchTypes::MOVE, x, y);
 }
 
 

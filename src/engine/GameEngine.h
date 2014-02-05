@@ -4,6 +4,7 @@
 #include "Renderer/Renderer.h"
 #include "GlobalData.h"
 #include "InputProcessor.h"
+#include "InputProcessor/NewInputProcessor.h"
 
 //@todo: delete this include on release
 #include "Common/Tests.h"
@@ -27,6 +28,11 @@ public:
 	
 	//Private c-tor.
 	GameEngine();
+	
+//@todo: we should start use private things on main class
+private:
+	
+	static NewInputProcessor * new_input_processor;
 	
 public:
 
@@ -59,6 +65,7 @@ public:
 	* Create game engine instance.
 	*/
 	static bool create_instance();
+	
 	
 };
 

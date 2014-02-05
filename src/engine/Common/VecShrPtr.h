@@ -26,7 +26,7 @@ void RemoveDeletedObjectsFromContainer(std::list<ShrPtr<T>>& vec)
 	{
 		if (((Obj*)it->get())->is_deleted())
 		{
-			it = vec.erase(it); // @todo: why we should increment this pointer??
+			it = vec.erase(it);
 		}
 		else
 			++it;

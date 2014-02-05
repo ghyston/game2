@@ -14,6 +14,7 @@
 
 #include "GlobalData.h"
 
+
 class InputProcessor
 {
 public:
@@ -34,7 +35,7 @@ public:
 	void process_touch(int type, float screen_x, float screen_y);
 	
 private:
-	
+		
 	Vec2f press_coords;
 	Vec2f old_cam_pos;
 	

@@ -71,6 +71,10 @@
 		3FDE0B7117F7029A000A7DE1 /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FDE0B5E17F70217000A7DE1 /* Timer.cpp */; };
 		3FDE0B7417F703DC000A7DE1 /* Game2_engine.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FDE0B1817F6FF13000A7DE1 /* Game2_engine.dylib */; };
 		3FDE0B7617F70F54000A7DE1 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FDE0AFB17F61FB8000A7DE1 /* OpenGL.framework */; };
+		3FE4E02518A28FAF000C2631 /* NewInputProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FE4E02318A28FAF000C2631 /* NewInputProcessor.cpp */; };
+		3FE4E02618A28FAF000C2631 /* NewInputProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FE4E02418A28FAF000C2631 /* NewInputProcessor.h */; };
+		3FE4E02918A299D6000C2631 /* OutherAPI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FE4E02718A299D6000C2631 /* OutherAPI.cpp */; };
+		3FE4E02A18A299D6000C2631 /* OutherAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FE4E02818A299D6000C2631 /* OutherAPI.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -193,6 +197,10 @@
 		3FDE0B5D17F70217000A7DE1 /* shaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shaders.h; sourceTree = "<group>"; };
 		3FDE0B5E17F70217000A7DE1 /* Timer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Timer.cpp; sourceTree = "<group>"; };
 		3FDE0B5F17F70217000A7DE1 /* Timer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
+		3FE4E02318A28FAF000C2631 /* NewInputProcessor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NewInputProcessor.cpp; path = ../InputProcessor/NewInputProcessor.cpp; sourceTree = "<group>"; };
+		3FE4E02418A28FAF000C2631 /* NewInputProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewInputProcessor.h; path = ../InputProcessor/NewInputProcessor.h; sourceTree = "<group>"; };
+		3FE4E02718A299D6000C2631 /* OutherAPI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OutherAPI.cpp; path = ../InputProcessor/OutherAPI.cpp; sourceTree = "<group>"; };
+		3FE4E02818A299D6000C2631 /* OutherAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutherAPI.h; path = ../InputProcessor/OutherAPI.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,6 +303,7 @@
 		3FDE0B2D17F70217000A7DE1 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				3FE4E02218A28F9B000C2631 /* InputProcessor */,
 				3F8C392A184B9CB6003E8DD1 /* Obj.h */,
 				3F0FE525184FBF71000F7C6E /* ShrPtr.h */,
 				3F0FE528184FC019000F7C6E /* VecShrPtr.h */,
@@ -410,6 +419,17 @@
 			path = Renderer;
 			sourceTree = "<group>";
 		};
+		3FE4E02218A28F9B000C2631 /* InputProcessor */ = {
+			isa = PBXGroup;
+			children = (
+				3FE4E02318A28FAF000C2631 /* NewInputProcessor.cpp */,
+				3FE4E02418A28FAF000C2631 /* NewInputProcessor.h */,
+				3FE4E02718A299D6000C2631 /* OutherAPI.cpp */,
+				3FE4E02818A299D6000C2631 /* OutherAPI.h */,
+			);
+			name = InputProcessor;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -431,11 +451,13 @@
 				3FC2B0141838DCAD00FA5B5E /* RingRenderable.h in Headers */,
 				3F548CC51827AC9B00BAE9A4 /* TowerRenderable.h in Headers */,
 				3F8C392B184B9CB6003E8DD1 /* Obj.h in Headers */,
+				3FE4E02618A28FAF000C2631 /* NewInputProcessor.h in Headers */,
 				3F548CD11829871E00BAE9A4 /* Game2Logic.h in Headers */,
 				3FC2B0101838D7DA00FA5B5E /* Cursor.h in Headers */,
 				3F0FE52A184FC019000F7C6E /* VecShrPtr.h in Headers */,
 				3F7DE15418885E6000BACBEA /* Types.h in Headers */,
 				3F548CC91829726D00BAE9A4 /* EnergyStorageComponent.h in Headers */,
+				3FE4E02A18A299D6000C2631 /* OutherAPI.h in Headers */,
 				3F708DB2182D4AF500BF964E /* Tests.h in Headers */,
 				3F7464DC180DD790000650C3 /* ConnectorComponent.h in Headers */,
 			);
@@ -528,6 +550,7 @@
 				3FDE0B6F17F7029A000A7DE1 /* Renderer.cpp in Sources */,
 				3F708DB7182D5B3300BF964E /* NodeComponent.cpp in Sources */,
 				3F409CC81810606D00A8063B /* TargetEnergySystem.cpp in Sources */,
+				3FE4E02518A28FAF000C2631 /* NewInputProcessor.cpp in Sources */,
 				3FDE0B6417F7029A000A7DE1 /* Entity.cpp in Sources */,
 				3FDE0B6517F7029A000A7DE1 /* GameLogic.cpp in Sources */,
 				3F548CC41827AC9B00BAE9A4 /* TowerRenderable.cpp in Sources */,
@@ -547,6 +570,7 @@
 				3F01CA2018315B34004DCCE5 /* EnergyCreatorSystem.cpp in Sources */,
 				3FC2B0131838DCAD00FA5B5E /* RingRenderable.cpp in Sources */,
 				3F20BB60184229C30051003D /* AISystem.cpp in Sources */,
+				3FE4E02918A299D6000C2631 /* OutherAPI.cpp in Sources */,
 				3FD1F6F118265A3F003B0BF4 /* ConnectorComponent.cpp in Sources */,
 				3F548CD01829871E00BAE9A4 /* Game2Logic.cpp in Sources */,
 				3FDE0B6D17F7029A000A7DE1 /* Grid.cpp in Sources */,
