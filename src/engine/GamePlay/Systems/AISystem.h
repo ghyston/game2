@@ -17,12 +17,19 @@ class AISystem : public BaseSystem
 {
 public:
 	
-	virtual void pre_step() {;}
+	virtual void pre_step();
 	virtual void post_step() {;}
 	
 protected:
 	
 	virtual void update(EntityPtr entity);
+	
+private:
+	
+	void DetectTarget(EntityPtr entity);
+	// Not used for now.
+	void BuildRandomTower(EntityPtr entity);
+	
 	
 };
 

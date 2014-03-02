@@ -50,9 +50,9 @@ Renderer* GameEngine::get_renderer()
 
 void GameEngine::process_touch(int id, int touch_type, float x, float y)
 {
-	Vec2f world_coords = GameEngine::global_data->convert_coordinates(Vec2f(x, y));
-	new_input_processor->ProcessTouch(world_coords.x, world_coords.y, touch_type);
-	//input_processor->process_touch(touch_type, x, y);
+	//Vec2f world_coords = GameEngine::global_data->convert_coordinates(Vec2f(x, y));
+	//new_input_processor->ProcessTouch(world_coords.x, world_coords.y, touch_type);
+	input_processor->process_touch(touch_type, x, y);
 }
 
 void GameEngine::process_input(int key)
