@@ -9,14 +9,15 @@
 #ifndef __Game2__NodeComponent__
 #define __Game2__NodeComponent__
 
-#include "../../ECS/BaseComponent.h"
 #include "../../ECS/Types.h"
-#include <list>
+#include "../../ECS/BaseComponent.h"
 
 class NodeComponent : public IComponent
 {
 public:
 
+	static int GetTypeImpl() { return ComponentsType::NODE_COMPONENT; }
+	
 	EntityPtr parent;
 	Entities children;
 	

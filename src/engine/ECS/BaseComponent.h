@@ -5,12 +5,16 @@
 /**
  * Common interface for all components.
  */
+
 class IComponent
 {
 	
 public:
 	
 	IComponent() {;}
+
+	template <class ConcreteComponentType>
+	static int GetType() { return ConcreteComponentType::GetTypeImpl(); }
 	
 	virtual ~IComponent() {;}
 

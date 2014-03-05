@@ -14,6 +14,8 @@
 class MovementComponent : public IComponent
 {
 public:
+	
+	static int GetTypeImpl() { return ComponentsType::MOVEMENT_COMPONENT; }
 
 	Vec2f speed;
 	

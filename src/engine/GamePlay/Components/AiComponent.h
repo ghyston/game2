@@ -19,6 +19,8 @@ public:
 	
 	AiComponentComponent() {;}
 	
+	static int GetTypeImpl() { return ComponentsType::__INVALID; }
+	
 };
 
 #endif

@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Stepanov Ilia. All rights reserved.
 //
 
-#include "EnergyStorageComponent.h"
+#include "../Components.h"
 
 void EnergyStorageComponent::add_energy(int count)
 {

@@ -15,6 +15,8 @@ class EnergyStorageComponent : public IComponent
 {
 public:
 	
+	static int GetTypeImpl() { return ComponentsType::ENEMY_STORAGE_COMPONENT; }
+	
 	unsigned int limit;
 	unsigned int value;
 	float balance;

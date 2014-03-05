@@ -17,6 +17,8 @@ public:
 	
 	TouchableComponent() : is_touched(false) {;}
 	
+	static int GetTypeImpl() { return ComponentsType::TOUCHABLE_COMPONENT; }
+	
 	bool is_touched;
 	// it's square size arount position component, that can be touched
 	float touch_size;

@@ -44,6 +44,7 @@
 		3F7DE15418885E6000BACBEA /* Types.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F7DE15318885E6000BACBEA /* Types.h */; };
 		3F8C392B184B9CB6003E8DD1 /* Obj.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F8C392A184B9CB6003E8DD1 /* Obj.h */; };
 		3FB125811837E2AA00494376 /* EnergyStorageComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FB1257F1837E2AA00494376 /* EnergyStorageComponent.cpp */; };
+		3FB80C1D18C50169009086BF /* GlInclude.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FB80C1C18C50169009086BF /* GlInclude.h */; };
 		3FC2B00F1838D7DA00FA5B5E /* Cursor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FC2B00D1838D7DA00FA5B5E /* Cursor.cpp */; };
 		3FC2B0101838D7DA00FA5B5E /* Cursor.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC2B00E1838D7DA00FA5B5E /* Cursor.h */; };
 		3FC2B0131838DCAD00FA5B5E /* RingRenderable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FC2B0111838DCAD00FA5B5E /* RingRenderable.cpp */; };
@@ -139,6 +140,7 @@
 		3F7DE15318885E6000BACBEA /* Types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Types.h; sourceTree = "<group>"; };
 		3F8C392A184B9CB6003E8DD1 /* Obj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Obj.h; sourceTree = "<group>"; };
 		3FB1257F1837E2AA00494376 /* EnergyStorageComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnergyStorageComponent.cpp; sourceTree = "<group>"; };
+		3FB80C1C18C50169009086BF /* GlInclude.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlInclude.h; sourceTree = "<group>"; };
 		3FC2B00D1838D7DA00FA5B5E /* Cursor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Cursor.cpp; sourceTree = "<group>"; };
 		3FC2B00E1838D7DA00FA5B5E /* Cursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cursor.h; sourceTree = "<group>"; };
 		3FC2B0111838DCAD00FA5B5E /* RingRenderable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RingRenderable.cpp; sourceTree = "<group>"; };
@@ -418,6 +420,7 @@
 				3F4ECCE1182F9540002425F7 /* CircleRenderable.h */,
 				3FC2B0111838DCAD00FA5B5E /* RingRenderable.cpp */,
 				3FC2B0121838DCAD00FA5B5E /* RingRenderable.h */,
+				3FB80C1C18C50169009086BF /* GlInclude.h */,
 			);
 			path = Renderer;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 				3F548CCD18297EA000BAE9A4 /* EnergyBalanceSystem.h in Headers */,
 				3F49B7B41832B02B00EE7639 /* InputProcessor.h in Headers */,
 				3F409CC91810606D00A8063B /* TargetEnergySystem.h in Headers */,
+				3FB80C1D18C50169009086BF /* GlInclude.h in Headers */,
 				3F4ECCE3182F9540002425F7 /* CircleRenderable.h in Headers */,
 				3F409CC518105F0C00A8063B /* TargetComponent.h in Headers */,
 				3F708DB8182D5B3300BF964E /* NodeComponent.h in Headers */,
@@ -545,12 +549,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FDE0B6017F7022F000A7DE1 /* GameEngine.cpp in Sources */,
 				3F4ECCE2182F9540002425F7 /* CircleRenderable.cpp in Sources */,
 				3FDE0B6117F7029A000A7DE1 /* Matrix4f.cpp in Sources */,
 				3FDE0B6217F7029A000A7DE1 /* ThreadLock.cpp in Sources */,
 				3FDE0B6317F7029A000A7DE1 /* BaseSystem.cpp in Sources */,
 				3F708DB4182D4C7900BF964E /* Vector2f.cpp in Sources */,
-				3FDE0B6017F7022F000A7DE1 /* GameEngine.cpp in Sources */,
 				3FDE0B6F17F7029A000A7DE1 /* Renderer.cpp in Sources */,
 				3F708DB7182D5B3300BF964E /* NodeComponent.cpp in Sources */,
 				3F409CC81810606D00A8063B /* TargetEnergySystem.cpp in Sources */,
@@ -571,8 +575,8 @@
 				3FDE0B6B17F7029A000A7DE1 /* BaseRenderable.cpp in Sources */,
 				3FDE0B6C17F7029A000A7DE1 /* Camera.cpp in Sources */,
 				3FC2B00F1838D7DA00FA5B5E /* Cursor.cpp in Sources */,
-				3F01CA2018315B34004DCCE5 /* EnergyCreatorSystem.cpp in Sources */,
 				3FC2B0131838DCAD00FA5B5E /* RingRenderable.cpp in Sources */,
+				3F01CA2018315B34004DCCE5 /* EnergyCreatorSystem.cpp in Sources */,
 				3F20BB60184229C30051003D /* AISystem.cpp in Sources */,
 				3FE4E02918A299D6000C2631 /* OutherAPI.cpp in Sources */,
 				3FD1F6F118265A3F003B0BF4 /* ConnectorComponent.cpp in Sources */,

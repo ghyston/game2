@@ -42,7 +42,7 @@ void Game2Logic::add_tower(EntityPtr tower)
 	GetCmpt(NodeComponent, node_com, tower);
 	if(node_com->parent.is_set())
 	{
-		GetCmpt(PlayerIdComponent, parent_plr_id_cmpt, node_com->parent);
+		GetCmpt(PlayerIdComponent, parent_plr_id_cmpt, (node_com->parent));
 		GetCmpt(PlayerIdComponent, self_plr_id_cmpt, tower);
 		self_plr_id_cmpt->player_id = parent_plr_id_cmpt->player_id;
 	}

@@ -16,6 +16,8 @@
 class ConnectorComponent : public IComponent
 {
 public:
+	
+	static int GetTypeImpl() { return ComponentsType::CONNECTOR_COMPONENT; }
     
     EntityPtr obj_1;
     EntityPtr obj_2;

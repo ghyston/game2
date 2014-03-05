@@ -1,9 +1,7 @@
 #ifndef __SHADER_H__
 #define __SHADER_H__
 
-//#include <GLES2/gl2.h>
-//#include <GLES2/gl2ext.h>
-#include <OpenGL/gl.h>
+#include "GlInclude.h"
 
 class Shader
 {

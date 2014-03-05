@@ -33,7 +33,7 @@ bool GlobalData::init_scene()
 	GetCmpt(PlayerIdComponent, plr_id_2_cmpt, base_2);
 	plr_id_2_cmpt->player_id = PLAYER_ID_2;
 	GetCmpt(EnergyStorageComponent, enesto_2, base_2);
-	enesto_2->value = 30;
+	enesto_2->value = enesto_2->limit;
 	logic.add_tower(base_2);
 	base_tower_player_2 = base_2;
 	

@@ -17,6 +17,9 @@ public:
 	
 	PlayerIdComponent() : player_id(0) {;}
 	
+
+	static int GetTypeImpl() { return ComponentsType::PLAYER_ID_COMPONENT; }
+	
 	unsigned int player_id;
 };
 

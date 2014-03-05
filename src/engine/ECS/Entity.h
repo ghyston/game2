@@ -10,6 +10,7 @@
 
 #include <map>
 #include <vector>
+#include <typeinfo>
 #include "../Common/Obj.h"
 #include "BaseComponent.h"
 
@@ -35,29 +36,29 @@ public:
 	
 	static Entity * create();
 	
-	template <typename T>
+	template <class T>
 	void add_component(T* component)
 	{
-		components[typeid(T).hash_code()] = (IComponent*)component;
+		components[IComponent::GetType<T>()] = (IComponent*)component;
 	}
 	
 	template <typename T>
 	T* get_component()
 	{
-		return (T*)components[typeid(T).hash_code()];
+		return (T*)components[IComponent::GetType<T>()];
 	}
 	
 	template <typename T>
 	bool has_component()
 	{
-		return (components.count(typeid(T).hash_code()) > 0);
+		return (components.count(IComponent::GetType<T>()) > 0);
 	}
 
 	template <typename T>
 	void remove_component()
 	{
-		delete components[typeid(T).hash_code()];
-		components.erase(typeid(T).hash_code());
+		delete components[T::GetType()];
+		components.erase(T::GetType());
 	}
 	
 	void clear();

@@ -17,6 +17,8 @@ class TargetComponent : public IComponent
 public:
 	
 	TargetComponent() : target_enemy (false) {;}
+
+	static int GetTypeImpl() { return ComponentsType::TARGET_COMPONENT; }
     
     EntityPtr target;
 	bool target_enemy;

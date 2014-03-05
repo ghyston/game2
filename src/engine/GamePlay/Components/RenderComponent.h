@@ -25,6 +25,8 @@ public:
 		DRAW_CIRCLE
     } draw_type;
 	
+	static int GetTypeImpl() { return ComponentsType::RENDER_COMPONENT; }
+	
 /*	float * vertexes;
 	int vertexes_count;	
 	float color [4];

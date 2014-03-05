@@ -1,9 +1,7 @@
 #ifndef __RENDERER_H__
 #define __RENDERER_H__
 
-//#include <GLES2/gl2.h>
-//#include <GLES2/gl2ext.h>
-#include <OpenGL/gl.h>
+#include "GlInclude.h"
 #include <math.h>
 #include "Shader.h"
 #include "Camera.h"

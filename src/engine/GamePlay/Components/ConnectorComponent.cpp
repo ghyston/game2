@@ -6,5 +6,5 @@
 //  Copyright (c) 2013 Stepanov Ilia. All rights reserved.
 //
 
-#include "ConnectorComponent.h"
+#include "../Components.h"
 #include "../../ECS/Entity.h"

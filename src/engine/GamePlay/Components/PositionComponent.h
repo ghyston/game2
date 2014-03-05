@@ -14,6 +14,7 @@ class PositionComponent : public IComponent
 {
 public:
 	
+	static int GetTypeImpl() { return ComponentsType::POSITION_COMPONENT; }
 	
 	Vec2f position;
 };

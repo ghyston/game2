@@ -20,6 +20,9 @@ public:
 		activated(false) // @todo: this is just a hack
 	{;}
 	
+
+	static int GetTypeImpl() { return ComponentsType::ENERGY_GENERATOR_COMPONENT; }
+	
 	float radius;	
 	float intensivity;
 	bool activated;
