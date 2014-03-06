@@ -25,7 +25,7 @@ public:
 	
 	virtual void set_energy(float energy) { this->energy = energy; }
 	
-private:
+//private:
 	
 	float size; //Tower is square
 	

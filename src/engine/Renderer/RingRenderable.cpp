@@ -9,7 +9,7 @@
 #include "RingRenderable.h"
 #include <math.h>
 
-const int RingRenderable::points_count = 16;
+const int RingRenderable::points_count = 32;
 
 void RingRenderable::setup_vertexes()
 {
@@ -17,8 +17,8 @@ void RingRenderable::setup_vertexes()
 	float angle = 2.0f / (float)points_count;
 	for(int i = 0; i < points_count; i++)
 	{
-		vertexes[i * 2 + 0] = rad * __cospi(angle * i);
-		vertexes[i * 2 + 1] = rad * __sinpi(angle * i);
+		vertexes[i * 2 + 0] = rad * cos(angle * i * M_PI);
+		vertexes[i * 2 + 1] = rad * sin(angle * i * M_PI);
 	}
 	vertexes_count = points_count;
 }

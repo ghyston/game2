@@ -30,6 +30,10 @@ private:
 	// Not used for now.
 	void BuildRandomTower(EntityPtr entity);
 	
+	EntityPtr findClosestEnemy(EntityPtr entity);
+	
+	bool enemyNearby;
+	
 	
 };
 

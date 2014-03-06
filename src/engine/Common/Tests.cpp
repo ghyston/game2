@@ -29,7 +29,7 @@ ShrPtr<Test> test_ptr_funk(ShrPtr<Test> teest)
 void test_shr_ptr()
 {
 
-	std::list<ShrPtr<Test>> tests;
+	std::list<ShrPtr<Test> > tests;
 	
 	{
 		ShrPtr<Test> ptr_1(new Test(1));

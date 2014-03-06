@@ -7,7 +7,6 @@
 //
 
 #include "EnergyBalanceSystem.h"
-#include "EntityFabric.h"
 #include "../../GameEngine.h"
 #include "../../Timer.h"
 

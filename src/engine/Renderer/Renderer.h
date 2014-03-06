@@ -35,9 +35,14 @@ public:
     void draw_line(Vec2f coord_1, Vec2f coord_2);
     void draw_grid();
 	//@note: energy should be 0.0f .. 1.0f!
-	void draw_tower(Vec2f coords, float energy);
+	void draw_tower(Vec2f coords, float energy, bool is_enemy = false);
 	void draw_circle(Vec2f coords);
 	void draw_ring(Vec2f coords);
+	
+	//@todo: this is hardcode
+	void draw_border_ring(Vec2f coords);
+	bool showBorderRing;
+	Vec2f border_ring_coords;
 	
 private:
     
@@ -74,6 +79,9 @@ private:
 	TowerRenderable * tower_rend;
 	CircleRenderable * circle;	
 	RingRenderable * ring;
+	
+	RingRenderable * border_ring; //@todo: hardcode:(
+	
 
 };
 

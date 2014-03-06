@@ -29,7 +29,7 @@ void EnergyGeneratorSystem::update(EntityPtr entity)
 	{
 		float rad = (rand() % 100) * en_gen_cmpt->radius / 100.0f;
 		float angle = (rand() % 200) / 100.0f;
-		Vec2f coords (rad * __cospi(angle), rad * __sinpi(angle));
+		Vec2f coords (rad * cos(angle * M_PI), rad * sin(angle * M_PI));
 		
 		coords += pos_cmpt->position;
 		

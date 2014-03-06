@@ -36,6 +36,8 @@ void GameEngine::step()
 	global_data->logic.step();
 	global_data->cursor.Draw();
 	renderer->draw_small_rect(global_data->camera->coords);
+	if(renderer->showBorderRing)
+		renderer->draw_border_ring(renderer->border_ring_coords);
 }
 
 GlobalData* GameEngine::get_data()

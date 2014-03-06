@@ -6,7 +6,8 @@ static const char gVertexShader[] =
     "  gl_Position = Projection * Model * vPosition;\n"
     "}\n";
 
-static const char gFragmentShader[] = 
+static const char gFragmentShader[] =
+	//"precision mediump float;\n"
     "uniform vec3 fragColor;\n"
     "void main() {\n"
     "  gl_FragColor = vec4(fragColor, 1.0);\n"

@@ -2,6 +2,7 @@ package com.hyston.games.game2;
 
 import android.content.Context;
 import android.graphics.PixelFormat;
+import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -204,7 +205,8 @@ public class Game2GLView extends GLSurfaceView
 
 	        public void onSurfaceChanged(GL10 gl, int width, int height) 
 	        {
-	        	Game2JNI.init(width, height); //TODO: may be separate init() and surfChange ? 
+	        	//TODO: may be separate init() and surfChange ?
+	        	Game2JNI.init(width, height); 
 	        }
 
 	        public void onSurfaceCreated(GL10 gl, EGLConfig config) 

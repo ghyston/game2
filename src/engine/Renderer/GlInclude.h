@@ -6,9 +6,12 @@
 //  Copyright (c) 2014 Stepanov Ilia. All rights reserved.
 //
 
-//#ifdef MAC_OS_X
-	//#include <OpenGL/gl.h>
-//#elif ANDROID
+#define TARGET_MAC_OS_X
+
+#ifdef MAC_OS_PLATFORM
+	#include <OpenGL/gl.h>
+#else
+//#ifdef ANDROID_PLATFORM //@todo
 	#include <GLES2/gl2.h>
 	#include <GLES2/gl2ext.h>
-//#endif*/
+#endif

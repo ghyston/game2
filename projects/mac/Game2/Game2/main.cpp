@@ -53,7 +53,7 @@ int main(int argc, char ** argv)
     if (!glfwInit())
         exit(EXIT_FAILURE);
     
-    window = glfwCreateWindow(640, 480, "Game 2", NULL, NULL);
+    window = glfwCreateWindow(1024, 496, "Game 2", NULL, NULL);
     if (!window)
     {
         glfwTerminate();
@@ -68,8 +68,8 @@ int main(int argc, char ** argv)
 	glfwSetCursorPosCallback(window, MouseCursorCallback);
     
     GameEngine::create_instance();
-       instance = GameEngine::get_instance();
-    instance->init(640, 480);
+	instance = GameEngine::get_instance();
+    instance->init(1024, 496);
     
     while (!glfwWindowShouldClose(window))
     {
@@ -79,7 +79,7 @@ int main(int argc, char ** argv)
 		}
 		catch (int error)
 		{
-			
+			//@todo?
 		}
         
         glfwSwapBuffers(window);

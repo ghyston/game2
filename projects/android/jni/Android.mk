@@ -1,13 +1,20 @@
 LOCAL_PATH := $(call my-dir)
-ENGINE_PATH := /../../../src/engine/
+ENGINE_PATH := ../../../src/engine/
+
+;LOCAL_CPPFLAGS := -DANDROID_PLATFORM
 
 include $(CLEAR_VARS)
 
 LOCAL_MODULE    := Game2jni
-LOCAL_SRC_FILES += $(ENGINE_PATH)Common/Tests.cpp
+LOCAL_SRC_FILES := Game2.cpp
+
 LOCAL_SRC_FILES += $(ENGINE_PATH)Common/Matrix4f.cpp
 LOCAL_SRC_FILES += $(ENGINE_PATH)Common/ThreadLock.cpp
 LOCAL_SRC_FILES += $(ENGINE_PATH)Common/Vector2f.cpp
+LOCAL_SRC_FILES += $(ENGINE_PATH)Common/Tests.cpp
+
+LOCAL_SRC_FILES += $(ENGINE_PATH)InputProcessor/NewInputProcessor.cpp
+LOCAL_SRC_FILES += $(ENGINE_PATH)InputProcessor/OutherAPI.cpp
 
 LOCAL_SRC_FILES += $(ENGINE_PATH)ECS/BaseSystem.cpp
 LOCAL_SRC_FILES += $(ENGINE_PATH)ECS/Entity.cpp
@@ -46,7 +53,6 @@ LOCAL_SRC_FILES += $(ENGINE_PATH)InputProcessor.cpp
 LOCAL_SRC_FILES += $(ENGINE_PATH)GameEngine.cpp
 LOCAL_SRC_FILES += $(ENGINE_PATH)GlobalData.cpp
 
-LOCAL_SRC_FILES := Game2.cpp
 LOCAL_LDLIBS    := -llog -lGLESv2
 
 include $(BUILD_SHARED_LIBRARY)

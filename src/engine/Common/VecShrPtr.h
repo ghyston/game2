@@ -12,16 +12,16 @@
 #include <vector>
 #include <list>
 #include <iostream>
-#include "Obj.h"
+#include "ShrPtr.h"
 
 /**
  * Erase from vector elements, that was marked as deleted. 
  * (ShrPtr->(Obj*)is_deleted)
  */
 template <class T>
-void RemoveDeletedObjectsFromContainer(std::list<ShrPtr<T>>& vec)
+void RemoveDeletedObjectsFromContainer(std::list<ShrPtr<T> >& vec)
 {
-	typename std::list<ShrPtr<T>>::iterator it = vec.begin();
+	typename std::list<ShrPtr<T> >::iterator it = vec.begin();
 	while (it != vec.end())
 	{
 		if (((Obj*)it->get())->is_deleted())

@@ -720,6 +720,8 @@
 		3FDE0B2417F6FF13000A7DE1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = MAC_OS_PLATFORM;
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = "";
 				MACH_O_TYPE = mh_dylib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

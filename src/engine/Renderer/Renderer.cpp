@@ -9,6 +9,8 @@ Renderer::Renderer()
     rect = NULL;
     grid = NULL;
 	circle = NULL;
+	
+	showBorderRing = false;
 }
 
 Renderer::~Renderer()
@@ -57,7 +59,7 @@ void Renderer::init_rect()
 void Renderer::init_grid()
 {
     grid = new Grid();
-    grid->step = 0.5f;
+   // grid->step = 0.01f;
     grid->setup_vertexes();
     grid->set_shader(simple_shader);
     grid->color[0] = 0.8f;
@@ -102,10 +104,22 @@ void Renderer::init_ring()
 	ring->set_shader(simple_shader);
 	ring->radius(0.05f);
 	ring->setup_vertexes();
-	ring->color[0] = 0.2f;
-    ring->color[1] = 0.5f;
-    ring->color[2] = 0.2f;
+	ring->color[0] = 0.1f;
+    ring->color[1] = 0.8f;
+    ring->color[2] = 0.4f;
     ring->color[3] = 1.0f;
+	
+	border_ring = new RingRenderable();
+	border_ring->set_shader(simple_shader);
+	border_ring->radius(0.4f); //@todo: WHAT THE FUCK?!!
+	// @todo: HYSTON!!!! REMOVE this F-U-C-K-I-N-G HARDCODE!!!
+	// Seriously, you should stop doing that.
+	// But, I have only 20 min to finish gameplay :(
+	border_ring->setup_vertexes();
+	border_ring->color[0] = 0.5f;
+    border_ring->color[1] = 0.2f;
+    border_ring->color[2] = 0.3f;
+    border_ring->color[3] = 1.0f;
 }
 
 
@@ -145,8 +159,21 @@ void Renderer::draw_line(Vec2f coord_1, Vec2f coord_2)
     line->Draw();
 }
 
-void Renderer::draw_tower(Vec2f coords, float energy)
+void Renderer::draw_tower(Vec2f coords, float energy, bool is_enemy/* = false*/)
 {
+	if(is_enemy)
+	{
+		tower_rend->front->color[0] = 0.7f;
+		tower_rend->front->color[1] = 0.2f;
+		tower_rend->front->color[2] = 0.2f;
+	}
+	else
+	{
+		tower_rend->front->color[0] = 0.0f;
+		tower_rend->front->color[1] = 0.3f;
+		tower_rend->front->color[2] = 0.9f;
+	}
+	
 	tower_rend->coords = coords;
 	tower_rend->set_energy(energy);
 	tower_rend->Draw();
@@ -170,6 +197,15 @@ void Renderer::draw_ring(Vec2f coords)
 	ring->Draw();
 }
 
+void Renderer::draw_border_ring(Vec2f coords)
+{
+	if(border_ring == NULL)
+		return;
+	
+	border_ring->coords = coords;
+	border_ring->Draw();
+}
+
 void Renderer::resize(int width, int height)
 {
     glViewport(0, 0, width, height);
@@ -178,6 +214,7 @@ void Renderer::resize(int width, int height)
 void Renderer::clear_frame()
 {
 	glClearColor(0.95f, 0.95f, 0.95f, 1.0f);
+	
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 	Vec2f cam_pos = GameEngine::get_data()->camera->coords;
 	float zoom = GameEngine::get_data()->camera->zoom_koeff;

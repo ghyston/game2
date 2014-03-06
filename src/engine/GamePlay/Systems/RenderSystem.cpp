@@ -59,9 +59,12 @@ void RenderSystem::update(EntityPtr entity)
 		{
 			GetCmpt(EnergyStorageComponent, enesto_com, entity);
 			GetCmpt(PositionComponent, position_com, entity);
+			GetCmpt(PlayerIdComponent, plIdCmpt, entity);
+			
+			bool is_enemy = (plIdCmpt->player_id == GlobalData::PLAYER_ID_2);
 
 			GameEngine::renderer->draw_tower(
-				position_com->position, enesto_com->get_percentage());
+				position_com->position, enesto_com->get_percentage(), is_enemy);
 			
 			GetCmpt(NodeComponent, node_com, entity);
 			EntityIt it = node_com->children.begin();

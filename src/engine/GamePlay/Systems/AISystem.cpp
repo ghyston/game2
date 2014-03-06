@@ -10,7 +10,7 @@
 
 void AISystem::pre_step()
 {
-	;
+
 }
 
 void AISystem::update(EntityPtr entity)
@@ -25,8 +25,24 @@ void AISystem::update(EntityPtr entity)
 	//for towers only
 	if(!HasCmpt(EnergyStorageComponent, entity))
 		return;
+
+	// Not enouth energy
+	GetCmpt(EnergyStorageComponent, enesto_cmpt, entity);
+	if(enesto_cmpt->value < 75)
+		return;
 	
-	BuildRandomTower(entity);
+	EntityPtr enemy = findClosestEnemy(entity);
+	if(enemy.is_set())
+	{
+		GameEngine::global_data->logic.tower_attack(entity, enemy);
+	}
+	else
+	{
+		BuildRandomTower(entity);
+	}
+	
+	
+	
 	return;
 	
 	// @todo: It's very slow algorythm! Y need to proceed it on new tower build only or on new enemy tower on range build.
@@ -133,6 +149,44 @@ void AISystem::DetectTarget(EntityPtr entity)
 	}
 }
 
+EntityPtr AISystem::findClosestEnemy(EntityPtr entity)
+{
+	float closest_enemy_dist = 10000;
+	EntityPtr closest_enemy;
+		
+	GetCmpt(PositionComponent, my_pos_cmpt, entity);
+	Vec2f my_pos = my_pos_cmpt->position;
+	
+	Entities& entities = GameEngine::get_data()->logic.get_entities();
+	for(EntityIt it = entities.begin(); it != entities.end(); it++)
+	{
+		// Todo: check enemy;
+		if(HasCmpt(PlayerIdComponent, it->get()) &&
+		   HasCmpt(EnergyStorageComponent, it->get()))
+		{
+			GetCmpt(PlayerIdComponent, plId_cmpt, it->get());
+			if(plId_cmpt->player_id == GlobalData::PLAYER_ID_2)
+				continue;
+			
+			GetCmpt(PositionComponent, pos_cmpt, it->get());
+			Vec2f distance = pos_cmpt->position - my_pos;
+			if(distance.length() < closest_enemy_dist)
+			{
+				closest_enemy_dist = distance.length();
+				closest_enemy = it->get();
+			}
+			continue;
+		}
+	}
+	
+	if(closest_enemy_dist > 0.3f) //@todo: remove hardcode!
+	{
+		closest_enemy.set(NULL);
+	}
+	
+	return closest_enemy;
+}
+
 void AISystem::BuildRandomTower(EntityPtr entity)
 {
 	// Not enouth energy
@@ -144,7 +198,7 @@ void AISystem::BuildRandomTower(EntityPtr entity)
 	
 	float rad = (rand() % 100) * 0.5 / 100.0f + 0.15f;
 	float angle = (rand() % 200) / 100.0f;
-	Vec2f coords (rad * __cospi(angle), rad * __sinpi(angle));
+	Vec2f coords (rad * cos(angle * M_PI), rad * sin(angle * M_PI));
 	
 	Vec2f new_coords = pos_com->position + coords;
 	

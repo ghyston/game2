@@ -69,32 +69,41 @@ void InputProcessor::process_touch(int type, float screen_x, float screen_y)
 	{
 		if (touched_entity.is_set())
 		{
-			//@todo: here would bew checking, is release coords belong to
-			// tower at another player.
+			GameEngine::get_renderer()->showBorderRing = false;
 			
-			EntityPtr tower_at_release = find_entity(world_coords);
-			if(tower_at_release.is_set())
+			GetCmpt(PositionComponent, pos_com, touched_entity);
+			Vec2f distVec = world_coords - pos_com->position;
+			float dist = distVec.length();
+			
+			if(dist < 0.4f)
 			{
-				GetCmpt(PlayerIdComponent, dist_plr_id_cmpt, tower_at_release);
-				GetCmpt(PlayerIdComponent, from_plr_id_cmpt, touched_entity);
-				if(dist_plr_id_cmpt->player_id != from_plr_id_cmpt->player_id)
+			
+				//@todo: here would bew checking, is release coords belong to
+				// tower at another player.
+			
+				EntityPtr tower_at_release = find_entity(world_coords);
+				if(tower_at_release.is_set())
 				{
-					GameEngine::global_data->logic.tower_attack(
-						touched_entity, tower_at_release);
+					GetCmpt(PlayerIdComponent, dist_plr_id_cmpt, tower_at_release);
+					GetCmpt(PlayerIdComponent, from_plr_id_cmpt, touched_entity);
+					if(dist_plr_id_cmpt->player_id != from_plr_id_cmpt->player_id)
+					{
+						GameEngine::global_data->logic.tower_attack(
+										touched_entity, tower_at_release);
+					}
 				}
-			}
-			else
-			{
-				GetCmpt(PositionComponent, pos_com, touched_entity);
-				GetCmpt(EnergyStorageComponent, enesto_cmpt, touched_entity);
-				Vec2f diff = world_coords - pos_com->position;
-			
-				if(diff.length() > 0.2 && enesto_cmpt->value > 60)
+				else
 				{
-					enesto_cmpt->rem_energy(50);
-					EntityPtr new_tower =
-						EntityFabric::get_tower(touched_entity, world_coords);
-					GameEngine::get_data()->logic.add_tower(new_tower);
+					GetCmpt(EnergyStorageComponent, enesto_cmpt, touched_entity);
+					Vec2f diff = world_coords - pos_com->position;
+			
+					if(diff.length() > 0.2 && enesto_cmpt->value > 60)
+					{
+						enesto_cmpt->rem_energy(50);
+						EntityPtr new_tower =
+							EntityFabric::get_tower(touched_entity, world_coords);
+						GameEngine::get_data()->logic.add_tower(new_tower);
+					}
 				}
 			}
 			
@@ -122,6 +131,10 @@ void InputProcessor::process_touch(int type, float screen_x, float screen_y)
 			{
 				GameEngine::global_data->cursor.position = world_coords;
 				GameEngine::global_data->cursor.Show();
+				
+				GetCmpt(PositionComponent, pos_com, touched_entity);
+				GameEngine::get_renderer()->border_ring_coords = pos_com->position;
+				GameEngine::get_renderer()->showBorderRing = true;
 			}
 			return;
 		}

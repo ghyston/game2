@@ -20,11 +20,11 @@ void CircleRenderable::setup_vertexes()
 		vertexes[i * 3 * 2] = 0.0f;
 		vertexes[i * 3 * 2 + 1] = 0.0f;
 		
-		vertexes[i * 3 * 2 + 2] = rad * __cospi(angle * i);
-		vertexes[i * 3 * 2 + 3] = rad * __sinpi(angle * i);
+		vertexes[i * 3 * 2 + 2] = rad * cos(angle * i * M_PI);
+		vertexes[i * 3 * 2 + 3] = rad * sin(angle * i * M_PI);
 		
-		vertexes[i * 3 * 2 + 4] = rad * __cospi(angle * (i + 1));
-		vertexes[i * 3 * 2 + 5] = rad * __sinpi(angle * (i + 1));
+		vertexes[i * 3 * 2 + 4] = rad * cos(angle * (i + 1) * M_PI);
+		vertexes[i * 3 * 2 + 5] = rad * sin(angle * (i + 1) * M_PI);
 	}
 	vertexes_count = points_count * 3;
 }
