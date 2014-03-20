@@ -69,4 +69,7 @@ Vec2f operator- (const Vec2f& vec_1, const Vec2f& vec_2);
 Vec2f operator* (const Vec2f& vec, float coeff);
 Vec2f operator* (float coeff, const Vec2f& vec);
 
+float quad_distance(const Vec2f& point_1, const Vec2f& point_2);
+float distance(const Vec2f& point_1, const Vec2f& point_2);
+
 #endif //__VECTOR_2F_H__

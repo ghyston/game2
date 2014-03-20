@@ -52,5 +52,5 @@ void test_shr_ptr()
 	ShrPtr<Test> ptr_5_back = tests.back();
 	
 	RemoveDeletedObjectsFromContainer(tests);
-	int test = 55;
+	//int test = 55;
 }

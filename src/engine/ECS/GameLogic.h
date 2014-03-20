@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   GameLogic.h
  * Author: Hyston
  *
@@ -15,6 +15,7 @@
 
 #include "Entity.h"
 #include "BaseSystem.h"
+#include "Map.h"
 
 class GameLogic
 {
@@ -26,17 +27,16 @@ public:
 	
 	virtual void add_system(BaseSystem * system);
 	virtual void add_entity(EntityPtr entity);
-	
-	// @note: it just mark note as delete, actual remove is after step()
-	virtual void remove_entity(Entity * entity);
-	
-	Entities& get_entities() { return entities; }
+		
+	Entities& get_unpositioned_entities() { return entities; }
+	Entities& get_entities_by_coords(Vec2f& pos);
 	
 protected:
 	
 	std::vector<BaseSystem*> systems;
-	Entities entities;
-	
+	Entities entities; //unpositioned entities.
+
+	Map map;
 };
 
 #endif	/* __GAMELOGIC_H__ */

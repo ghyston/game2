@@ -156,7 +156,8 @@ void InputProcessor::process_touch(int type, float screen_x, float screen_y)
 // @todo: loop throw all entities, not good!
 EntityPtr InputProcessor::find_entity(Vec2f world_coords)
 {
-	Entities& entities = GameEngine::global_data->logic.get_entities();
+	Entities& entities = GameEngine::global_data->logic.
+		get_entities_by_coords(world_coords);
 	EntityIt it = entities.begin();
 	while(it != entities.end())
 	{

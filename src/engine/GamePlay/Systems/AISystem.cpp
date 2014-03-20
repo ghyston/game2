@@ -101,7 +101,8 @@ void AISystem::DetectTarget(EntityPtr entity)
 	GetCmpt(PositionComponent, my_pos_cmpt, entity);
 	Vec2f my_pos = my_pos_cmpt->position;
 	
-	Entities& entities = GameEngine::get_data()->logic.get_entities();
+	Entities entities;
+	//= GameEngine::get_data()->logic.get.get_entities();
 	for(EntityIt it = entities.begin(); it != entities.end(); it++)
 	{
 		// Todo: check enemy;
@@ -157,7 +158,7 @@ EntityPtr AISystem::findClosestEnemy(EntityPtr entity)
 	GetCmpt(PositionComponent, my_pos_cmpt, entity);
 	Vec2f my_pos = my_pos_cmpt->position;
 	
-	Entities& entities = GameEngine::get_data()->logic.get_entities();
+	Entities& entities = GameEngine::get_data()->logic.get_entities_by_coords(my_pos);
 	for(EntityIt it = entities.begin(); it != entities.end(); it++)
 	{
 		// Todo: check enemy;

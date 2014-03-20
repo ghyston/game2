@@ -17,6 +17,10 @@
 
 #include "EntityFabric.h"
 
+void Game2Logic::LoadMap(int width, int height)
+{
+	map.InitMap(width, height, 0.5);
+}
 
 void Game2Logic::start()
 {
@@ -47,28 +51,21 @@ void Game2Logic::add_tower(EntityPtr tower)
 		self_plr_id_cmpt->player_id = parent_plr_id_cmpt->player_id;
 	}
 	
+	GetCmpt(PositionComponent, tower_pos_con, tower);
+	
 	//Find energy generator nearby
-	EntityIt it = entities.begin();
-	while (it != entities.end())
+	EntityPtr generator = findClosestEntityHasCmp<EnergyGeneratorComponent>(tower_pos_con->position);
+	
+	if(generator.is_set())
 	{
-		if(!HasCmpt(EnergyGeneratorComponent, (*it)))
-		{
-			it++;
-			continue;
-		}
-		
-		GetCmpt(PositionComponent, generator_pos_com, (*it));
-		GetCmpt(EnergyGeneratorComponent, gen_com, (*it));
-		GetCmpt(PositionComponent, pos_com, tower);
-		
-		Vec2f diff = generator_pos_com->position - pos_com->position;
-		
-		if(gen_com->radius > diff.length())
+		GetCmpt(PositionComponent, generator_pos_com, generator);
+		GetCmpt(EnergyGeneratorComponent, gen_com, generator);
+		float dist = distance(generator_pos_com->position, tower_pos_con->position);
+		if(gen_com->radius > dist)
 		{
 			gen_com->towers.push_back(tower);
-			break;
+
 		}
-		it++;
 	}
 }
 

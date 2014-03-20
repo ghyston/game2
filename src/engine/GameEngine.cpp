@@ -82,6 +82,7 @@ void GameEngine::init(int width, int height)
 {
 	//test_vectors();
 	test_shr_ptr();
+	global_data->logic.LoadMap(20, 20);
     global_data->init_scene();
 	global_data->screen.setup(height, width); // @todo: do we need that?
     renderer->init();

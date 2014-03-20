@@ -89,5 +89,7 @@ float EnergyBalanceSystem::calc_energy(EntityPtr tower)
 
 void EnergyBalanceSystem::post_step()
 {
-	EnergyBalanceSystem::average_energy = sum_energy / count_storage;
+	EnergyBalanceSystem::average_energy = count_storage == 0 ? 0.0f :
+		sum_energy / count_storage;
 }
+
