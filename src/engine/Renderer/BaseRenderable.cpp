@@ -34,7 +34,7 @@ void BaseRenderable::Draw()
     matrixMultiply(*model_matrix_translate, *temp_matrix, *model_matrix);
     
     glUseProgram(shader);
-    glUniform3f(gFragColorHandle, color[0], color[1], color[2]);
+    glUniform3f(gFragColorHandle, color.r, color.g, color.b);
     glVertexAttribPointer(gvPositionHandle, 2, GL_FLOAT, GL_FALSE, 0, vertexes);
     glEnableVertexAttribArray(gvPositionHandle);
 
@@ -48,6 +48,16 @@ void BaseRenderable::delete_vertexes()
 	{
 		delete [] vertexes;
 	}
+}
+
+void BaseRenderable::SetColor(Color3f& color)
+{
+	this->color = color;
+}
+
+void BaseRenderable::SetColor(float red, float green, float blue)
+{
+	this->color = Color3f(red, green, blue);
 }
 
 BaseRenderable::~BaseRenderable()

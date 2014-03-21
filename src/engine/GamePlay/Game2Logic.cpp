@@ -17,9 +17,13 @@
 
 #include "EntityFabric.h"
 
-void Game2Logic::LoadMap(int width, int height)
+void Game2Logic::LoadMap(int width, int height, float cell_size)
 {
-	map.InitMap(width, height, 0.5);
+	map.InitMap(width, height, cell_size);
+	GameEngine::get_renderer()->SetupGrid(
+		map.getWidth(), map.getHeight(), map.getCellSize());
+	GameEngine::get_renderer()->SetupPassGrid(
+		map.getPassWidth(), map.getPassHeight(), map.getPassCellSize());
 }
 
 void Game2Logic::start()

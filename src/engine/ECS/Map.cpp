@@ -10,9 +10,13 @@
 
 void Map::InitMap(int width_, int height_, float cell_size_)
 {
+	static const int PassCellsPerMapCell = 5;//@todo: try other values
 	height = height_;
 	width = width_;
+	pass_width = width_ * PassCellsPerMapCell + 1;
+	pass_height = height_ * PassCellsPerMapCell + 1;
 	cell_size = cell_size_;
+	pass_cell_size = cell_size / PassCellsPerMapCell;
 }
 
 void Map::checkFroRemovedEntities()

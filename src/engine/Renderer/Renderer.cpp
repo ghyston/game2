@@ -31,6 +31,7 @@ void Renderer::init()
     
     init_rect();
     init_grid();
+	InitPassGrid();
     init_line();
 	init_tower();
 	init_circle();
@@ -43,28 +44,39 @@ void Renderer::init_rect()
     rect = new RectRenderable(0.1f, 0.1f);
     rect->setup_vertexes();
     rect->set_shader(simple_shader);
-    rect->color[0] = 0.0f;
-	rect->color[1] = 0.0f;
-	rect->color[2] = 1.0f;
+	rect->SetColor(0.0f, 0.0f, 1.0f);
     
     // @todo: height and width is temparable
     small_rect = new RectRenderable(0.02f, 0.02f);
     small_rect->setup_vertexes();
     small_rect->set_shader(simple_shader);
-    small_rect->color[0] = 1.0f;
-	small_rect->color[1] = 0.2f;
-	small_rect->color[2] = 0.2f;
+	small_rect->SetColor(1.0f, 0.2f, 0.2f);
 }
 
 void Renderer::init_grid()
 {
     grid = new Grid();
-   // grid->step = 0.01f;
-    grid->setup_vertexes();
+	Color3f gray_color(0.7f);
+	grid->SetColor(gray_color);
     grid->set_shader(simple_shader);
-    grid->color[0] = 0.8f;
-	grid->color[1] = 0.8f;
-	grid->color[2] = 0.8f;
+}
+
+void Renderer::SetupGrid(int count_x, int count_y, float cell_size)
+{
+	grid->SetParams(count_x, count_y, cell_size);
+}
+
+void Renderer::InitPassGrid()
+{
+	pass_grid = new Grid();
+	Color3f gray_color(0.9f);
+	pass_grid->SetColor(gray_color);
+	pass_grid->set_shader(simple_shader);
+}
+
+void Renderer::SetupPassGrid(int count_x, int count_y, float cell_size)
+{
+	pass_grid->SetParams(count_x, count_y, cell_size);
 }
 
 void Renderer::init_line()
@@ -72,11 +84,7 @@ void Renderer::init_line()
     line = new LineRenderable();
     line->set_shader(simple_shader);
     line->vertexes = new float [4];
-    
-    line->color[0] = 0.0f;
-    line->color[1] = 1.0f;
-    line->color[2] = 0.0f;
-    line->color[3] = 1.0f;
+    line->SetColor(0.0f, 1.0f, 0.0f);
 }
 
 void Renderer::init_tower()
@@ -92,10 +100,7 @@ void Renderer::init_circle()
 	circle->set_shader(simple_shader);
 	circle->radius(0.3f); //value here is hardcoded
 	circle->setup_vertexes();
-	circle->color[0] = 0.2f;
-    circle->color[1] = 0.5f;
-    circle->color[2] = 0.2f;
-    circle->color[3] = 1.0f;
+	circle->SetColor(0.2f, 0.5f, 0.2f);
 }
 
 void Renderer::init_ring()
@@ -104,10 +109,7 @@ void Renderer::init_ring()
 	ring->set_shader(simple_shader);
 	ring->radius(0.05f);
 	ring->setup_vertexes();
-	ring->color[0] = 0.1f;
-    ring->color[1] = 0.8f;
-    ring->color[2] = 0.4f;
-    ring->color[3] = 1.0f;
+	ring->SetColor(0.1f, 0.8f, 0.4f);
 	
 	border_ring = new RingRenderable();
 	border_ring->set_shader(simple_shader);
@@ -116,18 +118,19 @@ void Renderer::init_ring()
 	// Seriously, you should stop doing that.
 	// But, I have only 20 min to finish gameplay :(
 	border_ring->setup_vertexes();
-	border_ring->color[0] = 0.5f;
-    border_ring->color[1] = 0.2f;
-    border_ring->color[2] = 0.3f;
-    border_ring->color[3] = 1.0f;
+	border_ring->SetColor(0.5f, 0.2f, 0.3f);
 }
-
-
 
 void Renderer::draw_grid()
 {
     if(grid != NULL)
         grid->Draw();
+}
+
+void Renderer::DrawPassGrid()
+{
+    if(pass_grid != NULL)
+        pass_grid->Draw();
 }
 
 void Renderer::draw_rect(Vec2f coords)
@@ -163,15 +166,11 @@ void Renderer::draw_tower(Vec2f coords, float energy, bool is_enemy/* = false*/)
 {
 	if(is_enemy)
 	{
-		tower_rend->front->color[0] = 0.7f;
-		tower_rend->front->color[1] = 0.2f;
-		tower_rend->front->color[2] = 0.2f;
+		tower_rend->front->SetColor(0.7f, 0.2f, 0.2f);
 	}
 	else
 	{
-		tower_rend->front->color[0] = 0.0f;
-		tower_rend->front->color[1] = 0.3f;
-		tower_rend->front->color[2] = 0.9f;
+		tower_rend->front->SetColor(0.0f, 0.3f, 0.9f);
 	}
 	
 	tower_rend->coords = coords;

@@ -13,15 +13,13 @@ void TowerRenderable::Init()
 	back = new RectRenderable(size, size);
     back->setup_vertexes();
     back->set_shader(this->shader);
-    back->color[0] = 0.1f;
-	back->color[1] = 0.2f;
-	back->color[2] = 0.3f;
+	Color3f back_color(0.1f, 0.2f, 0.3f);
+    back->SetColor(back_color);
 	
 	front = new RectRenderable(size, size);
     front->set_shader(this->shader);
-    front->color[0] = 0.0f;
-	front->color[1] = 0.3f;
-	front->color[2] = 0.9f;
+	Color3f front_color(0.0f, 0.3f, 0.9f);
+    front->SetColor(front_color);
 }
 
 void TowerRenderable::setup_vertexes()

@@ -18,6 +18,11 @@ struct Color3f
 		r(red), g(green), b(blue) 
 	{}
 	
+	Color3f(float gray) :
+	r(gray), g(gray), b(gray)
+	{}
+
+	
 	Color3f() : r(0.0f), g(0.0f), b(0.0f)
 	{}
 };

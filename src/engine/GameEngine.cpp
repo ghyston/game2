@@ -33,6 +33,7 @@ void GameEngine::step()
 	Timer::tick();
     renderer->clear_frame();
     renderer->draw_grid();
+	renderer->DrawPassGrid();
 	global_data->logic.step();
 	global_data->cursor.Draw();
 	renderer->draw_small_rect(global_data->camera->coords);
@@ -81,12 +82,13 @@ void GameEngine::process_input(int key)
 void GameEngine::init(int width, int height)
 {
 	//test_vectors();
-	test_shr_ptr();
-	global_data->logic.LoadMap(20, 20);
+	//test_shr_ptr();
+	renderer->init();
+    renderer->resize(width, height);
+	global_data->logic.LoadMap(30, 30, 0.4f);
     global_data->init_scene();
 	global_data->screen.setup(height, width); // @todo: do we need that?
-    renderer->init();
-    renderer->resize(width, height);
+    
 	global_data->logic.start();
     
     Timer::start();

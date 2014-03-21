@@ -1,5 +1,13 @@
 #include "Grid.h"
 
+void Grid::Draw()
+{
+	if(!is_set)
+		return;
+	
+	BaseRenderable::Draw();
+}
+
 void Grid::setup_vertexes()
 {
     //float points[42];
@@ -25,9 +33,15 @@ void Grid::setup_vertexes()
         vertexes[count_x * 4 + i1 * 4 + 2]  = limit_x;
         vertexes[count_x * 4 + i1 * 4 + 3]  = -limit_y + step * i1;
     }
-    
-    color[0] = 0.1f;
-    color[1] = 0.1f;
-    color[2] = 0.1f;
-    color[3] = 1.0f;
+}
+
+void Grid::SetParams(int count_x, int count_y, float cell_size)
+{
+	this->count_x = count_x;
+	this->count_y = count_y;
+	this->step = cell_size;
+	this->vertexes_count = (count_x + count_y) * 2;
+	setup_vertexes();
+	if(count_x > 0 && count_y > 0 && cell_size > 0.0f)
+		is_set = true;
 }

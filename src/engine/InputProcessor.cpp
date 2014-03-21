@@ -153,22 +153,15 @@ void InputProcessor::process_touch(int type, float screen_x, float screen_y)
 	}
 }
 
-// @todo: loop throw all entities, not good!
 EntityPtr InputProcessor::find_entity(Vec2f world_coords)
 {
-	Entities& entities = GameEngine::global_data->logic.
-		get_entities_by_coords(world_coords);
-	EntityIt it = entities.begin();
-	while(it != entities.end())
+	EntityPtr result;
+	EntityPtr entity = GameEngine::global_data->logic.findClosestEntityHasCmp<TouchableComponent>(world_coords);
+	
+	if(entity.is_set())
 	{
-		if(!HasCmpt(TouchableComponent, (*it)))
-		{
-			it++;
-			continue;
-		}
-		
-		GetCmpt(TouchableComponent, touch_com, (*it));
-		GetCmpt(PositionComponent, pos_com, (*it));
+		GetCmpt(TouchableComponent, touch_com, entity);
+		GetCmpt(PositionComponent, pos_com, entity);
 		
 		Vec2f left_bottom = pos_com->position - Vec2f(touch_com->touch_size);
 		Vec2f right_top = pos_com->position + Vec2f(touch_com->touch_size);
@@ -176,10 +169,9 @@ EntityPtr InputProcessor::find_entity(Vec2f world_coords)
 		if (world_coords.x > left_bottom.x && world_coords.x < right_top.x &&
 			world_coords.y > left_bottom.y && world_coords.y < right_top.y)
 		{
-			//touched_entity = it->second;
-			return (*it);
+			result = entity;
 		}
-		it++;
 	}
-	return EntityPtr(NULL);
+	
+	return result;
 }

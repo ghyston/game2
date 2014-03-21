@@ -34,6 +34,7 @@ public:
     void draw_small_rect(Vec2f coords);
     void draw_line(Vec2f coord_1, Vec2f coord_2);
     void draw_grid();
+	void DrawPassGrid();
 	//@note: energy should be 0.0f .. 1.0f!
 	void draw_tower(Vec2f coords, float energy, bool is_enemy = false);
 	void draw_circle(Vec2f coords);
@@ -43,6 +44,9 @@ public:
 	void draw_border_ring(Vec2f coords);
 	bool showBorderRing;
 	Vec2f border_ring_coords;
+	
+	void SetupGrid(int count_x, int count_y, float cell_size);
+	void SetupPassGrid(int count_x, int count_y, float cell_size);
 	
 private:
     
@@ -67,6 +71,7 @@ private:
     //Primitives.
     void init_rect();
     void init_grid();
+	void InitPassGrid();
     void init_line();
 	void init_tower();
 	void init_circle();
@@ -75,6 +80,7 @@ private:
     RectRenderable * rect;
     RectRenderable * small_rect;
     Grid * grid;
+	Grid * pass_grid;
     LineRenderable * line;
 	TowerRenderable * tower_rend;
 	CircleRenderable * circle;	

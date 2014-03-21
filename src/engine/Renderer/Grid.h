@@ -3,25 +3,29 @@
 
 #include "BaseRenderable.h"
 
+/**
+ * Grid class represents base renderable grid.
+ */
 class Grid : public BaseRenderable
 {
 public:
     
-    Grid() : BaseRenderable()
+    Grid() : BaseRenderable(), is_set(false)
     {
-        count_x = 21;
-        count_y = 21;
-        step = 0.5f;		
-        vertexes_count = (count_x + count_y) * 2;
         draw_type = GL_LINES;
     }
+	
+	void SetParams(int count_x, int count_y, float cell_size);
+	
+    virtual void setup_vertexes();
+	virtual void Draw();
+	
+private:
+	bool is_set;
     
-    int count_x;
+	int count_x;
     int count_y;
     float step;
-	
-    virtual void setup_vertexes();	
-    
 };
 
 #endif //__GRID_H__

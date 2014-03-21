@@ -10,6 +10,7 @@
 #define __Game2__Map__
 
 #include "MapCell.h"
+#include "PassCell.h"
 #include "../Common/VecShrPtr.h"
 #include "../Common/Vec2i.h"
 
@@ -31,6 +32,11 @@ public:
 	
 	int getHeight() { return height; }
 	int getWidth() { return width; }
+	float getCellSize() { return cell_size; }
+	
+	int getPassHeight() { return pass_height; }
+	int getPassWidth() { return pass_width; }
+	float getPassCellSize() { return pass_cell_size; }
 	
 private:
 	
@@ -38,7 +44,12 @@ private:
 	int height;
 	float cell_size;
 	
+	int pass_width;
+	int pass_height;
+	float pass_cell_size;
+	
 	std::map<int, std::map<int, MapCell> > cells;
+	std::map<int, std::map<int, PassCell> > pass_cells;
 };
 
 #endif /* defined(__Game2__Map__) */

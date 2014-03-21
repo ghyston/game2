@@ -5,6 +5,7 @@
 
 #include "../Common/Matrix4f.h"
 #include "../Common/Vector2f.h"
+#include "../Common/Color3f.h"
 #include <cstddef>
 
 class BaseRenderable
@@ -15,7 +16,7 @@ public:
 	float * vertexes;
 	int vertexes_count;
 	
-	float color [4];
+	Color3f color;
 	float angle;
 	float scale;
 	GLenum draw_type;
@@ -38,6 +39,9 @@ public:
 	BaseRenderable();
 	
 	virtual void setup_vertexes() = 0;
+	
+	virtual void SetColor(Color3f& color);
+	virtual void SetColor(float red, float green, float blue);
 	
 	virtual void delete_vertexes();
 
