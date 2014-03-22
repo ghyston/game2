@@ -15,13 +15,13 @@
 
 class RenderSystem : public BaseSystem
 {
-	//PositionComponent* position_com;
-	//RenderComponent* render_com;
-    //ConnectorComponent* connector_com;
-	
 public:
 	
-	void update(EntityPtr entity);
+	virtual void pre_step();
+	virtual void update(EntityPtr entity);
+	virtual void post_step();
+
+	std::map<int, Entities> entities_to_draw;
 
 };
 

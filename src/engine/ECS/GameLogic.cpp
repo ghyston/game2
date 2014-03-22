@@ -47,3 +47,8 @@ Entities& GameLogic::get_entities_by_coords(Vec2f& pos)
 {
 	return map.getEntitiesFromCell(pos.x, pos.y);
 }
+
+bool GameLogic::GetCellPosibility(Vec2i coords)
+{
+	return map.isCellPass(coords);
+}

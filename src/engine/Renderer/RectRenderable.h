@@ -17,6 +17,8 @@ protected:
 	float height;
 
 public:
+	
+	RectRenderable() : width(0), height(0) {;}
 
 	RectRenderable(float _width, float _height) :
 	width(_width), height(_height)

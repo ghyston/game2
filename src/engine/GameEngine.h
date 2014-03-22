@@ -34,6 +34,19 @@ private:
 	
 	static NewInputProcessor * new_input_processor;
 	
+	// for debugging;
+	struct DrawGrid
+	{
+		enum
+		{
+		NONE,
+		DRAW_MAP_CELLS,
+		DRAW_PASS,
+		DRAW_ALL
+		};
+	};
+	
+	
 public:
 
 	void init(int width, int height);

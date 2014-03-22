@@ -13,6 +13,7 @@
 #include "PassCell.h"
 #include "../Common/VecShrPtr.h"
 #include "../Common/Vec2i.h"
+#include "../Common/Vector2f.h"
 
 class Map
 {
@@ -28,15 +29,24 @@ public:
 	//Entities& getClosestEntity(float x, float y);
 	Entities& getEntitiesFromCell(float x, float y);
 	Entities& getEntitiesFromCell(int x, int y);
-	Vec2i getCellIndexes(float x, float y);
+	Vec2i getCellIndexes(float x, float y) const;
+	Vec2i getPassCellIndexes(const Vec2f& coords) const;
 	
-	int getHeight() { return height; }
-	int getWidth() { return width; }
-	float getCellSize() { return cell_size; }
+	int getHeight() const { return height; }
+	int getWidth() const { return width; }
+	float getCellSize() const { return cell_size; }
 	
 	int getPassHeight() { return pass_height; }
 	int getPassWidth() { return pass_width; }
 	float getPassCellSize() { return pass_cell_size; }
+	bool isCellPass(Vec2f coords);
+	bool isCellPass(Vec2i coords);
+	void SetPass(bool passability, Vec2i coords);
+	void SetPass(bool passability, Vec2f coords);
+	
+	void BlockPassCells(const Vec2f& left_top, const Vec2f& right_bottom);
+	// Return true, if cells are free.
+	bool CheckCellsPass(const Vec2f& left_top, const Vec2f& right_bottom);
 	
 private:
 	

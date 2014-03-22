@@ -32,8 +32,8 @@ void GameEngine::step()
 {
 	Timer::tick();
     renderer->clear_frame();
-    renderer->draw_grid();
 	renderer->DrawPassGrid();
+    renderer->draw_grid();
 	global_data->logic.step();
 	global_data->cursor.Draw();
 	renderer->draw_small_rect(global_data->camera->coords);

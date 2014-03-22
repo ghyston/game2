@@ -12,6 +12,7 @@
 #include "CircleRenderable.h"
 #include "RingRenderable.h"
 #include "Grid.h"
+#include "RectGrid.h"
 
 /**
  * Main call for draw graphix.
@@ -80,7 +81,7 @@ private:
     RectRenderable * rect;
     RectRenderable * small_rect;
     Grid * grid;
-	Grid * pass_grid;
+	RectGrid * pass_grid;
     LineRenderable * line;
 	TowerRenderable * tower_rend;
 	CircleRenderable * circle;	

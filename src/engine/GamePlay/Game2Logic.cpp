@@ -24,6 +24,7 @@ void Game2Logic::LoadMap(int width, int height, float cell_size)
 		map.getWidth(), map.getHeight(), map.getCellSize());
 	GameEngine::get_renderer()->SetupPassGrid(
 		map.getPassWidth(), map.getPassHeight(), map.getPassCellSize());
+//	map.SetPass(false, Vec2f(0.01f, -0.01f));
 }
 
 void Game2Logic::start()
@@ -42,6 +43,13 @@ void Game2Logic::stop()
 	//@todo: remove all systems!
 }
 
+bool Game2Logic::CanBuildTower(Vec2f coords)
+{
+	Vec2f left_top = Vec2f(coords.x - 0.05f, coords.y + 0.05f);
+	Vec2f right_bottom = Vec2f(coords.x + 0.05f, coords.y - 0.05f);
+	return map.CheckCellsPass(left_top, right_bottom);
+}
+
 void Game2Logic::add_tower(EntityPtr tower)
 {
 	GameLogic::add_entity(tower);
@@ -56,6 +64,17 @@ void Game2Logic::add_tower(EntityPtr tower)
 	}
 	
 	GetCmpt(PositionComponent, tower_pos_con, tower);
+	
+	Vec2f pos = tower_pos_con->position;
+	Vec2f left_top = Vec2f(pos.x - 0.05f, pos.y + 0.05f);
+	Vec2f right_bottom = Vec2f(pos.x + 0.05f, pos.y - 0.05f);
+	map.BlockPassCells(left_top, right_bottom);
+	
+	//@todo: move 0.1f to game constants!
+	map.SetPass(false, Vec2f(pos.x - 0.05f, pos.y - 0.05f));
+	map.SetPass(false, Vec2f(pos.x - 0.05f, pos.y + 0.05f));
+	map.SetPass(false, Vec2f(pos.x + 0.05f, pos.y - 0.05f));
+	map.SetPass(false, Vec2f(pos.x + 0.05f, pos.y + 0.05f));
 	
 	//Find energy generator nearby
 	EntityPtr generator = findClosestEntityHasCmp<EnergyGeneratorComponent>(tower_pos_con->position);

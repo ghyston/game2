@@ -57,6 +57,8 @@
 		3FC2B0131838DCAD00FA5B5E /* RingRenderable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FC2B0111838DCAD00FA5B5E /* RingRenderable.cpp */; };
 		3FC2B0141838DCAD00FA5B5E /* RingRenderable.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC2B0121838DCAD00FA5B5E /* RingRenderable.h */; };
 		3FD1F6F118265A3F003B0BF4 /* ConnectorComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1F6F018265A3F003B0BF4 /* ConnectorComponent.cpp */; };
+		3FD94F6C18DD717F00CE757A /* RectGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FD94F6A18DD717F00CE757A /* RectGrid.cpp */; };
+		3FD94F6D18DD717F00CE757A /* RectGrid.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FD94F6B18DD717F00CE757A /* RectGrid.h */; };
 		3FDB01921825750E003396A4 /* TargetComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FDB01911825750E003396A4 /* TargetComponent.cpp */; };
 		3FDE0ABF17F61D8D000A7DE1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FDE0ABE17F61D8D000A7DE1 /* main.cpp */; };
 		3FDE0AC117F61D8D000A7DE1 /* Game2.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3FDE0AC017F61D8D000A7DE1 /* Game2.1 */; };
@@ -161,6 +163,8 @@
 		3FC2B0121838DCAD00FA5B5E /* RingRenderable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RingRenderable.h; sourceTree = "<group>"; };
 		3FC2B0151838EA3500FA5B5E /* PlayerIdComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerIdComponent.h; sourceTree = "<group>"; };
 		3FD1F6F018265A3F003B0BF4 /* ConnectorComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConnectorComponent.cpp; sourceTree = "<group>"; };
+		3FD94F6A18DD717F00CE757A /* RectGrid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RectGrid.cpp; sourceTree = "<group>"; };
+		3FD94F6B18DD717F00CE757A /* RectGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectGrid.h; sourceTree = "<group>"; };
 		3FDB01911825750E003396A4 /* TargetComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TargetComponent.cpp; sourceTree = "<group>"; };
 		3FDE0ABB17F61D8D000A7DE1 /* Game2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Game2; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FDE0ABE17F61D8D000A7DE1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -442,6 +446,8 @@
 				3FC2B0111838DCAD00FA5B5E /* RingRenderable.cpp */,
 				3FC2B0121838DCAD00FA5B5E /* RingRenderable.h */,
 				3FB80C1C18C50169009086BF /* GlInclude.h */,
+				3FD94F6A18DD717F00CE757A /* RectGrid.cpp */,
+				3FD94F6B18DD717F00CE757A /* RectGrid.h */,
 			);
 			path = Renderer;
 			sourceTree = "<group>";
@@ -492,6 +498,7 @@
 				3FE4E02A18A299D6000C2631 /* OutherAPI.h in Headers */,
 				3FBFB17318CFBB4100D3AE7B /* MapCell.h in Headers */,
 				3F708DB2182D4AF500BF964E /* Tests.h in Headers */,
+				3FD94F6D18DD717F00CE757A /* RectGrid.h in Headers */,
 				3F7464DC180DD790000650C3 /* ConnectorComponent.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -585,6 +592,7 @@
 				3F409CC81810606D00A8063B /* TargetEnergySystem.cpp in Sources */,
 				3FE4E02518A28FAF000C2631 /* NewInputProcessor.cpp in Sources */,
 				3FDE0B6417F7029A000A7DE1 /* Entity.cpp in Sources */,
+				3FD94F6C18DD717F00CE757A /* RectGrid.cpp in Sources */,
 				3FAC351318DB669D00478931 /* Vec2i.cpp in Sources */,
 				3FAC351718DB7C5300478931 /* PassCell.cpp in Sources */,
 				3FDE0B6517F7029A000A7DE1 /* GameLogic.cpp in Sources */,

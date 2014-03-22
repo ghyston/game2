@@ -68,9 +68,7 @@ void Renderer::SetupGrid(int count_x, int count_y, float cell_size)
 
 void Renderer::InitPassGrid()
 {
-	pass_grid = new Grid();
-	Color3f gray_color(0.9f);
-	pass_grid->SetColor(gray_color);
+	pass_grid = new RectGrid();
 	pass_grid->set_shader(simple_shader);
 }
 
@@ -129,7 +127,7 @@ void Renderer::draw_grid()
 
 void Renderer::DrawPassGrid()
 {
-    if(pass_grid != NULL)
+    if(pass_grid != NULL && pass_grid->IsSet())
         pass_grid->Draw();
 }
 

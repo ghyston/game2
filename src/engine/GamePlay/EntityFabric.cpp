@@ -17,6 +17,7 @@ EntityPtr EntityFabric::get_tower(EntityPtr parent, Vec2f coords)
 	//setup render component
 	RenderComponent * render_com = new RenderComponent();
     render_com->draw_type = RenderComponent::DRAW_TOWER;
+	render_com->draw_layer = RenderComponent::THIRD_LAYER;
 	tower->add_component<RenderComponent>(render_com);
 	
 	//setup move component
@@ -63,6 +64,7 @@ EntityPtr EntityFabric::get_connector(EntityPtr tower_1, EntityPtr tower_2)
     
     RenderComponent * render_com = new RenderComponent();
     render_com->draw_type = RenderComponent::DRAW_LINE;
+	render_com->draw_layer = RenderComponent::SECOND_LAYER;
 	connector->add_component<RenderComponent>(render_com);
     
     return connector;
@@ -80,6 +82,7 @@ EntityPtr EntityFabric::create_energy(Vec2f coords)
 	//setup render component
 	RenderComponent * render_com = new RenderComponent();
     render_com->draw_type = RenderComponent::DRAW_SMALL_RECT;
+	render_com->draw_layer = RenderComponent::THIRD_LAYER;
 	energy->add_component<RenderComponent>(render_com);
 	
 	//setup move component
@@ -110,6 +113,7 @@ EntityPtr EntityFabric::create_energy_generator(Vec2f coords, float rad, float i
 	
 	RenderComponent * render_com = new RenderComponent();
     render_com->draw_type = RenderComponent::DRAW_CIRCLE;
+	render_com->draw_layer = RenderComponent::FIRST_LAYER;
 	generator->add_component<RenderComponent>(render_com);
 	
 	return generator;

@@ -25,13 +25,14 @@ public:
 		DRAW_CIRCLE
     } draw_type;
 	
-	static int GetTypeImpl() { return ComponentsType::RENDER_COMPONENT; }
+	enum
+	{
+		FIRST_LAYER,
+		SECOND_LAYER,
+		THIRD_LAYER
+	} draw_layer;
 	
-/*	float * vertexes;
-	int vertexes_count;	
-	float color [4];
-	GLenum draw_type;	
-	GLuint shader;*/
+	static int GetTypeImpl() { return ComponentsType::RENDER_COMPONENT; }
 };
 
 #endif	/* __RENDERCOMPONENT_H__ */
