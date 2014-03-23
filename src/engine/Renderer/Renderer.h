@@ -13,6 +13,7 @@
 #include "RingRenderable.h"
 #include "Grid.h"
 #include "RectGrid.h"
+#include "TriangleRenderable.h"
 
 /**
  * Main call for draw graphix.
@@ -40,6 +41,7 @@ public:
 	void draw_tower(Vec2f coords, float energy, bool is_enemy = false);
 	void draw_circle(Vec2f coords);
 	void draw_ring(Vec2f coords);
+	void DrawTriangle(Vec2f coords, float angle);
 	
 	//@todo: this is hardcode
 	void draw_border_ring(Vec2f coords);
@@ -77,6 +79,7 @@ private:
 	void init_tower();
 	void init_circle();
 	void init_ring();
+	void InitTriangle();
     
     RectRenderable * rect;
     RectRenderable * small_rect;
@@ -86,8 +89,10 @@ private:
 	TowerRenderable * tower_rend;
 	CircleRenderable * circle;	
 	RingRenderable * ring;
+	RingRenderable * border_ring;
+	TriangleRenderable * triangle;
 	
-	RingRenderable * border_ring; //@todo: hardcode:(
+	
 	
 
 };

@@ -108,6 +108,19 @@ void InputProcessor::process_touch(int type, float screen_x, float screen_y)
 			}
 			
 		}
+		else if(pathKeyPressed)
+		{
+			EntityPtr unit =
+			GameEngine::get_data()->logic.getFirstEntityHasCmp<PathFindComponent>();
+			
+			if(unit.is_set())
+			{
+				EntityPtr waypoint = EntityFabric::CreateWaypoint(world_coords);
+				GameEngine::get_data()->logic.add_entity(waypoint);
+				GetCmpt(PathFindComponent, path_com, unit);
+				path_com->path.push_back(waypoint);
+			}
+		}
 		
 		// and again, check gui, than pressed scene object.
 		// if nothig, do nothing

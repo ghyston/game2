@@ -39,13 +39,13 @@ private:
 	{
 		enum
 		{
-		NONE,
-		DRAW_MAP_CELLS,
-		DRAW_PASS,
-		DRAW_ALL
+			NONE,
+			DRAW_MAP_CELLS,
+			DRAW_PASS,
+			DRAW_BOTH
 		};
 	};
-	
+	static int grid_draw;
 	
 public:
 
@@ -72,7 +72,7 @@ public:
 	static void process_touch(int id, int touch_type, float x, float y);
 	
 	//@todo: test only?
-	static void process_input(int key);
+	static void process_input(int key, int action);
 
 	/**
 	* Create game engine instance.

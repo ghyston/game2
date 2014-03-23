@@ -16,9 +16,16 @@ void idle();
 void display();
 void reshape(int width, int height);
 
-void My_Key_Callback(GLFWwindow* wnd, int key, int action, int, int)
+/**
+ * A, S - zoom in/out
+ * R - reset zoom
+ * G - switch grid show mode
+ * P (hold) + mouse click - set path to triangles. @todo this!
+ */
+
+void My_Key_Callback(GLFWwindow* wnd, int key, int scancode, int action, int)
 {
-	instance->process_input(key);
+	instance->process_input(key, action);
 }
 
 

@@ -14,6 +14,7 @@
 #include "Systems/EnergyCreatorSystem.h"
 #include "Systems/EnergyBalanceSystem.h"
 #include "Systems/AISystem.h"
+#include "Systems/PathMoveSystem.h"
 
 #include "EntityFabric.h"
 
@@ -36,6 +37,7 @@ void Game2Logic::start()
 	add_system(new EnergyBalanceSystem());
 	add_system(new EnergyGeneratorSystem());
 	add_system(new AISystem());
+	add_system(new PathMoveSystem());
 }
 
 void Game2Logic::stop()

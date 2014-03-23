@@ -68,5 +68,6 @@ Vec2i operator+ (const Vec2i& vec_1, const Vec2i& vec_2);
 Vec2i operator- (const Vec2i& vec_1, const Vec2i& vec_2);
 Vec2i operator* (const Vec2i& vec, int coeff);
 Vec2i operator* (int coeff, const Vec2i& vec);
+bool operator==(const Vec2i& left, const Vec2i& right);
 
 #endif //__VECTOR_2I_H__

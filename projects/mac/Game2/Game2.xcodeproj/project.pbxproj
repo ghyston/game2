@@ -59,6 +59,14 @@
 		3FD1F6F118265A3F003B0BF4 /* ConnectorComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1F6F018265A3F003B0BF4 /* ConnectorComponent.cpp */; };
 		3FD94F6C18DD717F00CE757A /* RectGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FD94F6A18DD717F00CE757A /* RectGrid.cpp */; };
 		3FD94F6D18DD717F00CE757A /* RectGrid.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FD94F6B18DD717F00CE757A /* RectGrid.h */; };
+		3FD94F7018DED3D500CE757A /* PathFindComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FD94F6E18DED3D500CE757A /* PathFindComponent.cpp */; };
+		3FD94F7118DED3D500CE757A /* PathFindComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FD94F6F18DED3D500CE757A /* PathFindComponent.h */; };
+		3FD94F7418DED92600CE757A /* TriangleRenderable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FD94F7218DED92600CE757A /* TriangleRenderable.cpp */; };
+		3FD94F7518DED92600CE757A /* TriangleRenderable.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FD94F7318DED92600CE757A /* TriangleRenderable.h */; };
+		3FD94F7818DEFA9A00CE757A /* PathMoveSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FD94F7618DEFA9A00CE757A /* PathMoveSystem.cpp */; };
+		3FD94F7918DEFA9A00CE757A /* PathMoveSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FD94F7718DEFA9A00CE757A /* PathMoveSystem.h */; };
+		3FD94F7C18DF1BA600CE757A /* PathFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FD94F7A18DF1BA600CE757A /* PathFinder.cpp */; };
+		3FD94F7D18DF1BA600CE757A /* PathFinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FD94F7B18DF1BA600CE757A /* PathFinder.h */; };
 		3FDB01921825750E003396A4 /* TargetComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FDB01911825750E003396A4 /* TargetComponent.cpp */; };
 		3FDE0ABF17F61D8D000A7DE1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FDE0ABE17F61D8D000A7DE1 /* main.cpp */; };
 		3FDE0AC117F61D8D000A7DE1 /* Game2.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3FDE0AC017F61D8D000A7DE1 /* Game2.1 */; };
@@ -165,6 +173,14 @@
 		3FD1F6F018265A3F003B0BF4 /* ConnectorComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConnectorComponent.cpp; sourceTree = "<group>"; };
 		3FD94F6A18DD717F00CE757A /* RectGrid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RectGrid.cpp; sourceTree = "<group>"; };
 		3FD94F6B18DD717F00CE757A /* RectGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectGrid.h; sourceTree = "<group>"; };
+		3FD94F6E18DED3D500CE757A /* PathFindComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PathFindComponent.cpp; sourceTree = "<group>"; };
+		3FD94F6F18DED3D500CE757A /* PathFindComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathFindComponent.h; sourceTree = "<group>"; };
+		3FD94F7218DED92600CE757A /* TriangleRenderable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TriangleRenderable.cpp; sourceTree = "<group>"; };
+		3FD94F7318DED92600CE757A /* TriangleRenderable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriangleRenderable.h; sourceTree = "<group>"; };
+		3FD94F7618DEFA9A00CE757A /* PathMoveSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PathMoveSystem.cpp; sourceTree = "<group>"; };
+		3FD94F7718DEFA9A00CE757A /* PathMoveSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathMoveSystem.h; sourceTree = "<group>"; };
+		3FD94F7A18DF1BA600CE757A /* PathFinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PathFinder.cpp; sourceTree = "<group>"; };
+		3FD94F7B18DF1BA600CE757A /* PathFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathFinder.h; sourceTree = "<group>"; };
 		3FDB01911825750E003396A4 /* TargetComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TargetComponent.cpp; sourceTree = "<group>"; };
 		3FDE0ABB17F61D8D000A7DE1 /* Game2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Game2; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FDE0ABE17F61D8D000A7DE1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -374,6 +390,8 @@
 				3FDE0B4317F70217000A7DE1 /* Components.h */,
 				3F548CCE1829871E00BAE9A4 /* Game2Logic.cpp */,
 				3F548CCF1829871E00BAE9A4 /* Game2Logic.h */,
+				3FD94F7A18DF1BA600CE757A /* PathFinder.cpp */,
+				3FD94F7B18DF1BA600CE757A /* PathFinder.h */,
 			);
 			path = GamePlay;
 			sourceTree = "<group>";
@@ -396,6 +414,8 @@
 				3F49B7B51832B79B00EE7639 /* TouchableComponent.h */,
 				3FC2B0151838EA3500FA5B5E /* PlayerIdComponent.h */,
 				3F7A0AFD18B0F1940063A27B /* AiComponent.h */,
+				3FD94F6E18DED3D500CE757A /* PathFindComponent.cpp */,
+				3FD94F6F18DED3D500CE757A /* PathFindComponent.h */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -417,6 +437,8 @@
 				3F01CA1F18315B34004DCCE5 /* EnergyCreatorSystem.h */,
 				3F20BB5E184229C30051003D /* AISystem.cpp */,
 				3F20BB5F184229C30051003D /* AISystem.h */,
+				3FD94F7618DEFA9A00CE757A /* PathMoveSystem.cpp */,
+				3FD94F7718DEFA9A00CE757A /* PathMoveSystem.h */,
 			);
 			path = Systems;
 			sourceTree = "<group>";
@@ -448,6 +470,8 @@
 				3FB80C1C18C50169009086BF /* GlInclude.h */,
 				3FD94F6A18DD717F00CE757A /* RectGrid.cpp */,
 				3FD94F6B18DD717F00CE757A /* RectGrid.h */,
+				3FD94F7218DED92600CE757A /* TriangleRenderable.cpp */,
+				3FD94F7318DED92600CE757A /* TriangleRenderable.h */,
 			);
 			path = Renderer;
 			sourceTree = "<group>";
@@ -477,6 +501,7 @@
 				3F409CC91810606D00A8063B /* TargetEnergySystem.h in Headers */,
 				3FB80C1D18C50169009086BF /* GlInclude.h in Headers */,
 				3F4ECCE3182F9540002425F7 /* CircleRenderable.h in Headers */,
+				3FD94F7D18DF1BA600CE757A /* PathFinder.h in Headers */,
 				3F409CC518105F0C00A8063B /* TargetComponent.h in Headers */,
 				3F708DB8182D5B3300BF964E /* NodeComponent.h in Headers */,
 				3F01CA2318315BB6004DCCE5 /* EnergyGeneratorComponent.h in Headers */,
@@ -490,6 +515,8 @@
 				3F8C392B184B9CB6003E8DD1 /* Obj.h in Headers */,
 				3FAC351818DB7C5300478931 /* PassCell.h in Headers */,
 				3FE4E02618A28FAF000C2631 /* NewInputProcessor.h in Headers */,
+				3FD94F7918DEFA9A00CE757A /* PathMoveSystem.h in Headers */,
+				3FD94F7518DED92600CE757A /* TriangleRenderable.h in Headers */,
 				3F548CD11829871E00BAE9A4 /* Game2Logic.h in Headers */,
 				3FC2B0101838D7DA00FA5B5E /* Cursor.h in Headers */,
 				3F0FE52A184FC019000F7C6E /* VecShrPtr.h in Headers */,
@@ -499,6 +526,7 @@
 				3FBFB17318CFBB4100D3AE7B /* MapCell.h in Headers */,
 				3F708DB2182D4AF500BF964E /* Tests.h in Headers */,
 				3FD94F6D18DD717F00CE757A /* RectGrid.h in Headers */,
+				3FD94F7118DED3D500CE757A /* PathFindComponent.h in Headers */,
 				3F7464DC180DD790000650C3 /* ConnectorComponent.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -598,7 +626,9 @@
 				3FDE0B6517F7029A000A7DE1 /* GameLogic.cpp in Sources */,
 				3F548CC41827AC9B00BAE9A4 /* TowerRenderable.cpp in Sources */,
 				3FDE0B6617F7029A000A7DE1 /* EntityFabric.cpp in Sources */,
+				3FD94F7018DED3D500CE757A /* PathFindComponent.cpp in Sources */,
 				3F548CCC18297EA000BAE9A4 /* EnergyBalanceSystem.cpp in Sources */,
+				3FD94F7C18DF1BA600CE757A /* PathFinder.cpp in Sources */,
 				3FDE0B6717F7029A000A7DE1 /* CollisionSystem.cpp in Sources */,
 				3FDE0B6817F7029A000A7DE1 /* MoveSystem.cpp in Sources */,
 				3FB125811837E2AA00494376 /* EnergyStorageComponent.cpp in Sources */,
@@ -612,6 +642,7 @@
 				3FDE0B6C17F7029A000A7DE1 /* Camera.cpp in Sources */,
 				3FC2B00F1838D7DA00FA5B5E /* Cursor.cpp in Sources */,
 				3FC2B0131838DCAD00FA5B5E /* RingRenderable.cpp in Sources */,
+				3FD94F7818DEFA9A00CE757A /* PathMoveSystem.cpp in Sources */,
 				3F01CA2018315B34004DCCE5 /* EnergyCreatorSystem.cpp in Sources */,
 				3F20BB60184229C30051003D /* AISystem.cpp in Sources */,
 				3FE4E02918A299D6000C2631 /* OutherAPI.cpp in Sources */,
@@ -620,6 +651,7 @@
 				3FDE0B6D17F7029A000A7DE1 /* Grid.cpp in Sources */,
 				3FDE0B6E17F7029A000A7DE1 /* RectRenderable.cpp in Sources */,
 				3F708DB1182D4AF500BF964E /* Tests.cpp in Sources */,
+				3FD94F7418DED92600CE757A /* TriangleRenderable.cpp in Sources */,
 				3FDE0B7017F7029A000A7DE1 /* Shader.cpp in Sources */,
 				3FDE0B7117F7029A000A7DE1 /* Timer.cpp in Sources */,
 			);

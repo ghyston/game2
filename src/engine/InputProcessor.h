@@ -30,9 +30,11 @@ public:
 	};
 
 	
-	InputProcessor() : touched_entity(NULL), new_entity_created(false) {;}
+	InputProcessor() : touched_entity(NULL), new_entity_created(false), pathKeyPressed(false) {;}
 	
 	void process_touch(int type, float screen_x, float screen_y);
+	
+	bool pathKeyPressed;
 	
 private:
 		

@@ -1,5 +1,6 @@
 #include <stddef.h>
 #include <vector>
+#include <math.h>
 
 #include "RenderSystem.h"
 #include "../../GameEngine.h"
@@ -74,6 +75,28 @@ void RenderSystem::post_step()
 					// @todo: get rad from it and use!
 					GetCmpt(PositionComponent, pos_com, entity);
 					GameEngine::renderer->draw_circle(pos_com->position);
+				}
+				break;
+					
+				case RenderComponent::DRAW_TRINAGE:
+				{
+					GetCmpt(PositionComponent, pos_com, entity);
+					GetCmpt(MovementComponent, mov_com, entity);
+					
+					//@todo: remove this strange angle calculation!
+					float angleRad = atanf(mov_com->speed.y / mov_com->speed.x);
+					float angle = radiansToDegrees(angleRad);
+					if(isnan(angle))
+						angle = 0.0f;
+					else
+					if(mov_com->speed.x < 0)
+					{
+						angle += 180;
+					}
+					
+					//@todo: fix, tan cannot show right quater!
+					
+					GameEngine::renderer->DrawTriangle(pos_com->position, angle);
 				}
 				break;
 			

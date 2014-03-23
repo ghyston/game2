@@ -36,6 +36,7 @@ void Renderer::init()
 	init_tower();
 	init_circle();
 	init_ring();
+	InitTriangle();
 }
 
 void Renderer::init_rect()
@@ -117,6 +118,15 @@ void Renderer::init_ring()
 	// But, I have only 20 min to finish gameplay :(
 	border_ring->setup_vertexes();
 	border_ring->SetColor(0.5f, 0.2f, 0.3f);
+}
+
+void Renderer::InitTriangle()
+{
+	triangle = new TriangleRenderable();
+	triangle->set_shader(simple_shader);
+	triangle->radius(0.05f);
+	triangle->SetColor(0.7f, 0.1f, 0.3f);
+	triangle->setup_vertexes();
 }
 
 void Renderer::draw_grid()
@@ -201,6 +211,16 @@ void Renderer::draw_border_ring(Vec2f coords)
 	
 	border_ring->coords = coords;
 	border_ring->Draw();
+}
+
+void Renderer::DrawTriangle(Vec2f coords, float angle)
+{
+	if(triangle == NULL)
+		return;
+		
+	triangle->coords = coords;
+	triangle->angle = angle;
+	triangle->Draw();
 }
 
 void Renderer::resize(int width, int height)

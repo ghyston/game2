@@ -24,6 +24,9 @@ public:
 	
 	static EntityPtr create_energy_generator(Vec2f coords, float rad, float intensivity);
 		
+	static EntityPtr CreateUnit(Vec2f coords);
+	
+	static EntityPtr CreateWaypoint(Vec2f coords);
 };
 
 

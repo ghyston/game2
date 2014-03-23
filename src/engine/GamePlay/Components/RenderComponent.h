@@ -22,7 +22,8 @@ public:
 		DRAW_SMALL_RECT,
         DRAW_LINE,
 		DRAW_TOWER,
-		DRAW_CIRCLE
+		DRAW_CIRCLE,
+		DRAW_TRINAGE,
     } draw_type;
 	
 	enum

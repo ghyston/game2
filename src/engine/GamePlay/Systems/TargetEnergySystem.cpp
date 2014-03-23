@@ -100,7 +100,7 @@ void TargetEnergySystem::update(EntityPtr entity)
 	}
 			
 	move_com->speed = dist;
-	move_com->speed.lenth(0.5f); //0.5 per sec.
+	move_com->speed.length(0.5f); //0.5 per sec.
 
 }
 

@@ -29,9 +29,12 @@ public:
 	
 	void tower_attack(EntityPtr from, EntityPtr to);
 	
+	//@todo: move both to base logic?
 	template<typename T>
 	EntityPtr findClosestEntityHasCmp(Vec2f coords);
 	
+	template<typename T>
+	EntityPtr getFirstEntityHasCmp();
 };
 
 template<typename T>
@@ -90,6 +93,26 @@ EntityPtr Game2Logic::findClosestEntityHasCmp(Vec2f coords)
 		result = closest_entities.begin()->second;
 	}
 	return result;
+}
+
+template<typename T>
+EntityPtr Game2Logic::getFirstEntityHasCmp()
+{
+	for(int i = 0; i < map.getWidth(); i++)
+	{
+		for(int j = 0; j < map.getHeight(); j++)
+		{
+			Entities& ent = map.getEntitiesFromCell(i, j);
+			for (EntityIt it = ent.begin(); it != ent.end(); it++)
+			{
+				if(!HasCmpt(T, (*it)))
+					continue;
+				
+				return (*it);
+			}
+		}
+	}
+	return EntityPtr(NULL);
 }
 
 #endif /* defined(__Game2__Game2Logic__) */

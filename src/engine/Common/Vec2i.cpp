@@ -27,3 +27,8 @@ Vec2i operator* (int coeff, const Vec2i& vec)
 {
 	return Vec2i(vec.x * coeff, vec.y * coeff);
 }
+
+bool operator==(const Vec2i& left, const Vec2i& right)
+{
+	return ((left.x == right.x) && (left.y == right.y));
+}

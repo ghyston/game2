@@ -29,6 +29,8 @@ public:
  
 	void Scale(float sx, float sy, float sz);
  
+	//@todo: possible way to optimisation: rotate not to degrees,
+	// but transfer cos/sin instead to function.
 	void RotateX(float degrees);
  
 	void RotateY(float degrees);

@@ -14,7 +14,7 @@ void test_vectors()
 	Vec2f test_2(0.3f, 0.4f);
 	Vec2f test_3(0.5f, 0.6f);
 	test_3 += 2.0f * test_1;
-	test_1.lenth(5.0f);
+	test_1.length(5.0f);
 
 	//test_3 = test_1 + test_2;
 	//test_1 = test_2 - test_3;

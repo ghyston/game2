@@ -11,6 +11,7 @@ GlobalData*     GameEngine::global_data = new GlobalData();
 Renderer *		GameEngine::renderer = new Renderer();
 InputProcessor* GameEngine::input_processor = new InputProcessor();
 NewInputProcessor* GameEngine::new_input_processor = new NewInputProcessor();
+int GameEngine::grid_draw = DrawGrid::NONE;
 
 GameEngine::GameEngine()
 {
@@ -32,11 +33,19 @@ void GameEngine::step()
 {
 	Timer::tick();
     renderer->clear_frame();
-	renderer->DrawPassGrid();
-    renderer->draw_grid();
+	
+	if(GameEngine::grid_draw == DrawGrid::DRAW_PASS ||
+	   GameEngine::grid_draw == DrawGrid::DRAW_BOTH)
+		renderer->DrawPassGrid();
+	
+	if(GameEngine::grid_draw == DrawGrid::DRAW_MAP_CELLS ||
+	   GameEngine::grid_draw == DrawGrid::DRAW_BOTH)
+		renderer->draw_grid();
+	
+	
 	global_data->logic.step();
 	global_data->cursor.Draw();
-	renderer->draw_small_rect(global_data->camera->coords);
+	
 	if(renderer->showBorderRing)
 		renderer->draw_border_ring(renderer->border_ring_coords);
 }
@@ -58,24 +67,40 @@ void GameEngine::process_touch(int id, int touch_type, float x, float y)
 	input_processor->process_touch(touch_type, x, y);
 }
 
-void GameEngine::process_input(int key)
+void GameEngine::process_input(int key, int action)
 {
 	//@todo: this is test feature, not fhinished correctly
-	if(key == 'A') //inrease
+	if(key == 'A' && action == 1) //inrease
 	{
 		float current_zoom = global_data->camera->zoom_koeff;
 		current_zoom += 0.1;
 		global_data->camera->zoom(current_zoom);
 	}
-	else if (key == 'S')
+	else if (key == 'S' && action == 1)
 	{
 		float current_zoom = global_data->camera->zoom_koeff;
 		current_zoom -= 0.1;
 		global_data->camera->zoom(current_zoom);
 	}
-	else if (key == 'R')
+	else if (key == 'R' && action == 1)
 	{
 		global_data->camera->zoom(1.0f);
+	}
+	else if (key == 'G' && action == 1)
+	{
+		GameEngine::grid_draw++;
+		GameEngine::grid_draw %= 4;
+	}
+	else if (key == 'P')
+	{
+		if(action == 1) //press
+		{
+			input_processor->pathKeyPressed = true;
+		}
+		else if(action == 0) //release
+		{
+			input_processor->pathKeyPressed = false;
+		}
 	}
 }
 

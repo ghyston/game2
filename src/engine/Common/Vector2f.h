@@ -56,7 +56,7 @@ struct Vec2f
 		return sqrtf(x * x + y * y);
 	}
 	
-	void lenth(float length)
+	void length(float length)
 	{
 		normalize();
 		x *= length;

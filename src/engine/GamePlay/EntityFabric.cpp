@@ -118,3 +118,45 @@ EntityPtr EntityFabric::create_energy_generator(Vec2f coords, float rad, float i
 	
 	return generator;
 }
+
+EntityPtr EntityFabric::CreateWaypoint(Vec2f coords)
+{
+	EntityPtr waypoint = Entity::create();
+	
+	PositionComponent * pos_com = new PositionComponent();
+	pos_com->position = coords;
+	waypoint->add_component<PositionComponent>(pos_com);
+	
+	//@todo: this is just for debug!
+	RenderComponent * render_com = new RenderComponent();
+    render_com->draw_type = RenderComponent::DRAW_SMALL_RECT;
+	render_com->draw_layer = RenderComponent::THIRD_LAYER;
+	waypoint->add_component<RenderComponent>(render_com);
+	
+	return waypoint;
+}
+
+EntityPtr EntityFabric::CreateUnit(Vec2f coords)
+{
+	EntityPtr unit = Entity::create();
+	
+	PositionComponent * pos_com = new PositionComponent();
+	pos_com->position = coords;
+	unit->add_component<PositionComponent>(pos_com);
+	
+	RenderComponent * render_com = new RenderComponent();
+    render_com->draw_type = RenderComponent::DRAW_TRINAGE;
+	render_com->draw_layer = RenderComponent::THIRD_LAYER;
+	unit->add_component<RenderComponent>(render_com);
+	
+	//setup move component
+	MovementComponent * move_com = new MovementComponent();
+	move_com->speed = Vec2f(0.0f, 0.0f);
+	move_com->velocity = Vec2f(0.0f, 0.0f);
+	unit->add_component<MovementComponent>(move_com);
+	
+	PathFindComponent * path_com = new PathFindComponent();
+	unit->add_component(path_com);
+
+	return unit;
+}

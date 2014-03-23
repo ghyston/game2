@@ -44,6 +44,9 @@ bool GlobalData::init_scene()
 	GetCmpt(EnergyStorageComponent, temp_1_enesto, temp_1);
 	temp_1_enesto->value = 10;
 	logic.add_tower(temp_1);
+	
+	EntityPtr unit = EntityFabric::CreateUnit(Vec2f(0.1f, 0.0f));
+	logic.add_entity(unit);
 	//-----TEST-----
 	
     return true;

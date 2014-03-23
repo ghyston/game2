@@ -24,6 +24,7 @@ struct ComponentsType
 		ENERGY_GENERATOR_COMPONENT,		//7
 		TOUCHABLE_COMPONENT,			//8
 		PLAYER_ID_COMPONENT,			//9
+		PATH_FIND_COMPONENT,			//10
 		__COUNT
 	};
 };
@@ -38,6 +39,7 @@ struct ComponentsType
 #include "Components/EnergyGeneratorComponent.h"
 #include "Components/TouchableComponent.h"
 #include "Components/PlayerIdComponent.h"
+#include "Components/PathFindComponent.h"
 
 #endif	/* COMPONENTS_H */
 
