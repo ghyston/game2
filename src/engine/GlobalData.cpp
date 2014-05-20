@@ -14,14 +14,14 @@ bool GlobalData::init_scene()
 	camera = new Camera();
 
 	EntityPtr generator1 =
-		EntityFabric::create_energy_generator(Vec2f(-0.6f, -0.4f), 0.3, 0.4);
+		EntityFabric::create_energy_generator(Vec2f(-0.6f, -0.4f), 0.3, 0.1);
 	logic.add_entity(generator1);
 	
 	EntityPtr generator2 =
 		EntityFabric::create_energy_generator(Vec2f(0.4f, 0.5f), 0.3, 0.2);
 	logic.add_entity(generator2);
 	
-    EntityPtr base_1 = EntityFabric::get_tower(NULL, Vec2f(0.0f,-0.4f));
+    EntityPtr base_1 = EntityFabric::get_tower(NULL, Vec2f(-0.2f,-0.4f));
 	GetCmpt(PlayerIdComponent, plr_id_1_cmpt, base_1);
 	plr_id_1_cmpt->player_id = PLAYER_ID_1;
 	GetCmpt(EnergyStorageComponent, enesto_1, base_1);
@@ -38,7 +38,7 @@ bool GlobalData::init_scene()
 	base_tower_player_2 = base_2;
 	
 	//-----TEST-----
-	EntityPtr temp_1 = EntityFabric::get_tower(base_2, Vec2f(0.3f, 0.4f));
+	/*EntityPtr temp_1 = EntityFabric::get_tower(base_2, Vec2f(0.3f, 0.4f));
 	GetCmpt(PlayerIdComponent, temp_1_plr_cmpt, temp_1);
 	temp_1_plr_cmpt->player_id = PLAYER_ID_2;
 	GetCmpt(EnergyStorageComponent, temp_1_enesto, temp_1);
@@ -46,8 +46,17 @@ bool GlobalData::init_scene()
 	logic.add_tower(temp_1);
 	
 	EntityPtr unit = EntityFabric::CreateUnit(Vec2f(0.1f, 0.0f));
-	logic.add_entity(unit);
+	logic.add_entity(unit);*/
 	//-----TEST-----
+	
+	/*EntityPtr wayp = EntityFabric::CreateWaypoint(Vec2f(0.0f, 0.0f));
+	//setup move component
+	MovementComponent * move_com = new MovementComponent();
+	move_com->speed = Vec2f(-0.12f, -0.08f);
+	move_com->velocity = Vec2f(0.0f, 0.01f);
+	wayp->add_component<MovementComponent>(move_com);
+
+	logic.add_entity(wayp);*/
 	
     return true;
 }

@@ -15,7 +15,7 @@ struct PassCell
 {
 	PassCell() : passability(true) {;}
 	bool passability;
-	EntityPtr blocked_entity;
+	//EntityPtr blocked_entity;
 };
 
 #endif /* defined(__Game2__PassCell__) */

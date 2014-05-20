@@ -10,14 +10,24 @@
 
 #include "../../ECS/BaseSystem.h"
 #include "../../Timer.h"
+#include "../../GameEngine.h"
+#include <stack>
 
 
 class MoveSystem : public BaseSystem
 {
 	
-public:
+protected:
+	
+	virtual void pre_step();
 		
-	void update(EntityPtr entity);
+	virtual void update(EntityPtr entity);
+	
+	virtual void post_step();
+	
+private:
+	
+	Entities moved_entities;
 	
 };
 

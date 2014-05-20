@@ -1,6 +1,7 @@
 #include "GameLogic.h"
 #include "../Common/VecShrPtr.h"
 
+
 void GameLogic::step()
 {	
 	for(size_t i = 0; i < systems.size(); i++)
@@ -8,21 +9,24 @@ void GameLogic::step()
 		systems[i]->pre_step();
 		
 		// First, process all positioned entities
-		for(int iX = 0; iX < map.getWidth(); iX++)
+		for(int iX = -map.entity_map.getWidth();
+			iX < map.entity_map.getWidth(); iX++)
 		{
-			for(int iY = 0; iY < map.getHeight(); iY++)
+			for(int iY = -map.entity_map.getHeight();
+				iY < map.entity_map.getHeight(); iY++)
 			{
-				Entities& entList = map.getEntitiesFromCell(iX, iY);
+				//@todo: remove this complex list, this is 4 debug!
+				Entities& entList = map.entity_map.getEntitiesFromCell(iX, iY);
+				
 				for(EntityIt it = entList.begin();	it != entList.end(); it++)
 					systems[i]->process(*it);
 			}
 		}
 		
-		
 		for(EntityIt it = entities.begin();	it != entities.end(); it++)
 			systems[i]->process(*it);
 		systems[i]->post_step();
-		map.checkFroRemovedEntities();
+		map.entity_map.checkFroRemovedEntities();
 		RemoveDeletedObjectsFromContainer(entities);
 	}
 }
@@ -34,21 +38,27 @@ void GameLogic::add_system(BaseSystem * system)
 
 void GameLogic::add_entity(EntityPtr entity)
 {
+	//@todo: there souldn't be any component names on Common!
 	if(HasCmpt(PositionComponent, entity))
 	{
 		GetCmpt(PositionComponent, pos_com, entity);
-		map.addEntity(pos_com->position.x, pos_com->position.y, entity);
+		map.entity_map.addEntity(pos_com->position.x, pos_com->position.y, entity);
 	}
 	else
 		entities.push_back(entity);
 }
 
-Entities& GameLogic::get_entities_by_coords(Vec2f& pos)
+void GameLogic::LoadMap(int width, int height, float cell_size)
 {
-	return map.getEntitiesFromCell(pos.x, pos.y);
+	static const int grids_ratio = 5;
+	
+	map.entity_map.InitMap(width, height, cell_size);
+	map.pass_map.InitMap(width * grids_ratio, height * grids_ratio, cell_size / grids_ratio);
 }
 
-bool GameLogic::GetCellPosibility(Vec2i coords)
+Entities& GameLogic::get_entities_by_coords(Vec2f& pos)
 {
-	return map.isCellPass(coords);
+	return map.get_entities_by_coords(pos);
 }
+
+

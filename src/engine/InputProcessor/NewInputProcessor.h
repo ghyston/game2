@@ -11,6 +11,8 @@
 
 #include "../Common/Vector2f.h"
 
+//@note: it doesn't in use now.
+
 class BaseTouchState
 {
 protected:

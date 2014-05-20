@@ -8,11 +8,6 @@
 
 #include "AISystem.h"
 
-void AISystem::pre_step()
-{
-
-}
-
 void AISystem::update(EntityPtr entity)
 {
 	if(!HasCmpt(PlayerIdComponent, entity))

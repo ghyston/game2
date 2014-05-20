@@ -49,7 +49,17 @@ void TargetEnergySystem::update(EntityPtr entity)
 			return;
 		}
 		
+		//@todo: changing entity position thoughtlessly is VERY dangerous!
+		// it cost 3 evenings of debug.
+		// Reposition here break GameLogic entity iterator
+		// Changing position without changing cell can produce entityPtr
+		// duplicate on two cells.
+		// @todo: changing entity position should be on map or gamelogic.
+		
+		/*pos_com->old_position = pos_com->position;
 		pos_com->position = target_pos_com->position;
+		GameEngine::get_data()->logic.getMap()->RepositionEntityToCorrectCell
+			(entity, pos_com->old_position, pos_com->position);*/
 		
 		EntityIt it = target_node_com->children.begin();
 		
@@ -107,6 +117,6 @@ void TargetEnergySystem::update(EntityPtr entity)
 void TargetEnergySystem::merge_energy(EntityPtr tower, EntityPtr energy)
 {
 	GetCmpt(EnergyStorageComponent, enesto, tower);
-	enesto->add_energy(1); // @todo: this should be out constant!
+	enesto->add_energy(10); // @todo: this should be out constant!
 	energy->mark_deleted();
 }

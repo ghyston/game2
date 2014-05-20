@@ -23,6 +23,8 @@ public:
 	
 	bool SetStartEnd(Vec2i from, Vec2i to);
 	
+	void InitCells(int height, int width);
+	
 	/**
 	 * Calculate path.
 	 * return false, if there is no path.
@@ -43,19 +45,36 @@ private:
 	
 	struct PathCell
 	{
+		PathCell() :
+			F(0), G(0), H(0), prev_cell(NULL),
+			is_closed(false), is_set(false)
+		{;}
+		
 		int F; // Sum G + H.
 		int G; // Cost from source.
 		int H; // Cost (aprox.) to destination.
-		Vec2i prev_cell;
+		PathCell* prev_cell;
+		Vec2i self_coords;
+		bool is_closed;
+		bool is_set;
 	};
+	
+	PathCell * GetCell(Vec2i coords);
+	Vec2i GetOffset(int offset);
+	PathCell * cells;
+	
+	std::multimap<int, PathCell*> opened_cells;
 	
 	Vec2i source;
 	Vec2i destination;
+	Vec2i map_size;
 	
-	std::map<int, std::map<int, PathCell> > cells;
+//	std::multimap<int, Vec2i> opened_cells;
+//	std::list<PathCell> closed_list;
+//	std::map<int, std::map<int, PathCell> > cells;
 	
-	std::list<Vec2i> opened_cells;
-	std::list<Vec2i> closed_cells;
+	//std::list<Vec2i> opened_cells;
+	//std::list<Vec2i> closed_cells;
 	
 	
 };

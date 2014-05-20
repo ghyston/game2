@@ -11,7 +11,7 @@ GlobalData*     GameEngine::global_data = new GlobalData();
 Renderer *		GameEngine::renderer = new Renderer();
 InputProcessor* GameEngine::input_processor = new InputProcessor();
 NewInputProcessor* GameEngine::new_input_processor = new NewInputProcessor();
-int GameEngine::grid_draw = DrawGrid::NONE;
+int GameEngine::grid_draw = DrawGrid::DRAW_BOTH;
 
 GameEngine::GameEngine()
 {
@@ -91,7 +91,8 @@ void GameEngine::process_input(int key, int action)
 		GameEngine::grid_draw++;
 		GameEngine::grid_draw %= 4;
 	}
-	else if (key == 'P')
+	// Path finding is not ready now.
+	/*else if (key == 'P')
 	{
 		if(action == 1) //press
 		{
@@ -101,7 +102,7 @@ void GameEngine::process_input(int key, int action)
 		{
 			input_processor->pathKeyPressed = false;
 		}
-	}
+	}*/
 }
 
 void GameEngine::init(int width, int height)

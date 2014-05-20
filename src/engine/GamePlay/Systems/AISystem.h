@@ -15,10 +15,6 @@
 
 class AISystem : public BaseSystem
 {
-public:
-	
-	virtual void pre_step();
-	virtual void post_step() {;}
 	
 protected:
 	

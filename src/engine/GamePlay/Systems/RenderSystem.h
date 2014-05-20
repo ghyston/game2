@@ -21,6 +21,7 @@ public:
 	virtual void update(EntityPtr entity);
 	virtual void post_step();
 
+	//@todo: reserve?
 	std::map<int, Entities> entities_to_draw;
 
 };

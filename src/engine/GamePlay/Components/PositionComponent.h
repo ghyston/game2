@@ -17,6 +17,7 @@ public:
 	static int GetTypeImpl() { return ComponentsType::POSITION_COMPONENT; }
 	
 	Vec2f position;
+	Vec2f old_position; //Just 4 optimisation.
 };
 
 #endif	/* POSITIONCOMPONENT_H */

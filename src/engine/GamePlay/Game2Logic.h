@@ -10,12 +10,13 @@
 #define __Game2__Game2Logic__
 
 #include "../ECS/GameLogic.h"
+#include "PathFinder.h"
 
 class Game2Logic : public GameLogic
 {
 public:
 	
-	void LoadMap(int width, int height, float cell_size);
+	virtual void LoadMap(int width, int height, float cell_size);
 	
 	void start();
 	void stop();
@@ -29,90 +30,12 @@ public:
 	
 	void tower_attack(EntityPtr from, EntityPtr to);
 	
-	//@todo: move both to base logic?
-	template<typename T>
-	EntityPtr findClosestEntityHasCmp(Vec2f coords);
+	//@todo: not good to keep it here
+	bool CalcPath(Vec2f from, Vec2f to, std::vector<Vec2f>& points);
 	
-	template<typename T>
-	EntityPtr getFirstEntityHasCmp();
+private:
+	PathFinder path_finder;
 };
 
-template<typename T>
-EntityPtr Game2Logic::findClosestEntityHasCmp(Vec2f coords)
-{
-	EntityPtr result;
-	// Map of entities, sorted by quad distance.
-	std::map<float, EntityPtr> closest_entities;
-	
-	Vec2i center_cell = map.getCellIndexes(coords.x, coords.y);
-	int half_rad = 0;
-			
-	bool allMap = false;
-	while(closest_entities.empty() || !allMap)
-	{
-		int left = center_cell.x - half_rad;
-		int top = center_cell.y - half_rad;
-		int right = center_cell.x + half_rad;
-		int bottom = center_cell.y + half_rad;
-		
-		int bound_left = std::max(left, 0);
-		int bound_top = std::max(top, 0);
-		int bound_right = std::min(right, map.getWidth());
-		int bound_bottom = std::min(bottom, map.getHeight());
-		
-		allMap = (bound_left == 0) && (bound_right == map.getWidth()) &&
-		(bound_top == 0) && (bound_bottom == map.getHeight());
-		
-		for(int itX = bound_left; itX <= bound_right; itX++)
-		{
-			for(int itY = bound_top; itY <= bound_bottom; itY++)
-			{
-				if((itX > bound_left + 1) &&
-				   (itX < bound_right - 1) &&
-				   (itY > bound_top + 1) &&
-				   (itY < bound_bottom - 1))
-					continue;
-				
-				Entities& ent = map.getEntitiesFromCell(itX, itY);
-				for (EntityIt it = ent.begin(); it != ent.end(); it++)
-				{
-					if(!HasCmpt(T, (*it)))
-						continue;
-					
-					GetCmpt(PositionComponent, pos_com, (*it));
-					float quad_dist = quad_distance(pos_com->position, coords);
-					closest_entities[quad_dist] = *it;
-				}
-			}
-		}
-		half_rad++;
-	}
-	
-	if(!closest_entities.empty())
-	{
-		result = closest_entities.begin()->second;
-	}
-	return result;
-}
-
-template<typename T>
-EntityPtr Game2Logic::getFirstEntityHasCmp()
-{
-	for(int i = 0; i < map.getWidth(); i++)
-	{
-		for(int j = 0; j < map.getHeight(); j++)
-		{
-			Entities& ent = map.getEntitiesFromCell(i, j);
-			for (EntityIt it = ent.begin(); it != ent.end(); it++)
-			{
-				if(!HasCmpt(T, (*it)))
-					continue;
-				
-				return (*it);
-			}
-		}
-	}
-	return EntityPtr(NULL);
-}
 
 #endif /* defined(__Game2__Game2Logic__) */

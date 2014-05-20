@@ -9,6 +9,7 @@
 #include "InputProcessor.h"
 #include "GameEngine.h"
 #include "GamePlay/EntityFabric.h"
+#include "GamePlay/PathFinder.h"
 
 // @todo: refactoring this! Google pattern "State" and other behvior patterns
 void InputProcessor::process_touch(int type, float screen_x, float screen_y)
@@ -111,14 +112,24 @@ void InputProcessor::process_touch(int type, float screen_x, float screen_y)
 		else if(pathKeyPressed)
 		{
 			EntityPtr unit =
-			GameEngine::get_data()->logic.getFirstEntityHasCmp<PathFindComponent>();
+			GameEngine::get_data()->logic.getMap()->getFirstEntityHasCmp<PathFindComponent>();
 			
 			if(unit.is_set())
 			{
-				EntityPtr waypoint = EntityFabric::CreateWaypoint(world_coords);
-				GameEngine::get_data()->logic.add_entity(waypoint);
-				GetCmpt(PathFindComponent, path_com, unit);
-				path_com->path.push_back(waypoint);
+				std::vector<Vec2f> wayp_coords;
+				GetCmpt(PositionComponent, pos_com, unit);
+				if(GameEngine::global_data->logic.CalcPath(
+					pos_com->position, world_coords, wayp_coords))
+				{
+					for(auto it = wayp_coords.begin();
+						it != wayp_coords.end(); it++)
+					{
+						EntityPtr waypoint = EntityFabric::CreateWaypoint(world_coords);
+						GameEngine::get_data()->logic.add_entity(waypoint);
+						GetCmpt(PathFindComponent, path_com, unit);
+						path_com->path.push_back(waypoint);
+					}
+				}
 			}
 		}
 		
@@ -169,7 +180,7 @@ void InputProcessor::process_touch(int type, float screen_x, float screen_y)
 EntityPtr InputProcessor::find_entity(Vec2f world_coords)
 {
 	EntityPtr result;
-	EntityPtr entity = GameEngine::global_data->logic.findClosestEntityHasCmp<TouchableComponent>(world_coords);
+	EntityPtr entity = GameEngine::global_data->logic.getMap()->findClosestEntityHasCmp<TouchableComponent>(world_coords);
 	
 	if(entity.is_set())
 	{

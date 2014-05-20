@@ -15,7 +15,8 @@
 
 #include "Entity.h"
 #include "BaseSystem.h"
-#include "Map.h"
+#include "../Map/Map.h"
+
 
 class GameLogic
 {
@@ -27,11 +28,12 @@ public:
 	
 	virtual void add_system(BaseSystem * system);
 	virtual void add_entity(EntityPtr entity);
+	
+	virtual Map* getMap() { return &map; }
+	virtual void LoadMap(int width, int height, float cell_size);
 		
 	Entities& get_unpositioned_entities() { return entities; }
 	Entities& get_entities_by_coords(Vec2f& pos);
-	
-	bool GetCellPosibility(Vec2i coords);
 	
 protected:
 	

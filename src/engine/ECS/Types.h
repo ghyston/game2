@@ -19,4 +19,5 @@ typedef ShrPtr<Entity> EntityPtr;
 typedef std::list<EntityPtr> Entities;
 typedef Entities::iterator EntityIt;
 
+
 #endif
