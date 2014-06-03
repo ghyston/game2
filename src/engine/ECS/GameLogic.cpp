@@ -3,10 +3,12 @@
 
 
 void GameLogic::step()
-{	
-	for(size_t i = 0; i < systems.size(); i++)
+{
+	std::vector<BaseSystem*>::iterator systemIt = systems.begin();
+	for(; systemIt != systems.end(); systemIt++)
 	{
-		systems[i]->pre_step();
+		BaseSystem* system = (*systemIt);
+		system->pre_step();
 		
 		// First, process all positioned entities
 		for(int iX = -map.entity_map.getWidth();
@@ -15,17 +17,20 @@ void GameLogic::step()
 			for(int iY = -map.entity_map.getHeight();
 				iY < map.entity_map.getHeight(); iY++)
 			{
-				//@todo: remove this complex list, this is 4 debug!
 				Entities& entList = map.entity_map.getEntitiesFromCell(iX, iY);
 				
 				for(EntityIt it = entList.begin();	it != entList.end(); it++)
-					systems[i]->process(*it);
+					system->process(*it);
 			}
 		}
 		
+		// Second, process all unpositioned entities
 		for(EntityIt it = entities.begin();	it != entities.end(); it++)
-			systems[i]->process(*it);
-		systems[i]->post_step();
+			system->process(*it);
+		
+		system->post_step();
+		
+		// Remove all entities, that was deleted.
 		map.entity_map.checkFroRemovedEntities();
 		RemoveDeletedObjectsFromContainer(entities);
 	}
@@ -48,12 +53,12 @@ void GameLogic::add_entity(EntityPtr entity)
 		entities.push_back(entity);
 }
 
-void GameLogic::LoadMap(int width, int height, float cell_size)
+void GameLogic::LoadMap(int width, int height)
 {
-	static const int grids_ratio = 5;
+	map.map_width = width;
+	map.map_height = height;
 	
-	map.entity_map.InitMap(width, height, cell_size);
-	map.pass_map.InitMap(width * grids_ratio, height * grids_ratio, cell_size / grids_ratio);
+	map.InitGrids();
 }
 
 Entities& GameLogic::get_entities_by_coords(Vec2f& pos)

@@ -22,13 +22,14 @@ class Map
 public:
 	Map() {;}
 	
+	void InitGrids();
+	
 	Entities& get_entities_by_coords(Vec2f& pos);
 	
 	bool GetCellPosibility(Vec2i coords);
 	void RepositionEntityToCorrectCell(
 		EntityPtr entity, Vec2f old_coords, Vec2f new_coords);
 	
-	//@todo: move both to base logic?
 	template<typename T>
 	EntityPtr findClosestEntityHasCmp(Vec2f coords);
 	
@@ -37,6 +38,14 @@ public:
 	
 	PassMap pass_map;
 	EntityContainerMap entity_map;
+	
+	float map_width;
+	float map_height;
+	
+private:
+	
+	static const float entity_grid_cell_size;
+	static const float pass_grid_cell_size;
 	
 };
 
@@ -53,8 +62,12 @@ EntityPtr Map::findClosestEntityHasCmp(Vec2f coords)
 	int half_rad = 0;
 	
 	bool allMap = false;
-	while(closest_entities.empty() && !allMap)
+	int additional_iterations = 2; // To be sure, that we hav all entity in radius.
+	while((closest_entities.empty() || additional_iterations > 0) && !allMap)
 	{
+		if(!closest_entities.empty())
+			additional_iterations--;
+			
 		int left = center_cell.x - half_rad;
 		int top = center_cell.y + half_rad;
 		int right = center_cell.x + half_rad;
@@ -106,9 +119,9 @@ EntityPtr Map::findClosestEntityHasCmp(Vec2f coords)
 template<typename T>
 EntityPtr Map::getFirstEntityHasCmp()
 {
-	for(int i = 0; i < entity_map.getWidth(); i++)
+	for(int i = -entity_map.getWidth(); i <= entity_map.getWidth(); i++)
 	{
-		for(int j = 0; j < entity_map.getHeight(); j++)
+		for(int j = -entity_map.getHeight(); j <= entity_map.getHeight(); j++)
 		{
 			Entities& ent = entity_map.getEntitiesFromCell(i, j);
 			for (EntityIt it = ent.begin(); it != ent.end(); it++)

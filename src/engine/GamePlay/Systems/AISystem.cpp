@@ -26,15 +26,15 @@ void AISystem::update(EntityPtr entity)
 	if(enesto_cmpt->value < 75)
 		return;
 	
-	EntityPtr enemy = findClosestEnemy(entity);
+	/*EntityPtr enemy = findClosestEnemy(entity);
 	if(enemy.is_set())
 	{
 		GameEngine::global_data->logic.tower_attack(entity, enemy);
 	}
 	else
-	{
+	{*/
 		BuildRandomTower(entity);
-	}
+	//}
 	
 	
 	

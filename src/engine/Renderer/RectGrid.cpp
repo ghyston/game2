@@ -38,20 +38,22 @@ void RectGrid::Draw()
 	{
 		for(int j = -count_y; j < count_y; j++)
 		{
-			//if(GameEngine::get_data()->logic.getMap()
-			  // ->pass_map.isCellPass(Vec2i(i, j)))
-				//continue;
-			Entities& ent = GameEngine::get_data()->logic.getMap()->entity_map.getEntitiesFromCell(i, j);
+			if(GameEngine::get_data()->logic.getMap()
+			   ->pass_map.isCellPass(Vec2i(i, j)))
+				continue;
+			rect.coords = GameEngine::get_data()->logic.getMap()->pass_map.getCoordsByIndex(i, j);
+			
+		/*	Entities& ent = GameEngine::get_data()->logic.getMap()->entity_map.getEntitiesFromCell(i, j);
 			if(ent.empty())
 				continue;
 			
 			float half_cell_size =GameEngine::get_data()->logic.getMap()->entity_map.getCellSize() / 2;
-			rect.coords = GameEngine::get_data()->logic.getMap()->entity_map.getCoordsByIndex(i, j);
+			rect.coords = GameEngine::get_data()->logic.getMap()->entity_map.getCoordsByIndex(i, j);*/
+			float half_cell_size = step / 2;
 			rect.coords.x += half_cell_size;
 			rect.coords.y += half_cell_size;
 			
-			//rect.coords = GameEngine::get_data()->logic.getMap()->pass_map.getCoordsByIndex(i, j);
-		
+			
 			
 			rect.Draw();
 		}

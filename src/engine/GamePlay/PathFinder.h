@@ -21,6 +21,9 @@ public:
 	PathFinder()
 	{;}
 	
+	//@todo: it's time to start writing destructors and release memory everywhere!
+	~PathFinder();
+	
 	bool SetStartEnd(Vec2i from, Vec2i to);
 	
 	void InitCells(int height, int width);
@@ -39,16 +42,18 @@ private:
 	
 	bool IsCellClear(Vec2i coords);
 	
+	void RefreshCells();
+	
 	int CalcManhattanDestance(Vec2i coords);
 	
 //	void ProcessCell()
 	
 	struct PathCell
 	{
-		PathCell() :
-			F(0), G(0), H(0), prev_cell(NULL),
-			is_closed(false), is_set(false)
-		{;}
+		PathCell()
+		{
+			clear();
+		}
 		
 		int F; // Sum G + H.
 		int G; // Cost from source.
@@ -57,6 +62,17 @@ private:
 		Vec2i self_coords;
 		bool is_closed;
 		bool is_set;
+		
+		void clear()
+		{
+			F = 0;
+			G = 0;
+			H = 0;
+			prev_cell = NULL;
+			is_closed = false;
+			is_set = false;
+		}
+		
 	};
 	
 	PathCell * GetCell(Vec2i coords);

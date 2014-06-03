@@ -42,6 +42,16 @@ void InputProcessor::process_touch(int type, float screen_x, float screen_y)
 	
 	Vec2f world_coords = GameEngine::global_data->convert_coordinates(Vec2f(screen_x, screen_y));
 	
+	Vec2f map_size(
+		GameEngine::get_data()->logic.getMap()->map_width,
+		GameEngine::get_data()->logic.getMap()->map_height);
+	
+	if(world_coords.x < -map_size.x ||
+	   world_coords.x > map_size.x ||
+	   world_coords.y < -map_size.y ||
+	   world_coords.y > map_size.y)
+		return;
+	
 	if(type == TouchTypes::PRESS)
 	{
 		// here we should check gui for input
@@ -116,6 +126,15 @@ void InputProcessor::process_touch(int type, float screen_x, float screen_y)
 			
 			if(unit.is_set())
 			{
+				//if unit has already path, clear it
+				GetCmpt(PathFindComponent, path_com, unit);
+
+				for(EntityIt path_it = path_com->path.begin(); path_it != path_com->path.end(); path_it++)
+				{
+					(*path_it)->mark_deleted();
+				}
+				path_com->path.clear();
+				
 				std::vector<Vec2f> wayp_coords;
 				GetCmpt(PositionComponent, pos_com, unit);
 				if(GameEngine::global_data->logic.CalcPath(
@@ -124,9 +143,8 @@ void InputProcessor::process_touch(int type, float screen_x, float screen_y)
 					for(auto it = wayp_coords.begin();
 						it != wayp_coords.end(); it++)
 					{
-						EntityPtr waypoint = EntityFabric::CreateWaypoint(world_coords);
+						EntityPtr waypoint = EntityFabric::CreateWaypoint(*it);
 						GameEngine::get_data()->logic.add_entity(waypoint);
-						GetCmpt(PathFindComponent, path_com, unit);
 						path_com->path.push_back(waypoint);
 					}
 				}

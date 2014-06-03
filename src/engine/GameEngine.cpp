@@ -92,7 +92,7 @@ void GameEngine::process_input(int key, int action)
 		GameEngine::grid_draw %= 4;
 	}
 	// Path finding is not ready now.
-	/*else if (key == 'P')
+	else if (key == 'P')
 	{
 		if(action == 1) //press
 		{
@@ -102,7 +102,7 @@ void GameEngine::process_input(int key, int action)
 		{
 			input_processor->pathKeyPressed = false;
 		}
-	}*/
+	}
 }
 
 void GameEngine::init(int width, int height)
@@ -111,7 +111,7 @@ void GameEngine::init(int width, int height)
 	//test_shr_ptr();
 	renderer->init();
     renderer->resize(width, height);
-	global_data->logic.LoadMap(30, 30, 0.4f);
+	global_data->logic.LoadMap(3, 3);
     global_data->init_scene();
 	global_data->screen.setup(height, width); // @todo: do we need that?
     

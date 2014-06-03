@@ -14,34 +14,55 @@
 const int PathFinder::COST_AXIS = 10;
 const int PathFinder::COST_DIAG = 14;
 
+PathFinder::~PathFinder()
+{
+	delete [] cells;
+}
+
 void PathFinder::InitCells(int height, int width)
 {
 	map_size.x = width;
 	map_size.y = height;
-	cells = new PathCell[height * width]();
+	cells = new PathCell[ (2 * height + 1) * (2 * width + 1) ]();
 	
-	for(int i = 0; i < height; i++)
-		for(int j = 0; j < width; j++)
+	for(int i = -height; i <= height; i++)
+		for(int j = -width; j <= width; j++)
 		{
-			PathCell * cell = cells + (size_t)(i * width + j);
+			PathCell * cell = GetCell(Vec2i(j, i));
+
 			cell->self_coords.x = j;
 			cell->self_coords.y = i;
 		}
 }
 
+void PathFinder::RefreshCells()
+{
+	size_t cells_count = (2 * map_size.y + 1) * (2 * map_size.x + 1);
+	for(size_t i = 0; i < cells_count; i++)
+	{
+		PathCell * cell = cells + i;
+		cell->clear();
+	}
+}
+
 PathFinder::PathCell * PathFinder::GetCell(Vec2i coords)
 {
+	if(coords.x < -map_size.x || coords.x > map_size.x ||
+	   coords.y < -map_size.y || coords.y > map_size.y)
+		return NULL;
+	
 	PathCell * cell = cells;
-	size_t offset = coords.y * map_size.y + coords.x;
+	size_t offset =
+		(coords.y + map_size.y) * (2 * map_size.x + 1) + (coords.x + map_size.x);
 	cell += offset;
 	return cell;
 }
 
 /*
  offset:
- 0 1 2
- 3 x 4
  5 6 7
+ 3 x 4
+ 0 1 2
  */
 Vec2i PathFinder::GetOffset(int offset)
 {
@@ -63,6 +84,7 @@ Vec2i PathFinder::GetOffset(int offset)
 
 bool PathFinder::CalcPath(std::vector<Vec2i>& points)
 {
+	RefreshCells();
 	opened_cells.clear();
 	int h1 = CalcManhattanDestance(source);
 	PathCell* first = GetCell(source);
@@ -83,7 +105,12 @@ bool PathFinder::CalcPath(std::vector<Vec2i>& points)
 		opened_cells.erase(current_cell_it);
 		current_cell->is_closed = true;
 		
-		for(int i = 0; i < 7; i++)
+		bool left_clear = IsCellClear(current_cell->self_coords + GetOffset(3));
+		bool rght_clear = IsCellClear(current_cell->self_coords + GetOffset(4));
+		bool  top_clear = IsCellClear(current_cell->self_coords + GetOffset(6));
+		bool botm_clear = IsCellClear(current_cell->self_coords + GetOffset(1));
+		
+		for(int i = 0; i <= 7; i++)
 		{
 			Vec2i offset = GetOffset(i);
 			PathCell * neighbour = GetCell(current_cell->self_coords + offset);
@@ -95,6 +122,16 @@ bool PathFinder::CalcPath(std::vector<Vec2i>& points)
 				continue;
 			
 			if(!IsCellClear(neighbour->self_coords))
+				continue;
+			
+			// prevent edge-cut
+			if(i == 0 && (!left_clear || !botm_clear))
+				continue;
+			if(i == 2 && (!rght_clear || !botm_clear))
+				continue;
+			if(i == 7 && (!rght_clear || !top_clear))
+				continue;
+			if(i == 5 && (!left_clear || !top_clear))
 				continue;
 			
 			neighbour->is_set = true;
@@ -151,12 +188,12 @@ bool PathFinder::CalcPath(std::vector<Vec2i>& points)
 
 bool PathFinder::IsCellClear(Vec2i coords)
 {
-	return GameEngine::get_data()->logic.getMap()->pass_map.isCellPass(coords + source);
+	return GameEngine::get_data()->logic.getMap()->pass_map.isCellPass(coords);
 }
 
 int PathFinder::CalcManhattanDestance(Vec2i coords)
 {
-	return (abs(coords.x - destination.x) + abs(coords.y - destination.y));
+	return COST_AXIS * (abs(coords.x - destination.x) + abs(coords.y - destination.y));
 }
 
 bool PathFinder::SetStartEnd(Vec2i from, Vec2i to)

@@ -11,6 +11,7 @@
 
 #include "BaseGridMap.h"
 #include "PassCell.h"
+#include "../Common/VecShrPtr.h"
 
 /**
  * This grid map collect info about passibility map, cell can be used(blocked) or free.
@@ -21,16 +22,19 @@ public:
 	
 	bool isCellPass(Vec2f coords);
 	bool isCellPass(Vec2i coords);
-	void SetPass(bool passability, Vec2i coords);
-	void SetPass(bool passability, Vec2f coords);
 	
-	void BlockPassCells(const Vec2f& left_top, const Vec2f& right_bottom);
+	void BlockPass(Vec2i coords, EntityPtr entity);
+	void BlockPass(Vec2f coords, EntityPtr entity);
+	
+	void BlockPassCells(const Vec2f& left_top, const Vec2f& right_bottom, EntityPtr entity);
 	// Return true, if cells are free.
 	bool CheckCellsPass(const Vec2f& left_top, const Vec2f& right_bottom);
-
 	
+	void RecalculateCellsPassability();
 	
 private:
+	void SetPass(bool passability, Vec2i coords);
+	void SetPass(bool passability, Vec2f coords);
 };
 
 #endif /* defined(__Game2__PassMap__) */

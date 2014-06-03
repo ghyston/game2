@@ -19,11 +19,6 @@ public:
 	Entities path;
 	
 	static int GetTypeImpl() { return ComponentsType::PATH_FIND_COMPONENT; }
-	
-private:
-	
-	void GeneratePath(Vec2f dest)
-	{;}
 };
 
 #endif /* defined(__Game2__PathFindComponent__) */

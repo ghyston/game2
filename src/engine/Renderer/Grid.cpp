@@ -40,7 +40,7 @@ void Grid::SetParams(int count_x, int count_y, float cell_size)
 	this->count_x = count_x;
 	this->count_y = count_y;
 	this->step = cell_size;
-	this->vertexes_count = (2 * count_x + 1) * 2 + (2 * count_y + 1) * 2;
+	this->vertexes_count = ((2 * count_x + 1) * 2 + (2 * count_y + 1) * 2) * 2;
 	setup_vertexes();
 	if(count_x > 0 && count_y > 0 && cell_size > 0.0f)
 		is_set = true;

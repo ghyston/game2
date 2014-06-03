@@ -30,7 +30,7 @@ public:
 	virtual void add_entity(EntityPtr entity);
 	
 	virtual Map* getMap() { return &map; }
-	virtual void LoadMap(int width, int height, float cell_size);
+	virtual void LoadMap(int width, int height);
 		
 	Entities& get_unpositioned_entities() { return entities; }
 	Entities& get_entities_by_coords(Vec2f& pos);

@@ -29,7 +29,7 @@ bool GlobalData::init_scene()
 	logic.add_tower(base_1);
 	base_tower_player_1 = base_1;
 	
-	EntityPtr base_2 = EntityFabric::get_tower(NULL, Vec2f(-0.2f, 0.4f));
+	EntityPtr base_2 = EntityFabric::get_tower(NULL, Vec2f(0.0f, 0.4f));
 	GetCmpt(PlayerIdComponent, plr_id_2_cmpt, base_2);
 	plr_id_2_cmpt->player_id = PLAYER_ID_2;
 	GetCmpt(EnergyStorageComponent, enesto_2, base_2);
@@ -43,10 +43,10 @@ bool GlobalData::init_scene()
 	temp_1_plr_cmpt->player_id = PLAYER_ID_2;
 	GetCmpt(EnergyStorageComponent, temp_1_enesto, temp_1);
 	temp_1_enesto->value = 10;
-	logic.add_tower(temp_1);
+	logic.add_tower(temp_1);*/
 	
-	EntityPtr unit = EntityFabric::CreateUnit(Vec2f(0.1f, 0.0f));
-	logic.add_entity(unit);*/
+	EntityPtr unit = EntityFabric::CreateUnit(Vec2f(0.0f, 0.05f));
+	logic.add_entity(unit);
 	//-----TEST-----
 	
 	/*EntityPtr wayp = EntityFabric::CreateWaypoint(Vec2f(0.0f, 0.0f));

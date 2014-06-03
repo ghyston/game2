@@ -67,11 +67,11 @@ Vec2i BaseGridMap<T>::getIndexesByCoords(float x, float y)
 	if(y < 0.0f)
 		cell_y--;
 	
-	if(cell_x >= width || cell_x <= -width ||
+	/*if(cell_x >= width || cell_x <= -width ||
 	   cell_y >= height || cell_y <= -height)
 	{
 		throw 0;
-	}
+	}*/
 	return Vec2i(cell_x, cell_y);
 }
 

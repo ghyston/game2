@@ -16,7 +16,7 @@ class Game2Logic : public GameLogic
 {
 public:
 	
-	virtual void LoadMap(int width, int height, float cell_size);
+	virtual void LoadMap(int width, int height);
 	
 	void start();
 	void stop();

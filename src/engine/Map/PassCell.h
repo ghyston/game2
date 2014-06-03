@@ -10,12 +10,24 @@
 #define __Game2__PassCell__
 
 #include "Types.h"
+#include "../Common/VecShrPtr.h"
+
 
 struct PassCell
 {
 	PassCell() : passability(true) {;}
 	bool passability;
-	//EntityPtr blocked_entity;
+	Entities blocked_entities;
+	
+	inline void RecalculatePassability()
+	{
+		if(passability)
+			return;
+		
+		RemoveDeletedObjectsFromContainer(blocked_entities);
+		if(blocked_entities.empty())
+			passability = true;
+	}
 };
 
 #endif /* defined(__Game2__PassCell__) */

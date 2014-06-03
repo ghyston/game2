@@ -53,6 +53,9 @@ void MouseCursorCallback(GLFWwindow * wnd, double x, double y)
 
 int main(int argc, char ** argv)
 {
+	int window_width = 800;
+	int window_height = 600;
+	
     GLFWwindow* window;
     
     //glfwSetErrorCallback(error_callback);
@@ -60,7 +63,7 @@ int main(int argc, char ** argv)
     if (!glfwInit())
         exit(EXIT_FAILURE);
     
-    window = glfwCreateWindow(1024, 496, "Game 2", NULL, NULL);
+    window = glfwCreateWindow(window_width, window_height, "Game 2", NULL, NULL);
     if (!window)
     {
         glfwTerminate();
@@ -73,11 +76,11 @@ int main(int argc, char ** argv)
 	glfwSetKeyCallback(window, My_Key_Callback);
 	glfwSetMouseButtonCallback(window, MouseClickCallback);
 	glfwSetCursorPosCallback(window, MouseCursorCallback);
-    
+
     GameEngine::create_instance();
 	instance = GameEngine::get_instance();
-    instance->init(1024, 496);
-    
+    instance->init(window_width, window_height);
+
     while (!glfwWindowShouldClose(window))
     {
 		try
@@ -96,7 +99,8 @@ int main(int argc, char ** argv)
     glfwDestroyWindow(window);
     
     glfwTerminate();
-    exit(EXIT_SUCCESS);
+	delete instance;
+    //exit(EXIT_SUCCESS);
     
     return 0;
 }

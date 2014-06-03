@@ -13,7 +13,6 @@
 #include "MapCell.h"
 #include "../Common/VecShrPtr.h"
 
-//@todo: rename this and PassMap to EntityGrid and PassGrid!
 class EntityContainerMap : public BaseGridMap<MapCell>
 {
 public:
@@ -25,6 +24,7 @@ public:
 	
 	Entities& getEntitiesFromCell(float x, float y);
 	Entities& getEntitiesFromCell(int x, int y);
+	
 };
 
 #endif /* defined(__Game2__EntityContainerMap__) */
