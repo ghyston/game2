@@ -15,10 +15,12 @@
 
 #include <iostream>
 #include "Vector2f.h"
+#include "SomeMath.h"
 
 
 void test_vectors();
 void test_shr_ptr();
+void test_math();
 
 class Test : public Obj
 {

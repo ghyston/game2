@@ -63,5 +63,5 @@ void BaseRenderable::SetColor(float red, float green, float blue)
 BaseRenderable::~BaseRenderable()
 {
 	//TODO: delete matrixes!
-	//delete [] vertexes;
+	delete [] vertexes;
 }

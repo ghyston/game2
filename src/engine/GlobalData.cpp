@@ -49,14 +49,15 @@ bool GlobalData::init_scene()
 	logic.add_entity(unit);
 	//-----TEST-----
 	
-	/*EntityPtr wayp = EntityFabric::CreateWaypoint(Vec2f(0.0f, 0.0f));
-	//setup move component
-	MovementComponent * move_com = new MovementComponent();
-	move_com->speed = Vec2f(-0.12f, -0.08f);
-	move_com->velocity = Vec2f(0.0f, 0.01f);
-	wayp->add_component<MovementComponent>(move_com);
-
-	logic.add_entity(wayp);*/
+	std::vector<Vec2f> points;
+	points.push_back(Vec2f(-0.31f,-0.2f));
+	points.push_back(Vec2f(-0.1f, 0.2f));
+	points.push_back(Vec2f( 0.1f, 0.25f));
+	points.push_back(Vec2f( 0.31f,-0.3f));
+	points.push_back(Vec2f(-0.05f,-0.4f));
+	
+	EntityPtr hindernis = EntityFabric::CreateHindernis(Vec2f(0.42f, - 0.2f), points);
+	logic.AddHindernis(hindernis);
 	
     return true;
 }

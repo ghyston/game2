@@ -18,12 +18,15 @@ protected:
 
 public:
 	
-	RectRenderable() : width(0), height(0) {;}
+	RectRenderable() : width(0), height(0)
+	{
+		//draw_type = GL_LINE_LOOP;
+	}
 
 	RectRenderable(float _width, float _height) :
 	width(_width), height(_height)
 	{
-		;
+		//draw_type = GL_LINE_LOOP;
 	}
 
 	virtual void setup_vertexes();

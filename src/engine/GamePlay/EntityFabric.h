@@ -12,6 +12,8 @@
 #include "Components.h"
 #include "../ECS/Types.h"
 
+#include <vector>
+
 class EntityFabric
 {
 public:
@@ -27,6 +29,12 @@ public:
 	static EntityPtr CreateUnit(Vec2f coords);
 	
 	static EntityPtr CreateWaypoint(Vec2f coords);
+	
+	static EntityPtr CreateHindernis(Vec2f coords, std::vector<Vec2f> points);
+	
+private:
+	
+	static void BlockCellsByPolygon(Vec2f coords, const std::vector<Vec2f>& points, EntityPtr polygon);
 };
 
 

@@ -99,6 +99,13 @@ void RenderSystem::post_step()
 					GameEngine::renderer->DrawTriangle(pos_com->position, angle);
 				}
 				break;
+					
+				case RenderComponent::DRAW_POLYGON:
+				{
+					GetCmpt(PositionComponent, pos_com, entity);
+					GameEngine::renderer->DrawPolygon(pos_com->position);
+				}
+				break;
 			
 				default:
 					break;

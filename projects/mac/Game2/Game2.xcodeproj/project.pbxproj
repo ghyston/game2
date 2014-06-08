@@ -73,6 +73,10 @@
 		3FD94F7C18DF1BA600CE757A /* PathFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FD94F7A18DF1BA600CE757A /* PathFinder.cpp */; };
 		3FD94F7D18DF1BA600CE757A /* PathFinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FD94F7B18DF1BA600CE757A /* PathFinder.h */; };
 		3FDB01921825750E003396A4 /* TargetComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FDB01911825750E003396A4 /* TargetComponent.cpp */; };
+		3FDD2A28194301C300B9E253 /* PolygonRenderable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FDD2A26194301C300B9E253 /* PolygonRenderable.cpp */; };
+		3FDD2A29194301C300B9E253 /* PolygonRenderable.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FDD2A27194301C300B9E253 /* PolygonRenderable.h */; };
+		3FDD2A2C19447EBA00B9E253 /* SomeMath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FDD2A2A19447EBA00B9E253 /* SomeMath.cpp */; };
+		3FDD2A2D19447EBA00B9E253 /* SomeMath.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FDD2A2B19447EBA00B9E253 /* SomeMath.h */; };
 		3FDE0ABF17F61D8D000A7DE1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FDE0ABE17F61D8D000A7DE1 /* main.cpp */; };
 		3FDE0AC117F61D8D000A7DE1 /* Game2.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3FDE0AC017F61D8D000A7DE1 /* Game2.1 */; };
 		3FDE0B6017F7022F000A7DE1 /* GameEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FDE0B3C17F70217000A7DE1 /* GameEngine.cpp */; };
@@ -192,6 +196,10 @@
 		3FD94F7A18DF1BA600CE757A /* PathFinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PathFinder.cpp; sourceTree = "<group>"; };
 		3FD94F7B18DF1BA600CE757A /* PathFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathFinder.h; sourceTree = "<group>"; };
 		3FDB01911825750E003396A4 /* TargetComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TargetComponent.cpp; sourceTree = "<group>"; };
+		3FDD2A26194301C300B9E253 /* PolygonRenderable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PolygonRenderable.cpp; sourceTree = "<group>"; };
+		3FDD2A27194301C300B9E253 /* PolygonRenderable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolygonRenderable.h; sourceTree = "<group>"; };
+		3FDD2A2A19447EBA00B9E253 /* SomeMath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SomeMath.cpp; sourceTree = "<group>"; };
+		3FDD2A2B19447EBA00B9E253 /* SomeMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SomeMath.h; sourceTree = "<group>"; };
 		3FDE0ABB17F61D8D000A7DE1 /* Game2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Game2; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FDE0ABE17F61D8D000A7DE1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		3FDE0AC017F61D8D000A7DE1 /* Game2.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Game2.1; sourceTree = "<group>"; };
@@ -384,6 +392,8 @@
 				3F708DB0182D4AF500BF964E /* Tests.h */,
 				3FAC351118DB669D00478931 /* Vec2i.cpp */,
 				3FAC351218DB669D00478931 /* Vec2i.h */,
+				3FDD2A2A19447EBA00B9E253 /* SomeMath.cpp */,
+				3FDD2A2B19447EBA00B9E253 /* SomeMath.h */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -495,6 +505,8 @@
 				3FD94F6B18DD717F00CE757A /* RectGrid.h */,
 				3FD94F7218DED92600CE757A /* TriangleRenderable.cpp */,
 				3FD94F7318DED92600CE757A /* TriangleRenderable.h */,
+				3FDD2A26194301C300B9E253 /* PolygonRenderable.cpp */,
+				3FDD2A27194301C300B9E253 /* PolygonRenderable.h */,
 			);
 			path = Renderer;
 			sourceTree = "<group>";
@@ -522,6 +534,7 @@
 				3FAC351418DB669D00478931 /* Vec2i.h in Headers */,
 				3F49B7B41832B02B00EE7639 /* InputProcessor.h in Headers */,
 				3F409CC91810606D00A8063B /* TargetEnergySystem.h in Headers */,
+				3FDD2A29194301C300B9E253 /* PolygonRenderable.h in Headers */,
 				3FB80C1D18C50169009086BF /* GlInclude.h in Headers */,
 				3F4ECCE3182F9540002425F7 /* CircleRenderable.h in Headers */,
 				3FD94F7D18DF1BA600CE757A /* PathFinder.h in Headers */,
@@ -546,6 +559,7 @@
 				3F548CD11829871E00BAE9A4 /* Game2Logic.h in Headers */,
 				3FC2B0101838D7DA00FA5B5E /* Cursor.h in Headers */,
 				3F0FE52A184FC019000F7C6E /* VecShrPtr.h in Headers */,
+				3FDD2A2D19447EBA00B9E253 /* SomeMath.h in Headers */,
 				3F7DE15418885E6000BACBEA /* Types.h in Headers */,
 				3F9F4E8819278FF600D6900A /* Map.h in Headers */,
 				3F548CC91829726D00BAE9A4 /* EnergyStorageComponent.h in Headers */,
@@ -669,6 +683,7 @@
 				3FC2B00F1838D7DA00FA5B5E /* Cursor.cpp in Sources */,
 				3FC2B0131838DCAD00FA5B5E /* RingRenderable.cpp in Sources */,
 				3FD94F7818DEFA9A00CE757A /* PathMoveSystem.cpp in Sources */,
+				3FDD2A28194301C300B9E253 /* PolygonRenderable.cpp in Sources */,
 				3F01CA2018315B34004DCCE5 /* EnergyCreatorSystem.cpp in Sources */,
 				3F20BB60184229C30051003D /* AISystem.cpp in Sources */,
 				3FE4E02918A299D6000C2631 /* OutherAPI.cpp in Sources */,
@@ -682,6 +697,7 @@
 				3FDE0B7117F7029A000A7DE1 /* Timer.cpp in Sources */,
 				3F9F4E9E1927991400D6900A /* EntityContainerMap.cpp in Sources */,
 				3F9F4E8A19278FF600D6900A /* BaseGridMap.cpp in Sources */,
+				3FDD2A2C19447EBA00B9E253 /* SomeMath.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

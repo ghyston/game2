@@ -149,6 +149,11 @@ void Game2Logic::add_energy(EntityPtr energy, EntityPtr generator)
 	GameLogic::add_entity(energy);
 }
 
+void Game2Logic::AddHindernis(EntityPtr hindernis)
+{
+	GameLogic::add_entity(hindernis);
+}
+
 void Game2Logic::tower_attack(EntityPtr from, EntityPtr to)
 {
 	GetCmpt(EnergyStorageComponent, from_enesto_cmpt, from);

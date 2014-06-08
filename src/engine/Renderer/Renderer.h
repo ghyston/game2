@@ -14,6 +14,7 @@
 #include "Grid.h"
 #include "RectGrid.h"
 #include "TriangleRenderable.h"
+#include "PolygonRenderable.h"
 
 /**
  * Main call for draw graphix.
@@ -42,6 +43,7 @@ public:
 	void draw_circle(Vec2f coords);
 	void draw_ring(Vec2f coords);
 	void DrawTriangle(Vec2f coords, float angle);
+	void DrawPolygon(Vec2f coords);
 	
 	//@todo: this is hardcode
 	void draw_border_ring(Vec2f coords);
@@ -50,6 +52,8 @@ public:
 	
 	void SetupGrid(int count_x, int count_y, float cell_size);
 	void SetupPassGrid(int count_x, int count_y, float cell_size);
+	
+	void SetupPolygon(const std::vector<Vec2f>& points);
 	
 private:
     
@@ -80,6 +84,7 @@ private:
 	void init_circle();
 	void init_ring();
 	void InitTriangle();
+	void InitPolygon();
     
     RectRenderable * rect;
     RectRenderable * small_rect;
@@ -91,9 +96,7 @@ private:
 	RingRenderable * ring;
 	RingRenderable * border_ring;
 	TriangleRenderable * triangle;
-	
-	
-	
+	PolygonRenderable * polygon;
 
 };
 

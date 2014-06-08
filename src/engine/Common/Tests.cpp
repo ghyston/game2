@@ -54,3 +54,58 @@ void test_shr_ptr()
 	RemoveDeletedObjectsFromContainer(tests);
 	//int test = 55;
 }
+
+void test_math()
+{
+	Vec2f a1, a2, b1, b2;
+	bool t = false;
+	
+	// Intersected
+	a1 = Vec2f(-2.0f, -1.5f);
+	a2 = Vec2f( 1.5f,  1.0f);
+	b1 = Vec2f( 0.0f, -1.5f);
+	b2 = Vec2f(-1.5f,  1.0f);
+	t = SegmentsIntersected(a1, a2, b1, b2);
+	
+	// Not intersected
+	a1 = Vec2f(-2.0f, -1.0f);
+	a2 = Vec2f(-0.5f,  1.0f);
+	b1 = Vec2f(-1.5f,  2.0f);
+	b2 = Vec2f( 1.0f,  1.5f);
+	t = SegmentsIntersected(a1, a2, b1, b2);
+	
+	// Perpendicular, intersected
+	a1 = Vec2f(-0.5f, -1.5f);
+	a2 = Vec2f(-0.5f,  1.0f);
+	b1 = Vec2f(-1.0f, -0.5f);
+	b2 = Vec2f( 1.5f, -0.5f);
+	t = SegmentsIntersected(a1, a2, b1, b2);
+	
+	// on same line
+	a1 = Vec2f(-1.0f, -1.5f);
+	a2 = Vec2f(-0.5f, -0.5f);
+	b1 = Vec2f( 0.0f,  0.5f);
+	b2 = Vec2f( 0.5f,  1.5f);
+	t = SegmentsIntersected(a1, a2, b1, b2);
+	
+	// Intersected on one point
+	a1 = Vec2f(-1.0f, -0.5f);
+	a2 = Vec2f( 0.5f, -0.5f);
+	b1 = Vec2f( 0.0f, -1.5f);
+	b2 = Vec2f( 1.0f,  0.5f);
+	t = SegmentsIntersected(a1, a2, b1, b2);
+	
+	//int test = 55;
+
+}
+
+
+
+
+
+
+
+
+
+
+

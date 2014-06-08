@@ -37,6 +37,7 @@ void Renderer::init()
 	init_circle();
 	init_ring();
 	InitTriangle();
+	InitPolygon();
 }
 
 void Renderer::init_rect()
@@ -65,6 +66,15 @@ void Renderer::init_grid()
 void Renderer::SetupGrid(int count_x, int count_y, float cell_size)
 {
 	grid->SetParams(count_x, count_y, cell_size);
+}
+
+void Renderer::SetupPolygon(const std::vector<Vec2f>& points)
+{
+	for(auto it = points.begin(); it != points.end(); it++)
+	{
+		polygon->AddVertex(*it);
+	}
+	polygon->setup_vertexes();
 }
 
 void Renderer::InitPassGrid()
@@ -127,6 +137,13 @@ void Renderer::InitTriangle()
 	triangle->radius(0.05f);
 	triangle->SetColor(0.7f, 0.1f, 0.3f);
 	triangle->setup_vertexes();
+}
+
+void Renderer::InitPolygon()
+{
+	polygon = new PolygonRenderable();
+	polygon->set_shader(simple_shader);
+	polygon->SetColor(0.5f, 0.5f, 0.5f);
 }
 
 void Renderer::draw_grid()
@@ -221,6 +238,15 @@ void Renderer::DrawTriangle(Vec2f coords, float angle)
 	triangle->coords = coords;
 	triangle->angle = angle;
 	triangle->Draw();
+}
+
+void Renderer::DrawPolygon(Vec2f coords)
+{
+	if(polygon == NULL)
+		return;
+	
+	polygon->coords = coords;
+	polygon->Draw();
 }
 
 void Renderer::resize(int width, int height)

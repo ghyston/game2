@@ -24,6 +24,7 @@ public:
 		DRAW_TOWER,
 		DRAW_CIRCLE,
 		DRAW_TRINAGE,
+		DRAW_POLYGON
     } draw_type;
 	
 	enum

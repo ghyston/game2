@@ -48,6 +48,8 @@ void GameEngine::step()
 	
 	if(renderer->showBorderRing)
 		renderer->draw_border_ring(renderer->border_ring_coords);
+	
+	//renderer->DrawPolygon(Vec2f(0.2f, 0.1f));
 }
 
 GlobalData* GameEngine::get_data()
@@ -109,6 +111,7 @@ void GameEngine::init(int width, int height)
 {
 	//test_vectors();
 	//test_shr_ptr();
+	//test_math();
 	renderer->init();
     renderer->resize(width, height);
 	global_data->logic.LoadMap(3, 3);

@@ -23,6 +23,9 @@ public:
 	
 	void add_tower(EntityPtr tower);
 	void add_energy(EntityPtr energy, EntityPtr generator);
+	
+	void AddHindernis(EntityPtr hindernis);
+	
 	// Return false if place is holded.
 	bool CanBuildTower(Vec2f coords);
 	
