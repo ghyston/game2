@@ -49,6 +49,7 @@ bool GlobalData::init_scene()
 	logic.add_entity(unit);
 	//-----TEST-----
 	
+	//----HINDERNISES
 	std::vector<Vec2f> points;
 	points.push_back(Vec2f(-0.31f,-0.2f));
 	points.push_back(Vec2f(-0.1f, 0.2f));
@@ -58,6 +59,15 @@ bool GlobalData::init_scene()
 	
 	EntityPtr hindernis = EntityFabric::CreateHindernis(Vec2f(0.42f, - 0.2f), points);
 	logic.AddHindernis(hindernis);
+	
+	points.clear();
+	points.push_back(Vec2f(-0.1f,-0.1f));
+	points.push_back(Vec2f(-0.2f, 0.3f));
+	points.push_back(Vec2f( 0.2f, 0.2f));
+	points.push_back(Vec2f( 0.4f, 0.1f));
+	
+	EntityPtr hindernis2 = EntityFabric::CreateHindernis(Vec2f(-0.35f, 0.17f), points);
+	logic.AddHindernis(hindernis2);
 	
     return true;
 }

@@ -103,7 +103,7 @@ void RenderSystem::post_step()
 				case RenderComponent::DRAW_POLYGON:
 				{
 					GetCmpt(PositionComponent, pos_com, entity);
-					GameEngine::renderer->DrawPolygon(pos_com->position);
+					GameEngine::renderer->DrawPolygon(pos_com->position, render_com->mesh_id);
 				}
 				break;
 			

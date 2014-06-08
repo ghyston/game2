@@ -68,13 +68,16 @@ void Renderer::SetupGrid(int count_x, int count_y, float cell_size)
 	grid->SetParams(count_x, count_y, cell_size);
 }
 
-void Renderer::SetupPolygon(const std::vector<Vec2f>& points)
+int Renderer::SetupPolygon(const std::vector<Vec2f>& points)
 {
 	for(auto it = points.begin(); it != points.end(); it++)
 	{
 		polygon->AddVertex(*it);
 	}
 	polygon->setup_vertexes();
+	meshes.push_back(polygon->vertexes);
+	//@todo: not a good thing, cannot delete vertexes here
+	return (meshes.size() - 1);
 }
 
 void Renderer::InitPassGrid()
@@ -240,11 +243,15 @@ void Renderer::DrawTriangle(Vec2f coords, float angle)
 	triangle->Draw();
 }
 
-void Renderer::DrawPolygon(Vec2f coords)
+void Renderer::DrawPolygon(Vec2f coords, int mesh_id)
 {
 	if(polygon == NULL)
 		return;
 	
+	if(mesh_id < 0 || mesh_id >= meshes.size())
+		return;
+	
+	polygon->vertexes = meshes[mesh_id];
 	polygon->coords = coords;
 	polygon->Draw();
 }

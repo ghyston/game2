@@ -30,6 +30,9 @@ void PolygonRenderable::setup_vertexes()
 	}
 	
 	vertexes_count = points_count * 3;
+	
+	//we doesn't need points after vertex creation.
+	points.clear();
 }
 
 void PolygonRenderable::AddVertex(Vec2f vertex)

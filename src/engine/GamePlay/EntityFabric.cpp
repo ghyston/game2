@@ -248,7 +248,7 @@ EntityPtr EntityFabric::CreateHindernis(Vec2f coords, std::vector<Vec2f> points)
 {
 	EntityPtr hindernis = Entity::create();
 	
-	GameEngine::get_renderer()->SetupPolygon(points);
+	int mesh_id = GameEngine::get_renderer()->SetupPolygon(points);
 	
 	PositionComponent * pos_com = new PositionComponent();
 	pos_com->position = coords;
@@ -257,6 +257,7 @@ EntityPtr EntityFabric::CreateHindernis(Vec2f coords, std::vector<Vec2f> points)
 	RenderComponent * render_com = new RenderComponent();
     render_com->draw_type = RenderComponent::DRAW_POLYGON;
 	render_com->draw_layer = RenderComponent::THIRD_LAYER;
+	render_com->mesh_id = mesh_id;
 	hindernis->add_component<RenderComponent>(render_com);
 	
 	BlockCellsByPolygon(coords, points, hindernis);

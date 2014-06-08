@@ -43,7 +43,7 @@ public:
 	void draw_circle(Vec2f coords);
 	void draw_ring(Vec2f coords);
 	void DrawTriangle(Vec2f coords, float angle);
-	void DrawPolygon(Vec2f coords);
+	void DrawPolygon(Vec2f coords, int mesh_id);
 	
 	//@todo: this is hardcode
 	void draw_border_ring(Vec2f coords);
@@ -53,7 +53,7 @@ public:
 	void SetupGrid(int count_x, int count_y, float cell_size);
 	void SetupPassGrid(int count_x, int count_y, float cell_size);
 	
-	void SetupPolygon(const std::vector<Vec2f>& points);
+	int SetupPolygon(const std::vector<Vec2f>& points);
 	
 private:
     
@@ -97,6 +97,8 @@ private:
 	RingRenderable * border_ring;
 	TriangleRenderable * triangle;
 	PolygonRenderable * polygon;
+	
+	std::vector<float*> meshes;
 
 };
 

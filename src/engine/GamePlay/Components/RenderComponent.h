@@ -16,6 +16,9 @@ class RenderComponent : public IComponent
 {
 public:
 	
+	RenderComponent() : IComponent(), mesh_id(-1)
+	{;}
+	
     enum
     {
         DRAW_RECT,
@@ -33,6 +36,8 @@ public:
 		SECOND_LAYER,
 		THIRD_LAYER
 	} draw_layer;
+	
+	int mesh_id;
 	
 	static int GetTypeImpl() { return ComponentsType::RENDER_COMPONENT; }
 };
