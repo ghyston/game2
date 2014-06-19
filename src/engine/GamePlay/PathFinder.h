@@ -13,6 +13,7 @@
 #include <list>
 #include <vector>
 #include "../Common/Vec2i.h"
+#include "../Common/Vector2f.h"
 
 class PathFinder
 {
@@ -26,14 +27,21 @@ public:
 	
 	bool SetStartEnd(Vec2i from, Vec2i to);
 	
-	void InitCells(int height, int width);
+	void InitCells(int height, int width); //inline?
 	
 	/**
 	 * Calculate path.
+	 * @simplify - skip unneccesarry points
 	 * return false, if there is no path.
 	 */
 	
-	bool CalcPath(std::vector<Vec2i>& points);
+	bool CalcPath(std::vector<Vec2i>& points, bool simplify = true);
+	
+	/*
+	 * Return true, if segment [a;b] doesn't intersect any blocked pass cells.
+		false otherwise.
+	 */
+	bool CheckLine(Vec2i a, Vec2i b);
 	
 private:
 	
@@ -45,9 +53,7 @@ private:
 	void RefreshCells();
 	
 	int CalcManhattanDestance(Vec2i coords);
-	
-//	void ProcessCell()
-	
+		
 	struct PathCell
 	{
 		PathCell()
@@ -84,15 +90,7 @@ private:
 	Vec2i source;
 	Vec2i destination;
 	Vec2i map_size;
-	
-//	std::multimap<int, Vec2i> opened_cells;
-//	std::list<PathCell> closed_list;
-//	std::map<int, std::map<int, PathCell> > cells;
-	
-	//std::list<Vec2i> opened_cells;
-	//std::list<Vec2i> closed_cells;
-	
-	
+		
 };
 
 #endif /* defined(__Game2__PathFinder__) */

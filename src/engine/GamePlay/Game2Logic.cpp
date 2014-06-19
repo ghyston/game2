@@ -69,18 +69,27 @@ void Game2Logic::stop()
 	//@todo: remove all systems!
 }
 
-bool Game2Logic::CanBuildTower(Vec2f coords)
+bool Game2Logic::CanBuildTower(Vec2f parent_coords, Vec2f coords)
 {
+	// First, check, intersect connection busy cells or not.
+	//@todo: line intersect cells, that busy by parent tower
+	/*Vec2i parent_cell = map.pass_map.getIndexesByCoords(parent_coords);
+	Vec2i tower_cell = map.pass_map.getIndexesByCoords(coords);
+	if(!path_finder.CheckLine(parent_cell, tower_cell))
+		return false;*/
+	
+	// Check out of map borders.
 	//@todo: move tower size to config file!
 	Vec2f left_top = Vec2f(coords.x - 0.05f, coords.y + 0.05f);
 	Vec2f right_bottom = Vec2f(coords.x + 0.05f, coords.y - 0.05f);
-	bool outOfMap =
-		(coords.x < -map.map_width) ||
+	if((coords.x < -map.map_width) ||
 		(coords.x > map.map_width)	||
 		(coords.y < -map.map_height) ||
-	(coords.y > map.map_height);
-	
-	return !outOfMap && map.pass_map.CheckCellsPass(left_top, right_bottom);
+		(coords.y > map.map_height))
+		return false;
+		
+	// Is end point busy
+	return map.pass_map.CheckCellsPass(left_top, right_bottom);
 }
 
 void Game2Logic::add_tower(EntityPtr tower)

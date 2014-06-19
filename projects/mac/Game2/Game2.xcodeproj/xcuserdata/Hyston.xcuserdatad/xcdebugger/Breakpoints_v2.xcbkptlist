@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../src/engine/InputProcessor.cpp"
-            timestampString = "423949986.96321"
+            timestampString = "424906760.08439"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "149"
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../src/engine/InputProcessor.cpp"
-            timestampString = "423949986.96321"
+            timestampString = "424906760.08439"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
             landmarkName = "InputProcessor::process_touch(int type, float screen_x, float screen_y)"
             landmarkType = "5">
          </BreakpointContent>
@@ -79,7 +79,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "101"
             endingLineNumber = "101"
-            landmarkName = "PathFinder::CalcPath(std::vector&lt;Vec2i&gt;&amp; points)"
+            landmarkName = "PathFinder::CalcPath(std::vector&lt;Vec2i&gt;&amp; points, bool simplify"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -95,7 +95,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "96"
             endingLineNumber = "96"
-            landmarkName = "PathFinder::CalcPath(std::vector&lt;Vec2i&gt;&amp; points)"
+            landmarkName = "PathFinder::CalcPath(std::vector&lt;Vec2i&gt;&amp; points, bool simplify"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -106,12 +106,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../src/engine/GamePlay/PathFinder.cpp"
-            timestampString = "423515455.052046"
+            timestampString = "424736142.166408"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "186"
-            endingLineNumber = "186"
-            landmarkName = "PathFinder::CalcPath(std::vector&lt;Vec2i&gt;&amp; points)"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
+            landmarkName = "PathFinder::CalcPath(std::vector&lt;Vec2i&gt;&amp; points, bool simplify"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -127,7 +127,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "115"
             endingLineNumber = "115"
-            landmarkName = "PathFinder::CalcPath(std::vector&lt;Vec2i&gt;&amp; points)"
+            landmarkName = "PathFinder::CalcPath(std::vector&lt;Vec2i&gt;&amp; points, bool simplify"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -143,7 +143,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "100"
             endingLineNumber = "100"
-            landmarkName = "PathFinder::CalcPath(std::vector&lt;Vec2i&gt;&amp; points)"
+            landmarkName = "PathFinder::CalcPath(std::vector&lt;Vec2i&gt;&amp; points, bool simplify"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -400,6 +400,70 @@
             startingLineNumber = "27"
             endingLineNumber = "27"
             landmarkName = "GlobalData::init_scene()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../src/engine/GamePlay/Game2Logic.cpp"
+            timestampString = "424894534.547224"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "Game2Logic::add_tower(EntityPtr tower)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../src/engine/Map/PassMap.cpp"
+            timestampString = "424894550.786372"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "PassMap::BlockPassCells(const Vec2f&amp; left_top, const Vec2f&amp; right_bottom, EntityPtr entity)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../src/engine/GamePlay/PathFinder.cpp"
+            timestampString = "424894825.342033"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "230"
+            endingLineNumber = "230"
+            landmarkName = "PathFinder::CheckLine(Vec2i a, Vec2i b)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../src/engine/GamePlay/PathFinder.cpp"
+            timestampString = "424906279.384379"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "299"
+            endingLineNumber = "299"
+            landmarkName = "PathFinder::CheckLine(Vec2i a, Vec2i b)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

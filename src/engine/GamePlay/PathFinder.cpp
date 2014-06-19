@@ -82,7 +82,7 @@ Vec2i PathFinder::GetOffset(int offset)
 	}
 }
 
-bool PathFinder::CalcPath(std::vector<Vec2i>& points)
+bool PathFinder::CalcPath(std::vector<Vec2i>& points, bool simplify/* = true*/)
 {
 	RefreshCells();
 	opened_cells.clear();
@@ -162,10 +162,32 @@ bool PathFinder::CalcPath(std::vector<Vec2i>& points)
 				if(neighbour->self_coords == destination)
 				{
 					points.clear();
-					while (neighbour != neighbour->prev_cell)
+					
+					if(!simplify)
 					{
+						while (neighbour != neighbour->prev_cell)
+						{
+							points.push_back(neighbour->self_coords);
+							neighbour = neighbour->prev_cell;
+						}
+					}
+					else
+					{
+						PathCell * prev_cell = neighbour;
+						PathCell * last_added_cell = neighbour;
 						points.push_back(neighbour->self_coords);
-						neighbour = neighbour->prev_cell;
+						while (neighbour != neighbour->prev_cell)
+						{
+							prev_cell = neighbour;
+							neighbour = neighbour->prev_cell;
+							if(!CheckLine(neighbour->self_coords, last_added_cell->self_coords))
+							{
+								points.push_back(prev_cell->self_coords);
+								last_added_cell = prev_cell;
+								neighbour = prev_cell;
+							}
+						}
+						
 					}
 					return true;
 				}
@@ -202,3 +224,91 @@ bool PathFinder::SetStartEnd(Vec2i from, Vec2i to)
 	destination = to;
 	return (IsCellClear(source) && IsCellClear(destination));
 }
+
+bool PathFinder::CheckLine(Vec2i a, Vec2i b)
+{
+	Vec2i left, right;
+	// Swap points, a should be at left side
+	if(a.x > b.x)
+	{
+		left = b;
+		right = a;
+	}
+	else
+	{
+		left = a;
+		right = b;
+	}
+	
+	// check, is a & b on Ox
+	if(left.y == right.y)
+	{
+		bool result = true;
+		for(int dx = left.x; (dx <= right.x) && result; dx++)
+		{
+			result &= IsCellClear(Vec2i(dx, left.y));
+		}
+		return result;
+	}
+
+	// check, is a & b on Oy
+	if(left.x == right.x)
+	{
+		bool result = true;
+		int min_y = std::min(left.y, right.y);
+		int max_y = std::max(left.y, right.y);
+		for(int dy = min_y; (dy <= max_y) && result; dy++)
+		{
+			result &= IsCellClear(Vec2i(left.x, dy));
+		}
+		return result;
+	}
+	
+	float s = (float)(right.y - left.y) / (float)(right.x - left.x);
+	float yp = left.y; //y previous
+	bool result = true;
+	for(int dx = left.x; (dx < right.x) && result; dx++)
+	{
+		float y = (dx - left.x + 1) * s + left.y;
+		/*s > 0 ?
+			ceil((dx - left.x + 1) * s + left.y) :
+			floor((dx - left.x + 1) * s + left.y);*/
+
+		if(s > 0)
+			for(int dy = floor(yp); (dy <= ceil(y)) && result; dy++)
+				result &= IsCellClear(Vec2i(dx, dy));
+		else
+			for(int dy = ceil(yp); (dy >= floor(y)) && result; dy--)
+				result &= IsCellClear(Vec2i(dx, dy));
+		
+		yp = y;
+	}
+	
+	//last row
+	if(yp < right.y)
+		for(int dy = floor(yp); (dy <= right.y) && result; dy++)
+		{
+			result &= IsCellClear(Vec2i(right.x, dy));
+		}
+	else
+		for(int dy = ceil(yp); (dy >= right.y) && result; dy--)
+		{
+			result &= IsCellClear(Vec2i(right.x, dy));
+		}
+
+	return result;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

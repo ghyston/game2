@@ -197,7 +197,7 @@ void AISystem::BuildRandomTower(EntityPtr entity)
 	Vec2f coords (rad * cos(angle * M_PI), rad * sin(angle * M_PI));
 	
 	Vec2f new_coords = pos_com->position + coords;
-	if(!GameEngine::get_data()->logic.CanBuildTower(new_coords))
+	if(!GameEngine::get_data()->logic.CanBuildTower(pos_com->position, new_coords))
 		return;
 	
 	enesto_cmpt->rem_energy(70);

@@ -27,7 +27,7 @@ public:
 	void AddHindernis(EntityPtr hindernis);
 	
 	// Return false if place is holded.
-	bool CanBuildTower(Vec2f coords);
+	bool CanBuildTower(Vec2f parent_coords, Vec2f coords);
 	
 	void remove_tower(EntityPtr tower);
 	

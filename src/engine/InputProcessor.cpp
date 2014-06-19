@@ -107,11 +107,10 @@ void InputProcessor::process_touch(int type, float screen_x, float screen_y)
 				{
 					GetCmpt(EnergyStorageComponent, enesto_cmpt, touched_entity);
 					Vec2f diff = world_coords - pos_com->position;
-					
-					
 			
 					if(diff.length() > 0.2 && enesto_cmpt->value > 60 &&
-					   GameEngine::get_data()->logic.CanBuildTower(world_coords))
+					   GameEngine::get_data()->logic.CanBuildTower(
+							pos_com->position, world_coords))
 					{
 						enesto_cmpt->rem_energy(50);
 						EntityPtr new_tower =
@@ -138,6 +137,7 @@ void InputProcessor::process_touch(int type, float screen_x, float screen_y)
 				}
 				path_com->path.clear();
 				
+				// calc new path
 				std::vector<Vec2f> wayp_coords;
 				GetCmpt(PositionComponent, pos_com, unit);
 				if(GameEngine::global_data->logic.CalcPath(
