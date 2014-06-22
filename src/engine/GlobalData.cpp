@@ -14,11 +14,11 @@ bool GlobalData::init_scene()
 	camera = new Camera();
 
 	EntityPtr generator1 =
-		EntityFabric::create_energy_generator(Vec2f(-0.6f, -0.4f), 0.3, 0.1);
+		EntityFabric::create_energy_generator(Vec2f(-0.6f, -0.4f), GameConst::GENERATOR_RAD, GameConst::GENERATOR_INTESIVITY);
 	logic.add_entity(generator1);
 	
 	EntityPtr generator2 =
-		EntityFabric::create_energy_generator(Vec2f(0.4f, 0.5f), 0.3, 0.2);
+	EntityFabric::create_energy_generator(Vec2f(0.4f, 0.5f), GameConst::GENERATOR_RAD, GameConst::GENERATOR_INTESIVITY);
 	logic.add_entity(generator2);
 	
     EntityPtr base_1 = EntityFabric::get_tower(NULL, Vec2f(-0.2f,-0.4f));

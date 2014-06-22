@@ -110,7 +110,7 @@ void Renderer::init_circle()
 {
 	circle = new CircleRenderable();
 	circle->set_shader(simple_shader);
-	circle->radius(0.3f); //value here is hardcoded
+	circle->radius(GameConst::GENERATOR_RAD);
 	circle->setup_vertexes();
 	circle->SetColor(0.2f, 0.5f, 0.2f);
 }
@@ -119,16 +119,13 @@ void Renderer::init_ring()
 {
 	ring = new RingRenderable();
 	ring->set_shader(simple_shader);
-	ring->radius(0.05f);
+	ring->radius(GameConst::TOWER_TOUCH_SIZE);
 	ring->setup_vertexes();
 	ring->SetColor(0.1f, 0.8f, 0.4f);
 	
 	border_ring = new RingRenderable();
 	border_ring->set_shader(simple_shader);
-	border_ring->radius(0.4f); //@todo: WHAT THE FUCK?!!
-	// @todo: HYSTON!!!! REMOVE this F-U-C-K-I-N-G HARDCODE!!!
-	// Seriously, you should stop doing that.
-	// But, I have only 20 min to finish gameplay :(
+	border_ring->radius(GameConst::TOWER_MAX_DIST);
 	border_ring->setup_vertexes();
 	border_ring->SetColor(0.5f, 0.2f, 0.3f);
 }

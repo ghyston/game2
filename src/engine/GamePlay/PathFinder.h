@@ -25,17 +25,10 @@ public:
 	//@todo: it's time to start writing destructors and release memory everywhere!
 	~PathFinder();
 	
-	bool SetStartEnd(Vec2i from, Vec2i to);
-	
 	void InitCells(int height, int width); //inline?
 	
-	/**
-	 * Calculate path.
-	 * @simplify - skip unneccesarry points
-	 * return false, if there is no path.
-	 */
-	
-	bool CalcPath(std::vector<Vec2i>& points, bool simplify = true);
+	bool CalcPathForUnit(std::vector<Vec2i>& points, Vec2f start, Vec2f end);
+	bool CalcPathForTower(std::vector<Vec2i>& points, Vec2f start, Vec2f end);
 	
 	/*
 	 * Return true, if segment [a;b] doesn't intersect any blocked pass cells.
@@ -43,16 +36,28 @@ public:
 	 */
 	bool CheckLine(Vec2i a, Vec2i b);
 	
-private:
+protected:
+	
+	struct PathFinderParams
+	{
+		Vec2i source;
+		Vec2i destination;
+		int min_step;
+		int max_step;
+		int obj_size;
+		bool simplify;
+	};
+	
+	bool CalcPath(std::vector<Vec2i>& points, const PathFinderParams& params);
 	
 	static const int COST_AXIS;
 	static const int COST_DIAG;
 	
-	bool IsCellClear(Vec2i coords);
+	bool IsCellClear(Vec2i coords, int size = 1);
 	
 	void RefreshCells();
 	
-	int CalcManhattanDestance(Vec2i coords);
+	int CalcManhattanDestance(Vec2i from, Vec2i to);
 		
 	struct PathCell
 	{
@@ -82,13 +87,11 @@ private:
 	};
 	
 	PathCell * GetCell(Vec2i coords);
-	Vec2i GetOffset(int offset);
+	Vec2i GetOffset(int offset, int min);
 	PathCell * cells;
 	
 	std::multimap<int, PathCell*> opened_cells;
 	
-	Vec2i source;
-	Vec2i destination;
 	Vec2i map_size;
 		
 };

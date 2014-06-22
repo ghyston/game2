@@ -33,11 +33,8 @@ void Game2Logic::LoadMap(int width, int height)
 
 bool Game2Logic::CalcPath(Vec2f from, Vec2f to, std::vector<Vec2f>& points)
 {
-	Vec2i from_i = map.pass_map.getIndexesByCoords(from);
-	Vec2i to_i = map.pass_map.getIndexesByCoords(to);
-	path_finder.SetStartEnd(from_i, to_i);
 	std::vector<Vec2i> vec_i;
-	if(!path_finder.CalcPath(vec_i))
+	if(!path_finder.CalcPathForUnit(vec_i, from, to))
 		return false;
 	
 	points.clear();

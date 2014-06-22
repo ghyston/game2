@@ -11,11 +11,12 @@
 
 #include "BaseRenderable.h"
 #include "RectRenderable.h"
+#include "../GamePlay/GameConstants.h"
 
 class TowerRenderable : public BaseRenderable
 {
 public:
-	TowerRenderable() : size(0.1f), energy(1.0f) {;}
+	TowerRenderable() : size(GameConst::TOWER_SIZE), energy(1.0f) {;}
 	
 	void Init();
 	

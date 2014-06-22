@@ -19,6 +19,40 @@ PathFinder::~PathFinder()
 	delete [] cells;
 }
 
+bool PathFinder::CalcPathForUnit(std::vector<Vec2i>& points, Vec2f start, Vec2f end)
+{
+	PathFinderParams params;
+	Map* map = GameEngine::get_data()->logic.getMap();
+	params.source = map->pass_map.getIndexesByCoords(start);
+	params.destination = map->pass_map.getIndexesByCoords(end);
+	params.min_step = 3;
+	params.max_step = map->pass_map.getWidth(); //we just need limit
+	params.obj_size = 1;
+	params.simplify = false; //@todo: fix, it crash app!
+	
+	if(!IsCellClear(params.source, params.min_step) || !IsCellClear(params.destination, params.min_step))
+		return false;
+
+	return CalcPath(points, params);
+}
+
+bool PathFinder::CalcPathForTower(std::vector<Vec2i>& points, Vec2f start, Vec2f end)
+{
+	PathFinderParams params;
+	Map* map = GameEngine::get_data()->logic.getMap();
+	params.source = map->pass_map.getIndexesByCoords(start);
+	params.destination = map->pass_map.getIndexesByCoords(end);
+	params.min_step = 3; //@todo: get from constants!
+	params.max_step = 10;
+	params.obj_size = 2;
+	params.simplify = true;
+	
+	if(!IsCellClear(params.source, params.min_step) || !IsCellClear(params.destination, params.min_step))
+		return false;
+	
+	return CalcPath(points, params);
+}
+
 void PathFinder::InitCells(int height, int width)
 {
 	map_size.x = width;
@@ -63,31 +97,35 @@ PathFinder::PathCell * PathFinder::GetCell(Vec2i coords)
  5 6 7
  3 x 4
  0 1 2
+ (for min = 1)
  */
-Vec2i PathFinder::GetOffset(int offset)
+Vec2i PathFinder::GetOffset(int offset, int min)
 {
-	switch (offset)
+	int side_size = min * 2 + 1;
+	int count = 4 * min * 2;
+	//bottom
+	if(offset < side_size)
 	{
-		case 0:	return Vec2i(-1, -1);
-		case 1:	return Vec2i( 0, -1);
-		case 2:	return Vec2i( 1, -1);
-		case 3:	return Vec2i(-1,  0);
-		case 4:	return Vec2i( 1,  0);
-		case 5:	return Vec2i(-1,  1);
-		case 6:	return Vec2i( 0,  1);
-		case 7:	return Vec2i( 1,  1);
-			
-		default:
-			return Vec2i(0, 0);
+		return Vec2i(offset - min, -min);
 	}
+	//top
+	if (offset >= (count - side_size))
+	{
+		return Vec2i(offset - count + min + 1, min);
+	}
+	//sides
+	int y = (offset - side_size) / 2 - min + 1;
+	int x = ((offset - side_size) % 2) == 0 ? -min : min;
+	
+	return  Vec2i(x, y);
 }
 
-bool PathFinder::CalcPath(std::vector<Vec2i>& points, bool simplify/* = true*/)
+bool PathFinder::CalcPath(std::vector<Vec2i>& points, const PathFinderParams& params)
 {
 	RefreshCells();
 	opened_cells.clear();
-	int h1 = CalcManhattanDestance(source);
-	PathCell* first = GetCell(source);
+	int h1 = CalcManhattanDestance(params.source, params.destination);
+	PathCell* first = GetCell(params.source);
 	first->H = h1;
 	first->F = h1;
 	first->is_set = true;
@@ -105,15 +143,14 @@ bool PathFinder::CalcPath(std::vector<Vec2i>& points, bool simplify/* = true*/)
 		opened_cells.erase(current_cell_it);
 		current_cell->is_closed = true;
 		
-		bool left_clear = IsCellClear(current_cell->self_coords + GetOffset(3));
-		bool rght_clear = IsCellClear(current_cell->self_coords + GetOffset(4));
-		bool  top_clear = IsCellClear(current_cell->self_coords + GetOffset(6));
-		bool botm_clear = IsCellClear(current_cell->self_coords + GetOffset(1));
+		int neightbors_count = 4 * params.min_step * 2;
 		
-		for(int i = 0; i <= 7; i++)
+		for(int i = 0; i < neightbors_count; i++)
 		{
-			Vec2i offset = GetOffset(i);
+			Vec2i offset = GetOffset(i, params.min_step);
 			PathCell * neighbour = GetCell(current_cell->self_coords + offset);
+			if(!CheckLine(current_cell->self_coords, current_cell->self_coords + offset))
+				continue;
 			
 			if(neighbour == NULL)
 				continue;
@@ -121,17 +158,7 @@ bool PathFinder::CalcPath(std::vector<Vec2i>& points, bool simplify/* = true*/)
 			if(neighbour->is_set && neighbour->is_closed)
 				continue;
 			
-			if(!IsCellClear(neighbour->self_coords))
-				continue;
-			
-			// prevent edge-cut
-			if(i == 0 && (!left_clear || !botm_clear))
-				continue;
-			if(i == 2 && (!rght_clear || !botm_clear))
-				continue;
-			if(i == 7 && (!rght_clear || !top_clear))
-				continue;
-			if(i == 5 && (!left_clear || !top_clear))
+			if(!IsCellClear(neighbour->self_coords, params.min_step))
 				continue;
 			
 			neighbour->is_set = true;
@@ -147,7 +174,7 @@ bool PathFinder::CalcPath(std::vector<Vec2i>& points, bool simplify/* = true*/)
 			
 			int g = current_cell->G +
 				((offset.x != 0 && offset.y != 0) ? COST_DIAG : COST_AXIS);
-			int h = CalcManhattanDestance(neighbour->self_coords);
+			int h = CalcManhattanDestance(neighbour->self_coords, params.destination);
 			int f = g + h;
 			
 			if(opened_it == opened_cells.end())
@@ -159,11 +186,11 @@ bool PathFinder::CalcPath(std::vector<Vec2i>& points, bool simplify/* = true*/)
 				opened_cells.insert(std::pair<int, PathCell*>(f, neighbour));
 				
 				//We have found path!
-				if(neighbour->self_coords == destination)
+				if(neighbour->self_coords == params.destination)
 				{
 					points.clear();
 					
-					if(!simplify)
+					if(!params.simplify)
 					{
 						while (neighbour != neighbour->prev_cell)
 						{
@@ -208,21 +235,19 @@ bool PathFinder::CalcPath(std::vector<Vec2i>& points, bool simplify/* = true*/)
 	return false;
 }
 
-bool PathFinder::IsCellClear(Vec2i coords)
+bool PathFinder::IsCellClear(Vec2i coords, int size/* = 1*/)
 {
-	return GameEngine::get_data()->logic.getMap()->pass_map.isCellPass(coords);
+	bool result = true;
+	for(int i = 0; (i < size) && result; i++)
+		for(int j = 0; (j < size) && result; j++)
+			result &= GameEngine::get_data()->logic.getMap()->pass_map.
+				isCellPass(Vec2i(coords.x + i, coords.y + j));
+	return result;
 }
 
-int PathFinder::CalcManhattanDestance(Vec2i coords)
+int PathFinder::CalcManhattanDestance(Vec2i from, Vec2i to)
 {
-	return COST_AXIS * (abs(coords.x - destination.x) + abs(coords.y - destination.y));
-}
-
-bool PathFinder::SetStartEnd(Vec2i from, Vec2i to)
-{
-	source = from;
-	destination = to;
-	return (IsCellClear(source) && IsCellClear(destination));
+	return COST_AXIS * (abs(from.x - to.x) + abs(from.y - to.y));
 }
 
 bool PathFinder::CheckLine(Vec2i a, Vec2i b)

@@ -5,6 +5,7 @@
 #include "GlobalData.h"
 #include "InputProcessor.h"
 #include "InputProcessor/NewInputProcessor.h"
+#include "GamePlay/GameConstants.h"
 
 //@todo: delete this include on release
 #include "Common/Tests.h"

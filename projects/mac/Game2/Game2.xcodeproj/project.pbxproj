@@ -154,6 +154,7 @@
 		3F548CCB18297EA000BAE9A4 /* EnergyBalanceSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnergyBalanceSystem.h; sourceTree = "<group>"; };
 		3F548CCE1829871E00BAE9A4 /* Game2Logic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Game2Logic.cpp; sourceTree = "<group>"; };
 		3F548CCF1829871E00BAE9A4 /* Game2Logic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game2Logic.h; sourceTree = "<group>"; };
+		3F6235CF1956D8BA00E41BEF /* GameConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameConstants.h; sourceTree = "<group>"; };
 		3F708DAF182D4AF500BF964E /* Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tests.cpp; sourceTree = "<group>"; };
 		3F708DB0182D4AF500BF964E /* Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tests.h; sourceTree = "<group>"; };
 		3F708DB3182D4C7900BF964E /* Vector2f.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector2f.cpp; sourceTree = "<group>"; };
@@ -425,6 +426,7 @@
 				3F548CCF1829871E00BAE9A4 /* Game2Logic.h */,
 				3FD94F7A18DF1BA600CE757A /* PathFinder.cpp */,
 				3FD94F7B18DF1BA600CE757A /* PathFinder.h */,
+				3F6235CF1956D8BA00E41BEF /* GameConstants.h */,
 			);
 			path = GamePlay;
 			sourceTree = "<group>";

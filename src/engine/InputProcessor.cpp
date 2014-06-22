@@ -85,14 +85,16 @@ void InputProcessor::process_touch(int type, float screen_x, float screen_y)
 			GetCmpt(PositionComponent, pos_com, touched_entity);
 			Vec2f distVec = world_coords - pos_com->position;
 			float dist = distVec.length();
+			if(dist > GameConst::TOWER_MAX_DIST)
+				distVec.length(GameConst::TOWER_MAX_DIST);
+			Vec2f new_tower_coords = pos_com->position + distVec;
 			
-			if(dist < 0.4f)
+			if(dist > GameConst::TOWER_MIN_DIST)
 			{
-			
 				//@todo: here would bew checking, is release coords belong to
 				// tower at another player.
 			
-				EntityPtr tower_at_release = find_entity(world_coords);
+				EntityPtr tower_at_release = find_entity(new_tower_coords);
 				if(tower_at_release.is_set())
 				{
 					GetCmpt(PlayerIdComponent, dist_plr_id_cmpt, tower_at_release);
@@ -106,15 +108,15 @@ void InputProcessor::process_touch(int type, float screen_x, float screen_y)
 				else
 				{
 					GetCmpt(EnergyStorageComponent, enesto_cmpt, touched_entity);
-					Vec2f diff = world_coords - pos_com->position;
+					
 			
-					if(diff.length() > 0.2 && enesto_cmpt->value > 60 &&
+					if(enesto_cmpt->value > GameConst::MIN_ENERGY_TO_ACTION &&
 					   GameEngine::get_data()->logic.CanBuildTower(
-							pos_com->position, world_coords))
+							pos_com->position, new_tower_coords))
 					{
-						enesto_cmpt->rem_energy(50);
+						enesto_cmpt->rem_energy(GameConst::TOWER_BUILD_COST);
 						EntityPtr new_tower =
-							EntityFabric::get_tower(touched_entity, world_coords);
+							EntityFabric::get_tower(touched_entity, new_tower_coords);
 						GameEngine::get_data()->logic.add_tower(new_tower);
 					}
 				}
@@ -169,17 +171,23 @@ void InputProcessor::process_touch(int type, float screen_x, float screen_y)
 		if (touched_entity.is_set())
 		{
 			Vec2f diff = world_coords - press_coords;
-				
-			// distance is big enough, create tower
-			// @todo: 50 is test value here, it shouldn't be percentage!
-			if(diff.length() > 0.2/* && enesto_cmpt->value > 50*/)
+			float diff_len = diff.length();
+			// distance is big enough to create tower
+			if(diff_len > GameConst::TOWER_MIN_DIST)
 			{
-				GameEngine::global_data->cursor.position = world_coords;
-				GameEngine::global_data->cursor.Show();
-				
 				GetCmpt(PositionComponent, pos_com, touched_entity);
 				GameEngine::get_renderer()->border_ring_coords = pos_com->position;
 				GameEngine::get_renderer()->showBorderRing = true;
+				
+				Vec2f cursor_pos = world_coords;
+				if(diff_len > GameConst::TOWER_MAX_DIST)
+				{
+					diff.length(GameConst::TOWER_MAX_DIST);
+					cursor_pos = pos_com->position + diff;
+				}
+				
+				GameEngine::global_data->cursor.position = cursor_pos;
+				GameEngine::global_data->cursor.Show();
 			}
 			return;
 		}
