@@ -34,7 +34,7 @@ void GameEngine::step()
 	Timer::tick();
     renderer->clear_frame();
 	
-	if(GameEngine::grid_draw == DrawGrid::DRAW_PASS ||
+	/*if(GameEngine::grid_draw == DrawGrid::DRAW_PASS ||
 	   GameEngine::grid_draw == DrawGrid::DRAW_BOTH)
 		renderer->DrawPassGrid();
 	
@@ -47,14 +47,14 @@ void GameEngine::step()
 	global_data->cursor.Draw();
 	
 	if(renderer->showBorderRing)
-		renderer->draw_border_ring(renderer->border_ring_coords);
+		renderer->draw_border_ring(renderer->border_ring_coords);*/
 	
 	// Test draw texture
 	
 	
 	//Vec2f coords(0, 0);
 	
-	/*static GLuint texture = 0;
+	static GLuint texture = 0;
 	static TextureRectRenderable * testRect = NULL;
 	
 	static GLuint texture2 = 0;
@@ -100,7 +100,7 @@ void GameEngine::step()
 	}
 	
 	testRect->Draw();
-	testRect2->Draw();*/
+	testRect2->Draw();
 }
 
 GlobalData* GameEngine::get_data()
