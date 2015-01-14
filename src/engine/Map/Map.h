@@ -17,6 +17,7 @@
 #include "EntityContainerMap.h"
 #include "../GamePlay/Components.h"
 
+//@todo: rename as EntitiesMap!
 class Map
 {
 public:
@@ -35,6 +36,8 @@ public:
 	
 	template<typename T>
 	EntityPtr getFirstEntityHasCmp();
+	
+	EntityPtr getClosestEnemyTower(Vec2f coords);
 	
 	PassMap pass_map;
 	EntityContainerMap entity_map;

@@ -42,11 +42,14 @@ EntityPtr EntityFabric::get_tower(EntityPtr parent, Vec2f coords)
 	tower->add_component<NodeComponent>(node_com);
 	
 	TouchableComponent * touch_com = new TouchableComponent();
-	touch_com->touch_size = 0.05f;
+	touch_com->touch_size = GameConst::TOWER_TOUCH_SIZE;
 	tower->add_component<TouchableComponent>(touch_com);
 	
 	PlayerIdComponent * plr_id_cmpt = new PlayerIdComponent();
 	tower->add_component<PlayerIdComponent>(plr_id_cmpt);
+	
+	AiComponent * ai_com = new AiComponent();
+	tower->add_component<AiComponent>(ai_com);
 	
 	return tower;
 }

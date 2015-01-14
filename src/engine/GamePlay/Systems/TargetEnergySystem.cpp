@@ -11,7 +11,6 @@
 #include "../../ECS/GameLogic.h"
 
 //@todo: убрать\прокомментить этот феерический высер
-// @todo: и сделать это, видимо, перед релизом
 void TargetEnergySystem::update(EntityPtr entity)
 {
 	if(!HasCmpt(TargetComponent, entity))
@@ -108,9 +107,17 @@ void TargetEnergySystem::update(EntityPtr entity)
 		GetCmpt(PositionComponent, new_target_pos, target_com->target);
 		dist = new_target_pos->position - pos_com->position;
 	}
-			
-	move_com->speed = dist;
-	move_com->speed.length(0.5f); //0.5 per sec.
+
+	// Energy, moving to enemy target, move unlinear
+	if (target_com->target_enemy)
+	{
+		
+	}
+	else
+	{
+		move_com->speed = dist;
+		move_com->speed.length(0.5f); //0.5 per sec.
+	}
 
 }
 

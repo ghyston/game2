@@ -8,20 +8,16 @@ GLuint Shader::loadShader(GLenum shaderType, const char* pSource)
     glCompileShader(shader);
     
     ///-----CHECKING---------
-/*    GLint params = -1;
+    GLint params = -1;
     glGetShaderiv(shader, GL_COMPILE_STATUS, &params);
+	GLchar* info_log;
     if(params == GL_FALSE)
     {
-        GLchar* info_log = new GLchar[100];
+        info_log = new GLchar[100];
         glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &params);
         glGetShaderInfoLog(shader, 100, &params, info_log);
-        
-        int dump = 66;
+		
     }
-    else
-    {
-        int dump = 66;
-    }*/
     
     ///-----CHECKING---------
     
@@ -40,13 +36,16 @@ GLuint Shader::createProgram(const char* pVertexSource, const char* pFragmentSou
     
     
     ///-----CHECKING---------
-  /*  glValidateProgram(program);
+    glValidateProgram(program);
     GLint params = -1;
     glGetProgramiv(program, GL_VALIDATE_STATUS, &params);
+	GLchar* info_log;
     if(params == GL_FALSE)
     {
-        int dump = 66;
-    }*/
+		info_log = new GLchar[100];
+		glGetProgramiv(program, GL_INFO_LOG_LENGTH, &params);
+		glGetProgramInfoLog(program, 100, &params, info_log);
+	}
     ///-----CHECKING---------
     
     return program;

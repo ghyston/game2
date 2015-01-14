@@ -34,7 +34,9 @@ public:
 	void tower_attack(EntityPtr from, EntityPtr to);
 	
 	//@todo: not good to keep it here
-	bool CalcPath(Vec2f from, Vec2f to, std::vector<Vec2f>& points);
+	bool CalcPath4Tower(Vec2f from, Vec2f to, std::vector<Vec2f>& points, EntityPtr tower);
+	bool CalcPath4Tower(Vec2f from, Vec2f to, std::vector<Vec2f>& points, Entities towers);
+	bool CalcPath4Unit(Vec2f from, Vec2f to, std::vector<Vec2f>& points);
 	
 private:
 	PathFinder path_finder;

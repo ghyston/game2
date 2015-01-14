@@ -9,7 +9,7 @@
 #define TARGET_MAC_OS_X
 
 #ifdef MAC_OS_PLATFORM
-	#include <OpenGL/gl.h>
+	#include <OpenGL/gl3.h>
 #else
 //#ifdef ANDROID_PLATFORM //@todo
 	#include <GLES2/gl2.h>

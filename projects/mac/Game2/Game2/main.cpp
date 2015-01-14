@@ -20,7 +20,7 @@ void reshape(int width, int height);
  * A, S - zoom in/out
  * R - reset zoom
  * G - switch grid show mode
- * P (hold) + mouse click - set path to triangles. @todo this!
+ * P (hold) + mouse click - set path to triangles.
  */
 
 void My_Key_Callback(GLFWwindow* wnd, int key, int scancode, int action, int)
@@ -62,6 +62,11 @@ int main(int argc, char ** argv)
     
     if (!glfwInit())
         exit(EXIT_FAILURE);
+	
+/*	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
+	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);*/
     
     window = glfwCreateWindow(window_width, window_height, "Game 2", NULL, NULL);
     if (!window)

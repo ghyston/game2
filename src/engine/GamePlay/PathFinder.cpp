@@ -19,7 +19,7 @@ PathFinder::~PathFinder()
 	delete [] cells;
 }
 
-bool PathFinder::CalcPathForUnit(std::vector<Vec2i>& points, Vec2f start, Vec2f end)
+bool PathFinder::CalcPathForUnit(std::vector<Vec2i>& points, Vec2f start, Vec2f end, const Entities& excluded)
 {
 	PathFinderParams params;
 	Map* map = GameEngine::get_data()->logic.getMap();
@@ -33,20 +33,22 @@ bool PathFinder::CalcPathForUnit(std::vector<Vec2i>& points, Vec2f start, Vec2f 
 	if(!IsCellClear(params.source, params.min_step) || !IsCellClear(params.destination, params.min_step))
 		return false;
 
+	this->excluded = excluded;
 	return CalcPath(points, params);
 }
 
-bool PathFinder::CalcPathForTower(std::vector<Vec2i>& points, Vec2f start, Vec2f end)
+bool PathFinder::CalcPathForTower(std::vector<Vec2i>& points, Vec2f start, Vec2f end, const Entities& excluded)
 {
 	PathFinderParams params;
 	Map* map = GameEngine::get_data()->logic.getMap();
 	params.source = map->pass_map.getIndexesByCoords(start);
 	params.destination = map->pass_map.getIndexesByCoords(end);
-	params.min_step = 3; //@todo: get from constants!
+	params.min_step = ceil(GameConst::TOWER_SIZE / map->pass_map.getCellSize());
 	params.max_step = 10;
 	params.obj_size = 2;
-	params.simplify = true;
+	params.simplify = false;
 	
+	this->excluded = excluded;
 	if(!IsCellClear(params.source, params.min_step) || !IsCellClear(params.destination, params.min_step))
 		return false;
 	
@@ -200,6 +202,7 @@ bool PathFinder::CalcPath(std::vector<Vec2i>& points, const PathFinderParams& pa
 					}
 					else
 					{
+						//@todo: this code just didn't work properly!!
 						PathCell * prev_cell = neighbour;
 						PathCell * last_added_cell = neighbour;
 						points.push_back(neighbour->self_coords);
@@ -240,8 +243,31 @@ bool PathFinder::IsCellClear(Vec2i coords, int size/* = 1*/)
 	bool result = true;
 	for(int i = 0; (i < size) && result; i++)
 		for(int j = 0; (j < size) && result; j++)
-			result &= GameEngine::get_data()->logic.getMap()->pass_map.
-				isCellPass(Vec2i(coords.x + i, coords.y + j));
+		{
+			if(GameEngine::get_data()->logic.getMap()->pass_map.
+			   isCellPass(Vec2i(coords.x + i, coords.y + j)))
+				continue;
+			
+			/*if(excluded.empty())
+			{
+				result = false;
+				continue;
+			}*/
+			
+			// Check, is entities, that blocking cell are on excluded list.
+			Vec2i cell_coords = coords + Vec2i(i, j);
+			Entities& blocking = GameEngine::get_data()->logic.getMap()->pass_map.GetEntitiesFrom(cell_coords);
+			for(EntityIt it = blocking.begin(); it != blocking.end() && result; it++)
+			{
+				bool founded_on_excluded = false;
+				for(EntityIt itEx = excluded.begin();
+					itEx != excluded.end() && !founded_on_excluded; itEx++)
+				{
+					founded_on_excluded = (it->get() == itEx->get());
+				}
+				result &= founded_on_excluded;
+			}
+		}
 	return result;
 }
 

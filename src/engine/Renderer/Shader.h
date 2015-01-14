@@ -3,6 +3,10 @@
 
 #include "GlInclude.h"
 
+#include <string.h>
+#include <sstream>
+//@todo: create simple log!!
+
 class Shader
 {
 

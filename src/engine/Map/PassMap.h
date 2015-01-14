@@ -29,8 +29,11 @@ public:
 	void BlockPassCells(const Vec2f& left_top, const Vec2f& right_bottom, EntityPtr entity);
 	// Return true, if cells are free.
 	bool CheckCellsPass(const Vec2f& left_top, const Vec2f& right_bottom);
+	bool CheckCellsPass(const Vec2i& left_top, const Vec2i& right_bottom);
 	
 	void RecalculateCellsPassability();
+	
+	Entities& GetEntitiesFrom(Vec2i coords);
 	
 private:
 	void SetPass(bool passability, Vec2i coords);

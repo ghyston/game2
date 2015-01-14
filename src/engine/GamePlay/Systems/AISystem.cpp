@@ -8,6 +8,84 @@
 
 #include "AISystem.h"
 
+void AISystem::pre_step()
+{
+	if(GameEngine::global_data->aiLogic.newTowerBuilded)
+	{
+		//@todo: do it by aiLogic
+		GameEngine::global_data->aiLogic.newTowerBuilded = false;
+		state = ENEMY_SEARCHING;
+	}
+	
+	
+	// Reset destination
+	if(state == ENEMY_DEAD)
+		state = ENEMY_SEARCHING;
+	if(state == ENEMY_SEARCHING)
+	{
+		destination_to_closest_tower = 10000;
+		path.clear();
+	}
+	
+	
+		
+	//	target = GenerateRandomTarget();
+}
+
+/*Vec2f AISystem::GenerateRandomTarget()
+{
+	Vec2i map_size, result;
+	Map* map = GameEngine::get_data()->logic.getMap();
+	map_size.x = map->pass_map.getWidth();
+	map_size.y = map->pass_map.getHeight();
+	
+	Vec2i tower_size = ceil(GameConst::TOWER_SIZE / map->pass_map.getCellSize());
+	
+	do
+	{
+		result.x = rand() % (map_size.x * 2 + 1) - map_size.x;
+		result.y = rand() % (map_size.y * 2 + 1) - map_size.y;
+	}
+	while (!map->pass_map.CheckCellsPass(result, result + tower_size));
+	
+	destination_to_closest_tower = 10000; //@todo: define infinity?
+	
+	return map->pass_map.getCoordsByIndex(result);
+}*/
+
+
+void AISystem::post_step()
+{
+	if(state == ENEMY_SEARCHING)
+	{
+		if(!closest_tower.is_set())
+			return;
+	
+		GetCmpt(PositionComponent, my_pos_com, closest_tower);
+		GetCmpt(PositionComponent, enemy_pos_com, enemy_tower);
+		
+		Entities entList;
+		entList.push_back(closest_tower);
+		entList.push_back(enemy_tower);
+		
+		GameEngine::get_data()->logic.CalcPath4Tower(my_pos_com->position, enemy_pos_com->position, path, entList);
+		
+		GetCmpt(AiComponent, ai_com, closest_tower);
+		ai_com->is_head = true;
+		
+		bool pathEmpty = path.empty();
+		if(!pathEmpty)
+			path.pop_back(); //remove tower-target
+		
+		pathEmpty = path.empty();
+		
+		pathIt = path.begin();
+		pathIt++;
+		
+		state = (path.empty()) ? ENEMY_ATTAKING : BUILD_TO_ENEMY;
+	}
+}
+
 void AISystem::update(EntityPtr entity)
 {
 	if(!HasCmpt(PlayerIdComponent, entity))
@@ -21,27 +99,81 @@ void AISystem::update(EntityPtr entity)
 	if(!HasCmpt(EnergyStorageComponent, entity))
 		return;
 
-	// Not enouth energy
-	GetCmpt(EnergyStorageComponent, enesto_cmpt, entity);
-	if(enesto_cmpt->value < 75)
-		return;
-	
-	/*EntityPtr enemy = findClosestEnemy(entity);
-	if(enemy.is_set())
+	// find closest enemy tower
+	//if(!target_set)
+	if(state == ENEMY_SEARCHING)
 	{
-		GameEngine::global_data->logic.tower_attack(entity, enemy);
+		GetCmpt(PositionComponent, pos_com, entity);
+		EntityPtr enemy_tower_temp = GameEngine::get_data()->logic.getMap()->getClosestEnemyTower(pos_com->position);
+		GetCmpt(PositionComponent, enemy_pos_com, enemy_tower_temp);
+		
+		Vec2f dist = pos_com->position - enemy_pos_com->position;
+		if(dist.length() < destination_to_closest_tower)
+		{
+			enemy_tower = enemy_tower_temp;
+			closest_tower = entity;
+			destination_to_closest_tower = dist.length();
+		}
+		return;
+	}
+	else if(state == ENEMY_DEAD)
+	{
+		// @todo: clear here some info
+		GetCmpt(AiComponent, ai_com, entity);
+		ai_com->is_head = false;
+		
+	}
+	
+		
+	// All other states are to head towers only!
+	GetCmpt(AiComponent, ai_com, entity);
+	if(!ai_com->is_head)
+			return;
+		
+	//if(!enemyNearby)
+	if(state == BUILD_TO_ENEMY)
+	{
+		//jft
+		for(auto it = path.begin(); it != path.end(); it++)
+		{
+			GameEngine::renderer->draw_small_rect(*it);
+		}
+		
+		GetCmpt(EnergyStorageComponent, enesto_cmpt, entity);
+		if(enesto_cmpt->value < GameConst::MIN_ENERGY_TO_ACTION)
+			return;
+	
+		enesto_cmpt->rem_energy(GameConst::TOWER_BUILD_COST);
+		EntityPtr new_tower =
+			EntityFabric::get_tower(entity, *pathIt);
+		GetCmpt(AiComponent, new_ai_com, new_tower);
+		new_ai_com->is_head = true;
+		GameEngine::get_data()->logic.add_tower(new_tower);
+		ai_com->is_head = false;
+	
+		pathIt++;
+		if(pathIt == path.end())
+		{
+			state = ENEMY_ATTAKING;
+		}
 	}
 	else
-	{*/
-		BuildRandomTower(entity);
-	//}
-	
+	if(state == ENEMY_ATTAKING)
+	{
+		if(enemy_tower->is_deleted())
+		{
+			state = ENEMY_DEAD;
+			
+		}
+		
+		GameEngine::get_data()->logic.tower_attack(entity, enemy_tower);
+	}
 	
 	
 	return;
 	
 	// @todo: It's very slow algorythm! Y need to proceed it on new tower build only or on new enemy tower on range build.
-	DetectTarget(entity);
+/*	DetectTarget(entity);
 	
 	GetCmpt(PositionComponent, pos_cmpt, entity);
 	GetCmpt(TargetComponent, targt_cmpt, entity);
@@ -74,10 +206,10 @@ void AISystem::update(EntityPtr entity)
 			
 			
 		}
-	}
+	}*/
 }
 
-void AISystem::DetectTarget(EntityPtr entity)
+/*void AISystem::DetectTarget(EntityPtr entity)
 {
 	// @todo: it's too cost to check it here!
 	if(!HasCmpt(TargetComponent, entity))
@@ -143,9 +275,9 @@ void AISystem::DetectTarget(EntityPtr entity)
 		targ_cmpt->target = closest_gen;
 		targ_cmpt->target_enemy = false;
 	}
-}
+}*/
 
-EntityPtr AISystem::findClosestEnemy(EntityPtr entity)
+/*EntityPtr AISystem::findClosestEnemy(EntityPtr entity)
 {
 	float closest_enemy_dist = 10000;
 	EntityPtr closest_enemy;
@@ -181,9 +313,9 @@ EntityPtr AISystem::findClosestEnemy(EntityPtr entity)
 	}
 	
 	return closest_enemy;
-}
+}*/
 
-void AISystem::BuildRandomTower(EntityPtr entity)
+/*void AISystem::BuildRandomTower(EntityPtr entity)
 {
 	// Not enouth energy
 	GetCmpt(EnergyStorageComponent, enesto_cmpt, entity);
@@ -205,4 +337,4 @@ void AISystem::BuildRandomTower(EntityPtr entity)
 	EntityFabric::get_tower(entity, new_coords);
 	GameEngine::get_data()->logic.add_tower(new_tower);
 
-}
+}*/

@@ -21,19 +21,19 @@ bool GlobalData::init_scene()
 	EntityFabric::create_energy_generator(Vec2f(0.4f, 0.5f), GameConst::GENERATOR_RAD, GameConst::GENERATOR_INTESIVITY);
 	logic.add_entity(generator2);
 	
-    EntityPtr base_1 = EntityFabric::get_tower(NULL, Vec2f(-0.2f,-0.4f));
+    EntityPtr base_1 = EntityFabric::get_tower(NULL, Vec2f(-0.8f,-0.5f));
 	GetCmpt(PlayerIdComponent, plr_id_1_cmpt, base_1);
 	plr_id_1_cmpt->player_id = PLAYER_ID_1;
 	GetCmpt(EnergyStorageComponent, enesto_1, base_1);
-	enesto_1->value = enesto_1->limit;
+	enesto_1->value = enesto_1->limit / 2;
 	logic.add_tower(base_1);
 	base_tower_player_1 = base_1;
 	
-	EntityPtr base_2 = EntityFabric::get_tower(NULL, Vec2f(0.0f, 0.4f));
+	EntityPtr base_2 = EntityFabric::get_tower(NULL, Vec2f(0.3f, 0.4f));
 	GetCmpt(PlayerIdComponent, plr_id_2_cmpt, base_2);
 	plr_id_2_cmpt->player_id = PLAYER_ID_2;
 	GetCmpt(EnergyStorageComponent, enesto_2, base_2);
-	enesto_2->value = enesto_2->limit;
+	enesto_2->value = enesto_2->limit / 2;
 	logic.add_tower(base_2);
 	base_tower_player_2 = base_2;
 	
@@ -45,7 +45,7 @@ bool GlobalData::init_scene()
 	temp_1_enesto->value = 10;
 	logic.add_tower(temp_1);*/
 	
-	EntityPtr unit = EntityFabric::CreateUnit(Vec2f(0.0f, 0.05f));
+	EntityPtr unit = EntityFabric::CreateUnit(Vec2f(-0.3f, -0.1f));
 	logic.add_entity(unit);
 	//-----TEST-----
 	

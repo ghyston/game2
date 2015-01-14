@@ -12,6 +12,7 @@
 #include <map>
 #include <list>
 #include <vector>
+#include "../ECS/Types.h"
 #include "../Common/Vec2i.h"
 #include "../Common/Vector2f.h"
 
@@ -27,8 +28,8 @@ public:
 	
 	void InitCells(int height, int width); //inline?
 	
-	bool CalcPathForUnit(std::vector<Vec2i>& points, Vec2f start, Vec2f end);
-	bool CalcPathForTower(std::vector<Vec2i>& points, Vec2f start, Vec2f end);
+	bool CalcPathForUnit(std::vector<Vec2i>& points, Vec2f start, Vec2f end, const Entities& excluded);
+	bool CalcPathForTower(std::vector<Vec2i>& points, Vec2f start, Vec2f end, const Entities& excluded);
 	
 	/*
 	 * Return true, if segment [a;b] doesn't intersect any blocked pass cells.
@@ -91,7 +92,7 @@ protected:
 	PathCell * cells;
 	
 	std::multimap<int, PathCell*> opened_cells;
-	
+	Entities excluded;
 	Vec2i map_size;
 		
 };

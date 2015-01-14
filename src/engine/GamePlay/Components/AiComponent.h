@@ -11,19 +11,16 @@
 
 #include "../../ECS/BaseComponent.h"
 
-
-//@todo: unused for now
-class AiComponentComponent : public IComponent
+class AiComponent : public IComponent
 {
 public:
 	
-	AiComponentComponent() {;}
+	AiComponent() : is_head(false) {;}
 	
-	static int GetTypeImpl() { return ComponentsType::__INVALID; }
+	static int GetTypeImpl() { return ComponentsType::AI_COMPONENT; }
+	
+	bool is_head;
 	
 };
-
-#endif
-
 
 #endif

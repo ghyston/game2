@@ -17,7 +17,7 @@ namespace GameConst
 	static const float TOWER_MAX_DIST = 0.3; // max distance betweeen two connected towers
 	static const int MIN_ENERGY_TO_ACTION = 60;
 	static const int TOWER_BUILD_COST = 50;
-	static const float GENERATOR_INTESIVITY = 0.03f;
+	static const float GENERATOR_INTESIVITY = 0.01f;
 	static const float GENERATOR_RAD = 0.2f;
 }
 

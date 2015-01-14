@@ -16,6 +16,9 @@
 #include "TriangleRenderable.h"
 #include "PolygonRenderable.h"
 
+#include "TextureLoader.h"
+#include "TextureRectRenderable.h"
+
 /**
  * Main call for draw graphix.
  */
@@ -58,9 +61,12 @@ public:
 private:
     
     void init_shaders();
-    
+	
+public: //@todo: remove!
     GLuint get_simple_shader()	{ return simple_shader; }
-    
+	GLuint getTextureShader()	{ return _textureShader; }
+private:
+	
 	Matrix4f* ortho;
 	Matrix4f* mx_translate;
 	Matrix4f* mx_scale;
@@ -73,7 +79,8 @@ private:
             float near = -1.0f, float far = 1.0f);
 
     GLuint simple_shader;
-    GLuint gvPositionHandle;
+	GLuint _textureShader;
+    //GLuint gvPositionHandle;
     
     //Primitives.
     void init_rect();

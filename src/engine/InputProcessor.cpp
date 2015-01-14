@@ -18,8 +18,8 @@ void InputProcessor::process_touch(int type, float screen_x, float screen_y)
 	   screen_y < 0 || screen_y > GameEngine::global_data->screen.height)
 		return;
 	
-	/*
-	 This would be base code for my unwritten logging system
+	
+	// This would be base code for my unwritten logging system
 	 std::string log;
 	std::ostringstream ss;
 	
@@ -37,7 +37,7 @@ void InputProcessor::process_touch(int type, float screen_x, float screen_y)
 	ss << screen_y;
 	log.append(ss.str());
 	ss.clear();
-	log.append("\n");*/
+	log.append("\n");
 	
 	
 	Vec2f world_coords = GameEngine::global_data->convert_coordinates(Vec2f(screen_x, screen_y));
@@ -54,7 +54,7 @@ void InputProcessor::process_touch(int type, float screen_x, float screen_y)
 	
 	if(type == TouchTypes::PRESS)
 	{
-		// here we should check gui for input
+		// @todo: here we should check gui for input
 		
 		// if gui is not activated, find scene object
 		EntityPtr temp = find_entity(world_coords);
@@ -142,7 +142,7 @@ void InputProcessor::process_touch(int type, float screen_x, float screen_y)
 				// calc new path
 				std::vector<Vec2f> wayp_coords;
 				GetCmpt(PositionComponent, pos_com, unit);
-				if(GameEngine::global_data->logic.CalcPath(
+				if(GameEngine::global_data->logic.CalcPath4Unit(
 					pos_com->position, world_coords, wayp_coords))
 				{
 					for(auto it = wayp_coords.begin();

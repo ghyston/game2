@@ -10,7 +10,6 @@
 #include "Systems/RenderSystem.h"
 #include "Systems/MoveSystem.h"
 #include "Systems/TargetEnergySystem.h"
-#include "Systems/CollisionSystem.h"
 #include "Systems/EnergyCreatorSystem.h"
 #include "Systems/EnergyBalanceSystem.h"
 #include "Systems/AISystem.h"
@@ -31,10 +30,36 @@ void Game2Logic::LoadMap(int width, int height)
 	path_finder.InitCells(map.pass_map.getWidth(), map.pass_map.getHeight());
 }
 
-bool Game2Logic::CalcPath(Vec2f from, Vec2f to, std::vector<Vec2f>& points)
+//@todo: this functions are almost duplicate!
+bool Game2Logic::CalcPath4Unit(Vec2f from, Vec2f to, std::vector<Vec2f>& points)
 {
 	std::vector<Vec2i> vec_i;
-	if(!path_finder.CalcPathForUnit(vec_i, from, to))
+	if(!path_finder.CalcPathForUnit(vec_i, from, to, Entities()))
+		return false;
+	
+	points.clear();
+	float cell_half_size = map.pass_map.getCellSize() / 2;
+	
+	while (!vec_i.empty())
+	{
+		points.push_back(Vec2f(cell_half_size, cell_half_size) +
+						 map.pass_map.getCoordsByIndex(vec_i.back()));
+		vec_i.pop_back();
+	}
+	return true;
+}
+
+bool Game2Logic::CalcPath4Tower(Vec2f from, Vec2f to, std::vector<Vec2f>& points, EntityPtr tower)
+{
+	Entities ent_list;
+	ent_list.push_back(tower);
+	return CalcPath4Tower(from, to, points, ent_list);
+}
+
+bool Game2Logic::CalcPath4Tower(Vec2f from, Vec2f to, std::vector<Vec2f>& points, Entities towers)
+{
+	std::vector<Vec2i> vec_i;
+	if(!path_finder.CalcPathForTower(vec_i, from, to, towers))
 		return false;
 	
 	points.clear();
@@ -53,7 +78,6 @@ void Game2Logic::start()
 {
 	add_system(new RenderSystem());
 	add_system(new MoveSystem());
-	//add_system(new CollisionSystem());
 	add_system(new TargetEnergySystem());
 	add_system(new EnergyBalanceSystem());
 	add_system(new EnergyGeneratorSystem());
@@ -101,6 +125,14 @@ void Game2Logic::add_tower(EntityPtr tower)
 		GetCmpt(PlayerIdComponent, self_plr_id_cmpt, tower);
 		self_plr_id_cmpt->player_id = parent_plr_id_cmpt->player_id;
 	}
+	
+	// notify ai
+	GetCmpt(PlayerIdComponent, self_plr_id_cmpt, tower);
+	if (self_plr_id_cmpt->player_id == GlobalData::PLAYER_ID_1 )
+	{
+		GameEngine::global_data->aiLogic.newTowerBuilded = true;
+	}
+	
 	
 	GetCmpt(PositionComponent, tower_pos_con, tower);
 	
@@ -164,9 +196,10 @@ void Game2Logic::tower_attack(EntityPtr from, EntityPtr to)
 {
 	GetCmpt(EnergyStorageComponent, from_enesto_cmpt, from);
 	GetCmpt(PositionComponent, from_pos_cmpt, from);
+	GetCmpt(PositionComponent, to_pos_cmpt, to);
 	// @todo: move constants to one game_disdock header file!
 	// 30 - min limit for attack posibility
-	if(from_enesto_cmpt->value > 30)
+	if(from_enesto_cmpt->value > GameConst::MIN_ENERGY_TO_ACTION)
 	{
 		// 10 - count energys, that would attack enemy tower
 		from_enesto_cmpt->value -= 10;
@@ -177,13 +210,33 @@ void Game2Logic::tower_attack(EntityPtr from, EntityPtr to)
 			GetCmpt(TargetComponent, targ_cmpt, energy);
 			targ_cmpt->target = to;
 			targ_cmpt->target_enemy = true;
+			
+			// сделаем красиво
+			float angle = (rand() % 200) / 100.0f; // 0.0 - 2.0
+			float startSpeed = 0.1f;
+			float t = (rand() % 150) / 100.0f + 0.5f; // 0.5 - 2.0
+			Vec2f V0 (startSpeed * cos(angle * M_PI), startSpeed * sin(angle * M_PI));
+			
+			//V0.x = 0.5f;
+			//V0.y = 0.0f;
+			
+			Vec2f pos1 = from_pos_cmpt->position;
+			Vec2f pos2 = to_pos_cmpt->position;
+			
+			Vec2f a; //velocity
+			// It's math, bitches!
+			a.x = 2 * (pos2.x - pos1.x - V0.x * t) / (t * t);
+			a.y = 2 * (pos2.y - pos1.y - V0.y * t) / (t * t);
+			
+			GetCmpt(MovementComponent, mov_cmpt, energy);
+			mov_cmpt->speed = V0;
+			mov_cmpt->velocity = a;
+			
 			add_entity(energy);
 		}
 	}
 }
 
-
-//@todo: free pass cells!
 void Game2Logic::remove_tower(EntityPtr tower)
 {
 	GetCmpt(NodeComponent, node_com, tower);

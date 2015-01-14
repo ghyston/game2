@@ -13,6 +13,7 @@
 #include "Renderer/Camera.h"
 #include "GamePlay/Game2Logic.h"
 #include "Cursor.h"
+#include "AiLogic.h"
 
 class GlobalData
 {
@@ -24,6 +25,8 @@ public:
 	typedef unsigned int PlayerID;
 	
 	Game2Logic logic;
+	
+	AiLogic aiLogic;
 	
 	//@todo: Why we have pointer here?
 	Camera* camera;

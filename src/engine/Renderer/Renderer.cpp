@@ -38,6 +38,10 @@ void Renderer::init()
 	init_ring();
 	InitTriangle();
 	InitPolygon();
+	
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
+	glCullFace(GL_BACK);
 }
 
 void Renderer::init_rect()
@@ -275,7 +279,9 @@ void Renderer::init_shaders()
 {
     // @todo: add glGetError() checking!
 	simple_shader = Shader::createProgram(gVertexShader, gFragmentShader);
-	gvPositionHandle = glGetAttribLocation(simple_shader, "vPosition");
+	//gvPositionHandle = glGetAttribLocation(simple_shader, "vPosition");
+	
+	_textureShader = Shader::createProgram(gVertexTexturedShader, gFragmentTexturedShader);
 }
 
 void Renderer::setup_ortho(float left, float right, float bottom, float top, float near, float far)
@@ -294,5 +300,8 @@ void Renderer::setup_ortho(float left, float right, float bottom, float top, flo
 	matrixMultiply(*mx_scale, *mx_translate, *ortho);
 	GLint projectionUniform = glGetUniformLocation(simple_shader, "Projection");
 	glUniformMatrix4fv(projectionUniform, 1, GL_FALSE, ortho->get_val());
+	
+	GLint projectionUniformTex = glGetUniformLocation(_textureShader, "Projection");
+	glUniformMatrix4fv(projectionUniformTex, 1, GL_FALSE, ortho->get_val());
 
 }

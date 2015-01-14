@@ -13,6 +13,7 @@ BaseRenderable::BaseRenderable()
     scale = 1.0f;
     draw_type = GL_TRIANGLE_STRIP;
 	vertexes = NULL;
+	shader = 0;
 }
 
 void BaseRenderable::set_shader(GLuint program)

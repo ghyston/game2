@@ -60,15 +60,25 @@ bool PassMap::CheckCellsPass(const Vec2f& left_top, const Vec2f& right_bottom)
 	Vec2i iLT = getIndexesByCoords(left_top);
 	Vec2i iRB = getIndexesByCoords(right_bottom);
 	
-	for(int i = iLT.x; i <= iRB.x; i++)
+	return CheckCellsPass(iLT, iRB);
+}
+
+bool PassMap::CheckCellsPass(const Vec2i& left_top, const Vec2i& right_bottom)
+{
+	for(int i = left_top.x; i <= right_bottom.x; i++)
 	{
-		for(int j = iRB.y; j <= iLT.y; j++)
+		for(int j = right_bottom.y; j <= left_top.y; j++)
 		{
 			if(!isCellPass(Vec2i(i, j)))
 				return false;
 		}
 	}
 	return true;
+}
+
+Entities& PassMap::GetEntitiesFrom(Vec2i coords)
+{
+	return cells[coords.x][coords.y].blocked_entities;
 }
 
 void PassMap::RecalculateCellsPassability()

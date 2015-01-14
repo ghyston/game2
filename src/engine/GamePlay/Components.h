@@ -14,17 +14,18 @@ struct ComponentsType
 	{
 		__INVALID = -1,
 		__FIRST = 0,
-		POSITION_COMPONENT = __FIRST,	//0
-		RENDER_COMPONENT,				//1
-		MOVEMENT_COMPONENT,				//2
-        CONNECTOR_COMPONENT,			//3
-		TARGET_COMPONENT,				//4
-		ENEMY_STORAGE_COMPONENT,		//5
-		NODE_COMPONENT,					//6
-		ENERGY_GENERATOR_COMPONENT,		//7
-		TOUCHABLE_COMPONENT,			//8
-		PLAYER_ID_COMPONENT,			//9
+		POSITION_COMPONENT = __FIRST,	//00
+		RENDER_COMPONENT,				//01
+		MOVEMENT_COMPONENT,				//02
+        CONNECTOR_COMPONENT,			//03
+		TARGET_COMPONENT,				//04
+		ENEMY_STORAGE_COMPONENT,		//05
+		NODE_COMPONENT,					//06
+		ENERGY_GENERATOR_COMPONENT,		//07
+		TOUCHABLE_COMPONENT,			//08
+		PLAYER_ID_COMPONENT,			//09
 		PATH_FIND_COMPONENT,			//10
+		AI_COMPONENT,					//11
 		__COUNT
 	};
 };
@@ -40,6 +41,7 @@ struct ComponentsType
 #include "Components/TouchableComponent.h"
 #include "Components/PlayerIdComponent.h"
 #include "Components/PathFindComponent.h"
+#include "Components/AiComponent.h"
 
 #endif	/* COMPONENTS_H */
 

@@ -11,7 +11,7 @@ GlobalData*     GameEngine::global_data = new GlobalData();
 Renderer *		GameEngine::renderer = new Renderer();
 InputProcessor* GameEngine::input_processor = new InputProcessor();
 NewInputProcessor* GameEngine::new_input_processor = new NewInputProcessor();
-int GameEngine::grid_draw = DrawGrid::DRAW_BOTH;
+int GameEngine::grid_draw = DrawGrid::DRAW_MAP_CELLS;
 
 GameEngine::GameEngine()
 {
@@ -49,7 +49,58 @@ void GameEngine::step()
 	if(renderer->showBorderRing)
 		renderer->draw_border_ring(renderer->border_ring_coords);
 	
-	//renderer->DrawPolygon(Vec2f(0.2f, 0.1f));
+	// Test draw texture
+	
+	
+	//Vec2f coords(0, 0);
+	
+	/*static GLuint texture = 0;
+	static TextureRectRenderable * testRect = NULL;
+	
+	static GLuint texture2 = 0;
+	static TextureRectRenderable * testRect2 = NULL;
+	
+	if(texture == 0)
+	{
+		TextureLoader tl;
+		int textureWidth = 0;
+		int textureHeight = 0;
+		texture = tl.png_texture_load("/Users/Hyston/projects/game2_github/resourses/biohazard.png", &textureWidth, &textureHeight);
+	}
+	
+	if(testRect == NULL)
+	{
+		testRect = new TextureRectRenderable();
+		testRect->set_height(0.1f);
+		testRect->set_width(0.1f);
+		testRect->setTexture(texture);
+		testRect->set_shader(renderer->getTextureShader());
+		testRect->setup_vertexes();
+		testRect->SetColor(0.0f, 0.0f, 1.0f);
+	}
+	
+	if(texture2 == 0)
+	{
+		TextureLoader tl;
+		int textureWidth = 0;
+		int textureHeight = 0;
+		texture2 = tl.png_texture_load("/Users/Hyston/projects/game2_github/resourses/monster_cupcake.png", &textureWidth, &textureHeight);
+	}
+	
+	if(testRect2 == NULL)
+	{
+		testRect2 = new TextureRectRenderable();
+		testRect2->set_height(0.1f);
+		testRect2->set_width(0.1f);
+		testRect2->setTexture(texture2);
+		testRect2->set_shader(renderer->getTextureShader());
+		testRect2->setup_vertexes();
+		testRect2->SetColor(0.0f, 0.0f, 1.0f);
+		testRect2->coords = Vec2f(0.1f, 0.1f);
+	}
+	
+	testRect->Draw();
+	testRect2->Draw();*/
 }
 
 GlobalData* GameEngine::get_data()
