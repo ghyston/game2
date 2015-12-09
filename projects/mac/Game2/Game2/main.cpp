@@ -7,7 +7,7 @@
 //
 
 #include <iostream>
-#include <GLFW/glfw3.h>
+#include <glfw3.h>
 #include "../../../../src/engine/GameEngine.h"
 
 GameEngine * instance;

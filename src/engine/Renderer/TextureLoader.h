@@ -16,9 +16,9 @@
 #include <csetjmp>
 #include <ctime>
 
-#include <libpng/pnglibconf.h>
+/*#include <libpng/pnglibconf.h>
 #include <libpng/pngconf.h>
-#include <libpng/png.h>
+#include <libpng/png.h>*/
 
 class TextureLoader
 {
