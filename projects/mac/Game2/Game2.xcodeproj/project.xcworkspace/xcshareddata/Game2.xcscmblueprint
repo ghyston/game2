@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "77A1EBA7623A5EB38947FD1A06B5C1DA2E8C6ECB",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "F91D28A7E95E8F0399C74826E40B332B63E48E1C" : 0,
+    "77A1EBA7623A5EB38947FD1A06B5C1DA2E8C6ECB" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "0BA5FD17-5771-4E85-8753-25D7654D9BA7",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "F91D28A7E95E8F0399C74826E40B332B63E48E1C" : "glfw\/",
+    "77A1EBA7623A5EB38947FD1A06B5C1DA2E8C6ECB" : "game2_github\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Game2",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "projects\/mac\/Game2\/Game2.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ghyston\/game2.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "77A1EBA7623A5EB38947FD1A06B5C1DA2E8C6ECB"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/glfw\/glfw.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F91D28A7E95E8F0399C74826E40B332B63E48E1C"
+    }
+  ]
+}

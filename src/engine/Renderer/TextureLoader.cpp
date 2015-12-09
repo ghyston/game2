@@ -10,7 +10,7 @@
 
 GLuint TextureLoader::png_texture_load(const char * file_name, int * width, int * height)
 {
-/*	png_byte header[8];
+	png_byte header[8];
 	
 	FILE *fp = fopen(file_name, "rb");
 	if (fp == 0)
@@ -139,14 +139,13 @@ GLuint TextureLoader::png_texture_load(const char * file_name, int * width, int 
 	free(image_data);
 	free(row_pointers);
 	fclose(fp);
-	return texture;*/
+	return texture;
     return 0;
 }
 
 GLuint TextureLoader::LoadBMPTexture( const char * filename )
 {
-	
-/*	GLuint texture;
+	GLuint texture;
 	
 	int width, height;
 	
@@ -187,6 +186,6 @@ GLuint TextureLoader::LoadBMPTexture( const char * filename )
 	
 	free( data );
 	
-	return texture;*/
+	return texture;
     return 0;
 }
