@@ -152,11 +152,11 @@ void TextureRectRenderable::Draw()
 	glUniform3f(gFragColorHandle, color.r, color.g, color.b);
 	glUniformMatrix4fv(gModelHandle, 1, GL_FALSE, model_matrix->get_val());
 	
-	/*glVertexAttribPointer(gvPositionHandle, 2, GL_FLOAT, GL_FALSE, 0, 0);
+	glVertexAttribPointer(gvPositionHandle, 2, GL_FLOAT, GL_FALSE, 0, 0);
 	glEnableVertexAttribArray(gvPositionHandle);
 	
 	glVertexAttribPointer(gTextureHandle, 2, GL_FLOAT, GL_FALSE, 0, (GLvoid *)(sizeof(GLfloat) * 8));
-	glEnableVertexAttribArray(gTextureHandle);*/
+	glEnableVertexAttribArray(gTextureHandle);
 	
 	//glDrawArrays(draw_type, 0, vertexes_count);
 	

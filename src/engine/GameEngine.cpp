@@ -54,18 +54,18 @@ void GameEngine::step()
 	
 	//Vec2f coords(0, 0);
 	
-	/*static GLuint texture = 0;
+	static GLuint texture = 0;
 	static TextureRectRenderable * testRect = NULL;
 	
-	static GLuint texture2 = 0;
-	static TextureRectRenderable * testRect2 = NULL;
-	
+	//static GLuint texture2 = 0;
+	//static TextureRectRenderable * testRect2 = NULL;
+	 
 	if(texture == 0)
 	{
 		TextureLoader tl;
-		int textureWidth = 0;
-		int textureHeight = 0;
-		texture = tl.png_texture_load("/Users/Hyston/projects/game2_github/resourses/biohazard.png", &textureWidth, &textureHeight);
+        int textureWidth = 0;
+        int textureHeight = 0;
+		texture = tl.png_texture_load("/Users/Hyston/Documents/githubprojects/game2/resourses/biohazard.png", &textureWidth, &textureHeight);
 	}
 	
 	if(testRect == NULL)
@@ -79,7 +79,7 @@ void GameEngine::step()
 		testRect->SetColor(0.0f, 0.0f, 1.0f);
 	}
 	
-	if(texture2 == 0)
+	/*if(texture2 == 0)
 	{
 		TextureLoader tl;
 		int textureWidth = 0;
@@ -97,10 +97,10 @@ void GameEngine::step()
 		testRect2->setup_vertexes();
 		testRect2->SetColor(0.0f, 0.0f, 1.0f);
 		testRect2->coords = Vec2f(0.1f, 0.1f);
-	}
+	}*/
 	
 	testRect->Draw();
-	testRect2->Draw();*/
+	//testRect2->Draw();
 }
 
 GlobalData* GameEngine::get_data()

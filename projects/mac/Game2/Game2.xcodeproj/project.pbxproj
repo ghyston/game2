@@ -149,6 +149,10 @@
 		3F409CC418105F0C00A8063B /* TargetComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TargetComponent.h; sourceTree = "<group>"; };
 		3F409CC61810606D00A8063B /* TargetEnergySystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TargetEnergySystem.cpp; sourceTree = "<group>"; };
 		3F409CC71810606D00A8063B /* TargetEnergySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TargetEnergySystem.h; sourceTree = "<group>"; };
+		3F4353B81C19F6AA005DCFDB /* biohazard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = biohazard.png; path = ../../../resourses/biohazard.png; sourceTree = "<group>"; };
+		3F4353B91C19F6AA005DCFDB /* butterfly.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = butterfly.bmp; path = ../../../resourses/butterfly.bmp; sourceTree = "<group>"; };
+		3F4353BA1C19F6AA005DCFDB /* font.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = font.png; path = ../../../resourses/font.png; sourceTree = "<group>"; };
+		3F4353BB1C19F6AA005DCFDB /* monster_cupcake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = monster_cupcake.png; path = ../../../resourses/monster_cupcake.png; sourceTree = "<group>"; };
 		3F49B7B11832B02B00EE7639 /* InputProcessor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputProcessor.cpp; sourceTree = "<group>"; };
 		3F49B7B21832B02B00EE7639 /* InputProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputProcessor.h; sourceTree = "<group>"; };
 		3F49B7B51832B79B00EE7639 /* TouchableComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchableComponent.h; sourceTree = "<group>"; };
@@ -305,6 +309,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F4353B71C19F68B005DCFDB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3F4353B81C19F6AA005DCFDB /* biohazard.png */,
+				3F4353B91C19F6AA005DCFDB /* butterfly.bmp */,
+				3F4353BA1C19F6AA005DCFDB /* font.png */,
+				3F4353BB1C19F6AA005DCFDB /* monster_cupcake.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		3F9F4E8019278FD000D6900A /* Map */ = {
 			isa = PBXGroup;
 			children = (
@@ -332,6 +347,7 @@
 				3F5262D017FA2D6F006E4A3C /* Cocoa.framework */,
 				3F5262CE17FA2D64006E4A3C /* IOKit.framework */,
 				3FDE0AFB17F61FB8000A7DE1 /* OpenGL.framework */,
+				3F4353B71C19F68B005DCFDB /* Resources */,
 				3FDE0ABD17F61D8D000A7DE1 /* Game2 */,
 				3FDE0B1917F6FF13000A7DE1 /* Game2_engine */,
 				3FDE0ABC17F61D8D000A7DE1 /* Products */,

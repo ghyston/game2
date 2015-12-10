@@ -11,7 +11,9 @@
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>77A1EBA7623A5EB38947FD1A06B5C1DA2E8C6ECB</key>
-		<string>github.com:ghyston/game2.git</string>
+		<string>https://github.com/ghyston/game2.git</string>
+		<key>F91D28A7E95E8F0399C74826E40B332B63E48E1C</key>
+		<string>https://github.com/glfw/glfw.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>projects/mac/Game2/Game2.xcodeproj</string>
@@ -19,9 +21,11 @@
 	<dict>
 		<key>77A1EBA7623A5EB38947FD1A06B5C1DA2E8C6ECB</key>
 		<string>../../../../..</string>
+		<key>F91D28A7E95E8F0399C74826E40B332B63E48E1C</key>
+		<string>../../../../../../glfw</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>github.com:ghyston/game2.git</string>
+	<string>https://github.com/ghyston/game2.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
@@ -34,7 +38,15 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>77A1EBA7623A5EB38947FD1A06B5C1DA2E8C6ECB</string>
 			<key>IDESourceControlWCCName</key>
-			<string>game2</string>
+			<string>game2_github</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F91D28A7E95E8F0399C74826E40B332B63E48E1C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>glfw</string>
 		</dict>
 	</array>
 </dict>

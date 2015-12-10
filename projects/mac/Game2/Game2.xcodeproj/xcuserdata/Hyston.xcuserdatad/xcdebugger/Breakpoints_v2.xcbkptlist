@@ -1122,11 +1122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../src/engine/GameEngine.cpp"
-            timestampString = "442786826.017315"
+            timestampString = "471463868.888124"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "GameEngine::step()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1170,11 +1170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../src/engine/GameEngine.cpp"
-            timestampString = "442786826.017315"
+            timestampString = "471463868.888124"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
             landmarkName = "GameEngine::init(int width, int height)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1257,6 +1257,54 @@
             endingLineNumber = "137"
             landmarkName = "TextureRectRenderable::Draw()"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../src/engine/GameEngine.cpp"
+            timestampString = "471463868.888124"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "GameEngine::step()"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GameEngine::step()"
+                  moduleName = "Game2_engine.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Hyston/Documents/githubprojects/game2/src/engine/GameEngine.cpp"
+                  timestampString = "471463764.290676"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "317">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GameEngine::step()"
+                  moduleName = "Game2_engine.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Hyston/Documents/githubprojects/game2/src/engine/GameEngine.cpp"
+                  timestampString = "471463764.290872"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "322">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
