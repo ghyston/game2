@@ -27,14 +27,27 @@ public:
 	int * _indices;
 	int vertexes_count;*/
 	
+	//--------NEW--------
+	// (copypasted from http://ogldev.atspace.co.uk/www/tutorial32/tutorial32.html)
+	
+#define INDEX_BUFFER 0
+#define POS_VB 1
+#define NORMAL_VB 2
+#define TEXCOORD_VB 3
+	
+	GLuint m_VAO;
+	GLuint m_Buffers[4];
+	//--------NEW--------
+	
+	
 	Color3f color;
 	float angle;
 	float scale;
 	GLenum draw_type;
 	
-	GLuint _vbo;
-	GLuint _eab;
-	GLuint _vao;
+	//GLuint _vbo;
+	//GLuint _eab;
+	//GLuint _vao;
 	
 	GLuint _texture;
 	GLuint shader;

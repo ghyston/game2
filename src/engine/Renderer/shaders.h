@@ -1,4 +1,4 @@
-static const char gVertexShader[] = 
+static const char gVertexShader[] =
     "attribute vec4 vPosition;\n"
 	"uniform mat4 Projection;\n"
 	"uniform mat4 Model;\n"
@@ -48,7 +48,7 @@ static const char gFragmentTexturedShader[] =
 	"gl_FragColor.g = texture_coord_from_vshader.x;\n"
 	"gl_FragColor.b = texture_coord_from_vshader.y;\n"*/
 
-//    "  gl_FragColor = vec4(fragColor, 1.0);\n"
+//    "  gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);\n"
 	"gl_FragColor = texture2D(texture, texture_coord_from_vshader);\n"
 //	"gl_FragColor.a = 0.3;\n"
 

@@ -16,7 +16,8 @@ GLuint Shader::loadShader(GLenum shaderType, const char* pSource)
         info_log = new GLchar[100];
         glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &params);
         glGetShaderInfoLog(shader, 100, &params, info_log);
-		
+		printf("Failed to load shader %s", info_log);
+		throw 0;
     }
     
     ///-----CHECKING---------
