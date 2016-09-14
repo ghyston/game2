@@ -1000,7 +1000,7 @@
             startingLineNumber = "54"
             endingLineNumber = "54"
             landmarkName = "GameEngine::step()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1032,7 +1032,7 @@
             startingLineNumber = "18"
             endingLineNumber = "18"
             landmarkName = "TextureLoader::png_texture_load(const char * file_name, int * width, int * height)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1048,7 +1048,7 @@
             startingLineNumber = "23"
             endingLineNumber = "23"
             landmarkName = "TextureLoader::png_texture_load(const char * file_name, int * width, int * height)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1064,7 +1064,7 @@
             startingLineNumber = "15"
             endingLineNumber = "15"
             landmarkName = "TextureLoader::png_texture_load(const char * file_name, int * width, int * height)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1080,7 +1080,7 @@
             startingLineNumber = "37"
             endingLineNumber = "37"
             landmarkName = "BaseRenderable::Draw()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1096,7 +1096,7 @@
             startingLineNumber = "21"
             endingLineNumber = "21"
             landmarkName = "BaseRenderable::set_shader(GLuint program)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1112,7 +1112,7 @@
             startingLineNumber = "29"
             endingLineNumber = "29"
             landmarkName = "BaseRenderable::Draw()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1122,13 +1122,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../src/engine/GameEngine.cpp"
-            timestampString = "471463868.888124"
+            timestampString = "495582446.174308"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "GameEngine::step()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1144,7 +1144,7 @@
             startingLineNumber = "16"
             endingLineNumber = "16"
             landmarkName = "Shader::loadShader(GLenum shaderType, const char* pSource)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1160,7 +1160,7 @@
             startingLineNumber = "26"
             endingLineNumber = "26"
             landmarkName = "Shader::loadShader(GLenum shaderType, const char* pSource)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1170,13 +1170,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../src/engine/GameEngine.cpp"
-            timestampString = "471463868.888124"
+            timestampString = "495582446.174308"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
             landmarkName = "GameEngine::init(int width, int height)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1192,7 +1192,7 @@
             startingLineNumber = "57"
             endingLineNumber = "57"
             landmarkName = "GameEngine::step()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1208,7 +1208,7 @@
             startingLineNumber = "19"
             endingLineNumber = "19"
             landmarkName = "Shader::loadShader(GLenum shaderType, const char* pSource)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1224,7 +1224,7 @@
             startingLineNumber = "48"
             endingLineNumber = "48"
             landmarkName = "Shader::createProgram(const char* pVertexSource, const char* pFragmentSource)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1234,13 +1234,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../src/engine/Renderer/TextureRectRenderable.cpp"
-            timestampString = "471622561.505167"
+            timestampString = "495582446.174308"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
             landmarkName = "TextureRectRenderable::Draw()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1250,13 +1250,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../src/engine/GameEngine.cpp"
-            timestampString = "471463868.888124"
+            timestampString = "495582446.174308"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "GameEngine::step()"
-            landmarkType = "5">
+            landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -1304,7 +1304,7 @@
             startingLineNumber = "20"
             endingLineNumber = "20"
             landmarkName = "Shader::loadShader(GLenum shaderType, const char* pSource)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1314,13 +1314,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../src/engine/Renderer/TextureRectRenderable.cpp"
-            timestampString = "495493223.200551"
+            timestampString = "495582446.174308"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
             landmarkName = "TextureRectRenderable::Draw()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1330,13 +1330,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../src/engine/Renderer/TextureRectRenderable.cpp"
-            timestampString = "495493307.17822"
+            timestampString = "495582446.174308"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "TextureRectRenderable::set_shader(GLuint program)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1352,7 +1352,7 @@
             startingLineNumber = "38"
             endingLineNumber = "38"
             landmarkName = "BaseRenderable::Draw()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1384,7 +1384,7 @@
             startingLineNumber = "216"
             endingLineNumber = "216"
             landmarkName = "Renderer::draw_circle(Vec2f coords)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1394,13 +1394,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../src/engine/Renderer/Renderer.cpp"
-            timestampString = "495526100.672709"
+            timestampString = "495575742.982399"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "283"
-            endingLineNumber = "283"
+            startingLineNumber = "282"
+            endingLineNumber = "282"
             landmarkName = "Renderer::init_shaders()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1416,7 +1416,7 @@
             startingLineNumber = "117"
             endingLineNumber = "117"
             landmarkName = "Renderer::init_circle()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1425,14 +1425,30 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../src/engine/Renderer/Renderer.cpp"
-            timestampString = "495526811.23713"
+            filePath = "../../../src/engine/GameEngine.cpp"
+            timestampString = "495582565.077192"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "311"
-            endingLineNumber = "311"
-            landmarkName = "Renderer::setup_ortho(float left, float right, float bottom, float top, float near, float far)"
-            landmarkType = "5">
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "GameEngine::step()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../src/engine/Renderer/TextureRectRenderable.cpp"
+            timestampString = "495582599.453594"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "TextureRectRenderable::set_shader(GLuint program)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -74,12 +74,12 @@ void TextureRectRenderable::setup_vertexes()
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_Buffers[INDEX_BUFFER]);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(_indices), _indices, GL_STATIC_DRAW);
 	
-	glVertexAttribPointer(gvPositionHandle, 2, GL_FLOAT, GL_FALSE, 0, 0);
-	glEnableVertexAttribArray(gvPositionHandle);
+	//glVertexAttribPointer(gvPositionHandle, 2, GL_FLOAT, GL_FALSE, 0, 0);
+	//glEnableVertexAttribArray(gvPositionHandle);
 	
 	//	glVertexAttribPointer(texture_coord_attribute, 2, GL_FLOAT, GL_FALSE, 0, (GLvoid *)sizeof(vertices_position));
-	glVertexAttribPointer(gTextureHandle, 2, GL_FLOAT, GL_FALSE, 0, (GLvoid *)(sizeof(vertexes)));
-	glEnableVertexAttribArray(gTextureHandle);
+	//glVertexAttribPointer(gTextureCoordHandle, 2, GL_FLOAT, GL_FALSE, 0, (GLvoid *)(sizeof(vertexes)));
+	//glEnableVertexAttribArray(gTextureCoordHandle);
 	
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
@@ -111,7 +111,14 @@ void TextureRectRenderable::set_shader(GLuint program)
 	gvPositionHandle = glGetAttribLocation(shader, "vPosition");
 	gModelHandle = glGetUniformLocation(shader, "Model");
 	gFragColorHandle = glGetUniformLocation(shader, "fragColor");
-	gTextureHandle = glGetAttribLocation(shader, "texture_coord");
+	gTextureCoordHandle = glGetAttribLocation(shader, "texture_coord");
+	gTexture1Handle = glGetUniformLocation(shader, "texture1");
+	gTexture2Handle = glGetUniformLocation(shader, "texture2");
+	
+	// Then bind the uniform samplers to texture units:
+	glUseProgram(shader);
+	glUniform1i(gTexture1Handle, 0); //@todo: google detaily, what 0,1 means
+	glUniform1i(gTexture2Handle, 1);
 }
 
 void TextureRectRenderable::Draw()
@@ -140,19 +147,26 @@ void TextureRectRenderable::Draw()
 	
 	
 	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, _texture);
+	//glBindTexture(GL_TEXTURE_2D, _texture);
 
 	
-	//glUseProgram(shader);
+	glUseProgram(shader);
+	
+	glActiveTexture(GL_TEXTURE0 + 0); // Texture unit 0
+	glBindTexture(GL_TEXTURE_2D, texture1);
+	
+	glActiveTexture(GL_TEXTURE0 + 1); // Texture unit 1
+	glBindTexture(GL_TEXTURE_2D, texture2);
+	
 	glUniform3f(gFragColorHandle, color.r, color.g, color.b);
 	glUniformMatrix4fv(gModelHandle, 1, GL_FALSE, model_matrix->get_val());
 	
 	glVertexAttribPointer(gvPositionHandle, 2, GL_FLOAT, GL_FALSE, 0, 0);
 	glEnableVertexAttribArray(gvPositionHandle);
 	
-	glVertexAttribPointer(gTextureHandle, 2, GL_FLOAT, GL_FALSE, 0,
+	glVertexAttribPointer(gTextureCoordHandle, 2, GL_FLOAT, GL_FALSE, 0,
 						  (GLvoid *)(sizeof(GLfloat) * 8));
-	glEnableVertexAttribArray(gTextureHandle);
+	glEnableVertexAttribArray(gTextureCoordHandle);
 	
 	glDrawElements( GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 	

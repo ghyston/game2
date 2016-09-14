@@ -57,7 +57,7 @@ void GameEngine::step()
 	static GLuint texture = 0;
 	static TextureRectRenderable * testRect = NULL;
 	
-	//static GLuint texture2 = 0;
+	static GLuint texture2 = 0;
 	//static TextureRectRenderable * testRect2 = NULL;
 	 
 	if(texture == 0)
@@ -68,24 +68,28 @@ void GameEngine::step()
 		texture = tl.png_texture_load("/Users/Hyston/projects/game2_github/resourses/biohazard.png", &textureWidth, &textureHeight);
 	}
 	
-	if(testRect == NULL)
-	{
-		testRect = new TextureRectRenderable();
-		testRect->set_height(0.1f);
-		testRect->set_width(0.1f);
-		testRect->setTexture(texture);
-		testRect->set_shader(renderer->getTextureShader());
-		testRect->setup_vertexes();
-		testRect->SetColor(0.0f, 0.0f, 1.0f);
-	}
-	
-	/*if(texture2 == 0)
+	if(texture2 == 0)
 	{
 		TextureLoader tl;
 		int textureWidth = 0;
 		int textureHeight = 0;
 		texture2 = tl.png_texture_load("/Users/Hyston/projects/game2_github/resourses/monster_cupcake.png", &textureWidth, &textureHeight);
 	}
+	
+	if(testRect == NULL)
+	{
+		testRect = new TextureRectRenderable();
+		testRect->set_height(0.1f);
+		testRect->set_width(0.1f);
+		//testRect->setTexture(texture);
+		testRect->texture1 = texture;
+		testRect->texture2 = texture2;
+		testRect->set_shader(renderer->getTextureShader());
+		testRect->setup_vertexes();
+		testRect->SetColor(0.0f, 0.0f, 1.0f);
+	}
+	
+	/*
 	
 	if(testRect2 == NULL)
 	{

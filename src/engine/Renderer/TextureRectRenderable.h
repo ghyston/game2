@@ -54,7 +54,14 @@ public:
 	GLuint gvPositionHandle;
 	GLuint gModelHandle;
 	GLuint gFragColorHandle;
-	GLuint gTextureHandle;
+	GLuint gTextureCoordHandle;
+	
+	
+	GLuint texture1;
+	GLuint texture2;
+	GLuint gTexture1Handle; //@todo
+	GLuint gTexture2Handle; //@todo
+	
 	static Matrix4f* model_matrix;
 	static Matrix4f* model_matrix_rotate;
 	static Matrix4f* model_matrix_scale;

@@ -80,9 +80,7 @@ private:
 
     GLuint simple_shader;
 	GLuint _textureShader;
-	GLuint _controlShader; //@todo: remove after shader debugging
-    //GLuint gvPositionHandle;
-    
+	
     //Primitives.
     void init_rect();
     void init_grid();
