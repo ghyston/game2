@@ -54,7 +54,7 @@ void GameEngine::step()
 	
 	//Vec2f coords(0, 0);
 	
-	/*static GLuint texture = 0;
+	static GLuint texture = 0;
 	static TextureRectRenderable * testRect = NULL;
 	
 	//static GLuint texture2 = 0;
@@ -77,7 +77,7 @@ void GameEngine::step()
 		testRect->set_shader(renderer->getTextureShader());
 		testRect->setup_vertexes();
 		testRect->SetColor(0.0f, 0.0f, 1.0f);
-	}*/
+	}
 	
 	/*if(texture2 == 0)
 	{
@@ -99,7 +99,7 @@ void GameEngine::step()
 		testRect2->coords = Vec2f(0.1f, 0.1f);
 	}*/
 	
-	//testRect->Draw();
+	testRect->Draw();
 	//testRect2->Draw();
 }
 

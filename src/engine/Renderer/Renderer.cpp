@@ -113,7 +113,7 @@ void Renderer::init_tower()
 void Renderer::init_circle()
 {
 	circle = new CircleRenderable();
-	circle->set_shader(simple_shader);
+	circle->set_shader(_controlShader);
 	circle->radius(GameConst::GENERATOR_RAD);
 	circle->setup_vertexes();
 	circle->SetColor(0.2f, 0.5f, 0.2f);
@@ -279,8 +279,7 @@ void Renderer::init_shaders()
 {
     // @todo: add glGetError() checking!
 	simple_shader = Shader::createProgram(gVertexShader, gFragmentShader);
-	//gvPositionHandle = glGetAttribLocation(simple_shader, "vPosition");
-	
+	_controlShader = Shader::createProgram(gVertexShader, gFragmentShader);
 	_textureShader = Shader::createProgram(gVertexTexturedShader, gFragmentTexturedShader);
 }
 
@@ -298,10 +297,17 @@ void Renderer::setup_ortho(float left, float right, float bottom, float top, flo
 	mx_scale->Scale(a, b, c);
 	mx_rotate->Identity();
 	matrixMultiply(*mx_scale, *mx_translate, *ortho);
+	
 	GLint projectionUniform = glGetUniformLocation(simple_shader, "Projection");
+	glUseProgram(simple_shader);
 	glUniformMatrix4fv(projectionUniform, 1, GL_FALSE, ortho->get_val());
 	
 	GLint projectionUniformTex = glGetUniformLocation(_textureShader, "Projection");
+	glUseProgram(_textureShader);
 	glUniformMatrix4fv(projectionUniformTex, 1, GL_FALSE, ortho->get_val());
+	
+	GLint projectionUniformControl = glGetUniformLocation(_controlShader, "Projection");
+	glUseProgram(_controlShader);
+	glUniformMatrix4fv(projectionUniformControl, 1, GL_FALSE, ortho->get_val());
 
 }

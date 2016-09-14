@@ -81,8 +81,8 @@ void TextureRectRenderable::setup_vertexes()
 	glVertexAttribPointer(gTextureHandle, 2, GL_FLOAT, GL_FALSE, 0, (GLvoid *)(sizeof(vertexes)));
 	glEnableVertexAttribArray(gTextureHandle);
 	
-	//glBindBuffer(GL_ARRAY_BUFFER, 0);
-	//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	
 	///
 	glBindVertexArray(0);
@@ -143,7 +143,7 @@ void TextureRectRenderable::Draw()
 	glBindTexture(GL_TEXTURE_2D, _texture);
 
 	
-	glUseProgram(shader);
+	//glUseProgram(shader);
 	glUniform3f(gFragColorHandle, color.r, color.g, color.b);
 	glUniformMatrix4fv(gModelHandle, 1, GL_FALSE, model_matrix->get_val());
 	

@@ -1,7 +1,7 @@
 static const char gVertexShader[] =
-    "attribute vec4 vPosition;\n"
-	"uniform mat4 Projection;\n"
 	"uniform mat4 Model;\n"
+	"uniform mat4 Projection;\n"
+    "attribute vec4 vPosition;\n"
     "void main() {\n"
     "  gl_Position = Projection * Model * vPosition;\n"
     "}\n";
@@ -14,6 +14,22 @@ static const char gFragmentShader[] =
     "  gl_FragColor = vec4(fragColor, 1.0);\n"
     "}\n";
 
+
+static const char gVertexShaderControl[] =
+"attribute vec4 vPosition;\n"
+"uniform mat4 Projection;\n"
+"uniform mat4 Model;\n"
+"void main() {\n"
+"  gl_Position = Projection * Model * vPosition;\n"
+"}\n";
+
+//@note: for android, uncomment first line!
+static const char gFragmentShaderControl[] =
+//"precision mediump float;\n"
+"uniform vec3 fragColor;\n"
+"void main() {\n"
+"  gl_FragColor = vec4(fragColor, 1.0);\n"
+"}\n";
 
 
 
@@ -48,8 +64,8 @@ static const char gFragmentTexturedShader[] =
 	"gl_FragColor.g = texture_coord_from_vshader.x;\n"
 	"gl_FragColor.b = texture_coord_from_vshader.y;\n"*/
 
-//    "  gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);\n"
-	"gl_FragColor = texture2D(texture, texture_coord_from_vshader);\n"
+    "  gl_FragColor = vec4(fragColor, 1.0);\n"
+//	"gl_FragColor = texture2D(texture, texture_coord_from_vshader);\n"
 //	"gl_FragColor.a = 0.3;\n"
 
 

@@ -10,14 +10,18 @@
 
 class BaseRenderable
 {
-//protected:
 public:
-
+	
 	float * vertexes;
-	int vertexes_count;
+	
+	float angle;
+
+protected:
 	
 	Color3f color;
-	float angle;
+	
+	int vertexes_count;
+	
 	float scale;
 	GLenum draw_type;
 	
