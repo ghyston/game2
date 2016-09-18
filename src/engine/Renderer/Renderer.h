@@ -67,6 +67,7 @@ public: //@todo: remove!
     GLuint get_simple_shader()	{ return simple_shader; }
 	GLuint getTextureShader()	{ return _textureShader; }
 	GLuint getBWShader()	{ return _bwShader; }
+	GLuint getBlurShader()	{ return _blurShader; }
 private:
 	
 	Matrix4f* ortho;
@@ -83,6 +84,7 @@ private:
     GLuint simple_shader;
 	GLuint _textureShader;
 	GLuint _bwShader;
+	GLuint _blurShader;
 	
     //Primitives.
     void init_rect();

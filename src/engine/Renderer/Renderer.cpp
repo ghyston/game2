@@ -292,6 +292,7 @@ void Renderer::init_shaders()
 	simple_shader = Shader::createProgram(gVertexShader, gFragmentShader);
 	_textureShader = Shader::createProgram(gVertexTexturedShader, gFragmentTexturedShader);
 	_bwShader = Shader::createProgram(gVertexBWShader, gFragmentBWShader);
+	_blurShader = Shader::createProgram(gVertexBlurShader, gFragmentBlurShader);
 }
 
 void Renderer::setup_ortho(float left, float right, float bottom, float top, float near, float far)
@@ -320,5 +321,9 @@ void Renderer::setup_ortho(float left, float right, float bottom, float top, flo
 	GLint projectionUniformBW = glGetUniformLocation(_bwShader, "Projection");
 	glUseProgram(_bwShader);
 	glUniformMatrix4fv(projectionUniformBW, 1, GL_FALSE, ortho->get_val());
+	
+	GLint projectionUniformBlur = glGetUniformLocation(_blurShader, "Projection");
+	glUseProgram(_blurShader);
+	glUniformMatrix4fv(projectionUniformBlur, 1, GL_FALSE, ortho->get_val());
 
 }

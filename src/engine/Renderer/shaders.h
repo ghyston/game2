@@ -80,8 +80,48 @@ static const char gFragmentBWShader[] =
 
 "vec4 texClr = texture2D(texture, texture_coord_from_vshader);\n"
 "float avgClr = (texClr.r + texClr.g + texClr.b) / 3.0;\n"
+"float lumClr = 0.21 * texClr.r + 0.72 * texClr.g + 0.07 * texClr.b;\n"
+"gl_FragColor = vec4(lumClr, lumClr, lumClr, 1.0);\n"
 
-"gl_FragColor = vec4(avgClr, avgClr, avgClr, 1.0);\n"
+"}\n";
+
+static const char gVertexBlurShader[] =
+"attribute vec4 vPosition;\n"
+"uniform mat4 Projection;\n"
+"uniform mat4 Model;\n"
+"attribute vec2 texture_coord;\n"
+"varying vec2 texture_coord_from_vshader;\n"
+"void main() {\n"
+"	gl_Position = Projection * Model * vPosition;\n"
+"	texture_coord_from_vshader = texture_coord;\n"
+"}\n";
+
+
+//@note: for android, uncomment first line!
+static const char gFragmentBlurShader[] =
+//"precision mediump float;\n"
+"varying vec2 texture_coord_from_vshader;\n"
+"uniform vec3 fragColor;\n"
+"uniform sampler2D texture;\n"
+
+"void main() {\n"
+
+"vec4 res = vec4(0.0);;\n"
+"float count = 0.0;\n"
+"float tshold = 0.01;\n"
+
+"for (float i=-tshold; i<tshold; i+=tshold/10.0)\n"
+"{\n"
+"	float coeff = (tshold - abs(i))/tshold;\n"
+"	res += coeff * texture2D(texture, texture_coord_from_vshader + vec2(i, 0)) + "
+"			coeff * texture2D(texture, texture_coord_from_vshader + vec2(0, i));"
+" count += coeff * 2.0;\n"
+"}"
+"res.r = res.r / count;\n"
+"res.g = res.g / count;\n"
+"res.b = res.b / count;\n"
+"res.a = 1.0;\n"
+"gl_FragColor = res;\n"
 
 "}\n";
 

@@ -90,8 +90,8 @@ void GameEngine::step()
 	if(testRect == NULL)
 	{
 		testRect = new TextureRectRenderable();
-		testRect->set_height(0.1f);
-		testRect->set_width(0.1f);
+		testRect->set_height(1.0f);
+		testRect->set_width(1.0f);
 		//testRect->setTexture(texture);
 		testRect->texture1 = texture;
 		testRect->texture2 = texture2;
