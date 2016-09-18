@@ -35,6 +35,7 @@ public:
     void resize(int width, int height);
 
 	void clear_frame();
+	void clear_frame_for_postrender();
     
     void draw_rect(Vec2f coords);
     void draw_small_rect(Vec2f coords);
@@ -65,6 +66,7 @@ private:
 public: //@todo: remove!
     GLuint get_simple_shader()	{ return simple_shader; }
 	GLuint getTextureShader()	{ return _textureShader; }
+	GLuint getBWShader()	{ return _bwShader; }
 private:
 	
 	Matrix4f* ortho;
@@ -80,6 +82,7 @@ private:
 
     GLuint simple_shader;
 	GLuint _textureShader;
+	GLuint _bwShader;
 	
     //Primitives.
     void init_rect();

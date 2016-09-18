@@ -5,6 +5,7 @@
 #include "Renderer/RectRenderable.h"
 #include "Timer.h"
 #include "GamePlay/EntityFabric.h"
+#include "FrameBufferTest.hpp"
 
 GameEngine*     GameEngine::instance    = (GameEngine*) 0;
 GlobalData*     GameEngine::global_data = new GlobalData();
@@ -31,6 +32,16 @@ bool GameEngine::create_instance()
 
 void GameEngine::step()
 {
+	bool fbInit = false;
+	static FrameBufferTest fbTest;
+	if(!fbInit)
+	{
+		fbTest.init();
+		fbInit = true;
+	}
+	
+	fbTest.preRender();
+	
 	Timer::tick();
     renderer->clear_frame();
 	
@@ -105,6 +116,8 @@ void GameEngine::step()
 	
 	testRect->Draw();
 	//testRect2->Draw();
+	
+	fbTest.postRender();
 }
 
 GlobalData* GameEngine::get_data()

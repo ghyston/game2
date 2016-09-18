@@ -275,11 +275,23 @@ void Renderer::clear_frame()
 		cam_pos.y - zoom * koeff, cam_pos.y + zoom * koeff);
 }
 
+void Renderer::clear_frame_for_postrender()
+{
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+	
+	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
+	
+	float r = GameEngine::get_instance()->get_data()->screen.ratio;
+	
+	setup_ortho(0, 1, 0, r);
+}
+
 void Renderer::init_shaders()
 {
     // @todo: add glGetError() checking!
 	simple_shader = Shader::createProgram(gVertexShader, gFragmentShader);
 	_textureShader = Shader::createProgram(gVertexTexturedShader, gFragmentTexturedShader);
+	_bwShader = Shader::createProgram(gVertexBWShader, gFragmentBWShader);
 }
 
 void Renderer::setup_ortho(float left, float right, float bottom, float top, float near, float far)
@@ -304,5 +316,9 @@ void Renderer::setup_ortho(float left, float right, float bottom, float top, flo
 	GLint projectionUniformTex = glGetUniformLocation(_textureShader, "Projection");
 	glUseProgram(_textureShader);
 	glUniformMatrix4fv(projectionUniformTex, 1, GL_FALSE, ortho->get_val());
+	
+	GLint projectionUniformBW = glGetUniformLocation(_bwShader, "Projection");
+	glUseProgram(_bwShader);
+	glUniformMatrix4fv(projectionUniformBW, 1, GL_FALSE, ortho->get_val());
 
 }

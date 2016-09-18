@@ -10,15 +10,15 @@
 
 void TextureRectRenderable::setup_vertexes()
 {
-	//float h2 = height / 2;
-	//float w2 = width / 2;
+	float h2 = height / 2;
+	float w2 = width / 2;
 	
 	// 1 square (made by 2 triangles) to be rendered
 	GLfloat vertexes[8] = {
-		-0.5, -0.5,
-		0.5, -0.5,
-		0.5, 0.5,
-		-0.5, 0.5,
+		-w2, -h2,
+		w2, -h2,
+		w2, h2,
+		-w2, h2,
 	};
 	
 	GLfloat _textureCoords[8] = {

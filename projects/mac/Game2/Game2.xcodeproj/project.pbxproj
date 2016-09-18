@@ -52,6 +52,8 @@
 		3F9F4E96192796E100D6900A /* PassMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F9F4E94192796E100D6900A /* PassMap.cpp */; };
 		3F9F4E9D1927991400D6900A /* EntityContainerMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F9F4E9B1927991400D6900A /* EntityContainerMap.h */; };
 		3F9F4E9E1927991400D6900A /* EntityContainerMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F9F4E9C1927991400D6900A /* EntityContainerMap.cpp */; };
+		3FAB27E31D8B09C50074C692 /* FrameBufferTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FAB27E11D8B09C50074C692 /* FrameBufferTest.cpp */; };
+		3FAB27E41D8B09C50074C692 /* FrameBufferTest.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 3FAB27E21D8B09C50074C692 /* FrameBufferTest.hpp */; };
 		3FAC351318DB669D00478931 /* Vec2i.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FAC351118DB669D00478931 /* Vec2i.cpp */; };
 		3FAC351418DB669D00478931 /* Vec2i.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FAC351218DB669D00478931 /* Vec2i.h */; };
 		3FAD2E8E1A62A75C00690E80 /* TextureLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FAD2E8C1A62A75C00690E80 /* TextureLoader.cpp */; };
@@ -191,6 +193,8 @@
 		3F9F4E94192796E100D6900A /* PassMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PassMap.cpp; path = Map/PassMap.cpp; sourceTree = "<group>"; };
 		3F9F4E9B1927991400D6900A /* EntityContainerMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntityContainerMap.h; path = Map/EntityContainerMap.h; sourceTree = "<group>"; };
 		3F9F4E9C1927991400D6900A /* EntityContainerMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EntityContainerMap.cpp; path = Map/EntityContainerMap.cpp; sourceTree = "<group>"; };
+		3FAB27E11D8B09C50074C692 /* FrameBufferTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FrameBufferTest.cpp; sourceTree = "<group>"; };
+		3FAB27E21D8B09C50074C692 /* FrameBufferTest.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FrameBufferTest.hpp; sourceTree = "<group>"; };
 		3FAC351118DB669D00478931 /* Vec2i.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vec2i.cpp; sourceTree = "<group>"; };
 		3FAC351218DB669D00478931 /* Vec2i.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vec2i.h; sourceTree = "<group>"; };
 		3FAD2E8C1A62A75C00690E80 /* TextureLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureLoader.cpp; sourceTree = "<group>"; };
@@ -554,6 +558,8 @@
 				3FF528481A62EAC10072D710 /* TextureRectRenderable.h */,
 				3FF5284B1A648D7C0072D710 /* TextRenderer.cpp */,
 				3FF5284C1A648D7C0072D710 /* TextRenderer.h */,
+				3FAB27E11D8B09C50074C692 /* FrameBufferTest.cpp */,
+				3FAB27E21D8B09C50074C692 /* FrameBufferTest.hpp */,
 			);
 			path = Renderer;
 			sourceTree = "<group>";
@@ -598,6 +604,7 @@
 				3FAD2E8F1A62A75C00690E80 /* TextureLoader.h in Headers */,
 				3F9F4E9D1927991400D6900A /* EntityContainerMap.h in Headers */,
 				3F20BB61184229C30051003D /* AISystem.h in Headers */,
+				3FAB27E41D8B09C50074C692 /* FrameBufferTest.hpp in Headers */,
 				3F7464DE180DDD10000650C3 /* LineRenderable.h in Headers */,
 				3FC2B0141838DCAD00FA5B5E /* RingRenderable.h in Headers */,
 				3F548CC51827AC9B00BAE9A4 /* TowerRenderable.h in Headers */,
@@ -719,6 +726,7 @@
 				3F548CC41827AC9B00BAE9A4 /* TowerRenderable.cpp in Sources */,
 				3FDE0B6617F7029A000A7DE1 /* EntityFabric.cpp in Sources */,
 				3FD94F7018DED3D500CE757A /* PathFindComponent.cpp in Sources */,
+				3FAB27E31D8B09C50074C692 /* FrameBufferTest.cpp in Sources */,
 				3F548CCC18297EA000BAE9A4 /* EnergyBalanceSystem.cpp in Sources */,
 				3FD94F7C18DF1BA600CE757A /* PathFinder.cpp in Sources */,
 				3F9F4E96192796E100D6900A /* PassMap.cpp in Sources */,
