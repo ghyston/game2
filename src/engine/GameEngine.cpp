@@ -6,6 +6,7 @@
 #include "Timer.h"
 #include "GamePlay/EntityFabric.h"
 #include "FrameBufferTest.hpp"
+#include "Renderer/DynamicTexture.h"
 
 GameEngine*     GameEngine::instance    = (GameEngine*) 0;
 GlobalData*     GameEngine::global_data = new GlobalData();
@@ -40,7 +41,7 @@ void GameEngine::step()
 		fbInit = true;
 	}
 	
-	fbTest.preRender();
+//	fbTest.preRender();
 	
 	Timer::tick();
     renderer->clear_frame();
@@ -67,38 +68,78 @@ void GameEngine::step()
 	
 	static GLuint texture = 0;
 	static TextureRectRenderable * testRect = NULL;
+	static TextureRectRenderable * dynTexRect = NULL;
 	
 	static GLuint texture2 = 0;
 	//static TextureRectRenderable * testRect2 = NULL;
 	 
 	if(texture == 0)
 	{
-		TextureLoader tl;
         int textureWidth = 0;
         int textureHeight = 0;
-		texture = tl.png_texture_load("/Users/Hyston/projects/game2_github/resourses/biohazard.png", &textureWidth, &textureHeight);
+		texture = TextureHelper::png_texture_load("/Users/Hyston/projects/game2_github/resourses/biohazard.png", &textureWidth, &textureHeight);
 	}
 	
-	if(texture2 == 0)
+	
+//	static unsigned char * data = NULL;
+	unsigned int textureWidth = 17;
+	unsigned int textureHeight = 9;
+	static DynamicTexture dynTex(textureWidth, textureHeight);
+	
+	auto rndFunc = [](Vec2i coords)
 	{
-		TextureLoader tl;
-		int textureWidth = 0;
-		int textureHeight = 0;
-		texture2 = tl.png_texture_load("/Users/Hyston/projects/game2_github/resourses/monster_cupcake.png", &textureWidth, &textureHeight);
+		uchar r = rand() % 255;
+		uchar g = rand() % 255;
+		uchar b = rand() % 255;
+		uchar a = rand() % 255;
+		return Color4b(r, g, b, a);
+	};
+	dynTex.setData(rndFunc);
+	dynTex.setPixel(Vec2i(3, 3), Color4b(100));
+	
+/*	if(texture2 == 0)
+	{
+		//@todo: this is test, but we need to free data later
+		data = (unsigned char *)malloc( textureWidth * textureHeight * 4 * sizeof(unsigned char) );
+		texture2 = TextureHelper::createTexture(textureWidth, textureHeight, data);
+	}*/
+	
+/*	for(int i = 0; i < textureWidth * textureHeight ; ++i)
+	{
+		int index = i*4;
+		data[index+0] = rand() % 255;
+		data[index+1] = rand() % 255;
+		data[index+2] = rand() % 255;
+		data[index+3] = rand() % 255;
 	}
+	
+	TextureHelper::updateTexture(texture2, textureWidth, textureHeight, data);*/
 	
 	if(testRect == NULL)
 	{
 		testRect = new TextureRectRenderable();
 		testRect->set_height(1.0f);
 		testRect->set_width(1.0f);
-		//testRect->setTexture(texture);
-		testRect->texture1 = texture;
-		testRect->texture2 = texture2;
+		
+		testRect->setTexture1(texture);
+		testRect->setTexture2(texture2);
 		testRect->set_shader(renderer->getTextureShader());
 		testRect->setup_vertexes();
 		testRect->SetColor(0.0f, 0.0f, 1.0f);
 	}
+	
+	if(dynTexRect == NULL)
+	{
+		dynTexRect = new TextureRectRenderable();
+		dynTexRect->set_width(1.0f);
+		dynTexRect->set_height(1.0f);
+		dynTexRect->setTexture1(dynTex.getTextureHandler());
+		dynTexRect->set_shader(renderer->getTextureShader());
+		dynTexRect->setup_vertexes();
+		dynTexRect->SetColor(0.0f, 0.0f, 1.0f);
+	}
+	
+	
 	
 	/*
 	
@@ -114,10 +155,11 @@ void GameEngine::step()
 		testRect2->coords = Vec2f(0.1f, 0.1f);
 	}*/
 	
-	testRect->Draw();
-	//testRect2->Draw();
 	
-	fbTest.postRender();
+	dynTexRect->Draw();
+	testRect->Draw();
+	
+//	fbTest.postRender();
 }
 
 GlobalData* GameEngine::get_data()

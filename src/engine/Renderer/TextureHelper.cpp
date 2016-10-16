@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Stepanov Ilia. All rights reserved.
 //
 
-#include "TextureLoader.h"
+#include "TextureHelper.h"
 
-GLuint TextureLoader::png_texture_load(const char * file_name, int * width, int * height)
+GLuint TextureHelper::png_texture_load(const char * file_name, int * width, int * height)
 {
 	png_byte header[8];
 	
@@ -143,10 +143,8 @@ GLuint TextureLoader::png_texture_load(const char * file_name, int * width, int 
     return 0;
 }
 
-GLuint TextureLoader::LoadBMPTexture( const char * filename )
+GLuint TextureHelper::LoadBMPTexture( const char * filename )
 {
-	GLuint texture;
-	
 	int width, height;
 	
 	unsigned char * data;
@@ -174,18 +172,48 @@ GLuint TextureLoader::LoadBMPTexture( const char * filename )
 		data[index+2] = B;
 	}
 	
+	GLuint texture = createTexture(width, height, data);
 	
-	glGenTextures( 1, &texture );
+	/*glGenTextures( 1, &texture );
 	glBindTexture( GL_TEXTURE_2D, texture );
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
 	glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER,GL_LINEAR_MIPMAP_NEAREST );
 	glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER,GL_LINEAR );
 	glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S,GL_REPEAT );
-	glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T,GL_REPEAT );
+	glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T,GL_REPEAT );*/
 	
 	
 	free( data );
 	
 	return texture;
-    return 0;
 }
+
+GLuint TextureHelper::createTexture(unsigned int width, unsigned int height, unsigned char * data)
+{
+	GLuint texture;
+	
+	glGenTextures( 1, &texture );
+	glBindTexture( GL_TEXTURE_2D, texture );
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	
+	return texture;
+}
+
+void TextureHelper::updateTexture(GLuint texture, unsigned int width, unsigned int height, unsigned char * data)
+{
+	glBindTexture( GL_TEXTURE_2D, texture );
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+}
+
+
+
+
+
+
+
+
+
+
+

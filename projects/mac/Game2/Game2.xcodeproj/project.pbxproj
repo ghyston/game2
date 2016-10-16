@@ -14,6 +14,8 @@
 		3F0FE52A184FC019000F7C6E /* VecShrPtr.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F0FE528184FC019000F7C6E /* VecShrPtr.h */; };
 		3F20BB60184229C30051003D /* AISystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F20BB5E184229C30051003D /* AISystem.cpp */; };
 		3F20BB61184229C30051003D /* AISystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F20BB5F184229C30051003D /* AISystem.h */; };
+		3F33A81C1D93BD7F0065EDEF /* VAO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F33A81A1D93BD7F0065EDEF /* VAO.cpp */; };
+		3F33A81D1D93BD7F0065EDEF /* VAO.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 3F33A81B1D93BD7F0065EDEF /* VAO.hpp */; };
 		3F409CC518105F0C00A8063B /* TargetComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F409CC418105F0C00A8063B /* TargetComponent.h */; };
 		3F409CC81810606D00A8063B /* TargetEnergySystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F409CC61810606D00A8063B /* TargetEnergySystem.cpp */; };
 		3F409CC91810606D00A8063B /* TargetEnergySystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F409CC71810606D00A8063B /* TargetEnergySystem.h */; };
@@ -56,8 +58,8 @@
 		3FAB27E41D8B09C50074C692 /* FrameBufferTest.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 3FAB27E21D8B09C50074C692 /* FrameBufferTest.hpp */; };
 		3FAC351318DB669D00478931 /* Vec2i.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FAC351118DB669D00478931 /* Vec2i.cpp */; };
 		3FAC351418DB669D00478931 /* Vec2i.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FAC351218DB669D00478931 /* Vec2i.h */; };
-		3FAD2E8E1A62A75C00690E80 /* TextureLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FAD2E8C1A62A75C00690E80 /* TextureLoader.cpp */; };
-		3FAD2E8F1A62A75C00690E80 /* TextureLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FAD2E8D1A62A75C00690E80 /* TextureLoader.h */; };
+		3FAD2E8E1A62A75C00690E80 /* TextureHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FAD2E8C1A62A75C00690E80 /* TextureHelper.cpp */; };
+		3FAD2E8F1A62A75C00690E80 /* TextureHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FAD2E8D1A62A75C00690E80 /* TextureHelper.h */; };
 		3FAD2E951A62CB5B00690E80 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FDE0AFB17F61FB8000A7DE1 /* OpenGL.framework */; };
 		3FAD2E981A62CD9200690E80 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5262D017FA2D6F006E4A3C /* Cocoa.framework */; };
 		3FB125811837E2AA00494376 /* EnergyStorageComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FB1257F1837E2AA00494376 /* EnergyStorageComponent.cpp */; };
@@ -69,6 +71,8 @@
 		3FC88C381A2261A5000D6F2D /* AiLogic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FC88C361A2261A5000D6F2D /* AiLogic.cpp */; };
 		3FC88C391A2261A5000D6F2D /* AiLogic.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC88C371A2261A5000D6F2D /* AiLogic.h */; };
 		3FD1F6F118265A3F003B0BF4 /* ConnectorComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1F6F018265A3F003B0BF4 /* ConnectorComponent.cpp */; };
+		3FD6CFD31DB3A73B004D1217 /* DynamicTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FD6CFD11DB3A73B004D1217 /* DynamicTexture.cpp */; };
+		3FD6CFD41DB3A73B004D1217 /* DynamicTexture.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FD6CFD21DB3A73B004D1217 /* DynamicTexture.h */; };
 		3FD94F6C18DD717F00CE757A /* RectGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FD94F6A18DD717F00CE757A /* RectGrid.cpp */; };
 		3FD94F6D18DD717F00CE757A /* RectGrid.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FD94F6B18DD717F00CE757A /* RectGrid.h */; };
 		3FD94F7018DED3D500CE757A /* PathFindComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FD94F6E18DED3D500CE757A /* PathFindComponent.cpp */; };
@@ -148,6 +152,8 @@
 		3F0FE528184FC019000F7C6E /* VecShrPtr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VecShrPtr.h; sourceTree = "<group>"; };
 		3F20BB5E184229C30051003D /* AISystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AISystem.cpp; sourceTree = "<group>"; };
 		3F20BB5F184229C30051003D /* AISystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AISystem.h; sourceTree = "<group>"; };
+		3F33A81A1D93BD7F0065EDEF /* VAO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VAO.cpp; sourceTree = "<group>"; };
+		3F33A81B1D93BD7F0065EDEF /* VAO.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = VAO.hpp; sourceTree = "<group>"; };
 		3F409CC418105F0C00A8063B /* TargetComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TargetComponent.h; sourceTree = "<group>"; };
 		3F409CC61810606D00A8063B /* TargetEnergySystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TargetEnergySystem.cpp; sourceTree = "<group>"; };
 		3F409CC71810606D00A8063B /* TargetEnergySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TargetEnergySystem.h; sourceTree = "<group>"; };
@@ -197,8 +203,8 @@
 		3FAB27E21D8B09C50074C692 /* FrameBufferTest.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FrameBufferTest.hpp; sourceTree = "<group>"; };
 		3FAC351118DB669D00478931 /* Vec2i.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vec2i.cpp; sourceTree = "<group>"; };
 		3FAC351218DB669D00478931 /* Vec2i.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vec2i.h; sourceTree = "<group>"; };
-		3FAD2E8C1A62A75C00690E80 /* TextureLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureLoader.cpp; sourceTree = "<group>"; };
-		3FAD2E8D1A62A75C00690E80 /* TextureLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureLoader.h; sourceTree = "<group>"; };
+		3FAD2E8C1A62A75C00690E80 /* TextureHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureHelper.cpp; sourceTree = "<group>"; };
+		3FAD2E8D1A62A75C00690E80 /* TextureHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureHelper.h; sourceTree = "<group>"; };
 		3FB1257F1837E2AA00494376 /* EnergyStorageComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnergyStorageComponent.cpp; sourceTree = "<group>"; };
 		3FB80C1C18C50169009086BF /* GlInclude.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlInclude.h; sourceTree = "<group>"; };
 		3FC2B00D1838D7DA00FA5B5E /* Cursor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Cursor.cpp; sourceTree = "<group>"; };
@@ -209,6 +215,10 @@
 		3FC88C361A2261A5000D6F2D /* AiLogic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AiLogic.cpp; sourceTree = "<group>"; };
 		3FC88C371A2261A5000D6F2D /* AiLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AiLogic.h; sourceTree = "<group>"; };
 		3FD1F6F018265A3F003B0BF4 /* ConnectorComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConnectorComponent.cpp; sourceTree = "<group>"; };
+		3FD6CFD11DB3A73B004D1217 /* DynamicTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DynamicTexture.cpp; sourceTree = "<group>"; };
+		3FD6CFD21DB3A73B004D1217 /* DynamicTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicTexture.h; sourceTree = "<group>"; };
+		3FD6CFD51DB3A79E004D1217 /* GlobalMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalMacros.h; sourceTree = "<group>"; };
+		3FD6CFD61DB3C1C1004D1217 /* Color4b.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Color4b.h; sourceTree = "<group>"; };
 		3FD94F6A18DD717F00CE757A /* RectGrid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RectGrid.cpp; sourceTree = "<group>"; };
 		3FD94F6B18DD717F00CE757A /* RectGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectGrid.h; sourceTree = "<group>"; };
 		3FD94F6E18DED3D500CE757A /* PathFindComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PathFindComponent.cpp; sourceTree = "<group>"; };
@@ -438,6 +448,8 @@
 				3FAC351218DB669D00478931 /* Vec2i.h */,
 				3FDD2A2A19447EBA00B9E253 /* SomeMath.cpp */,
 				3FDD2A2B19447EBA00B9E253 /* SomeMath.h */,
+				3FD6CFD51DB3A79E004D1217 /* GlobalMacros.h */,
+				3FD6CFD61DB3C1C1004D1217 /* Color4b.h */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -552,14 +564,18 @@
 				3FD94F7318DED92600CE757A /* TriangleRenderable.h */,
 				3FDD2A26194301C300B9E253 /* PolygonRenderable.cpp */,
 				3FDD2A27194301C300B9E253 /* PolygonRenderable.h */,
-				3FAD2E8C1A62A75C00690E80 /* TextureLoader.cpp */,
-				3FAD2E8D1A62A75C00690E80 /* TextureLoader.h */,
+				3FAD2E8C1A62A75C00690E80 /* TextureHelper.cpp */,
+				3FAD2E8D1A62A75C00690E80 /* TextureHelper.h */,
 				3FF528471A62EAC10072D710 /* TextureRectRenderable.cpp */,
 				3FF528481A62EAC10072D710 /* TextureRectRenderable.h */,
 				3FF5284B1A648D7C0072D710 /* TextRenderer.cpp */,
 				3FF5284C1A648D7C0072D710 /* TextRenderer.h */,
 				3FAB27E11D8B09C50074C692 /* FrameBufferTest.cpp */,
 				3FAB27E21D8B09C50074C692 /* FrameBufferTest.hpp */,
+				3F33A81A1D93BD7F0065EDEF /* VAO.cpp */,
+				3F33A81B1D93BD7F0065EDEF /* VAO.hpp */,
+				3FD6CFD11DB3A73B004D1217 /* DynamicTexture.cpp */,
+				3FD6CFD21DB3A73B004D1217 /* DynamicTexture.h */,
 			);
 			path = Renderer;
 			sourceTree = "<group>";
@@ -594,6 +610,8 @@
 				3FC88C391A2261A5000D6F2D /* AiLogic.h in Headers */,
 				3F4ECCE3182F9540002425F7 /* CircleRenderable.h in Headers */,
 				3FD94F7D18DF1BA600CE757A /* PathFinder.h in Headers */,
+				3FD6CFD41DB3A73B004D1217 /* DynamicTexture.h in Headers */,
+				3F33A81D1D93BD7F0065EDEF /* VAO.hpp in Headers */,
 				3F409CC518105F0C00A8063B /* TargetComponent.h in Headers */,
 				3F708DB8182D5B3300BF964E /* NodeComponent.h in Headers */,
 				3F01CA2318315BB6004DCCE5 /* EnergyGeneratorComponent.h in Headers */,
@@ -601,7 +619,7 @@
 				3F9F4E95192796E100D6900A /* PassMap.h in Headers */,
 				3F0FE526184FBF71000F7C6E /* ShrPtr.h in Headers */,
 				3F9F4E8C19278FF600D6900A /* PassCell.h in Headers */,
-				3FAD2E8F1A62A75C00690E80 /* TextureLoader.h in Headers */,
+				3FAD2E8F1A62A75C00690E80 /* TextureHelper.h in Headers */,
 				3F9F4E9D1927991400D6900A /* EntityContainerMap.h in Headers */,
 				3F20BB61184229C30051003D /* AISystem.h in Headers */,
 				3FAB27E41D8B09C50074C692 /* FrameBufferTest.hpp in Headers */,
@@ -707,7 +725,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FAD2E8E1A62A75C00690E80 /* TextureLoader.cpp in Sources */,
+				3FAD2E8E1A62A75C00690E80 /* TextureHelper.cpp in Sources */,
 				3FDE0B6017F7022F000A7DE1 /* GameEngine.cpp in Sources */,
 				3F4ECCE2182F9540002425F7 /* CircleRenderable.cpp in Sources */,
 				3FDE0B6117F7029A000A7DE1 /* Matrix4f.cpp in Sources */,
@@ -715,6 +733,7 @@
 				3FF5284D1A648D7C0072D710 /* TextRenderer.cpp in Sources */,
 				3FDE0B6317F7029A000A7DE1 /* BaseSystem.cpp in Sources */,
 				3F708DB4182D4C7900BF964E /* Vector2f.cpp in Sources */,
+				3FD6CFD31DB3A73B004D1217 /* DynamicTexture.cpp in Sources */,
 				3FDE0B6F17F7029A000A7DE1 /* Renderer.cpp in Sources */,
 				3F708DB7182D5B3300BF964E /* NodeComponent.cpp in Sources */,
 				3F409CC81810606D00A8063B /* TargetEnergySystem.cpp in Sources */,
@@ -751,6 +770,7 @@
 				3FE4E02918A299D6000C2631 /* OutherAPI.cpp in Sources */,
 				3FD1F6F118265A3F003B0BF4 /* ConnectorComponent.cpp in Sources */,
 				3F548CD01829871E00BAE9A4 /* Game2Logic.cpp in Sources */,
+				3F33A81C1D93BD7F0065EDEF /* VAO.cpp in Sources */,
 				3FDE0B6D17F7029A000A7DE1 /* Grid.cpp in Sources */,
 				3FDE0B6E17F7029A000A7DE1 /* RectRenderable.cpp in Sources */,
 				3F708DB1182D4AF500BF964E /* Tests.cpp in Sources */,

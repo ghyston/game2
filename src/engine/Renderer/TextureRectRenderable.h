@@ -15,41 +15,22 @@
 #include "../Common/Matrix4f.h"
 #include "../Common/Vector2f.h"
 #include "../Common/Color3f.h"
+#include "VAO.hpp"
 #include <cstddef>
+#include <vector>
+#include <array>
 
 class TextureRectRenderable
 {
-	//protected:
-public:
+protected:
 	
-	/*float * vertexes;
-	float * _textureCoords;
-	int * _indices;
-	int vertexes_count;*/
-	
-	//--------NEW--------
-	// (copypasted from http://ogldev.atspace.co.uk/www/tutorial32/tutorial32.html)
-	
-#define INDEX_BUFFER 0
-#define POS_VB 1
-#define NORMAL_VB 2
-#define TEXCOORD_VB 3
-	
-	GLuint m_VAO;
-	GLuint m_Buffers[4];
-	//--------NEW--------
-	
+	VAO _vao;
 	
 	Color3f color;
 	float angle;
 	float scale;
 	GLenum draw_type;
 	
-	//GLuint _vbo;
-	//GLuint _eab;
-	//GLuint _vao;
-	
-	GLuint _texture;
 	GLuint shader;
 	GLuint gvPositionHandle;
 	GLuint gModelHandle;
@@ -59,8 +40,8 @@ public:
 	
 	GLuint texture1;
 	GLuint texture2;
-	GLuint gTexture1Handle; //@todo
-	GLuint gTexture2Handle; //@todo
+	GLuint gTexture1Handle;
+	GLuint gTexture2Handle;
 	
 	static Matrix4f* model_matrix;
 	static Matrix4f* model_matrix_rotate;
@@ -71,11 +52,6 @@ public:
 	float width;
 	float height;
 	
-	//@note: call setup_vertexes() after that!
-	void set_height(float height) { this->height = height; }
-	//@note: call setup_vertexes() after that!
-	void set_width(float width) { this->width = width; }
-	
 public:
 	
 	Vec2f coords;
@@ -84,7 +60,12 @@ public:
 	
 	virtual void setup_vertexes();
 	
-	virtual void setTexture(GLuint texture) { _texture = texture; }
+	virtual void setTexture1(GLuint texture) { texture1 = texture; }
+	virtual void setTexture2(GLuint texture) { texture2 = texture; }
+	//@note: call setup_vertexes() after that!
+	void set_height(float height) { this->height = height; }
+	//@note: call setup_vertexes() after that!
+	void set_width(float width) { this->width = width; }
 	virtual void SetColor(Color3f& color);
 	virtual void SetColor(float red, float green, float blue);
 	

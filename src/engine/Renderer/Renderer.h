@@ -16,7 +16,7 @@
 #include "TriangleRenderable.h"
 #include "PolygonRenderable.h"
 
-#include "TextureLoader.h"
+#include "TextureHelper.h"
 #include "TextureRectRenderable.h"
 
 /**

@@ -49,8 +49,8 @@ void FrameBufferTest::init()
 	texturedRect.coords.x = 0.5;
 	texturedRect.coords.y = screen.ratio / 2;
 	
-	texturedRect.texture1 = _renderedTexture;
-	GLuint shader = GameEngine::get_renderer()->getBlurShader();
+	texturedRect.setTexture1(_renderedTexture);
+	GLuint shader = GameEngine::get_renderer()->getBWShader();
 	texturedRect.set_shader(shader);
 	texturedRect.setup_vertexes();
 	texturedRect.SetColor(0.0f, 0.0f, 1.0f);

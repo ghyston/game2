@@ -10,6 +10,7 @@
 #define __Game2__TextureLoader__
 
 #include "GlInclude.h"
+#include "../Common/GlobalMacros.h"
 
 #include <cstdio>
 #include <cstdlib>
@@ -20,16 +21,17 @@
 #include <pngconf.h>
 #include <png.h>
 
-class TextureLoader
+class TextureHelper
 {
 public:
 	
-	TextureLoader() {}
-	~TextureLoader() {}
+	static GLuint png_texture_load(const char * file_name, int * width, int * height);
 	
-	GLuint png_texture_load(const char * file_name, int * width, int * height);
+	static GLuint LoadBMPTexture(const char * filename );
 	
-	GLuint LoadBMPTexture( const char * filename );
+	static GLuint createTexture(uint width, uint height, unsigned char * data);
+	
+	static void updateTexture(GLuint texture, uint width, uint height, unsigned char * data);
 	
 };
 
