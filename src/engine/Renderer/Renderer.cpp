@@ -38,6 +38,7 @@ void Renderer::init()
 	init_ring();
 	InitTriangle();
 	InitPolygon();
+	initHexGrid();
 	
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
@@ -150,6 +151,15 @@ void Renderer::InitPolygon()
 	polygon->SetColor(0.5f, 0.5f, 0.5f);
 }
 
+void Renderer::initHexGrid()
+{
+	_hexGrid = new HexGrid();
+	_hexGrid->_side = 0.2f;
+	_hexGrid->set_shader(simple_shader);
+	_hexGrid->SetColor(0.2f, 1.0f, 0.3f);
+	_hexGrid->setup_vertexes();
+}
+
 void Renderer::draw_grid()
 {
     if(grid != NULL)
@@ -255,6 +265,15 @@ void Renderer::DrawPolygon(Vec2f coords, int mesh_id)
 	polygon->vertexes = meshes[mesh_id];
 	polygon->coords = coords;
 	polygon->Draw();
+}
+
+void Renderer::drawHexGrid(Vec2f coords)
+{
+	if(_hexGrid == NULL)
+		return;
+	
+	_hexGrid->coords = coords;
+	_hexGrid->Draw();
 }
 
 void Renderer::resize(int width, int height)

@@ -3,6 +3,7 @@
 
 #include "GamePlay/Components.h"
 #include "Renderer/RectRenderable.h"
+#include "Renderer/HexGrid.h"
 #include "Timer.h"
 #include "GamePlay/EntityFabric.h"
 #include "FrameBufferTest.hpp"
@@ -40,6 +41,7 @@ void GameEngine::step()
 		fbTest.init();
 		fbInit = true;
 	}
+	
 	
 //	fbTest.preRender();
 	
@@ -155,6 +157,7 @@ void GameEngine::step()
 		testRect2->coords = Vec2f(0.1f, 0.1f);
 	}*/
 	
+	renderer->drawHexGrid({0.1, 0.1});
 	
 	dynTexRect->Draw();
 	testRect->Draw();

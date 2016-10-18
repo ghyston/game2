@@ -73,6 +73,8 @@
 		3FD1F6F118265A3F003B0BF4 /* ConnectorComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1F6F018265A3F003B0BF4 /* ConnectorComponent.cpp */; };
 		3FD6CFD31DB3A73B004D1217 /* DynamicTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FD6CFD11DB3A73B004D1217 /* DynamicTexture.cpp */; };
 		3FD6CFD41DB3A73B004D1217 /* DynamicTexture.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FD6CFD21DB3A73B004D1217 /* DynamicTexture.h */; };
+		3FD6CFD91DB58018004D1217 /* HexGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FD6CFD71DB58018004D1217 /* HexGrid.cpp */; };
+		3FD6CFDA1DB58018004D1217 /* HexGrid.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FD6CFD81DB58018004D1217 /* HexGrid.h */; };
 		3FD94F6C18DD717F00CE757A /* RectGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FD94F6A18DD717F00CE757A /* RectGrid.cpp */; };
 		3FD94F6D18DD717F00CE757A /* RectGrid.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FD94F6B18DD717F00CE757A /* RectGrid.h */; };
 		3FD94F7018DED3D500CE757A /* PathFindComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FD94F6E18DED3D500CE757A /* PathFindComponent.cpp */; };
@@ -219,6 +221,8 @@
 		3FD6CFD21DB3A73B004D1217 /* DynamicTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicTexture.h; sourceTree = "<group>"; };
 		3FD6CFD51DB3A79E004D1217 /* GlobalMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalMacros.h; sourceTree = "<group>"; };
 		3FD6CFD61DB3C1C1004D1217 /* Color4b.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Color4b.h; sourceTree = "<group>"; };
+		3FD6CFD71DB58018004D1217 /* HexGrid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HexGrid.cpp; sourceTree = "<group>"; };
+		3FD6CFD81DB58018004D1217 /* HexGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexGrid.h; sourceTree = "<group>"; };
 		3FD94F6A18DD717F00CE757A /* RectGrid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RectGrid.cpp; sourceTree = "<group>"; };
 		3FD94F6B18DD717F00CE757A /* RectGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectGrid.h; sourceTree = "<group>"; };
 		3FD94F6E18DED3D500CE757A /* PathFindComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PathFindComponent.cpp; sourceTree = "<group>"; };
@@ -576,6 +580,8 @@
 				3F33A81B1D93BD7F0065EDEF /* VAO.hpp */,
 				3FD6CFD11DB3A73B004D1217 /* DynamicTexture.cpp */,
 				3FD6CFD21DB3A73B004D1217 /* DynamicTexture.h */,
+				3FD6CFD71DB58018004D1217 /* HexGrid.cpp */,
+				3FD6CFD81DB58018004D1217 /* HexGrid.h */,
 			);
 			path = Renderer;
 			sourceTree = "<group>";
@@ -603,6 +609,7 @@
 				3FF5284A1A62EAC10072D710 /* TextureRectRenderable.h in Headers */,
 				3FAC351418DB669D00478931 /* Vec2i.h in Headers */,
 				3F49B7B41832B02B00EE7639 /* InputProcessor.h in Headers */,
+				3FD6CFDA1DB58018004D1217 /* HexGrid.h in Headers */,
 				3F409CC91810606D00A8063B /* TargetEnergySystem.h in Headers */,
 				3FF5284E1A648D7C0072D710 /* TextRenderer.h in Headers */,
 				3FDD2A29194301C300B9E253 /* PolygonRenderable.h in Headers */,
@@ -764,6 +771,7 @@
 				3FC2B0131838DCAD00FA5B5E /* RingRenderable.cpp in Sources */,
 				3FF528491A62EAC10072D710 /* TextureRectRenderable.cpp in Sources */,
 				3FD94F7818DEFA9A00CE757A /* PathMoveSystem.cpp in Sources */,
+				3FD6CFD91DB58018004D1217 /* HexGrid.cpp in Sources */,
 				3FDD2A28194301C300B9E253 /* PolygonRenderable.cpp in Sources */,
 				3F01CA2018315B34004DCCE5 /* EnergyCreatorSystem.cpp in Sources */,
 				3F20BB60184229C30051003D /* AISystem.cpp in Sources */,

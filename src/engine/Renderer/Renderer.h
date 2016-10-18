@@ -15,6 +15,7 @@
 #include "RectGrid.h"
 #include "TriangleRenderable.h"
 #include "PolygonRenderable.h"
+#include "HexGrid.h"
 
 #include "TextureHelper.h"
 #include "TextureRectRenderable.h"
@@ -48,6 +49,7 @@ public:
 	void draw_ring(Vec2f coords);
 	void DrawTriangle(Vec2f coords, float angle);
 	void DrawPolygon(Vec2f coords, int mesh_id);
+	void drawHexGrid(Vec2f coords);
 	
 	//@todo: this is hardcode
 	void draw_border_ring(Vec2f coords);
@@ -81,8 +83,9 @@ private:
             float bottom, float top,
             float near = -1.0f, float far = 1.0f);
 
+	// Shader handlers
     GLuint simple_shader;
-	GLuint _textureShader;
+	GLuint textureShader;
 	GLuint _bwShader;
 	GLuint _blurShader;
 	
@@ -96,6 +99,7 @@ private:
 	void init_ring();
 	void InitTriangle();
 	void InitPolygon();
+	void initHexGrid();
     
     RectRenderable * rect;
     RectRenderable * small_rect;
@@ -108,6 +112,7 @@ private:
 	RingRenderable * border_ring;
 	TriangleRenderable * triangle;
 	PolygonRenderable * polygon;
+	HexGrid * _hexGrid;
 	
 	std::vector<float*> meshes;
 
