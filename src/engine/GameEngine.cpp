@@ -157,7 +157,7 @@ void GameEngine::step()
 		testRect2->coords = Vec2f(0.1f, 0.1f);
 	}*/
 	
-	renderer->drawHexGrid({0.1, 0.1});
+	renderer->drawHexGrid({0.51, 0.1});
 	
 	dynTexRect->Draw();
 	testRect->Draw();

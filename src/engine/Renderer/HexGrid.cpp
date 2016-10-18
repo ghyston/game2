@@ -15,22 +15,32 @@ void HexGrid::setup_vertexes()
 	float hS = _side / 2; // half side
 	float sr3 = 1.732f; // sqrt(3)
 	
-	vertexes[0] = hS;
-	vertexes[1] = 0;
-	
-	vertexes[2] = hS * 3;
-	vertexes[3] = 0;
-	
-	vertexes[4] = hS * 4;
-	vertexes[5] = sr3 * hS;
-	
-	vertexes[6] = hS * 3;
-	vertexes[7] = sr3 * hS * 2;
-	
-	vertexes[8] = hS;
-	vertexes[9] = sr3 * hS * 2;
-	
-	vertexes[10] = 0;
-	vertexes[11] = sr3 * hS;
-	
+	for(int y = 0; y < _h; y++)
+	{
+		for(int x = 0; x < _w; x++)
+		{
+			int index = (y * _w + x) * 6 * 2;
+			float xOff = x * _side * 1.5;
+			float yOff = y * sr3 * hS * 2 + ((x % 2 == 0) ? 0 : sr3 * hS);
+			
+			vertexes[index + 0] = hS + xOff;
+			vertexes[index + 1] = 0 + yOff;
+			
+			vertexes[index + 2] = hS * 3 + xOff;
+			vertexes[index + 3] = 0 + yOff;
+			
+			vertexes[index + 4] = hS * 4 + xOff;
+			vertexes[index + 5] = sr3 * hS + yOff;
+			
+			vertexes[index + 6] = hS * 3 + xOff;
+			vertexes[index + 7] = sr3 * hS * 2 + yOff;
+			
+			vertexes[index + 8] = hS + xOff;
+			vertexes[index + 9] = sr3 * hS * 2 + yOff;
+			
+			vertexes[index + 10] = 0 + xOff;
+			vertexes[index + 11] = sr3 * hS + yOff;
+			
+		}
+	}
 }

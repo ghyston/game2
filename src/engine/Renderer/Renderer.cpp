@@ -153,8 +153,7 @@ void Renderer::InitPolygon()
 
 void Renderer::initHexGrid()
 {
-	_hexGrid = new HexGrid();
-	_hexGrid->_side = 0.2f;
+	_hexGrid = new HexGrid(10, 7, 0.1f);
 	_hexGrid->set_shader(simple_shader);
 	_hexGrid->SetColor(0.2f, 1.0f, 0.3f);
 	_hexGrid->setup_vertexes();

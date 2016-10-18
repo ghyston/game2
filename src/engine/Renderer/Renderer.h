@@ -85,7 +85,7 @@ private:
 
 	// Shader handlers
     GLuint simple_shader;
-	GLuint textureShader;
+	GLuint _textureShader;
 	GLuint _bwShader;
 	GLuint _blurShader;
 	

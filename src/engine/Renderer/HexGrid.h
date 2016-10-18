@@ -15,13 +15,17 @@ class HexGrid : public BaseRenderable
 {
 public:
 	
-	HexGrid() : BaseRenderable()
+	HexGrid(int width, int height, float side) :
+		_w(width), _h(height), _side(side),
+		BaseRenderable()
 	{
-		vertexes_count = 6;
+		vertexes_count = 6 * _w * _h;
 		draw_type = GL_LINE_LOOP;
 	}
 	
 	float _side;
+	int _w;
+	int _h;
 	
 	void setup_vertexes();
 	
