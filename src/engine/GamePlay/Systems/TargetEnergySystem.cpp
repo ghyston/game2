@@ -13,25 +13,27 @@
 //@todo: убрать\прокомментить этот феерический высер
 void TargetEnergySystem::update(EntityPtr entity)
 {
-	if(!HasCmpt(TargetComponent, entity))
+    Entity * pEntity = entity.lock().get();
+    
+	if(!HasCmpt(TargetComponent, pEntity))
 		return;
 		
-	GetCmpt(TargetComponent, target_com, entity);
+	GetCmpt(TargetComponent, target_com, pEntity);
 	
 	//If target is null, dissappear
-	if(!target_com->target.is_set())
+	if(target_com->target.expired())
 	{
-		entity->mark_deleted();
+		pEntity->mark_deleted();
 		return;
 	}
+	
+    Entity * pTarget = target_com->target.lock().get();
+	GetCmpt(EnergyStorageComponent, enesto, pTarget);
+	GetCmpt(PositionComponent, target_pos_com, pTarget);
+	GetCmpt(NodeComponent, target_node_com, pTarget);
 		
-	EntityPtr target = target_com->target;
-	GetCmpt(EnergyStorageComponent, enesto, target);
-	GetCmpt(PositionComponent, target_pos_com, target);
-	GetCmpt(NodeComponent, target_node_com, target);
-		
-	GetCmpt(MovementComponent, move_com, entity);
-	GetCmpt(PositionComponent, pos_com, entity);
+	GetCmpt(MovementComponent, move_com, pEntity);
+	GetCmpt(PositionComponent, pos_com, pEntity);
 
 	//If energy reached target
 	Vec2f dist = target_pos_com->position - pos_com->position;
@@ -41,10 +43,10 @@ void TargetEnergySystem::update(EntityPtr entity)
 		//Check, is target enemy tower
 		if(target_com->target_enemy)
 		{
-			GetCmpt(EnergyStorageComponent, target_enesto_cmpt, target_com->target);
+			GetCmpt(EnergyStorageComponent, target_enesto_cmpt, pTarget);
 			
 			target_enesto_cmpt->rem_energy(5);
-			entity->mark_deleted();
+			pEntity->mark_deleted();
 			return;
 		}
 		
@@ -62,12 +64,12 @@ void TargetEnergySystem::update(EntityPtr entity)
 		
 		EntityIt it = target_node_com->children.begin();
 		
-		EntityPtr next_target = target;
+		EntityPtr next_target = entity;
 		
 		float min_energy_balance = 1.0f;
 		while (it != target_node_com->children.end())
 		{
-			GetCmpt(EnergyStorageComponent, enesto_child, (it->get()));
+			GetCmpt(EnergyStorageComponent, enesto_child, (it->lock()));
 			if(enesto_child->balance < min_energy_balance)
 			{
 				next_target = (*it);
@@ -79,13 +81,13 @@ void TargetEnergySystem::update(EntityPtr entity)
 		if(min_energy_balance == 1.0) //children are full (or not exist)
 		{
 			if(!enesto->is_full())
-				merge_energy(target, entity);
+				merge_energy(target_com->target, entity);
 			else
 			{
 				// All childs are full and we have reached base tower.
-				if(!target_node_com->parent.is_set())
+				if(target_node_com->parent.expired())
 				{
-					entity->mark_deleted();
+					pEntity->mark_deleted();
 					return;
 				}
 				
@@ -104,7 +106,7 @@ void TargetEnergySystem::update(EntityPtr entity)
 	
 	if(target_changed)
 	{
-		GetCmpt(PositionComponent, new_target_pos, target_com->target);
+		GetCmpt(PositionComponent, new_target_pos, target_com->target.lock());
 		dist = new_target_pos->position - pos_com->position;
 	}
 
@@ -123,7 +125,7 @@ void TargetEnergySystem::update(EntityPtr entity)
 
 void TargetEnergySystem::merge_energy(EntityPtr tower, EntityPtr energy)
 {
-	GetCmpt(EnergyStorageComponent, enesto, tower);
+	GetCmpt(EnergyStorageComponent, enesto, tower.lock());
 	enesto->add_energy(10); // @todo: this should be out constant!
-	energy->mark_deleted();
+	energy.lock()->mark_deleted();
 }

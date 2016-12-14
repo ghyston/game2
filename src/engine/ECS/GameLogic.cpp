@@ -44,9 +44,9 @@ void GameLogic::add_system(BaseSystem * system)
 void GameLogic::add_entity(EntityPtr entity)
 {
 	//@todo: there souldn't be any component names on Common!
-	if(HasCmpt(PositionComponent, entity))
+	if(HasCmpt(PositionComponent, entity.lock()))
 	{
-		GetCmpt(PositionComponent, pos_com, entity);
+		GetCmpt(PositionComponent, pos_com, entity.lock());
 		map.entity_map.addEntity(pos_com->position.x, pos_com->position.y, entity);
 	}
 	else

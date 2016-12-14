@@ -92,17 +92,17 @@ EntityPtr Map::getClosestEnemyTower(Vec2f coords)
 				Entities& ent = entity_map.getEntitiesFromCell(itX, itY);
 				for (EntityIt it = ent.begin(); it != ent.end(); it++)
 				{
-					if(!HasCmpt(EnergyStorageComponent, (*it)))
+					if(!HasCmpt(EnergyStorageComponent, (it->lock())))
 						continue;
-					if(!HasCmpt(PlayerIdComponent, (*it)))
+					if(!HasCmpt(PlayerIdComponent, (it->lock())))
 						continue;
 					
 					//@todo: enemy here is actual player!
-					GetCmpt(PlayerIdComponent, playId_com, (*it));
+					GetCmpt(PlayerIdComponent, playId_com, (it->lock()));
 					if(playId_com->player_id == GlobalData::PLAYER_ID_2)
 						continue;
 					
-					GetCmpt(PositionComponent, pos_com, (*it));
+					GetCmpt(PositionComponent, pos_com, (it->lock()));
 					float quad_dist = quad_distance(pos_com->position, coords);
 					closest_entities[quad_dist] = *it;
 				}

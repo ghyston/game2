@@ -142,7 +142,7 @@ EntityPtr Map::getFirstEntityHasCmp()
 		}
 	}
 	
-	return nullptr;//EntityPtr();
+    return EntityPtr();
 }
 
 

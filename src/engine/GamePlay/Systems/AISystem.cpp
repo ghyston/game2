@@ -58,11 +58,11 @@ void AISystem::post_step()
 {
 	if(state == ENEMY_SEARCHING)
 	{
-		if(!closest_tower.is_set())
+		if(closest_tower.expired())
 			return;
 	
-		GetCmpt(PositionComponent, my_pos_com, closest_tower);
-		GetCmpt(PositionComponent, enemy_pos_com, enemy_tower);
+		GetCmpt(PositionComponent, my_pos_com, closest_tower.lock());
+		GetCmpt(PositionComponent, enemy_pos_com, enemy_tower.lock());
 		
 		Entities entList;
 		entList.push_back(closest_tower);
@@ -70,7 +70,7 @@ void AISystem::post_step()
 		
 		GameEngine::get_data()->logic.CalcPath4Tower(my_pos_com->position, enemy_pos_com->position, path, entList);
 		
-		GetCmpt(AiComponent, ai_com, closest_tower);
+		GetCmpt(AiComponent, ai_com, closest_tower.lock());
 		ai_com->is_head = true;
 		
 		bool pathEmpty = path.empty();
@@ -88,24 +88,24 @@ void AISystem::post_step()
 
 void AISystem::update(EntityPtr entity)
 {
-	if(!HasCmpt(PlayerIdComponent, entity))
+	if(!HasCmpt(PlayerIdComponent, entity.lock()))
 		return;
 	
-	GetCmpt(PlayerIdComponent, plr_id_cmp, entity);
+	GetCmpt(PlayerIdComponent, plr_id_cmp, entity.lock());
 	if(plr_id_cmp->player_id == GlobalData::PLAYER_ID_1)
 		return;
 	
 	//for towers only
-	if(!HasCmpt(EnergyStorageComponent, entity))
+	if(!HasCmpt(EnergyStorageComponent, entity.lock()))
 		return;
 
 	// find closest enemy tower
 	//if(!target_set)
 	if(state == ENEMY_SEARCHING)
 	{
-		GetCmpt(PositionComponent, pos_com, entity);
+		GetCmpt(PositionComponent, pos_com, entity.lock());
 		EntityPtr enemy_tower_temp = GameEngine::get_data()->logic.getMap()->getClosestEnemyTower(pos_com->position);
-		GetCmpt(PositionComponent, enemy_pos_com, enemy_tower_temp);
+		GetCmpt(PositionComponent, enemy_pos_com, enemy_tower_temp.lock());
 		
 		Vec2f dist = pos_com->position - enemy_pos_com->position;
 		if(dist.length() < destination_to_closest_tower)
@@ -119,14 +119,14 @@ void AISystem::update(EntityPtr entity)
 	else if(state == ENEMY_DEAD)
 	{
 		// @todo: clear here some info
-		GetCmpt(AiComponent, ai_com, entity);
+		GetCmpt(AiComponent, ai_com, entity.lock());
 		ai_com->is_head = false;
 		
 	}
 	
 		
 	// All other states are to head towers only!
-	GetCmpt(AiComponent, ai_com, entity);
+	GetCmpt(AiComponent, ai_com, entity.lock());
 	if(!ai_com->is_head)
 			return;
 		
@@ -139,14 +139,14 @@ void AISystem::update(EntityPtr entity)
 			GameEngine::renderer->draw_small_rect(*it);
 		}
 		
-		GetCmpt(EnergyStorageComponent, enesto_cmpt, entity);
+		GetCmpt(EnergyStorageComponent, enesto_cmpt, entity.lock());
 		if(enesto_cmpt->value < GameConst::MIN_ENERGY_TO_ACTION)
 			return;
 	
 		enesto_cmpt->rem_energy(GameConst::TOWER_BUILD_COST);
 		EntityPtr new_tower =
 			EntityFabric::get_tower(entity, *pathIt);
-		GetCmpt(AiComponent, new_ai_com, new_tower);
+		GetCmpt(AiComponent, new_ai_com, new_tower.lock());
 		new_ai_com->is_head = true;
 		GameEngine::get_data()->logic.add_tower(new_tower);
 		ai_com->is_head = false;

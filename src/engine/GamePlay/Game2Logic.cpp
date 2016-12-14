@@ -118,23 +118,23 @@ void Game2Logic::add_tower(EntityPtr tower)
 	GameLogic::add_entity(tower);
 	
 	//setup player id
-	GetCmpt(NodeComponent, node_com, tower);
-	if(node_com->parent.is_set())
+	GetCmpt(NodeComponent, node_com, tower.lock());
+	if(!node_com->parent.expired())
 	{
-		GetCmpt(PlayerIdComponent, parent_plr_id_cmpt, (node_com->parent));
-		GetCmpt(PlayerIdComponent, self_plr_id_cmpt, tower);
+		GetCmpt(PlayerIdComponent, parent_plr_id_cmpt, (node_com->parent.lock()));
+		GetCmpt(PlayerIdComponent, self_plr_id_cmpt, tower.lock());
 		self_plr_id_cmpt->player_id = parent_plr_id_cmpt->player_id;
 	}
 	
 	// notify ai
-	GetCmpt(PlayerIdComponent, self_plr_id_cmpt, tower);
+	GetCmpt(PlayerIdComponent, self_plr_id_cmpt, tower.lock());
 	if (self_plr_id_cmpt->player_id == GlobalData::PLAYER_ID_1 )
 	{
 		GameEngine::global_data->aiLogic.newTowerBuilded = true;
 	}
 	
 	
-	GetCmpt(PositionComponent, tower_pos_con, tower);
+	GetCmpt(PositionComponent, tower_pos_con, tower.lock());
 	
 	Vec2f pos = tower_pos_con->position;
 	Vec2f left_top = Vec2f(pos.x - 0.05f, pos.y + 0.05f);
@@ -144,10 +144,10 @@ void Game2Logic::add_tower(EntityPtr tower)
 	//Find energy generator nearby
 	EntityPtr generator = map.findClosestEntityHasCmp<EnergyGeneratorComponent>(tower_pos_con->position);
 	
-	if(generator.is_set())
+	if(!generator.expired())
 	{
-		GetCmpt(PositionComponent, generator_pos_com, generator);
-		GetCmpt(EnergyGeneratorComponent, gen_com, generator);
+		GetCmpt(PositionComponent, generator_pos_com, generator.lock());
+		GetCmpt(EnergyGeneratorComponent, gen_com, generator.lock());
 		float dist = distance(generator_pos_com->position, tower_pos_con->position);
 		if(gen_com->radius > dist)
 		{
@@ -159,9 +159,9 @@ void Game2Logic::add_tower(EntityPtr tower)
 
 void Game2Logic::add_energy(EntityPtr energy, EntityPtr generator)
 {
-	GetCmpt(TargetComponent, tar_cmpt, energy);
-	GetCmpt(EnergyGeneratorComponent, engen_cmpt, generator);
-	GetCmpt(PositionComponent, energy_pos_cmpt, energy);
+	GetCmpt(TargetComponent, tar_cmpt, energy.lock());
+	GetCmpt(EnergyGeneratorComponent, engen_cmpt, generator.lock());
+	GetCmpt(PositionComponent, energy_pos_cmpt, energy.lock());
 	
 	if(engen_cmpt->towers.size() == 0)
 		return;
@@ -171,7 +171,7 @@ void Game2Logic::add_energy(EntityPtr energy, EntityPtr generator)
 	EntityPtr closest_tower = *it;
 	while (it != engen_cmpt->towers.end())
 	{
-		GetCmpt(PositionComponent, tower_pos_com, (*it));
+		GetCmpt(PositionComponent, tower_pos_com, (it->lock()));
 			
 		Vec2f dist = energy_pos_cmpt->position - tower_pos_com->position;
 			
@@ -194,9 +194,9 @@ void Game2Logic::AddHindernis(EntityPtr hindernis)
 
 void Game2Logic::tower_attack(EntityPtr from, EntityPtr to)
 {
-	GetCmpt(EnergyStorageComponent, from_enesto_cmpt, from);
-	GetCmpt(PositionComponent, from_pos_cmpt, from);
-	GetCmpt(PositionComponent, to_pos_cmpt, to);
+	GetCmpt(EnergyStorageComponent, from_enesto_cmpt, from.lock());
+	GetCmpt(PositionComponent, from_pos_cmpt, from.lock());
+	GetCmpt(PositionComponent, to_pos_cmpt, to.lock());
 	// @todo: move constants to one game_disdock header file!
 	// 30 - min limit for attack posibility
 	if(from_enesto_cmpt->value > GameConst::MIN_ENERGY_TO_ACTION)
@@ -207,7 +207,7 @@ void Game2Logic::tower_attack(EntityPtr from, EntityPtr to)
 		for(int i = 0; i < 10; i++)
 		{
 			energy = EntityFabric::create_energy(from_pos_cmpt->position);
-			GetCmpt(TargetComponent, targ_cmpt, energy);
+			GetCmpt(TargetComponent, targ_cmpt, energy.lock());
 			targ_cmpt->target = to;
 			targ_cmpt->target_enemy = true;
 			
@@ -228,7 +228,7 @@ void Game2Logic::tower_attack(EntityPtr from, EntityPtr to)
 			a.x = 2 * (pos2.x - pos1.x - V0.x * t) / (t * t);
 			a.y = 2 * (pos2.y - pos1.y - V0.y * t) / (t * t);
 			
-			GetCmpt(MovementComponent, mov_cmpt, energy);
+			GetCmpt(MovementComponent, mov_cmpt, energy.lock());
 			mov_cmpt->speed = V0;
 			mov_cmpt->velocity = a;
 			
@@ -239,16 +239,16 @@ void Game2Logic::tower_attack(EntityPtr from, EntityPtr to)
 
 void Game2Logic::remove_tower(EntityPtr tower)
 {
-	GetCmpt(NodeComponent, node_com, tower);
+	GetCmpt(NodeComponent, node_com, tower.lock());
 	
 	//remove child from parent
-	if(node_com->parent.is_set())
+	if(!node_com->parent.expired())
 	{
-		GetCmpt(NodeComponent, parent_node_cmpt, node_com->parent);
+		GetCmpt(NodeComponent, parent_node_cmpt, node_com->parent.lock());
 		EntityIt it = parent_node_cmpt->children.begin();
 		while (it != parent_node_cmpt->children.end())
 		{
-			if(it->get() == tower.get())
+			if(it->lock().get() == tower.lock().get())
 			{
 				parent_node_cmpt->children.erase(it);
 				break;
@@ -264,14 +264,14 @@ void Game2Logic::remove_tower(EntityPtr tower)
 	EntityIt it = node_com->children.begin();
 	while (it != node_com->children.end())
 	{
-		GetCmpt(NodeComponent, child_node_comp, (*it));
-		child_node_comp->parent.set(NULL);
+		GetCmpt(NodeComponent, child_node_comp, (it->lock()));
+        child_node_comp->parent.reset();
 		it++;
 	}
 	node_com->children.clear();
 	
 	//Remove self
-	tower->mark_deleted();
+	tower.lock()->mark_deleted();
 }
 
 

@@ -80,7 +80,7 @@
             startingLineNumber = "141"
             endingLineNumber = "141"
             landmarkName = "PathFinder::CalcPath(std::vector&lt;Vec2i&gt;&amp; points, const PathFinderParams&amp; params)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -96,7 +96,7 @@
             startingLineNumber = "136"
             endingLineNumber = "136"
             landmarkName = "PathFinder::CalcPath(std::vector&lt;Vec2i&gt;&amp; points, const PathFinderParams&amp; params)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -112,7 +112,7 @@
             startingLineNumber = "238"
             endingLineNumber = "238"
             landmarkName = "PathFinder::CalcPath(std::vector&lt;Vec2i&gt;&amp; points, const PathFinderParams&amp; params)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -128,7 +128,7 @@
             startingLineNumber = "152"
             endingLineNumber = "152"
             landmarkName = "PathFinder::CalcPath(std::vector&lt;Vec2i&gt;&amp; points, const PathFinderParams&amp; params)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -144,7 +144,7 @@
             startingLineNumber = "140"
             endingLineNumber = "140"
             landmarkName = "PathFinder::CalcPath(std::vector&lt;Vec2i&gt;&amp; points, const PathFinderParams&amp; params)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -250,11 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../src/engine/GamePlay/EntityFabric.cpp"
-            timestampString = "425131084.665449"
+            timestampString = "503424630.416845"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
             landmarkName = "EntityFabric::BlockCellsByPolygon(Vec2f coords, const std::vector&lt;Vec2f&gt;&amp; points, EntityPtr polygon)"
             landmarkType = "7">
          </BreakpointContent>
@@ -266,11 +266,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../src/engine/GamePlay/EntityFabric.cpp"
-            timestampString = "425131084.665449"
+            timestampString = "503424630.416845"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "181"
-            endingLineNumber = "181"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
             landmarkName = "EntityFabric::BlockCellsByPolygon(Vec2f coords, const std::vector&lt;Vec2f&gt;&amp; points, EntityPtr polygon)"
             landmarkType = "7">
          </BreakpointContent>
@@ -282,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../src/engine/GamePlay/EntityFabric.cpp"
-            timestampString = "425131084.665449"
+            timestampString = "503424630.416845"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "230"
-            endingLineNumber = "230"
+            startingLineNumber = "236"
+            endingLineNumber = "236"
             landmarkName = "EntityFabric::BlockCellsByPolygon(Vec2f coords, const std::vector&lt;Vec2f&gt;&amp; points, EntityPtr polygon)"
             landmarkType = "7">
          </BreakpointContent>
@@ -298,7 +298,71 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../src/engine/GamePlay/EntityFabric.cpp"
-            timestampString = "425131084.665449"
+            timestampString = "503424630.416845"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "243"
+            endingLineNumber = "243"
+            landmarkName = "EntityFabric::BlockCellsByPolygon(Vec2f coords, const std::vector&lt;Vec2f&gt;&amp; points, EntityPtr polygon)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../src/engine/GamePlay/EntityFabric.cpp"
+            timestampString = "503424630.416845"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "220"
+            endingLineNumber = "220"
+            landmarkName = "EntityFabric::BlockCellsByPolygon(Vec2f coords, const std::vector&lt;Vec2f&gt;&amp; points, EntityPtr polygon)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../src/engine/GamePlay/EntityFabric.cpp"
+            timestampString = "503424630.416845"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "248"
+            endingLineNumber = "248"
+            landmarkName = "EntityFabric::BlockCellsByPolygon(Vec2f coords, const std::vector&lt;Vec2f&gt;&amp; points, EntityPtr polygon)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../src/engine/GamePlay/EntityFabric.cpp"
+            timestampString = "503424630.416845"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
+            landmarkName = "EntityFabric::BlockCellsByPolygon(Vec2f coords, const std::vector&lt;Vec2f&gt;&amp; points, EntityPtr polygon)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../src/engine/GamePlay/EntityFabric.cpp"
+            timestampString = "503424630.416845"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "237"
@@ -314,75 +378,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../src/engine/GamePlay/EntityFabric.cpp"
-            timestampString = "425131084.665449"
+            timestampString = "503424630.416845"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "214"
-            endingLineNumber = "214"
-            landmarkName = "EntityFabric::BlockCellsByPolygon(Vec2f coords, const std::vector&lt;Vec2f&gt;&amp; points, EntityPtr polygon)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../src/engine/GamePlay/EntityFabric.cpp"
-            timestampString = "425131084.665449"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "242"
-            endingLineNumber = "242"
-            landmarkName = "EntityFabric::BlockCellsByPolygon(Vec2f coords, const std::vector&lt;Vec2f&gt;&amp; points, EntityPtr polygon)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../src/engine/GamePlay/EntityFabric.cpp"
-            timestampString = "425131084.665449"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "210"
-            endingLineNumber = "210"
-            landmarkName = "EntityFabric::BlockCellsByPolygon(Vec2f coords, const std::vector&lt;Vec2f&gt;&amp; points, EntityPtr polygon)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../src/engine/GamePlay/EntityFabric.cpp"
-            timestampString = "425131084.665449"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "231"
-            endingLineNumber = "231"
-            landmarkName = "EntityFabric::BlockCellsByPolygon(Vec2f coords, const std::vector&lt;Vec2f&gt;&amp; points, EntityPtr polygon)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../src/engine/GamePlay/EntityFabric.cpp"
-            timestampString = "425131084.665449"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "206"
-            endingLineNumber = "206"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
             landmarkName = "EntityFabric::BlockCellsByPolygon(Vec2f coords, const std::vector&lt;Vec2f&gt;&amp; points, EntityPtr polygon)"
             landmarkType = "7">
          </BreakpointContent>
@@ -448,7 +448,7 @@
             startingLineNumber = "281"
             endingLineNumber = "281"
             landmarkName = "PathFinder::CheckLine(Vec2i a, Vec2i b)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -464,7 +464,7 @@
             startingLineNumber = "350"
             endingLineNumber = "350"
             landmarkName = "PathFinder::CheckLine(Vec2i a, Vec2i b)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -480,7 +480,7 @@
             startingLineNumber = "106"
             endingLineNumber = "106"
             landmarkName = "PathFinder::GetOffset(int offset, int min)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -496,7 +496,7 @@
             startingLineNumber = "154"
             endingLineNumber = "154"
             landmarkName = "PathFinder::CalcPath(std::vector&lt;Vec2i&gt;&amp; points, const PathFinderParams&amp; params)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -544,7 +544,7 @@
             startingLineNumber = "52"
             endingLineNumber = "52"
             landmarkName = "PathFinder::CalcPathForTower(std::vector&lt;Vec2i&gt;&amp; points, Vec2f start, Vec2f end, const Entities&amp; excluded)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -604,7 +604,7 @@
             startingLineNumber = "193"
             endingLineNumber = "193"
             landmarkName = "PathFinder::CalcPath(std::vector&lt;Vec2i&gt;&amp; points, const PathFinderParams&amp; params)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -668,7 +668,7 @@
             startingLineNumber = "259"
             endingLineNumber = "259"
             landmarkName = "PathFinder::IsCellClear(Vec2i coords, int size"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -700,7 +700,7 @@
             startingLineNumber = "249"
             endingLineNumber = "249"
             landmarkName = "PathFinder::IsCellClear(Vec2i coords, int size"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -836,13 +836,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../src/engine/GamePlay/Systems/TargetEnergySystem.cpp"
-            timestampString = "438443181.679013"
+            timestampString = "503424630.416845"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "TargetEnergySystem::update(EntityPtr entity)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -852,13 +852,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../src/engine/GamePlay/Systems/TargetEnergySystem.cpp"
-            timestampString = "438443181.679013"
+            timestampString = "503424630.416845"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
             landmarkName = "TargetEnergySystem::update(EntityPtr entity)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -900,13 +900,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../src/engine/GamePlay/Systems/TargetEnergySystem.cpp"
-            timestampString = "438454052.727203"
+            timestampString = "503424630.416845"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "TargetEnergySystem::update(EntityPtr entity)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1364,13 +1364,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../src/engine/GamePlay/Systems/RenderSystem.cpp"
-            timestampString = "495526068.38157"
+            timestampString = "503424630.416845"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "RenderSystem::post_step()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

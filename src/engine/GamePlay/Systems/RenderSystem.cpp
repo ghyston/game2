@@ -12,10 +12,10 @@ void RenderSystem::pre_step()
 
 void RenderSystem::update(EntityPtr entity)
 {
-	if(!HasCmpt(RenderComponent, entity))
+	if(!HasCmpt(RenderComponent, entity.lock()))
 		return;
     
-	GetCmpt(RenderComponent, render_com, entity);
+	GetCmpt(RenderComponent, render_com, entity.lock());
 	entities_to_draw[render_com->draw_layer].push_back(entity);
 }
 
@@ -29,41 +29,40 @@ void RenderSystem::post_step()
 		for(; entIt != it->second.end(); entIt++)
 		{
 			EntityPtr& entity = *entIt;
-			GetCmpt(RenderComponent, render_com, entity);
+			GetCmpt(RenderComponent, render_com, entity.lock());
+            GetCmpt(PositionComponent, position_com, entity.lock());
+            Vec2f entityPos = position_com->position;
 			
 			switch (render_com->draw_type)
 			{
 				case RenderComponent::DRAW_RECT:
 				{
-					GetCmpt(PositionComponent, position_com, entity);
-					GameEngine::renderer->draw_rect(position_com->position);
+					GameEngine::renderer->draw_rect(entityPos);
 				}
 				break;
 			
 				case RenderComponent::DRAW_SMALL_RECT:
 				{
-					GetCmpt(PositionComponent, position_com, entity);
-					GameEngine::renderer->draw_small_rect(position_com->position);
+					GameEngine::renderer->draw_small_rect(entityPos);
 				}
 					break;
 			
 				case RenderComponent::DRAW_TOWER:
 				{
-					GetCmpt(EnergyStorageComponent, enesto_com, entity);
-					GetCmpt(PositionComponent, position_com, entity);
-					GetCmpt(PlayerIdComponent, plIdCmpt, entity);
+					GetCmpt(EnergyStorageComponent, enesto_com, entity.lock());
+					GetCmpt(PlayerIdComponent, plIdCmpt, entity.lock());
 					
 					bool is_enemy = (plIdCmpt->player_id == GlobalData::PLAYER_ID_2);
 			
 					GameEngine::renderer->draw_tower(
-						position_com->position, enesto_com->get_percentage(), is_enemy);
+						entityPos, enesto_com->get_percentage(), is_enemy);
 			
-					GetCmpt(NodeComponent, node_com, entity);
+					GetCmpt(NodeComponent, node_com, entity.lock());
 					EntityIt it = node_com->children.begin();
 					while (it != node_com->children.end())
 					{
 						//@todo: not optimizable, create ref to cmpt every step!
-						GetCmpt(PositionComponent, pos_com, (it->get()));
+						GetCmpt(PositionComponent, pos_com, (it->lock()));
 						GameEngine::renderer->draw_line(position_com->position, pos_com->position);
 						it++;
 					}
@@ -73,15 +72,13 @@ void RenderSystem::post_step()
 				case RenderComponent::DRAW_CIRCLE:
 				{
 					// @todo: get rad from it and use!
-					GetCmpt(PositionComponent, pos_com, entity);
-					GameEngine::renderer->draw_circle(pos_com->position);
+					GameEngine::renderer->draw_circle(entityPos);
 				}
 				break;
 					
 				case RenderComponent::DRAW_TRINAGE:
 				{
-					GetCmpt(PositionComponent, pos_com, entity);
-					GetCmpt(MovementComponent, mov_com, entity);
+					GetCmpt(MovementComponent, mov_com, entity.lock());
 					
 					//@todo: remove this strange angle calculation!
 					float angleRad = atanf(mov_com->speed.y / mov_com->speed.x);
@@ -96,14 +93,13 @@ void RenderSystem::post_step()
 					
 					//@todo: fix, tan cannot show right quater!
 					
-					GameEngine::renderer->DrawTriangle(pos_com->position, angle);
+					GameEngine::renderer->DrawTriangle(entityPos, angle);
 				}
 				break;
 					
 				case RenderComponent::DRAW_POLYGON:
 				{
-					GetCmpt(PositionComponent, pos_com, entity);
-					GameEngine::renderer->DrawPolygon(pos_com->position, render_com->mesh_id);
+					GameEngine::renderer->DrawPolygon(entityPos, render_com->mesh_id);
 				}
 				break;
 			

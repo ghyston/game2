@@ -22,7 +22,7 @@ void EntityContainerMap::removeEntityFromCell(float pos_x, float pos_y, EntityPt
 	
 	for(EntityIt it = entities.begin();	it != entities.end(); it++)
 	{
-		if(it->get() != entity.get())
+		if(it->lock().get() != entity.lock().get())
 			continue;
 		
 		entities.erase(it);

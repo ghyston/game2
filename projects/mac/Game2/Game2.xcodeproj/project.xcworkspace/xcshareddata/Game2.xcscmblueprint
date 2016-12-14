@@ -10,7 +10,7 @@
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "0BA5FD17-5771-4E85-8753-25D7654D9BA7",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "F91D28A7E95E8F0399C74826E40B332B63E48E1C" : "glfw\/",
-    "77A1EBA7623A5EB38947FD1A06B5C1DA2E8C6ECB" : "game2_github\/"
+    "77A1EBA7623A5EB38947FD1A06B5C1DA2E8C6ECB" : "game2\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "Game2",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,

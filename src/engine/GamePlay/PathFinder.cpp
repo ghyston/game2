@@ -263,7 +263,7 @@ bool PathFinder::IsCellClear(Vec2i coords, int size/* = 1*/)
 				for(EntityIt itEx = excluded.begin();
 					itEx != excluded.end() && !founded_on_excluded; itEx++)
 				{
-					founded_on_excluded = (it->get() == itEx->get());
+					founded_on_excluded = (it->lock().get() == itEx->lock().get());
 				}
 				result &= founded_on_excluded;
 			}

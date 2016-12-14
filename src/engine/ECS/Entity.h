@@ -74,6 +74,9 @@ private:
 	
 	// New entities should be created throw create();
 	Entity();
+    
+    Entity(const Entity &) = delete;
+    const Entity &operator =(const Entity &) = delete;
 		
 	// Entity components.
 	std::map<size_t, IComponent*> components;

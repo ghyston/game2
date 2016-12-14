@@ -8,12 +8,12 @@ void MoveSystem::pre_step()
 void MoveSystem::update(EntityPtr entity)
 {
     if(
-       !HasCmpt(PositionComponent, entity) ||
-       !HasCmpt(MovementComponent, entity))
+       !HasCmpt(PositionComponent, entity.lock()) ||
+       !HasCmpt(MovementComponent, entity.lock()))
         return;
     
-	GetCmpt(PositionComponent, pos_com, entity);
-	GetCmpt(MovementComponent, move_com, entity);
+	GetCmpt(PositionComponent, pos_com, entity.lock());
+	GetCmpt(MovementComponent, move_com, entity.lock());
 	
 	float delta = Timer::get_delta();
 	
@@ -32,7 +32,7 @@ void MoveSystem::post_step()
 	
 	for(EntityIt it = moved_entities.begin(); it != moved_entities.end(); it++)
 	{
-		GetCmpt(PositionComponent, pos_com, (*it));
+		GetCmpt(PositionComponent, pos_com, (it->lock()));
 		GameEngine::get_data()->logic.getMap()->RepositionEntityToCorrectCell
 			(*it, pos_com->old_position, pos_com->position);
 	}

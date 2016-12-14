@@ -1,0 +1,23 @@
+dependencies: \
+  /Users/hyston/Projects/game2/src/engine/GamePlay/Systems/PathMoveSystem.cpp \
+  /Users/hyston/Projects/game2/src/engine/GamePlay/Systems/PathMoveSystem.h \
+  /Users/hyston/Projects/game2/src/engine/GamePlay/Systems/../../ECS/BaseSystem.h \
+  /Users/hyston/Projects/game2/src/engine/GamePlay/Systems/../../ECS/Entity.h \
+  /Users/hyston/Projects/game2/src/engine/GamePlay/Systems/../../ECS/../Common/Obj.h \
+  /Users/hyston/Projects/game2/src/engine/GamePlay/Systems/../../ECS/BaseComponent.h \
+  /Users/hyston/Projects/game2/src/engine/GamePlay/Systems/../../ECS/../GamePlay/Components.h \
+  /Users/hyston/Projects/game2/src/engine/GamePlay/Systems/../../ECS/../GamePlay/Components/MovementComponent.h \
+  /Users/hyston/Projects/game2/src/engine/GamePlay/Systems/../../ECS/../GamePlay/Components/../../Common/Vector2f.h \
+  /Users/hyston/Projects/game2/src/engine/GamePlay/Systems/../../ECS/../GamePlay/Components/PositionComponent.h \
+  /Users/hyston/Projects/game2/src/engine/GamePlay/Systems/../../ECS/../GamePlay/Components/RenderComponent.h \
+  /Users/hyston/Projects/game2/src/engine/GamePlay/Systems/../../ECS/../GamePlay/Components/ConnectorComponent.h \
+  /Users/hyston/Projects/game2/src/engine/GamePlay/Systems/../../ECS/../GamePlay/Components/../../ECS/Types.h \
+  /Users/hyston/Projects/game2/src/engine/GamePlay/Systems/../../ECS/../Common/ShrPtr.h \
+  /Users/hyston/Projects/game2/src/engine/GamePlay/Systems/../../ECS/../GamePlay/Components/TargetComponent.h \
+  /Users/hyston/Projects/game2/src/engine/GamePlay/Systems/../../ECS/../GamePlay/Components/EnergyStorageComponent.h \
+  /Users/hyston/Projects/game2/src/engine/GamePlay/Systems/../../ECS/../GamePlay/Components/NodeComponent.h \
+  /Users/hyston/Projects/game2/src/engine/GamePlay/Systems/../../ECS/../GamePlay/Components/EnergyGeneratorComponent.h \
+  /Users/hyston/Projects/game2/src/engine/GamePlay/Systems/../../ECS/../GamePlay/Components/TouchableComponent.h \
+  /Users/hyston/Projects/game2/src/engine/GamePlay/Systems/../../ECS/../GamePlay/Components/PlayerIdComponent.h \
+  /Users/hyston/Projects/game2/src/engine/GamePlay/Systems/../../ECS/../GamePlay/Components/PathFindComponent.h \
+  /Users/hyston/Projects/game2/src/engine/GamePlay/Systems/../../ECS/../GamePlay/Components/AiComponent.h

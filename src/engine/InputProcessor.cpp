@@ -58,15 +58,15 @@ void InputProcessor::process_touch(int type, float screen_x, float screen_y)
 		
 		// if gui is not activated, find scene object
 		EntityPtr temp = find_entity(world_coords);
-		if(temp.is_set())
+		if(!temp.expired())
 		{
-			GetCmpt(PlayerIdComponent, plr_it_cmpt, temp);
+			GetCmpt(PlayerIdComponent, plr_it_cmpt, temp.lock());
 			if(plr_it_cmpt->player_id != GlobalData::PLAYER_ID_1)
 				return;
 			
 			touched_entity = temp;
 			press_coords = world_coords;
-			GetCmpt(PositionComponent, pos_com, touched_entity);
+			GetCmpt(PositionComponent, pos_com, touched_entity.lock());
 			old_entity_coords = pos_com->position;
 			return;
 		}
@@ -78,11 +78,11 @@ void InputProcessor::process_touch(int type, float screen_x, float screen_y)
 	
 	if(type == TouchTypes::RELEASE)
 	{
-		if (touched_entity.is_set())
+		if (!touched_entity.expired())
 		{
 			GameEngine::get_renderer()->showBorderRing = false;
 			
-			GetCmpt(PositionComponent, pos_com, touched_entity);
+			GetCmpt(PositionComponent, pos_com, touched_entity.lock());
 			Vec2f distVec = world_coords - pos_com->position;
 			float dist = distVec.length();
 			if(dist > GameConst::TOWER_MAX_DIST)
@@ -95,10 +95,10 @@ void InputProcessor::process_touch(int type, float screen_x, float screen_y)
 				// tower at another player.
 			
 				EntityPtr tower_at_release = find_entity(new_tower_coords);
-				if(tower_at_release.is_set())
+				if(!tower_at_release.expired())
 				{
-					GetCmpt(PlayerIdComponent, dist_plr_id_cmpt, tower_at_release);
-					GetCmpt(PlayerIdComponent, from_plr_id_cmpt, touched_entity);
+					GetCmpt(PlayerIdComponent, dist_plr_id_cmpt, tower_at_release.lock());
+					GetCmpt(PlayerIdComponent, from_plr_id_cmpt, touched_entity.lock());
 					if(dist_plr_id_cmpt->player_id != from_plr_id_cmpt->player_id)
 					{
 						GameEngine::global_data->logic.tower_attack(
@@ -107,7 +107,7 @@ void InputProcessor::process_touch(int type, float screen_x, float screen_y)
 				}
 				else
 				{
-					GetCmpt(EnergyStorageComponent, enesto_cmpt, touched_entity);
+					GetCmpt(EnergyStorageComponent, enesto_cmpt, touched_entity.lock());
 					
 			
 					if(enesto_cmpt->value > GameConst::MIN_ENERGY_TO_ACTION &&
@@ -128,20 +128,20 @@ void InputProcessor::process_touch(int type, float screen_x, float screen_y)
 			EntityPtr unit =
 			GameEngine::get_data()->logic.getMap()->getFirstEntityHasCmp<PathFindComponent>();
 			
-			if(unit.is_set())
+			if(!unit.expired())
 			{
 				//if unit has already path, clear it
-				GetCmpt(PathFindComponent, path_com, unit);
+				GetCmpt(PathFindComponent, path_com, unit.lock());
 
 				for(EntityIt path_it = path_com->path.begin(); path_it != path_com->path.end(); path_it++)
 				{
-					(*path_it)->mark_deleted();
+                    path_it->lock()->mark_deleted();
 				}
 				path_com->path.clear();
 				
 				// calc new path
 				std::vector<Vec2f> wayp_coords;
-				GetCmpt(PositionComponent, pos_com, unit);
+				GetCmpt(PositionComponent, pos_com, unit.lock());
 				if(GameEngine::global_data->logic.CalcPath4Unit(
 					pos_com->position, world_coords, wayp_coords))
 				{
@@ -159,7 +159,7 @@ void InputProcessor::process_touch(int type, float screen_x, float screen_y)
 		// and again, check gui, than pressed scene object.
 		// if nothig, do nothing
 		press_coords = Vec2f(0.0f); //@todo: not a good type of clear vec!
-		touched_entity = NULL;
+		touched_entity.reset();
 		old_entity_coords = Vec2f(0.0f);
 		new_entity_created = false;
 		GameEngine::global_data->cursor.Hide();
@@ -168,14 +168,14 @@ void InputProcessor::process_touch(int type, float screen_x, float screen_y)
 	if(type == TouchTypes::MOVE)
 	{
 		//if we get deal with entities
-		if (touched_entity.is_set())
+		if (!touched_entity.expired())
 		{
 			Vec2f diff = world_coords - press_coords;
 			float diff_len = diff.length();
 			// distance is big enough to create tower
 			if(diff_len > GameConst::TOWER_MIN_DIST)
 			{
-				GetCmpt(PositionComponent, pos_com, touched_entity);
+				GetCmpt(PositionComponent, pos_com, touched_entity.lock());
 				GameEngine::get_renderer()->border_ring_coords = pos_com->position;
 				GameEngine::get_renderer()->showBorderRing = true;
 				
@@ -211,10 +211,10 @@ EntityPtr InputProcessor::find_entity(Vec2f world_coords)
 	EntityPtr result;
 	EntityPtr entity = GameEngine::global_data->logic.getMap()->findClosestEntityHasCmp<TouchableComponent>(world_coords);
 	
-	if(entity.is_set())
+	if(!entity.expired())
 	{
-		GetCmpt(TouchableComponent, touch_com, entity);
-		GetCmpt(PositionComponent, pos_com, entity);
+		GetCmpt(TouchableComponent, touch_com, entity.lock());
+		GetCmpt(PositionComponent, pos_com, entity.lock());
 		
 		Vec2f left_bottom = pos_com->position - Vec2f(touch_com->touch_size);
 		Vec2f right_top = pos_com->position + Vec2f(touch_com->touch_size);

@@ -15,11 +15,11 @@
 
 void EnergyGeneratorSystem::update(EntityPtr entity)
 {
-	if(!HasCmpt(EnergyGeneratorComponent, entity))
+	if(!HasCmpt(EnergyGeneratorComponent, entity.lock()))
 		return;
 	
-	GetCmpt(EnergyGeneratorComponent, en_gen_cmpt, entity);
-	GetCmpt(PositionComponent, pos_cmpt, entity);
+	GetCmpt(EnergyGeneratorComponent, en_gen_cmpt, entity.lock());
+	GetCmpt(PositionComponent, pos_cmpt, entity.lock());
 	
 	RemoveDeletedObjectsFromContainer(en_gen_cmpt->towers);
 	if(en_gen_cmpt->towers.size() == 0)
@@ -34,7 +34,7 @@ void EnergyGeneratorSystem::update(EntityPtr entity)
 		coords += pos_cmpt->position;
 		
 		GameEngine::global_data->logic.add_energy(
-			EntityFabric::create_energy(coords), entity.get());
+			EntityFabric::create_energy(coords), entity);
 	}
 	
 }

@@ -14,11 +14,11 @@ int EnergyBalanceSystem::average_energy = 0;
 
 void EnergyBalanceSystem::update(EntityPtr entity)
 {
-	if(!HasCmpt(EnergyStorageComponent, entity))
+	if(!HasCmpt(EnergyStorageComponent, entity.lock()))
 		return;
 	
 	//@todo: this statistics is useless. Delete it
-	GetCmpt(EnergyStorageComponent, enesto, entity);
+	GetCmpt(EnergyStorageComponent, enesto, entity.lock());
 	count_storage++;
 	sum_energy += enesto->value;
 	
@@ -37,8 +37,8 @@ void EnergyBalanceSystem::pre_step()
 	EntityPtr base_1 = GameEngine::global_data->base_tower_player_1;
 	EntityPtr base_2 = GameEngine::global_data->base_tower_player_2;
 	
-	if(base_1.is_set())	process_base_tower(base_1);
-	if(base_2.is_set())	process_base_tower(base_2);
+	if(!base_1.expired())	process_base_tower(base_1);
+	if(!base_2.expired())	process_base_tower(base_2);
 }
 
 void EnergyBalanceSystem::process_base_tower(EntityPtr base)
@@ -46,7 +46,7 @@ void EnergyBalanceSystem::process_base_tower(EntityPtr base)
 	calc_energy(base);
 	
 	//Sometimes we need to feed base towers.
-	GetCmpt(EnergyStorageComponent, enesto_cmpt, base);
+	GetCmpt(EnergyStorageComponent, enesto_cmpt, base.lock());
 	
 	last_time_feeded += Timer::get_delta();
 	if(last_time_feeded > 2.0) //Every 2 seconds add 10 energy to base towers
@@ -58,13 +58,13 @@ void EnergyBalanceSystem::process_base_tower(EntityPtr base)
 
 float EnergyBalanceSystem::calc_energy(EntityPtr tower)
 {
-	if(!tower.is_set() ||
-	   !HasCmpt(EnergyStorageComponent, tower) ||
-	   !HasCmpt(NodeComponent, tower))
+	if(tower.expired() ||
+	   !HasCmpt(EnergyStorageComponent, tower.lock()) ||
+	   !HasCmpt(NodeComponent, tower.lock()))
 		return 0.0f;
 	
-	GetCmpt(EnergyStorageComponent, enesto, tower);
-	GetCmpt(NodeComponent, node_com, tower);
+	GetCmpt(EnergyStorageComponent, enesto, tower.lock());
+	GetCmpt(NodeComponent, node_com, tower.lock());
 	
 	float result = enesto->get_percentage();
 	

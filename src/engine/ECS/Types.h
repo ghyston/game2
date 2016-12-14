@@ -19,6 +19,14 @@ using namespace std;
 class Entity;
 
 typedef weak_ptr<Entity> EntityPtr;
+
+/*struct EntityPtr : weak_ptr<Entity>
+{
+    EntityPtr() = default;
+    
+    shared_ptr<Entity> operator->() { return this->lock(); } //@todo: what ?!
+};*/
+
 typedef list<EntityPtr> Entities;
 typedef Entities::iterator EntityIt;
 

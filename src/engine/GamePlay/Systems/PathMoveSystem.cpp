@@ -12,25 +12,25 @@
 void PathMoveSystem::update(EntityPtr entity)
 {
 	// @todo: some of this logic can be passed to component functions!
-	if(!HasCmpt(PathFindComponent, entity))
+	if(!HasCmpt(PathFindComponent, entity.lock()))
 		return;
 	
-	GetCmpt(PathFindComponent, path_com, entity);
-	GetCmpt(PositionComponent, pos_com, entity);
-	GetCmpt(MovementComponent, mov_com, entity);
+	GetCmpt(PathFindComponent, path_com, entity.lock());
+	GetCmpt(PositionComponent, pos_com, entity.lock());
+	GetCmpt(MovementComponent, mov_com, entity.lock());
 	
 	if(path_com->path.empty())
 		return;
 	
 	EntityPtr next_waypoint = path_com->path.front();
-	GetCmpt(PositionComponent, wp_pos_com, next_waypoint);
+	GetCmpt(PositionComponent, wp_pos_com, next_waypoint.lock());
 	
 	Vec2f between = wp_pos_com->position - pos_com->position;
 	float dist = between.length();
 	if(dist <= 0.01f) // remove target
 	{
 		mov_com->speed = Vec2f(0.0f, 0.0f);
-		next_waypoint->mark_deleted();
+		next_waypoint.lock()->mark_deleted();
 		path_com->path.pop_front();
 	}
 	else //Keep moving

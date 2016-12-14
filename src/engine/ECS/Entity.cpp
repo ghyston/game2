@@ -2,12 +2,12 @@
 
 EntityPtr Entity::create()
 {
-	std::shared_ptr<Entity> entity = std::make_shared<Entity>();
+    std::shared_ptr<Entity> entity (new Entity());
 	entity->_self = entity;
 	
 	//Entity * entity = new Entity();
 	//entity->_self = make_ entity;
-	return entity;
+	return EntityPtr(entity);
 }
 
 Entity::Entity()
