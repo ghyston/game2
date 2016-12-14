@@ -8,7 +8,6 @@ EntityPtr EntityFabric::get_tower(EntityPtr parent, Vec2f coords)
 	
 	EntityPtr tower = Entity::create();
     shared_ptr<Entity> spTower = tower.lock();
-	spTower->type = Entity::Types::TOWER;
 	
 	//setup pos component
 	PositionComponent * pos_com = new PositionComponent();
@@ -59,8 +58,7 @@ EntityPtr EntityFabric::get_connector(EntityPtr tower_1, EntityPtr tower_2)
 {
     EntityPtr connector = Entity::create();
     shared_ptr<Entity> spConn = connector.lock();
-	spConn->type = Entity::Types::CONNECT;
-    
+	
     ConnectorComponent * connector_com = new ConnectorComponent();
     connector_com->obj_1 = tower_1;
     connector_com->obj_2 = tower_2;
@@ -79,8 +77,7 @@ EntityPtr EntityFabric::create_energy(Vec2f coords)
 {
 	EntityPtr energy = Entity::create();
     shared_ptr<Entity> spEnergy = energy.lock();
-	spEnergy->type = Entity::Types::ENERGY;
-	
+		
 	PositionComponent * pos_com = new PositionComponent();
 	pos_com->position = coords;
 	spEnergy->add_component<PositionComponent>(pos_com);

@@ -24,19 +24,6 @@ class Entity/* : public Obj*/
 {
 public:
 	
-	// @todo: move to EntityFabric!
-	struct Types
-	{
-		enum Enum
-		{
-			TOWER,
-			ENERGY,
-			CONNECT
-		};
-	};
-	
-	Types::Enum type;
-	
 	static weak_ptr<Entity> create();
 	
 	template <class T>
