@@ -13,7 +13,7 @@
 #include "Obj.h"
 
 // My great implementation on std::shared_ptr from C++11.
-template <class T>
+/*template <class T>
 class ShrPtr
 {
 public:
@@ -91,6 +91,6 @@ private:
 		delete ptr;
 		ptr = NULL;
 	}
-};
+};*/
 
 #endif /* defined(__Game2__ShrPtr__) */

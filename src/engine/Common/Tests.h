@@ -22,7 +22,7 @@ void test_vectors();
 void test_shr_ptr();
 void test_math();
 
-class Test : public Obj
+class Test/* : public Obj*/
 {
 	
 public:
@@ -40,7 +40,7 @@ public:
 	long array[1000];
 };
 
-ShrPtr<Test> test_ptr_funk(ShrPtr<Test> teest);
+//ShrPtr<Test> test_ptr_funk(ShrPtr<Test> teest);
 
 
 #endif /* defined(__Game2__Tests__) */

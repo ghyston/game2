@@ -1,14 +1,23 @@
 #include "Entity.h"
 
-Entity * Entity::create()
+EntityPtr Entity::create()
 {
-	Entity * entity = new Entity();
+	std::shared_ptr<Entity> entity = std::make_shared<Entity>();
+	entity->_self = entity;
+	
+	//Entity * entity = new Entity();
+	//entity->_self = make_ entity;
 	return entity;
 }
 
 Entity::Entity()
 {
 	clear();
+}
+
+Entity::~Entity()
+{
+	printf("Entity d-tor");
 }
 
 void Entity::clear()
@@ -19,4 +28,9 @@ void Entity::clear()
 		delete it->second;
 	}
 	components.clear();
+}
+
+void Entity::mark_deleted()
+{
+	_self = nullptr;
 }

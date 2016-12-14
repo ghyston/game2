@@ -9,7 +9,7 @@
 #ifndef Game2_Obj_h
 #define Game2_Obj_h
 
-class Obj
+/*class Obj
 {
 public:
 	Obj() : ref_counter(0), deleted(false) {;}
@@ -25,7 +25,7 @@ public:
 private:
 	
 	bool deleted;
-};
+};*/
 
 
 #endif

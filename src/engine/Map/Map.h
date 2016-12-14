@@ -100,10 +100,10 @@ EntityPtr Map::findClosestEntityHasCmp(Vec2f coords)
 				Entities& ent = entity_map.getEntitiesFromCell(itX, itY);
 				for (EntityIt it = ent.begin(); it != ent.end(); it++)
 				{
-					if(!HasCmpt(T, (*it)))
+					if(!HasCmpt(T, (it->lock())))
 						continue;
 					
-					GetCmpt(PositionComponent, pos_com, (*it));
+					GetCmpt(PositionComponent, pos_com, (it->lock()));
 					float quad_dist = quad_distance(pos_com->position, coords);
 					closest_entities[quad_dist] = *it;
 				}
@@ -129,14 +129,20 @@ EntityPtr Map::getFirstEntityHasCmp()
 			Entities& ent = entity_map.getEntitiesFromCell(i, j);
 			for (EntityIt it = ent.begin(); it != ent.end(); it++)
 			{
-				if(!HasCmpt(T, (*it)))
+				//@todo: check this place, compiler gone crazy here
+				auto shPtr = it->lock();
+				bool hasCmp = HasCmpt(T, shPtr);
+				if(!hasCmp)
 					continue;
+				//if(!HasCmpt(T, shPtr))
+				//	continue;
 				
 				return (*it);
 			}
 		}
 	}
-	return EntityPtr(NULL);
+	
+	return nullptr;//EntityPtr();
 }
 
 

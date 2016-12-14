@@ -11,13 +11,16 @@
 #include <map>
 #include <vector>
 #include <typeinfo>
-#include "../Common/Obj.h"
+//#include "../Common/Obj.h"
 #include "BaseComponent.h"
+#include "Types.h"
+
+using namespace std;
 
 #define GetCmpt(type,name,entity) type* name = entity->get_component<type>();
 #define HasCmpt(type,entity) entity->has_component<type>()
 
-class Entity : public Obj
+class Entity/* : public Obj*/
 {
 public:
 	
@@ -34,7 +37,7 @@ public:
 	
 	Types::Enum type;
 	
-	static Entity * create();
+	static weak_ptr<Entity> create();
 	
 	template <class T>
 	void add_component(T* component)
@@ -63,6 +66,10 @@ public:
 	
 	void clear();
 	
+	void mark_deleted();
+	
+	virtual ~Entity();
+	
 private:
 	
 	// New entities should be created throw create();
@@ -70,6 +77,8 @@ private:
 		
 	// Entity components.
 	std::map<size_t, IComponent*> components;
+	
+	std::shared_ptr<Entity> _self; //dump way to keep counter. @todo: change it
 	
 };
 

@@ -20,13 +20,13 @@ void test_vectors()
 	//test_1 = test_2 - test_3;
 }
 
-ShrPtr<Test> test_ptr_funk(ShrPtr<Test> teest)
+/*ShrPtr<Test> test_ptr_funk(ShrPtr<Test> teest)
 {
 	ShrPtr<Test> temp = teest;
 	return temp;
-}
+}*/
 
-void test_shr_ptr()
+/*void test_shr_ptr()
 {
 
 	std::list<ShrPtr<Test> > tests;
@@ -54,7 +54,7 @@ void test_shr_ptr()
 	RemoveDeletedObjectsFromContainer(tests);
 	//int test = 55;
 }
-
+*/
 void test_math()
 {
 	Vec2f a1, a2, b1, b2;

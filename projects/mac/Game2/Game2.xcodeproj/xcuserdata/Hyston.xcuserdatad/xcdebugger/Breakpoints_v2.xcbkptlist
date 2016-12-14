@@ -32,7 +32,7 @@
             startingLineNumber = "43"
             endingLineNumber = "43"
             landmarkName = "Game2Logic::CalcPath4Unit(Vec2f from, Vec2f to, std::vector&lt;Vec2f&gt;&amp; points)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -64,7 +64,7 @@
             startingLineNumber = "37"
             endingLineNumber = "37"
             landmarkName = "Game2Logic::CalcPath4Unit(Vec2f from, Vec2f to, std::vector&lt;Vec2f&gt;&amp; points)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -176,7 +176,7 @@
             startingLineNumber = "98"
             endingLineNumber = "98"
             landmarkName = "test_math()"
-            landmarkType = "7">
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -192,7 +192,7 @@
             startingLineNumber = "71"
             endingLineNumber = "71"
             landmarkName = "test_math()"
-            landmarkType = "7">
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -208,7 +208,7 @@
             startingLineNumber = "78"
             endingLineNumber = "78"
             landmarkName = "test_math()"
-            landmarkType = "7">
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -224,7 +224,7 @@
             startingLineNumber = "85"
             endingLineNumber = "85"
             landmarkName = "test_math()"
-            landmarkType = "7">
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -240,7 +240,7 @@
             startingLineNumber = "92"
             endingLineNumber = "92"
             landmarkName = "test_math()"
-            landmarkType = "7">
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -256,7 +256,7 @@
             startingLineNumber = "199"
             endingLineNumber = "199"
             landmarkName = "EntityFabric::BlockCellsByPolygon(Vec2f coords, const std::vector&lt;Vec2f&gt;&amp; points, EntityPtr polygon)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -272,7 +272,7 @@
             startingLineNumber = "181"
             endingLineNumber = "181"
             landmarkName = "EntityFabric::BlockCellsByPolygon(Vec2f coords, const std::vector&lt;Vec2f&gt;&amp; points, EntityPtr polygon)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -288,7 +288,7 @@
             startingLineNumber = "230"
             endingLineNumber = "230"
             landmarkName = "EntityFabric::BlockCellsByPolygon(Vec2f coords, const std::vector&lt;Vec2f&gt;&amp; points, EntityPtr polygon)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -304,7 +304,7 @@
             startingLineNumber = "237"
             endingLineNumber = "237"
             landmarkName = "EntityFabric::BlockCellsByPolygon(Vec2f coords, const std::vector&lt;Vec2f&gt;&amp; points, EntityPtr polygon)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -320,7 +320,7 @@
             startingLineNumber = "214"
             endingLineNumber = "214"
             landmarkName = "EntityFabric::BlockCellsByPolygon(Vec2f coords, const std::vector&lt;Vec2f&gt;&amp; points, EntityPtr polygon)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -336,7 +336,7 @@
             startingLineNumber = "242"
             endingLineNumber = "242"
             landmarkName = "EntityFabric::BlockCellsByPolygon(Vec2f coords, const std::vector&lt;Vec2f&gt;&amp; points, EntityPtr polygon)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -352,7 +352,7 @@
             startingLineNumber = "210"
             endingLineNumber = "210"
             landmarkName = "EntityFabric::BlockCellsByPolygon(Vec2f coords, const std::vector&lt;Vec2f&gt;&amp; points, EntityPtr polygon)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -368,7 +368,7 @@
             startingLineNumber = "231"
             endingLineNumber = "231"
             landmarkName = "EntityFabric::BlockCellsByPolygon(Vec2f coords, const std::vector&lt;Vec2f&gt;&amp; points, EntityPtr polygon)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -384,7 +384,7 @@
             startingLineNumber = "206"
             endingLineNumber = "206"
             landmarkName = "EntityFabric::BlockCellsByPolygon(Vec2f coords, const std::vector&lt;Vec2f&gt;&amp; points, EntityPtr polygon)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -416,7 +416,7 @@
             startingLineNumber = "142"
             endingLineNumber = "142"
             landmarkName = "Game2Logic::add_tower(EntityPtr tower)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -512,7 +512,7 @@
             startingLineNumber = "73"
             endingLineNumber = "73"
             landmarkName = "AISystem::post_step()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -528,7 +528,7 @@
             startingLineNumber = "30"
             endingLineNumber = "30"
             landmarkName = "AISystem::pre_step()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -588,7 +588,7 @@
             startingLineNumber = "103"
             endingLineNumber = "103"
             landmarkName = "AISystem::update(EntityPtr entity)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -620,7 +620,7 @@
             startingLineNumber = "147"
             endingLineNumber = "147"
             landmarkName = "AISystem::update(EntityPtr entity)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -636,7 +636,7 @@
             startingLineNumber = "130"
             endingLineNumber = "130"
             landmarkName = "AISystem::update(EntityPtr entity)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -652,7 +652,7 @@
             startingLineNumber = "91"
             endingLineNumber = "91"
             landmarkName = "AISystem::update(EntityPtr entity)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -730,7 +730,7 @@
             startingLineNumber = "72"
             endingLineNumber = "72"
             landmarkName = "AISystem::post_step()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -746,7 +746,7 @@
             startingLineNumber = "61"
             endingLineNumber = "61"
             landmarkName = "Game2Logic::CalcPath4Tower(Vec2f from, Vec2f to, std::vector&lt;Vec2f&gt;&amp; points, Entities towers)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -762,7 +762,7 @@
             startingLineNumber = "131"
             endingLineNumber = "131"
             landmarkName = "AISystem::update(EntityPtr entity)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -778,7 +778,7 @@
             startingLineNumber = "104"
             endingLineNumber = "104"
             landmarkName = "AISystem::update(EntityPtr entity)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -794,7 +794,7 @@
             startingLineNumber = "106"
             endingLineNumber = "106"
             landmarkName = "AISystem::update(EntityPtr entity)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -810,7 +810,7 @@
             startingLineNumber = "22"
             endingLineNumber = "22"
             landmarkName = "AISystem::pre_step()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -826,7 +826,7 @@
             startingLineNumber = "59"
             endingLineNumber = "59"
             landmarkName = "AISystem::post_step()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -874,7 +874,7 @@
             startingLineNumber = "231"
             endingLineNumber = "231"
             landmarkName = "Game2Logic::tower_attack(EntityPtr from, EntityPtr to)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -890,7 +890,7 @@
             startingLineNumber = "218"
             endingLineNumber = "218"
             landmarkName = "Game2Logic::tower_attack(EntityPtr from, EntityPtr to)"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -922,7 +922,7 @@
             startingLineNumber = "72"
             endingLineNumber = "72"
             landmarkName = "AISystem::post_step()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -954,7 +954,7 @@
             startingLineNumber = "85"
             endingLineNumber = "85"
             landmarkName = "AISystem::post_step()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -970,7 +970,7 @@
             startingLineNumber = "13"
             endingLineNumber = "13"
             landmarkName = "AISystem::pre_step()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -986,7 +986,7 @@
             startingLineNumber = "16"
             endingLineNumber = "16"
             landmarkName = "AISystem::pre_step()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

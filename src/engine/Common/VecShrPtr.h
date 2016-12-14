@@ -13,18 +13,21 @@
 #include <list>
 #include <iostream>
 #include "ShrPtr.h"
+#include <memory>
+
+using namespace std;
 
 /**
  * Erase from vector elements, that was marked as deleted. 
  * (ShrPtr->(Obj*)is_deleted)
  */
 template <class T>
-void RemoveDeletedObjectsFromContainer(std::list<ShrPtr<T> >& vec)
+void RemoveDeletedObjectsFromContainer(std::list<weak_ptr<T> >& vec)
 {
-	typename std::list<ShrPtr<T> >::iterator it = vec.begin();
+	auto it = vec.begin();
 	while (it != vec.end())
 	{
-		if (((Obj*)it->get())->is_deleted())
+		if (it->expired())
 		{
 			it = vec.erase(it);
 		}

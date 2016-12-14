@@ -160,7 +160,7 @@ void AISystem::update(EntityPtr entity)
 	else
 	if(state == ENEMY_ATTAKING)
 	{
-		if(enemy_tower->is_deleted())
+		if(enemy_tower.expired()) //@todo: is this necessary?
 		{
 			state = ENEMY_DEAD;
 			

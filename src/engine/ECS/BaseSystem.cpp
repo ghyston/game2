@@ -3,7 +3,7 @@
 
 void BaseSystem::process(EntityPtr entity)
 {
-	if(entity->is_deleted())
+	if(entity.expired())
 		return;
 	update(entity);
 }

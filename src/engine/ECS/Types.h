@@ -9,14 +9,17 @@
 #ifndef Game2_Types_h
 #define Game2_Types_h
 
-#include "../Common/ShrPtr.h"
+//#include "../Common/ShrPtr.h"
 #include "Entity.h"
 #include <list>
+#include <memory>
+
+using namespace std;
 
 class Entity;
 
-typedef ShrPtr<Entity> EntityPtr;
-typedef std::list<EntityPtr> Entities;
+typedef weak_ptr<Entity> EntityPtr;
+typedef list<EntityPtr> Entities;
 typedef Entities::iterator EntityIt;
 
 
