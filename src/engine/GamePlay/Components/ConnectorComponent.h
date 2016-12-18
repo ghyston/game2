@@ -13,7 +13,7 @@
 #include "../../ECS/BaseComponent.h"
 
 // This component we need to connect two entities (towers)
-class ConnectorComponent : public IComponent
+class ConnectorComponent : private IComponent
 {
 public:
 	

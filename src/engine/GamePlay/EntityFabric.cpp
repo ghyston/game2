@@ -10,28 +10,25 @@ EntityPtr EntityFabric::get_tower(EntityPtr parent, Vec2f coords)
     shared_ptr<Entity> spTower = tower.lock();
 	
 	//setup pos component
-	PositionComponent * pos_com = new PositionComponent();
-	pos_com->position = coords;	
-	spTower->add_component<PositionComponent>(pos_com);
+	PositionComponent * pos_com = spTower->add_component<PositionComponent>();
+	pos_com->position = coords;
 	
 	//setup render component
-	RenderComponent * render_com = new RenderComponent();
+	RenderComponent * render_com = spTower->add_component<RenderComponent>();
     render_com->draw_type = RenderComponent::DRAW_TOWER;
 	render_com->draw_layer = RenderComponent::THIRD_LAYER;
-	spTower->add_component<RenderComponent>(render_com);
 	
 	//setup move component
-	MovementComponent * move_com = new MovementComponent();
+	MovementComponent * move_com2 = new MovementComponent(); //@todo: check, should be error on compile!
+    MovementComponent * move_com = spTower->add_component<MovementComponent>();
 	move_com->speed = Vec2f(0.0f, 0.0f);
 	move_com->velocity = Vec2f(0.0f, 0.0f);
-	spTower->add_component<MovementComponent>(move_com);
 	
-	EnergyStorageComponent * es_com = new EnergyStorageComponent();
+	EnergyStorageComponent * es_com = spTower->add_component<EnergyStorageComponent>();
 	es_com->limit = 100;
 	es_com->value = 10;
-	spTower->add_component<EnergyStorageComponent>(es_com);
 	
-	NodeComponent * node_com = new NodeComponent();
+	NodeComponent * node_com = spTower->add_component<NodeComponent>();
 	node_com->parent = parent;
 	
 	if(!parent.expired())
@@ -39,17 +36,12 @@ EntityPtr EntityFabric::get_tower(EntityPtr parent, Vec2f coords)
 		GetCmpt(NodeComponent, parent_node_com, parent.lock());
 		parent_node_com->children.push_back(tower);
 	}
-	spTower->add_component<NodeComponent>(node_com);
 	
-	TouchableComponent * touch_com = new TouchableComponent();
+	TouchableComponent * touch_com = spTower->add_component<TouchableComponent>();
 	touch_com->touch_size = GameConst::TOWER_TOUCH_SIZE;
-	spTower->add_component<TouchableComponent>(touch_com);
 	
-	PlayerIdComponent * plr_id_cmpt = new PlayerIdComponent();
-	spTower->add_component<PlayerIdComponent>(plr_id_cmpt);
-	
-	AiComponent * ai_com = new AiComponent();
-	spTower->add_component<AiComponent>(ai_com);
+	spTower->add_component<PlayerIdComponent>();
+	spTower->add_component<AiComponent>();
 	
 	return tower;
 }
@@ -59,16 +51,13 @@ EntityPtr EntityFabric::get_connector(EntityPtr tower_1, EntityPtr tower_2)
     EntityPtr connector = Entity::create();
     shared_ptr<Entity> spConn = connector.lock();
 	
-    ConnectorComponent * connector_com = new ConnectorComponent();
+    ConnectorComponent * connector_com = spConn->add_component<ConnectorComponent>();
     connector_com->obj_1 = tower_1;
     connector_com->obj_2 = tower_2;
-	
-    spConn->add_component<ConnectorComponent>(connector_com);
     
-    RenderComponent * render_com = new RenderComponent();
+    RenderComponent * render_com = spConn->add_component<RenderComponent>();
     render_com->draw_type = RenderComponent::DRAW_LINE;
 	render_com->draw_layer = RenderComponent::SECOND_LAYER;
-	spConn->add_component<RenderComponent>(render_com);
     
     return connector;
 }
@@ -78,25 +67,21 @@ EntityPtr EntityFabric::create_energy(Vec2f coords)
 	EntityPtr energy = Entity::create();
     shared_ptr<Entity> spEnergy = energy.lock();
 		
-	PositionComponent * pos_com = new PositionComponent();
+	PositionComponent * pos_com = spEnergy->add_component<PositionComponent>();
 	pos_com->position = coords;
-	spEnergy->add_component<PositionComponent>(pos_com);
 	
 	//setup render component
-	RenderComponent * render_com = new RenderComponent();
+	RenderComponent * render_com = spEnergy->add_component<RenderComponent>();
     render_com->draw_type = RenderComponent::DRAW_SMALL_RECT;
 	render_com->draw_layer = RenderComponent::THIRD_LAYER;
-	spEnergy->add_component<RenderComponent>(render_com);
 	
 	//setup move component
-	MovementComponent * move_com = new MovementComponent();
+	MovementComponent * move_com = spEnergy->add_component<MovementComponent>();
 	move_com->speed = Vec2f(0.0f, -0.1f);
 	move_com->velocity = Vec2f(0.0f, 0.0f);
-	spEnergy->add_component<MovementComponent>(move_com);
 	
 	//add target component
-	TargetComponent * target_com = new TargetComponent();
-	spEnergy->add_component<TargetComponent>(target_com);
+	spEnergy->add_component<TargetComponent>();
 	
 	return energy;
 }
@@ -106,19 +91,16 @@ EntityPtr EntityFabric::create_energy_generator(Vec2f coords, float rad, float i
 	EntityPtr generator = Entity::create();
     shared_ptr<Entity> spGen = generator.lock();
     
-	PositionComponent * pos_com = new PositionComponent();
+	PositionComponent * pos_com = spGen->add_component<PositionComponent>();
 	pos_com->position = coords;
-	spGen->add_component<PositionComponent>(pos_com);
 	
-	EnergyGeneratorComponent * en_gen_com = new EnergyGeneratorComponent();
+	EnergyGeneratorComponent * en_gen_com = spGen->add_component<EnergyGeneratorComponent>();
 	en_gen_com->radius = rad;
 	en_gen_com->intensivity = intensivity;
-	spGen->add_component<EnergyGeneratorComponent>(en_gen_com);
 	
-	RenderComponent * render_com = new RenderComponent();
+	RenderComponent * render_com = spGen->add_component<RenderComponent>();
     render_com->draw_type = RenderComponent::DRAW_CIRCLE;
 	render_com->draw_layer = RenderComponent::FIRST_LAYER;
-	spGen->add_component<RenderComponent>(render_com);
 	
 	return generator;
 }
@@ -128,15 +110,13 @@ EntityPtr EntityFabric::CreateWaypoint(Vec2f coords)
 	EntityPtr waypoint = Entity::create();
     shared_ptr<Entity> spWaypoint = waypoint.lock();
     
-	PositionComponent * pos_com = new PositionComponent();
+	PositionComponent * pos_com = spWaypoint->add_component<PositionComponent>();
 	pos_com->position = coords;
-	spWaypoint->add_component<PositionComponent>(pos_com);
 	
 	//@todo: this is just for debug!
-	RenderComponent * render_com = new RenderComponent();
+	RenderComponent * render_com = spWaypoint->add_component<RenderComponent>();
     render_com->draw_type = RenderComponent::DRAW_SMALL_RECT;
 	render_com->draw_layer = RenderComponent::THIRD_LAYER;
-	spWaypoint->add_component<RenderComponent>(render_com);
 	
 	return waypoint;
 }
@@ -146,23 +126,19 @@ EntityPtr EntityFabric::CreateUnit(Vec2f coords)
 	EntityPtr unit = Entity::create();
     shared_ptr<Entity> spUnit = unit.lock();
 	
-	PositionComponent * pos_com = new PositionComponent();
+	PositionComponent * pos_com = spUnit->add_component<PositionComponent>();
 	pos_com->position = coords;
-	spUnit->add_component<PositionComponent>(pos_com);
 	
-	RenderComponent * render_com = new RenderComponent();
+	RenderComponent * render_com = spUnit->add_component<RenderComponent>();
     render_com->draw_type = RenderComponent::DRAW_TRINAGE;
 	render_com->draw_layer = RenderComponent::THIRD_LAYER;
-	spUnit->add_component<RenderComponent>(render_com);
 	
 	//setup move component
-	MovementComponent * move_com = new MovementComponent();
+	MovementComponent * move_com = spUnit->add_component<MovementComponent>();
 	move_com->speed = Vec2f(0.0f, 0.0f);
 	move_com->velocity = Vec2f(0.0f, 0.0f);
-	spUnit->add_component<MovementComponent>(move_com);
 	
-	PathFindComponent * path_com = new PathFindComponent();
-	spUnit->add_component(path_com);
+	spUnit->add_component<PathFindComponent>();
 
 	return unit;
 }
@@ -257,15 +233,13 @@ EntityPtr EntityFabric::CreateHindernis(Vec2f coords, std::vector<Vec2f> points)
 	
 	int mesh_id = GameEngine::get_renderer()->SetupPolygon(points);
 	
-	PositionComponent * pos_com = new PositionComponent();
+	PositionComponent * pos_com = spObstacle->add_component<PositionComponent>();
 	pos_com->position = coords;
-	spObstacle->add_component<PositionComponent>(pos_com);
 	
-	RenderComponent * render_com = new RenderComponent();
+	RenderComponent * render_com = spObstacle->add_component<RenderComponent>();
     render_com->draw_type = RenderComponent::DRAW_POLYGON;
 	render_com->draw_layer = RenderComponent::THIRD_LAYER;
 	render_com->mesh_id = mesh_id;
-	spObstacle->add_component<RenderComponent>(render_com);
 	
 	BlockCellsByPolygon(coords, points, hindernis);
 	

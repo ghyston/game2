@@ -27,9 +27,11 @@ public:
 	static weak_ptr<Entity> create();
 	
 	template <class T>
-	void add_component(T* component)
+	T * add_component()
 	{
-		components[IComponent::GetType<T>()] = (IComponent*)component;
+        T * cmp = new T();
+		components[IComponent::GetType<T>()] = (IComponent*)cmp;
+        return cmp;
 	}
 	
 	template <typename T>

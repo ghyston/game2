@@ -11,7 +11,7 @@
 #include "../../Common/Vector2f.h"
 #include "../../ECS/BaseComponent.h"
 
-class MovementComponent : public IComponent
+class MovementComponent : private IComponent
 {
 public:
 	
@@ -20,7 +20,7 @@ public:
 	Vec2f speed;
 	
 	Vec2f velocity;
-	
+    
 };
 
 #endif	/* __MOVEMENTCOMPONENT_H__ */
