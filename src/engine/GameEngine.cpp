@@ -79,7 +79,7 @@ void GameEngine::step()
 	{
         int textureWidth = 0;
         int textureHeight = 0;
-		texture = TextureHelper::png_texture_load("/Users/Hyston/projects/game2_github/resourses/biohazard.png", &textureWidth, &textureHeight);
+		texture = TextureHelper::png_texture_load("/Users/hyston/Projects/MyGames/game2/resourses/biohazard.png", &textureWidth, &textureHeight);
 	}
 	
 	
