@@ -10,6 +10,10 @@
 		3F01CA2018315B34004DCCE5 /* EnergyCreatorSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F01CA1E18315B34004DCCE5 /* EnergyCreatorSystem.cpp */; };
 		3F01CA2118315B34004DCCE5 /* EnergyCreatorSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F01CA1F18315B34004DCCE5 /* EnergyCreatorSystem.h */; };
 		3F01CA2318315BB6004DCCE5 /* EnergyGeneratorComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F01CA2218315BB6004DCCE5 /* EnergyGeneratorComponent.h */; };
+		3F01E8671E111E1B00246E34 /* MemPool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F01E8651E111E1B00246E34 /* MemPool.cpp */; };
+		3F01E8681E111E1B00246E34 /* MemPool.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 3F01E8661E111E1B00246E34 /* MemPool.hpp */; };
+		3F01E86C1E1123C400246E34 /* MemPoolTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F01E86A1E1123C400246E34 /* MemPoolTest.cpp */; };
+		3F01E86D1E1123C400246E34 /* MemPoolTest.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 3F01E86B1E1123C400246E34 /* MemPoolTest.hpp */; };
 		3F0FE526184FBF71000F7C6E /* ShrPtr.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F0FE525184FBF71000F7C6E /* ShrPtr.h */; };
 		3F0FE52A184FC019000F7C6E /* VecShrPtr.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F0FE528184FC019000F7C6E /* VecShrPtr.h */; };
 		3F20BB60184229C30051003D /* AISystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F20BB5E184229C30051003D /* AISystem.cpp */; };
@@ -148,6 +152,10 @@
 		3F01CA1E18315B34004DCCE5 /* EnergyCreatorSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnergyCreatorSystem.cpp; sourceTree = "<group>"; };
 		3F01CA1F18315B34004DCCE5 /* EnergyCreatorSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnergyCreatorSystem.h; sourceTree = "<group>"; };
 		3F01CA2218315BB6004DCCE5 /* EnergyGeneratorComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnergyGeneratorComponent.h; sourceTree = "<group>"; };
+		3F01E8651E111E1B00246E34 /* MemPool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemPool.cpp; sourceTree = "<group>"; };
+		3F01E8661E111E1B00246E34 /* MemPool.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MemPool.hpp; sourceTree = "<group>"; };
+		3F01E86A1E1123C400246E34 /* MemPoolTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemPoolTest.cpp; sourceTree = "<group>"; };
+		3F01E86B1E1123C400246E34 /* MemPoolTest.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MemPoolTest.hpp; sourceTree = "<group>"; };
 		3F0FE525184FBF71000F7C6E /* ShrPtr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShrPtr.h; sourceTree = "<group>"; };
 		3F0FE528184FC019000F7C6E /* VecShrPtr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VecShrPtr.h; sourceTree = "<group>"; };
 		3F20BB5E184229C30051003D /* AISystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AISystem.cpp; sourceTree = "<group>"; };
@@ -323,6 +331,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F01E8641E111E0200246E34 /* memory */ = {
+			isa = PBXGroup;
+			children = (
+				3F01E8651E111E1B00246E34 /* MemPool.cpp */,
+				3F01E8661E111E1B00246E34 /* MemPool.hpp */,
+			);
+			name = memory;
+			sourceTree = "<group>";
+		};
+		3F01E8691E1123AD00246E34 /* tests */ = {
+			isa = PBXGroup;
+			children = (
+				3F01E86A1E1123C400246E34 /* MemPoolTest.cpp */,
+				3F01E86B1E1123C400246E34 /* MemPoolTest.hpp */,
+			);
+			name = tests;
+			sourceTree = "<group>";
+		};
 		3F4353B71C19F68B005DCFDB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -408,6 +434,8 @@
 		3FDE0B2C17F70217000A7DE1 /* engine */ = {
 			isa = PBXGroup;
 			children = (
+				3F01E8691E1123AD00246E34 /* tests */,
+				3F01E8641E111E0200246E34 /* memory */,
 				3F9F4E8019278FD000D6900A /* Map */,
 				3FDE0B2D17F70217000A7DE1 /* Common */,
 				3FDE0B3417F70217000A7DE1 /* ECS */,
@@ -608,6 +636,7 @@
 				3FF5284E1A648D7C0072D710 /* TextRenderer.h in Headers */,
 				3FDD2A29194301C300B9E253 /* PolygonRenderable.h in Headers */,
 				3FB80C1D18C50169009086BF /* GlInclude.h in Headers */,
+				3F01E8681E111E1B00246E34 /* MemPool.hpp in Headers */,
 				3FC88C391A2261A5000D6F2D /* AiLogic.h in Headers */,
 				3F4ECCE3182F9540002425F7 /* CircleRenderable.h in Headers */,
 				3FD94F7D18DF1BA600CE757A /* PathFinder.h in Headers */,
@@ -641,6 +670,7 @@
 				3F9F4E8819278FF600D6900A /* Map.h in Headers */,
 				3F548CC91829726D00BAE9A4 /* EnergyStorageComponent.h in Headers */,
 				3FE4E02A18A299D6000C2631 /* OutherAPI.h in Headers */,
+				3F01E86D1E1123C400246E34 /* MemPoolTest.hpp in Headers */,
 				3F708DB2182D4AF500BF964E /* Tests.h in Headers */,
 				3FD94F6D18DD717F00CE757A /* RectGrid.h in Headers */,
 				3FD94F7118DED3D500CE757A /* PathFindComponent.h in Headers */,
@@ -726,6 +756,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F01E8671E111E1B00246E34 /* MemPool.cpp in Sources */,
 				3FAD2E8E1A62A75C00690E80 /* TextureHelper.cpp in Sources */,
 				3FDE0B6017F7022F000A7DE1 /* GameEngine.cpp in Sources */,
 				3F4ECCE2182F9540002425F7 /* CircleRenderable.cpp in Sources */,
@@ -750,6 +781,7 @@
 				3FD94F7C18DF1BA600CE757A /* PathFinder.cpp in Sources */,
 				3F9F4E96192796E100D6900A /* PassMap.cpp in Sources */,
 				3FDE0B6817F7029A000A7DE1 /* MoveSystem.cpp in Sources */,
+				3F01E86C1E1123C400246E34 /* MemPoolTest.cpp in Sources */,
 				3F9F4E8B19278FF600D6900A /* Map.cpp in Sources */,
 				3FB125811837E2AA00494376 /* EnergyStorageComponent.cpp in Sources */,
 				3FDB01921825750E003396A4 /* TargetComponent.cpp in Sources */,
