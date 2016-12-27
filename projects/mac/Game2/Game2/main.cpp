@@ -8,7 +8,7 @@
 
 #include <iostream>
 #include <glfw3.h>
-#include "../../../../src/engine/GameEngine.h"
+#include "../../../../src/engine/core/GameEngine.h"
 
 GameEngine * instance;
 

@@ -1,15 +1,14 @@
 #include "GameEngine.h"
 
 
-#include "GamePlay/Components.h"
-#include "Renderer/RectRenderable.h"
-#include "Renderer/HexGrid.h"
-#include "Timer.h"
-#include "GamePlay/EntityFabric.h"
-#include "FrameBufferTest.hpp"
-#include "Renderer/DynamicTexture.h"
-
-#include "MemPoolTest.h"
+#include "core/Components.h"
+#include "core/EntityFabric.h"
+#include "core/Timer.h"
+#include "renderer/RectRenderable.h"
+#include "renderer/HexGrid.h"
+#include "renderer/FrameBufferTest.hpp"
+#include "renderer/DynamicTexture.h"
+#include "tests/MemPoolTest.h"
 
 GameEngine*     GameEngine::instance    = (GameEngine*) 0;
 GlobalData*     GameEngine::global_data = new GlobalData();
@@ -227,7 +226,7 @@ void GameEngine::init(int width, int height)
     kringle::MemPoolTest::run();
     
 	//test_vectors();
-	test_shr_ptr();
+	//test_shr_ptr();
 	//test_math();
 	renderer->init();
     renderer->resize(width, height);

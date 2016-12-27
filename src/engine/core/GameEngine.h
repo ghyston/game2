@@ -1,14 +1,14 @@
 #ifndef __GAMEENGINE_H__
 #define __GAMEENGINE_H__
 
-#include "Renderer/Renderer.h"
-#include "GlobalData.h"
-#include "InputProcessor.h"
-#include "InputProcessor/NewInputProcessor.h"
-#include "GamePlay/GameConstants.h"
+#include "renderer/Renderer.h"
+#include "core/GlobalData.h"
+#include "input/InputProcessor.h"
+#include "input/NewInputProcessor.h"
+#include "core/GameConstants.h"
 
 //@todo: delete this include on release
-#include "Common/Tests.h"
+#include "tests/Tests.h"
 
 /**
 * Main game manager. Singletone.

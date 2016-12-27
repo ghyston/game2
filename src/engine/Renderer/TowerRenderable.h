@@ -11,7 +11,7 @@
 
 #include "BaseRenderable.h"
 #include "RectRenderable.h"
-#include "../GamePlay/GameConstants.h"
+#include "core/GameConstants.h"
 
 class TowerRenderable : public BaseRenderable
 {

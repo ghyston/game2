@@ -10,7 +10,7 @@
 
 #include <vector>
 #include "Entity.h"
-#include "../GamePlay/Components.h"
+#include "core/Components.h"
 
 class BaseSystem
 {

@@ -11,7 +11,7 @@
 #include <vector>
 #include <list>
 
-#include "../Common/ShrPtr.h"
+#include "../memory/ShrPtr.h"
 
 #include "Entity.h"
 #include "BaseSystem.h"

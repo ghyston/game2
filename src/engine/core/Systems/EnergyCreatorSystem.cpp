@@ -7,11 +7,11 @@
 //
 #include <math.h>
 
-#include "EnergyCreatorSystem.h"
-#include "../../GameEngine.h"
-#include "../../GamePlay/Game2Logic.h"
-#include "../../GamePlay/EntityFabric.h"
-#include "../../Common/VecShrPtr.h"
+#include "common/VecShrPtr.h"
+#include "core/Systems/EnergyCreatorSystem.h"
+#include "core/GameEngine.h"
+#include "core/Game2Logic.h"
+#include "core/EntityFabric.h"
 
 void EnergyGeneratorSystem::update(EntityPtr entity)
 {

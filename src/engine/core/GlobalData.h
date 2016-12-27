@@ -9,11 +9,12 @@
 #define	GLOBALDATA_H
 
 #include <vector>
-#include "Common/ThreadLock.h"
-#include "Renderer/Camera.h"
-#include "GamePlay/Game2Logic.h"
-#include "Cursor.h"
-#include "AiLogic.h"
+#include "common/ThreadLock.h"
+#include "core/Game2Logic.h"
+#include "core/AiLogic.h"
+#include "renderer/Camera.h"
+#include "renderer/Cursor.h"
+
 
 class GlobalData
 {

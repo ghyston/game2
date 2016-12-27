@@ -11,8 +11,8 @@
 
 //@todo: move to engine/memory
 #include <iostream>
-#include "../RefCounter.h"
-#include "../MemPool.h"
+#include "memory/RefCounter.h"
+#include "MemPool.h"
 
 namespace kringle {
 

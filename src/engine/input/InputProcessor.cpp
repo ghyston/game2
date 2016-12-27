@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 Stepanov Ilia. All rights reserved.
 //
 
-#include "InputProcessor.h"
-#include "GameEngine.h"
-#include "GamePlay/EntityFabric.h"
-#include "GamePlay/PathFinder.h"
+#include "input/InputProcessor.h"
+#include "core/GameEngine.h"
+#include "core/EntityFabric.h"
+#include "core/PathFinder.h"
 
 // @todo: refactoring this! Google pattern "State" and other behvior patterns
 void InputProcessor::process_touch(int type, float screen_x, float screen_y)

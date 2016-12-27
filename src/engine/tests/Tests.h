@@ -9,13 +9,12 @@
 #ifndef __Game2__Tests__
 #define __Game2__Tests__
 
-#include "Obj.h"
 #include "ShrPtr.h"
 #include "VecShrPtr.h"
 
 #include <iostream>
-#include "Vector2f.h"
-#include "SomeMath.h"
+#include "common/Vector2f.h"
+#include "common/SomeMath.h"
 
 
 void test_vectors();

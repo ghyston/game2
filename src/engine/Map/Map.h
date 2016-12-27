@@ -15,7 +15,7 @@
 
 #include "PassMap.h"
 #include "EntityContainerMap.h"
-#include "../GamePlay/Components.h"
+#include "core/Components.h"
 
 //@todo: rename as EntitiesMap!
 class Map
