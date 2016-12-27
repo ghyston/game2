@@ -6,7 +6,7 @@
 //  Copyright © 2016 Stepanov Ilia. All rights reserved.
 //
 
-#include "MemPoolTest.hpp"
+#include "MemPoolTest.h"
 
 using namespace kringle;
 

@@ -9,7 +9,7 @@
 #include "FrameBufferTest.hpp"
 #include "Renderer/DynamicTexture.h"
 
-#include "MemPoolTest.hpp"
+#include "MemPoolTest.h"
 
 GameEngine*     GameEngine::instance    = (GameEngine*) 0;
 GlobalData*     GameEngine::global_data = new GlobalData();
@@ -227,7 +227,7 @@ void GameEngine::init(int width, int height)
     kringle::MemPoolTest::run();
     
 	//test_vectors();
-	//test_shr_ptr();
+	test_shr_ptr();
 	//test_math();
 	renderer->init();
     renderer->resize(width, height);

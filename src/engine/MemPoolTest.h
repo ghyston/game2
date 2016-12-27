@@ -9,7 +9,7 @@
 #ifndef MemPoolTest_hpp
 #define MemPoolTest_hpp
 
-#include "MemPool.hpp"
+#include "MemPool.h"
 
 namespace kringle {
     
