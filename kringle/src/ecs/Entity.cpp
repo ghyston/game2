@@ -1,0 +1,36 @@
+#include "Entity.h"
+
+EntityPtr Entity::create()
+{
+    std::shared_ptr<Entity> entity (new Entity());
+	entity->_self = entity;
+	
+	//Entity * entity = new Entity();
+	//entity->_self = make_ entity;
+	return EntityPtr(entity);
+}
+
+Entity::Entity()
+{
+	clear();
+}
+
+Entity::~Entity()
+{
+	printf("Entity d-tor\n");
+}
+
+void Entity::clear()
+{
+	for(std::map<size_t, IComponent*>::iterator it = components.begin();
+		it != components.end(); it++)
+	{
+		delete it->second;
+	}
+	components.clear();
+}
+
+void Entity::mark_deleted()
+{
+	_self = nullptr;
+}

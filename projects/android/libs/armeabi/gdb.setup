@@ -1,2 +1,0 @@
-set solib-search-path ./obj/local/armeabi
-directory /Users/Hyston/projects/_tools/android-ndk-r9c/platforms/android-9/arch-arm/usr/include /Users/Hyston/projects/_tools/android-ndk-r9c/sources/cxx-stl/stlport/stlport /Users/Hyston/projects/_tools/android-ndk-r9c/sources/cxx-stl//gabi++/include jni
