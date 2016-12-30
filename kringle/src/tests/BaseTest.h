@@ -23,6 +23,8 @@ class BaseTest
 {
 public:
     
+    virtual ~BaseTest() {}
+    
     virtual void runTests() = 0;    
 };
 

@@ -34,7 +34,7 @@ void MemPoolTest::delObj()
     LOG_TEST_RESULT(Foo::getCounter() == 0)
 }
 
-void addManyObj()
+void MemPoolTest::addManyObj()
 {
     int tmpCount = 150;
     for(int i = 0; i < tmpCount; i++)

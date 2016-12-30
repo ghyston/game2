@@ -80,7 +80,7 @@ int Renderer::SetupPolygon(const std::vector<Vec2f>& points)
 	polygon->setup_vertexes();
 	meshes.push_back(polygon->vertexes);
 	//@todo: not a good thing, cannot delete vertexes here
-	return (meshes.size() - 1);
+	return ((int)meshes.size() - 1);
 }
 
 void Renderer::InitPassGrid()

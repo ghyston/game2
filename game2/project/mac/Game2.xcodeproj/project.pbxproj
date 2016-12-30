@@ -32,11 +32,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3F6222171E13D1550066A26C /* PBXContainerItemProxy */ = {
+		3FB676F91E1665E30040DB25 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 3FF40EC31E13CF8E0023E5ED /* kringle.xcodeproj */;
+			containerPortal = 3FB676F51E1665E30040DB25 /* kringle.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 3FF40EB51E13CF8E0023E5ED;
+			remoteGlobalIDString = 3F434F2B1E13D2980037AC0A;
 			remoteInfo = kringle;
 		};
 		3FDE0B7217F70382000A7DE1 /* PBXContainerItemProxy */ = {
@@ -104,11 +104,11 @@
 		3F5262D017FA2D6F006E4A3C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		3F7024D51C18A6ED0051720D /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = ../../../libs/glfw/libglfw3.a; sourceTree = "<group>"; };
 		3F7024D81C18AD600051720D /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		3FB676F51E1665E30040DB25 /* kringle.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = kringle.xcodeproj; path = ../../../kringle/project/mac/kringle.xcodeproj; sourceTree = "<group>"; };
 		3FDE0ABB17F61D8D000A7DE1 /* Game2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Game2; sourceTree = BUILT_PRODUCTS_DIR; };
-		3FDE0ABE17F61D8D000A7DE1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		3FDE0ABE17F61D8D000A7DE1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../../src/main.cpp; sourceTree = "<group>"; };
 		3FDE0AFB17F61FB8000A7DE1 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		3FDE0B1817F6FF13000A7DE1 /* Game2_engine.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = Game2_engine.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		3FF40EC31E13CF8E0023E5ED /* kringle.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = kringle.xcodeproj; path = ../../../kringle/project/mac/kringle.xcodeproj; sourceTree = "<group>"; };
 		3FF528451A62CF240072D710 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		3FF8F1631C18EB3A007067DC /* libpng.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpng.a; path = ../../../libs/libpng/libpng.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -210,10 +210,10 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		3F6222141E13D1550066A26C /* Products */ = {
+		3FB676F61E1665E30040DB25 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3F6222181E13D1550066A26C /* libkringle.dylib */,
+				3FB676FA1E1665E30040DB25 /* libkringle.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -221,7 +221,7 @@
 		3FDE0AB217F61D8D000A7DE1 = {
 			isa = PBXGroup;
 			children = (
-				3FF40EC31E13CF8E0023E5ED /* kringle.xcodeproj */,
+				3FB676F51E1665E30040DB25 /* kringle.xcodeproj */,
 				3FF8F1631C18EB3A007067DC /* libpng.a */,
 				3F7024D81C18AD600051720D /* CoreVideo.framework */,
 				3F7024D51C18A6ED0051720D /* libglfw3.a */,
@@ -324,8 +324,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 3F6222141E13D1550066A26C /* Products */;
-					ProjectRef = 3FF40EC31E13CF8E0023E5ED /* kringle.xcodeproj */;
+					ProductGroup = 3FB676F61E1665E30040DB25 /* Products */;
+					ProjectRef = 3FB676F51E1665E30040DB25 /* kringle.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -337,11 +337,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		3F6222181E13D1550066A26C /* libkringle.dylib */ = {
+		3FB676FA1E1665E30040DB25 /* libkringle.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
 			path = libkringle.dylib;
-			remoteRef = 3F6222171E13D1550066A26C /* PBXContainerItemProxy */;
+			remoteRef = 3FB676F91E1665E30040DB25 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
