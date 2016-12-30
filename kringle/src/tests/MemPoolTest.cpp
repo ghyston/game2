@@ -12,12 +12,12 @@ using namespace kringle;
 
 int Foo::refCounter = 0;
 
-void MemPoolTest::run()
+void MemPoolTest::runTests()
 {
     LOG_TEST_START
     addObj();
     delObj();
-    addManyObj()
+    addManyObj();
     clear();
 }
 

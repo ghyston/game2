@@ -208,9 +208,11 @@ void InputProcessor::process_touch(int type, float screen_x, float screen_y)
 EntityPtr InputProcessor::find_entity(Vec2f world_coords)
 {
 	EntityPtr result;
-	EntityPtr entity = GameEngine::global_data->logic.getMap()->findClosestEntityHasCmp<TouchableComponent>(world_coords);
+	//EntityPtr entity = GameEngine::global_data->logic->getMap()->findClosestEntityHasCmp<TouchableComponent>(world_coords);
 	
-	if(!entity.expired())
+	/*
+     //@todo
+     if(!entity.expired())
 	{
 		GetCmpt(TouchableComponent, touch_com, entity.lock());
 		GetCmpt(PositionComponent, pos_com, entity.lock());
@@ -223,7 +225,7 @@ EntityPtr InputProcessor::find_entity(Vec2f world_coords)
 		{
 			result = entity;
 		}
-	}
+	}*/
 	
 	return result;
 }

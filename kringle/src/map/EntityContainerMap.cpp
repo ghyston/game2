@@ -8,15 +8,15 @@
 
 #include "EntityContainerMap.h"
 
-void EntityContainerMap::addEntity(float pos_x, float pos_y, EntityPtr entity)
+void EntityContainerMap::addEntity(EntityPtr entity)
 {
-	Vec2i coordIndx = getIndexesByCoords(pos_x, pos_y);
+	Vec2i coordIndx = getIndexesByCoords((entity.lock())->pos);
 	cells[coordIndx.x][coordIndx.y].entities.push_back(entity);
 }
 
-void EntityContainerMap::removeEntityFromCell(float pos_x, float pos_y, EntityPtr entity)
+void EntityContainerMap::removeEntityFromCell(EntityPtr entity)
 {
-	Vec2i coordIndx = getIndexesByCoords(pos_x, pos_y);
+	Vec2i coordIndx = getIndexesByCoords((entity.lock())->pos);
 	// @todo: define foreach entities!
 	Entities& entities = cells[coordIndx.x][coordIndx.y].entities;
 	

@@ -1,15 +1,16 @@
 #include "GameEngine.h"
 
-#includ <stack>
+#include <stack>
 
-#include "core/Components.h"
-#include "core/EntityFabric.h"
 #include "core/Timer.h"
 #include "renderer/RectRenderable.h"
 #include "renderer/HexGrid.h"
 #include "renderer/FrameBufferTest.hpp"
 #include "renderer/DynamicTexture.h"
 #include "tests/MemPoolTest.h"
+#include "tests/MathTest.h"
+
+using namespace kringle;
 
 GameEngine*     GameEngine::instance    = (GameEngine*) 0;
 GlobalData*     GameEngine::global_data = new GlobalData();
@@ -59,7 +60,7 @@ void GameEngine::step()
 		renderer->draw_grid();
 	
 	
-	global_data->logic.step();
+	global_data->logic->step();
 	global_data->cursor.Draw();
 	
 	if(renderer->showBorderRing)
@@ -228,11 +229,11 @@ void GameEngine::init(int width, int height)
     
 	renderer->init();
     renderer->resize(width, height);
-	global_data->logic.LoadMap(3, 3);
+	global_data->logic->LoadMap(3, 3);
     global_data->init_scene();
 	global_data->screen.setup(height, width); // @todo: do we need that?
     
-	global_data->logic.start();
+	global_data->logic->start();
     
     Timer::start();
     

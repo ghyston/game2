@@ -9,6 +9,7 @@
 #ifndef MemPoolTest_hpp
 #define MemPoolTest_hpp
 
+#include "common/GlobalMacros.h"
 #include "memory/MemPool.h"
 #include "tests/BaseTest.h"
 
@@ -55,7 +56,7 @@ namespace kringle {
         
         void addObj();
         void delObj();
-        void addManyObj()
+        void addManyObj();
         void clear();
         
         Foo * _tmp = NULL;

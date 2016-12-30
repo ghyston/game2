@@ -7,7 +7,7 @@
 //
 
 #include "Map.h"
-#include "../GlobalData.h"
+#include "core/GlobalData.h"
 
 const float Map::entity_grid_cell_size = 0.5f;
 const float Map::pass_grid_cell_size = 0.03f;
@@ -31,8 +31,8 @@ void Map::RepositionEntityToCorrectCell(
 	if(old_cell_indx == new_cell_indx)
 		return;
 	
-	entity_map.removeEntityFromCell(old_coords.x, old_coords.y, entity);
-	entity_map.addEntity(new_coords.x, new_coords.y, entity);
+	entity_map.removeEntityFromCell(entity);
+	entity_map.addEntity(entity);
 }
 
 void Map::InitGrids()
@@ -47,7 +47,7 @@ void Map::InitGrids()
 }
 
 //@todo: this is just almost copy-paste from findClosestEntityHasCmp!
-EntityPtr Map::getClosestEnemyTower(Vec2f coords)
+/*EntityPtr Map::getClosestEnemyTower(Vec2f coords)
 {
 	EntityPtr result;
 	// Map of entities, sorted by quad distance.
@@ -116,4 +116,4 @@ EntityPtr Map::getClosestEnemyTower(Vec2f coords)
 		result = closest_entities.begin()->second;
 	}
 	return result;
-}
+}*/

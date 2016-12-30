@@ -32,13 +32,13 @@ public:
 	virtual Map* getMap() { return &map; }
 	virtual void LoadMap(int width, int height);
 		
-	Entities& get_unpositioned_entities() { return entities; }
+	//Entities& get_unpositioned_entities() { return entities; }
 	Entities& get_entities_by_coords(Vec2f& pos);
 	
 protected:
 	
 	std::vector<BaseSystem*> systems;
-	Entities entities; //unpositioned entities.
+	//Entities entities; //unpositioned entities.
 
 	Map map;
 };

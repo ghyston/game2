@@ -13,7 +13,7 @@
 
 namespace kringle {
     
-    class MathTest : BaseTest
+    class MathTest : public BaseTest
     {
     public:
         

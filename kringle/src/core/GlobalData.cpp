@@ -3,7 +3,6 @@
 #include "core/GlobalData.h"
 #include "core/GameEngine.h"
 #include "common/ThreadLock.h"
-#include "core/EntityFabric.h"
 
 unsigned int GlobalData::PLAYER_ID_1 = 1;
 unsigned int GlobalData::PLAYER_ID_2 = 2;

@@ -7,7 +7,7 @@
 //
 
 #include "RectGrid.h"
-#include "../GameEngine.h"
+#include "core/GameEngine.h"
 
 void RectGrid::SetParams(int count_x, int count_y, float cell_size)
 {
@@ -38,10 +38,10 @@ void RectGrid::Draw()
 	{
 		for(int j = -count_y; j < count_y; j++)
 		{
-			if(GameEngine::get_data()->logic.getMap()
+			if(GameEngine::get_data()->logic->getMap()
 			   ->pass_map.isCellPass(Vec2i(i, j)))
 				continue;
-			rect.coords = GameEngine::get_data()->logic.getMap()->pass_map.getCoordsByIndex(i, j);
+			rect.coords = GameEngine::get_data()->logic->getMap()->pass_map.getCoordsByIndex(i, j);
 			
 		/*	Entities& ent = GameEngine::get_data()->logic.getMap()->entity_map.getEntitiesFromCell(i, j);
 			if(ent.empty())

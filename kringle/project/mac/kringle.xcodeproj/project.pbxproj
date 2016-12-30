@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3F2D84E71E15457300D817EB /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F2D84E61E15457300D817EB /* OpenGL.framework */; };
+		3F2D851D1E165B2400D817EB /* libpng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F2D851C1E165B2400D817EB /* libpng.a */; };
 		3F84CE311E13D2DC00F8E190 /* Color3f.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F84CDBA1E13D2DC00F8E190 /* Color3f.h */; };
 		3F84CE321E13D2DC00F8E190 /* Color4b.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F84CDBB1E13D2DC00F8E190 /* Color4b.h */; };
 		3F84CE331E13D2DC00F8E190 /* GlobalMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F84CDBC1E13D2DC00F8E190 /* GlobalMacros.h */; };
@@ -63,7 +64,7 @@
 		3F84CE6D1E13D2DC00F8E190 /* ShrPtr.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F84CDFB1E13D2DC00F8E190 /* ShrPtr.h */; };
 		3F84CE6E1E13D2DC00F8E190 /* BaseTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F84CDFD1E13D2DC00F8E190 /* BaseTest.h */; };
 		3F84CE6F1E13D2DC00F8E190 /* MathTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F84CDFE1E13D2DC00F8E190 /* MathTest.cpp */; };
-		3F84CE701E13D2DC00F8E190 /* MathTest.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 3F84CDFF1E13D2DC00F8E190 /* MathTest.hpp */; };
+		3F84CE701E13D2DC00F8E190 /* MathTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F84CDFF1E13D2DC00F8E190 /* MathTest.h */; };
 		3F84CE711E13D2DC00F8E190 /* MemPoolTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F84CE001E13D2DC00F8E190 /* MemPoolTest.cpp */; };
 		3F84CE721E13D2DC00F8E190 /* MemPoolTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F84CE011E13D2DC00F8E190 /* MemPoolTest.h */; };
 		3F84CE731E13D2DC00F8E190 /* BaseRenderable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F84CE031E13D2DC00F8E190 /* BaseRenderable.cpp */; };
@@ -116,6 +117,7 @@
 
 /* Begin PBXFileReference section */
 		3F2D84E61E15457300D817EB /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		3F2D851C1E165B2400D817EB /* libpng.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpng.a; path = ../../libs/libpng/libpng.a; sourceTree = "<group>"; };
 		3F434F2B1E13D2980037AC0A /* libkringle.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libkringle.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F84CDBA1E13D2DC00F8E190 /* Color3f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Color3f.h; sourceTree = "<group>"; };
 		3F84CDBB1E13D2DC00F8E190 /* Color4b.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Color4b.h; sourceTree = "<group>"; };
@@ -172,7 +174,7 @@
 		3F84CDFB1E13D2DC00F8E190 /* ShrPtr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShrPtr.h; sourceTree = "<group>"; };
 		3F84CDFD1E13D2DC00F8E190 /* BaseTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTest.h; sourceTree = "<group>"; };
 		3F84CDFE1E13D2DC00F8E190 /* MathTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MathTest.cpp; sourceTree = "<group>"; };
-		3F84CDFF1E13D2DC00F8E190 /* MathTest.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MathTest.hpp; sourceTree = "<group>"; };
+		3F84CDFF1E13D2DC00F8E190 /* MathTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathTest.h; sourceTree = "<group>"; };
 		3F84CE001E13D2DC00F8E190 /* MemPoolTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemPoolTest.cpp; sourceTree = "<group>"; };
 		3F84CE011E13D2DC00F8E190 /* MemPoolTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemPoolTest.h; sourceTree = "<group>"; };
 		3F84CE031E13D2DC00F8E190 /* BaseRenderable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseRenderable.cpp; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F2D851D1E165B2400D817EB /* libpng.a in Frameworks */,
 				3F2D84E71E15457300D817EB /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,6 +241,7 @@
 		3F2D84E51E15457200D817EB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3F2D851C1E165B2400D817EB /* libpng.a */,
 				3F2D84E61E15457300D817EB /* OpenGL.framework */,
 			);
 			name = Frameworks;
@@ -269,6 +273,7 @@
 				3F84CDE41E13D2DC00F8E190 /* input */,
 				3F84CDED1E13D2DC00F8E190 /* map */,
 				3F84CDF81E13D2DC00F8E190 /* memory */,
+				3F84CE021E13D2DC00F8E190 /* renderer */,
 				3F84CDFC1E13D2DC00F8E190 /* tests */,
 			);
 			name = src;
@@ -375,10 +380,9 @@
 			children = (
 				3F84CDFD1E13D2DC00F8E190 /* BaseTest.h */,
 				3F84CDFE1E13D2DC00F8E190 /* MathTest.cpp */,
-				3F84CDFF1E13D2DC00F8E190 /* MathTest.hpp */,
+				3F84CDFF1E13D2DC00F8E190 /* MathTest.h */,
 				3F84CE001E13D2DC00F8E190 /* MemPoolTest.cpp */,
 				3F84CE011E13D2DC00F8E190 /* MemPoolTest.h */,
-				3F84CE021E13D2DC00F8E190 /* renderer */,
 				3F84CE2F1E13D2DC00F8E190 /* Tests.cpp */,
 				3F84CE301E13D2DC00F8E190 /* Tests.h */,
 			);
@@ -479,7 +483,7 @@
 				3F84CE851E13D2DC00F8E190 /* LineRenderable.h in Headers */,
 				3F84CE321E13D2DC00F8E190 /* Color4b.h in Headers */,
 				3F84CE311E13D2DC00F8E190 /* Color3f.h in Headers */,
-				3F84CE701E13D2DC00F8E190 /* MathTest.hpp in Headers */,
+				3F84CE701E13D2DC00F8E190 /* MathTest.h in Headers */,
 				3F84CE5A1E13D2DC00F8E190 /* InputProcessor.h in Headers */,
 				3F84CE661E13D2DC00F8E190 /* Map.h in Headers */,
 				3F84CE911E13D2DC00F8E190 /* Shader.h in Headers */,
@@ -655,8 +659,9 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					"../../src/**",
-					../../libs/libpng/include,
+					"../../libs/**",
 				);
+				LIBRARY_SEARCH_PATHS = "../../src/**";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -700,8 +705,9 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					"../../src/**",
-					../../libs/libpng/include,
+					"../../libs/**",
 				);
+				LIBRARY_SEARCH_PATHS = "../../src/**";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;

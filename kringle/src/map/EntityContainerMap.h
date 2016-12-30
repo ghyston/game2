@@ -17,8 +17,8 @@ class EntityContainerMap : public BaseGridMap<MapCell>
 {
 public:
 	
-	void addEntity(float pos_x, float pos_y, EntityPtr entity);
-	void removeEntityFromCell(float pos_x, float pos_y, EntityPtr entity);
+	void addEntity(EntityPtr entity);
+	void removeEntityFromCell(EntityPtr entity);
 	
 	void checkFroRemovedEntities();
 	

@@ -6,7 +6,12 @@
 //
 //
 
-#include "MathTest.hpp"
+#include "MathTest.h"
+
+#include "common/Vector2f.h"
+#include "SomeMath.h"
+
+using namespace kringle;
 
 void MathTest::runTests()
 {

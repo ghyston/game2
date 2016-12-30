@@ -55,16 +55,14 @@ void TowerMoveTouchInput::OnPress(Vec2f coords)
 {
 	Vec2f world_coords = GameEngine::global_data->convert_coordinates(coords);
 	press_coords = world_coords;
-	GetCmpt(PositionComponent, pos_com, touched_entity);
-	old_entity_coords = pos_com->position;
+	old_entity_coords = touched_entity->pos;
 }
 
 void TowerMoveTouchInput::OnMove(Vec2f coords)
 {
 	//@todo: be very carefull! touched_entity can be not set!
-	GetCmpt(PositionComponent, pos_com, touched_entity);
 	Vec2f world_coords = GameEngine::global_data->convert_coordinates(coords);
-	pos_com->position = old_entity_coords + (world_coords - press_coords);
+	touched_entity->pos = old_entity_coords + (world_coords - press_coords);
 }
 
 void TowerMoveTouchInput::OnRelease(Vec2f coords)

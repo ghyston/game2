@@ -36,7 +36,7 @@ public:
 	template<typename T>
 	EntityPtr getFirstEntityHasCmp();
 	
-	EntityPtr getClosestEnemyTower(Vec2f coords);
+	//EntityPtr getClosestEnemyTower(Vec2f coords);
 	
 	PassMap pass_map;
 	EntityContainerMap entity_map;
@@ -102,8 +102,7 @@ EntityPtr Map::findClosestEntityHasCmp(Vec2f coords)
 					if(!HasCmpt(T, (it->lock())))
 						continue;
 					
-					GetCmpt(PositionComponent, pos_com, (it->lock()));
-					float quad_dist = quad_distance(pos_com->position, coords);
+					float quad_dist = quad_distance((it->lock())->pos, coords);
 					closest_entities[quad_dist] = *it;
 				}
 			}

@@ -11,7 +11,7 @@
 #include <map>
 #include <vector>
 #include <typeinfo>
-//#include "../Common/Obj.h"
+#include "common/Vector2f.h"
 #include "BaseComponent.h"
 #include "Types.h"
 
@@ -58,6 +58,8 @@ public:
 	void mark_deleted();
 	
 	virtual ~Entity();
+    
+    Vec2f pos; // coordinates in decart system, prev. PositionComponent. @todo: make it generic, for 3d and hexagon
 	
 private:
 	
