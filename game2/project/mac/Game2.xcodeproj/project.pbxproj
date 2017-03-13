@@ -17,7 +17,6 @@
 		3F2D85161E154A4100D817EB /* EntityFabric.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D84FA1E154A4100D817EB /* EntityFabric.cpp */; };
 		3F2D85171E154A4100D817EB /* Game2Logic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D84FC1E154A4100D817EB /* Game2Logic.cpp */; };
 		3F2D85181E154A4100D817EB /* EnergyStorageComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D85031E154A4100D817EB /* EnergyStorageComponent.cpp */; };
-		3F2D85191E154A4100D817EB /* NodeComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D85061E154A4100D817EB /* NodeComponent.cpp */; };
 		3F2D851A1E154A4100D817EB /* TargetComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F2D850C1E154A4100D817EB /* TargetComponent.cpp */; };
 		3F5262CF17FA2D64006E4A3C /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5262CE17FA2D64006E4A3C /* IOKit.framework */; };
 		3F7024D71C18AACD0051720D /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7024D51C18A6ED0051720D /* libglfw3.a */; };
@@ -32,9 +31,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3FB676F91E1665E30040DB25 /* PBXContainerItemProxy */ = {
+		3FB676FF1E166AAD0040DB25 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 3FB676F51E1665E30040DB25 /* kringle.xcodeproj */;
+			containerPortal = 3FB676FB1E166AAD0040DB25 /* kringle.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 3F434F2B1E13D2980037AC0A;
 			remoteInfo = kringle;
@@ -87,7 +86,6 @@
 		3F2D85031E154A4100D817EB /* EnergyStorageComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnergyStorageComponent.cpp; sourceTree = "<group>"; };
 		3F2D85041E154A4100D817EB /* EnergyStorageComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnergyStorageComponent.h; sourceTree = "<group>"; };
 		3F2D85051E154A4100D817EB /* MovementComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovementComponent.h; sourceTree = "<group>"; };
-		3F2D85061E154A4100D817EB /* NodeComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NodeComponent.cpp; sourceTree = "<group>"; };
 		3F2D85071E154A4100D817EB /* NodeComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeComponent.h; sourceTree = "<group>"; };
 		3F2D85081E154A4100D817EB /* PathFindComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathFindComponent.h; sourceTree = "<group>"; };
 		3F2D85091E154A4100D817EB /* PlayerIdComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerIdComponent.h; sourceTree = "<group>"; };
@@ -104,7 +102,7 @@
 		3F5262D017FA2D6F006E4A3C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		3F7024D51C18A6ED0051720D /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = ../../../libs/glfw/libglfw3.a; sourceTree = "<group>"; };
 		3F7024D81C18AD600051720D /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
-		3FB676F51E1665E30040DB25 /* kringle.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = kringle.xcodeproj; path = ../../../kringle/project/mac/kringle.xcodeproj; sourceTree = "<group>"; };
+		3FB676FB1E166AAD0040DB25 /* kringle.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = kringle.xcodeproj; path = ../../../kringle/project/mac/kringle.xcodeproj; sourceTree = "<group>"; };
 		3FDE0ABB17F61D8D000A7DE1 /* Game2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Game2; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FDE0ABE17F61D8D000A7DE1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../../src/main.cpp; sourceTree = "<group>"; };
 		3FDE0AFB17F61FB8000A7DE1 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -185,7 +183,6 @@
 				3F2D85031E154A4100D817EB /* EnergyStorageComponent.cpp */,
 				3F2D85041E154A4100D817EB /* EnergyStorageComponent.h */,
 				3F2D85051E154A4100D817EB /* MovementComponent.h */,
-				3F2D85061E154A4100D817EB /* NodeComponent.cpp */,
 				3F2D85071E154A4100D817EB /* NodeComponent.h */,
 				3F2D85081E154A4100D817EB /* PathFindComponent.h */,
 				3F2D85091E154A4100D817EB /* PlayerIdComponent.h */,
@@ -210,10 +207,10 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		3FB676F61E1665E30040DB25 /* Products */ = {
+		3FB676FC1E166AAD0040DB25 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3FB676FA1E1665E30040DB25 /* libkringle.dylib */,
+				3FB677001E166AAD0040DB25 /* libkringle.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -221,7 +218,7 @@
 		3FDE0AB217F61D8D000A7DE1 = {
 			isa = PBXGroup;
 			children = (
-				3FB676F51E1665E30040DB25 /* kringle.xcodeproj */,
+				3FB676FB1E166AAD0040DB25 /* kringle.xcodeproj */,
 				3FF8F1631C18EB3A007067DC /* libpng.a */,
 				3F7024D81C18AD600051720D /* CoreVideo.framework */,
 				3F7024D51C18A6ED0051720D /* libglfw3.a */,
@@ -309,7 +306,7 @@
 		3FDE0AB317F61D8D000A7DE1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Stepanov Ilia";
 			};
 			buildConfigurationList = 3FDE0AB617F61D8D000A7DE1 /* Build configuration list for PBXProject "Game2" */;
@@ -324,8 +321,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 3FB676F61E1665E30040DB25 /* Products */;
-					ProjectRef = 3FB676F51E1665E30040DB25 /* kringle.xcodeproj */;
+					ProductGroup = 3FB676FC1E166AAD0040DB25 /* Products */;
+					ProjectRef = 3FB676FB1E166AAD0040DB25 /* kringle.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -337,11 +334,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		3FB676FA1E1665E30040DB25 /* libkringle.dylib */ = {
+		3FB677001E166AAD0040DB25 /* libkringle.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
 			path = libkringle.dylib;
-			remoteRef = 3FB676F91E1665E30040DB25 /* PBXContainerItemProxy */;
+			remoteRef = 3FB676FF1E166AAD0040DB25 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -354,7 +351,6 @@
 				3F2D85101E154A4100D817EB /* EnergyBalanceSystem.cpp in Sources */,
 				3F2D850F1E154A4100D817EB /* AISystem.cpp in Sources */,
 				3F2D85131E154A4100D817EB /* PathMoveSystem.cpp in Sources */,
-				3F2D85191E154A4100D817EB /* NodeComponent.cpp in Sources */,
 				3F2D85121E154A4100D817EB /* MoveSystem.cpp in Sources */,
 				3F2D851A1E154A4100D817EB /* TargetComponent.cpp in Sources */,
 				3F2D85161E154A4100D817EB /* EntityFabric.cpp in Sources */,
@@ -397,14 +393,20 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = "../../../libs/**";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -440,15 +442,20 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = "../../../libs/**";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;

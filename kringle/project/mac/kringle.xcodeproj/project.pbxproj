@@ -119,6 +119,7 @@
 		3F2D84E61E15457300D817EB /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		3F2D851C1E165B2400D817EB /* libpng.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpng.a; path = ../../libs/libpng/libpng.a; sourceTree = "<group>"; };
 		3F434F2B1E13D2980037AC0A /* libkringle.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libkringle.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F4850F41E16779B005C6CDB /* kringle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kringle.h; sourceTree = "<group>"; };
 		3F84CDBA1E13D2DC00F8E190 /* Color3f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Color3f.h; sourceTree = "<group>"; };
 		3F84CDBB1E13D2DC00F8E190 /* Color4b.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Color4b.h; sourceTree = "<group>"; };
 		3F84CDBC1E13D2DC00F8E190 /* GlobalMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalMacros.h; sourceTree = "<group>"; };
@@ -275,6 +276,7 @@
 				3F84CDF81E13D2DC00F8E190 /* memory */,
 				3F84CE021E13D2DC00F8E190 /* renderer */,
 				3F84CDFC1E13D2DC00F8E190 /* tests */,
+				3F4850F41E16779B005C6CDB /* kringle.h */,
 			);
 			name = src;
 			path = ../../src;
