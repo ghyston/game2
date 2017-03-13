@@ -225,8 +225,6 @@ void GameEngine::process_input(int key, int action)
 
 void GameEngine::init(int width, int height)
 {
-    runTests();
-    
 	renderer->init();
     renderer->resize(width, height);
 	global_data->logic->LoadMap(3, 3);
@@ -236,22 +234,5 @@ void GameEngine::init(int width, int height)
 	global_data->logic->start();
     
     Timer::start();
-    
 }
 
-void GameEngine::runTests()
-{
-    std::stack<BaseTest *> tests;
-    
-    //@note: add new tests here
-    tests.push(new MemPoolTest());
-    tests.push(new MathTest());
-    
-    while (!tests.empty()) {
-        BaseTest * test = tests.top();
-        test->runTests();
-        delete test;
-        tests.pop();
-    }
-    
-}

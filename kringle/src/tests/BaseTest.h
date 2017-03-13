@@ -25,6 +25,8 @@ public:
     
     virtual ~BaseTest() {}
     
+    virtual bool init() = 0;
+    
     virtual void runTests() = 0;    
 };
 

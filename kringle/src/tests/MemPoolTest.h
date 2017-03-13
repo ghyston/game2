@@ -49,6 +49,8 @@ namespace kringle {
     class MemPoolTest : public BaseTest
     {
     public:
+        
+        bool init () { return true; }
     
         void runTests();
         

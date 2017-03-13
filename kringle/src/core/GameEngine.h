@@ -50,8 +50,6 @@ private:
 public:
 
 	void init(int width, int height);
-    
-    void runTests();
 
 	/**
 	* One game loop step.

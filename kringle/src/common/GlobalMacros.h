@@ -14,6 +14,6 @@
 typedef unsigned int uint;
 typedef unsigned char uchar;
 
-#define KRILOG printf
+#define KRILOG(...) printf(__VA_ARGS__);printf("\n");
 
 #endif /* GlobalMacros_h */

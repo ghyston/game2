@@ -9,9 +9,19 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>kringle_tests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>3F06F6301E76854600C7DDFF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>3F434F2A1E13D2980037AC0A</key>
 		<dict>
 			<key>primary</key>
