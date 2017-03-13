@@ -11,14 +11,14 @@
 void EntityContainerMap::addEntity(EntityPtr entity)
 {
 	Vec2i coordIndx = getIndexesByCoords((entity.lock())->pos);
-	cells[coordIndx.x][coordIndx.y].entities.push_back(entity);
+    getCell(coordIndx.x, coordIndx.y)->entities.push_back(entity);
 }
 
 void EntityContainerMap::removeEntityFromCell(EntityPtr entity)
 {
 	Vec2i coordIndx = getIndexesByCoords((entity.lock())->pos);
 	// @todo: define foreach entities!
-	Entities& entities = cells[coordIndx.x][coordIndx.y].entities;
+    Entities& entities = getEntitiesFromCell(coordIndx.x, coordIndx.y);
 	
 	for(EntityIt it = entities.begin();	it != entities.end(); it++)
 	{
@@ -32,16 +32,10 @@ void EntityContainerMap::removeEntityFromCell(EntityPtr entity)
 
 void EntityContainerMap::checkFroRemovedEntities()
 {
-	std::map<int, std::map<int, MapCell> >::iterator itX = cells.begin();
-	for(; itX != cells.end(); itX++)
-	{
-		std::map<int, MapCell>::iterator itY = itX->second.begin();
-		for(; itY != itX->second.end(); itY++)
-		{
-			RemoveDeletedObjectsFromContainer(itY->second.entities);
-		}
-		
-	}
+    implementForEachCell([](MapCell*cell)
+    {
+        RemoveDeletedObjectsFromContainer(cell->entities);
+    });
 }
 
 Entities& EntityContainerMap::getEntitiesFromCell(float x, float y)
@@ -52,6 +46,6 @@ Entities& EntityContainerMap::getEntitiesFromCell(float x, float y)
 
 Entities& EntityContainerMap::getEntitiesFromCell(int x, int y)
 {
-	return cells[x][y].entities;
+	return getCell(x, y)->entities;
 }
 

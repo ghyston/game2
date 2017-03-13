@@ -16,11 +16,13 @@
 #include "PassMap.h"
 #include "EntityContainerMap.h"
 
+
 //@todo: rename as EntitiesMap!
 class Map
 {
 public:
 	Map() {;}
+    virtual ~Map();
 	
 	void InitGrids();
 	
@@ -38,8 +40,8 @@ public:
 	
 	//EntityPtr getClosestEnemyTower(Vec2f coords);
 	
-	PassMap pass_map;
-	EntityContainerMap entity_map;
+	PassMap* pass_map; //@todo: do not forget to delete it
+	EntityContainerMap* entity_map; //@todo: do not forget to delete it
 	
 	float map_width;
 	float map_height;
@@ -60,7 +62,7 @@ EntityPtr Map::findClosestEntityHasCmp(Vec2f coords)
 	// Map of entities, sorted by quad distance.
 	std::map<float, EntityPtr> closest_entities;
 	
-	Vec2i center_cell = entity_map.getIndexesByCoords(coords);
+	Vec2i center_cell = entity_map->getIndexesByCoords(coords);
 	int half_rad = 0;
 	
 	bool allMap = false;
@@ -75,16 +77,16 @@ EntityPtr Map::findClosestEntityHasCmp(Vec2f coords)
 		int right = center_cell.x + half_rad;
 		int bottom = center_cell.y - half_rad;
 		
-		int bound_left = std::max(left, -entity_map.getWidth());
-		int bound_top = std::min(top, entity_map.getHeight());
-		int bound_right = std::min(right, entity_map.getWidth());
-		int bound_bottom = std::max(bottom, -entity_map.getHeight());
+		int bound_left = std::max(left, -entity_map->getWidth());
+		int bound_top = std::min(top, entity_map->getHeight());
+		int bound_right = std::min(right, entity_map->getWidth());
+		int bound_bottom = std::max(bottom, -entity_map->getHeight());
 		
 		allMap =
-			(bound_left <= -entity_map.getWidth()) &&
-			(bound_right >= entity_map.getWidth()) &&
-			(bound_top >= entity_map.getWidth()) &&
-			(bound_bottom <= -entity_map.getHeight());
+			(bound_left <= -entity_map->getWidth()) &&
+			(bound_right >= entity_map->getWidth()) &&
+			(bound_top >= entity_map->getWidth()) &&
+			(bound_bottom <= -entity_map->getHeight());
 		
 		for(int itX = bound_left; itX <= bound_right; itX++)
 		{
@@ -96,7 +98,7 @@ EntityPtr Map::findClosestEntityHasCmp(Vec2f coords)
 				   (itY > bound_bottom))
 					continue;
 				
-				Entities& ent = entity_map.getEntitiesFromCell(itX, itY);
+				Entities& ent = entity_map->getEntitiesFromCell(itX, itY);
 				for (EntityIt it = ent.begin(); it != ent.end(); it++)
 				{
 					if(!HasCmpt(T, (it->lock())))
@@ -120,11 +122,11 @@ EntityPtr Map::findClosestEntityHasCmp(Vec2f coords)
 template<typename T>
 EntityPtr Map::getFirstEntityHasCmp()
 {
-	for(int i = -entity_map.getWidth(); i <= entity_map.getWidth(); i++)
+	for(int i = -entity_map->getWidth(); i <= entity_map->getWidth(); i++)
 	{
-		for(int j = -entity_map.getHeight(); j <= entity_map.getHeight(); j++)
+		for(int j = -entity_map->getHeight(); j <= entity_map->getHeight(); j++)
 		{
-			Entities& ent = entity_map.getEntitiesFromCell(i, j);
+			Entities& ent = entity_map->getEntitiesFromCell(i, j);
 			for (EntityIt it = ent.begin(); it != ent.end(); it++)
 			{
 				//@todo: check this place, compiler gone crazy here

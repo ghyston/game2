@@ -9,39 +9,46 @@
 #include "Map.h"
 #include "core/GlobalData.h"
 
+//@todo: remove constants from kringle
 const float Map::entity_grid_cell_size = 0.5f;
 const float Map::pass_grid_cell_size = 0.03f;
 
+Map::~Map()
+{
+    delete pass_map;
+    delete entity_map;
+}
+
 Entities& Map::get_entities_by_coords(Vec2f& pos)
 {
-	return entity_map.getEntitiesFromCell(pos.x, pos.y);
+	return entity_map->getEntitiesFromCell(pos.x, pos.y);
 }
 
 bool Map::GetCellPosibility(Vec2i coords)
 {
-	return pass_map.isCellPass(coords);
+	return pass_map->isCellPass(coords);
 }
 
 void Map::RepositionEntityToCorrectCell(
 	EntityPtr entity, Vec2f old_coords, Vec2f new_coords)
 {
-	Vec2i old_cell_indx = entity_map.getIndexesByCoords(old_coords);
-	Vec2i new_cell_indx = entity_map.getIndexesByCoords(new_coords);
+	Vec2i old_cell_indx = entity_map->getIndexesByCoords(old_coords);
+	Vec2i new_cell_indx = entity_map->getIndexesByCoords(new_coords);
 	
 	if(old_cell_indx == new_cell_indx)
 		return;
 	
-	entity_map.removeEntityFromCell(entity);
-	entity_map.addEntity(entity);
+	entity_map->removeEntityFromCell(entity);
+	entity_map->addEntity(entity);
 }
 
 void Map::InitGrids()
 {
-	entity_map.InitMap(
+    entity_map = EntityContainerMap::create(
 		map_width / entity_grid_cell_size ,
 		map_height / entity_grid_cell_size , entity_grid_cell_size);
 	
-	pass_map.InitMap(
+    pass_map = PassMap::create(
 		map_width / pass_grid_cell_size,
 		map_height / pass_grid_cell_size, pass_grid_cell_size);
 }
@@ -53,7 +60,7 @@ void Map::InitGrids()
 	// Map of entities, sorted by quad distance.
 	std::map<float, EntityPtr> closest_entities;
 	
-	Vec2i center_cell = entity_map.getIndexesByCoords(coords);
+	Vec2i center_cell = entity_map->getIndexesByCoords(coords);
 	int half_rad = 0;
 	
 	bool allMap = false;
@@ -68,16 +75,16 @@ void Map::InitGrids()
 		int right = center_cell.x + half_rad;
 		int bottom = center_cell.y - half_rad;
 		
-		int bound_left = std::max(left, -entity_map.getWidth());
-		int bound_top = std::min(top, entity_map.getHeight());
-		int bound_right = std::min(right, entity_map.getWidth());
-		int bound_bottom = std::max(bottom, -entity_map.getHeight());
+		int bound_left = std::max(left, -entity_map->getWidth());
+		int bound_top = std::min(top, entity_map->getHeight());
+		int bound_right = std::min(right, entity_map->getWidth());
+		int bound_bottom = std::max(bottom, -entity_map->getHeight());
 		
 		allMap =
-		(bound_left <= -entity_map.getWidth()) &&
-		(bound_right >= entity_map.getWidth()) &&
-		(bound_top >= entity_map.getWidth()) &&
-		(bound_bottom <= -entity_map.getHeight());
+		(bound_left <= -entity_map->getWidth()) &&
+		(bound_right >= entity_map->getWidth()) &&
+		(bound_top >= entity_map->getWidth()) &&
+		(bound_bottom <= -entity_map->getHeight());
 		
 		for(int itX = bound_left; itX <= bound_right; itX++)
 		{
@@ -89,7 +96,7 @@ void Map::InitGrids()
 				   (itY > bound_bottom))
 					continue;
 				
-				Entities& ent = entity_map.getEntitiesFromCell(itX, itY);
+				Entities& ent = entity_map->getEntitiesFromCell(itX, itY);
 				for (EntityIt it = ent.begin(); it != ent.end(); it++)
 				{
 					if(!HasCmpt(EnergyStorageComponent, (it->lock())))

@@ -10,8 +10,9 @@
 
 bool PassMap::isCellPass(Vec2i coords)
 {
-	cells[coords.x][coords.y].RecalculatePassability();
-	return cells[coords.x][coords.y].passability;
+    PassCell * pCell = getCell(coords.x, coords.y);
+    pCell->RecalculatePassability();
+	return pCell->passability;
 }
 
 bool PassMap::isCellPass(Vec2f coords)
@@ -22,8 +23,9 @@ bool PassMap::isCellPass(Vec2f coords)
 
 void PassMap::BlockPass(Vec2i coords, EntityPtr entity)
 {
-	cells[coords.x][coords.y].passability = false;
-	cells[coords.x][coords.y].blocked_entities.push_back(entity);
+    PassCell * pCell = getCell(coords.x, coords.y);
+	pCell->passability = false;
+	pCell->blocked_entities.push_back(entity);
 }
 
 void PassMap::BlockPass(Vec2f coords, EntityPtr entity)
@@ -33,7 +35,7 @@ void PassMap::BlockPass(Vec2f coords, EntityPtr entity)
 
 void PassMap::SetPass(bool passability, Vec2i coords)
 {
-	cells[coords.x][coords.y].passability = passability;
+	getCell(coords.x, coords.y)->passability = passability;
 }
 
 void PassMap::SetPass(bool passability, Vec2f coords)
@@ -78,21 +80,15 @@ bool PassMap::CheckCellsPass(const Vec2i& left_top, const Vec2i& right_bottom)
 
 Entities& PassMap::GetEntitiesFrom(Vec2i coords)
 {
-	return cells[coords.x][coords.y].blocked_entities;
+	return getCell(coords.x, coords.y)->blocked_entities;
 }
 
 void PassMap::RecalculateCellsPassability()
 {
-	std::map<int, std::map<int, PassCell> >::iterator itX = cells.begin();;
-	std::map<int, PassCell>::iterator itY;
-	
-	for(; itX != cells.end(); itX++)
-	{
-		for(itY = cells[itX->first].begin(); itY != cells[itX->first].end(); itY++)
-		{
-			itY->second.RecalculatePassability();
-		}
-	}
+    implementForEachCell([](PassCell* cell)
+     {
+         cell->RecalculatePassability();
+     });
 }
 		
 		

@@ -11,13 +11,13 @@ void GameLogic::step()
 		system->pre_step();
 		
 		// First, process all positioned entities
-		for(int iX = -map.entity_map.getWidth();
-			iX < map.entity_map.getWidth(); iX++)
+		for(int iX = -map.entity_map->getWidth();
+			iX < map.entity_map->getWidth(); iX++)
 		{
-			for(int iY = -map.entity_map.getHeight();
-				iY < map.entity_map.getHeight(); iY++)
+			for(int iY = -map.entity_map->getHeight();
+				iY < map.entity_map->getHeight(); iY++)
 			{
-				Entities& entList = map.entity_map.getEntitiesFromCell(iX, iY);
+				Entities& entList = map.entity_map->getEntitiesFromCell(iX, iY);
 				
 				for(EntityIt it = entList.begin();	it != entList.end(); it++)
 					system->process(*it);
@@ -31,7 +31,7 @@ void GameLogic::step()
 		system->post_step();
 		
 		// Remove all entities, that was deleted.
-		map.entity_map.checkFroRemovedEntities();
+		map.entity_map->checkFroRemovedEntities();
 		//RemoveDeletedObjectsFromContainer(entities);
 	}
 }
@@ -43,7 +43,7 @@ void GameLogic::add_system(BaseSystem * system)
 
 void GameLogic::add_entity(EntityPtr entity)
 {
-    map.entity_map.addEntity(entity);
+    map.entity_map->addEntity(entity);
 }
 
 void GameLogic::LoadMap(int width, int height)

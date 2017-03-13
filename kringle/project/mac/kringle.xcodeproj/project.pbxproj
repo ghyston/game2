@@ -108,7 +108,6 @@
 		3F84CE9C1E13D2DC00F8E190 /* TriangleRenderable.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F84CE2C1E13D2DC00F8E190 /* TriangleRenderable.h */; };
 		3F84CE9D1E13D2DC00F8E190 /* VAO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F84CE2D1E13D2DC00F8E190 /* VAO.cpp */; };
 		3F84CE9E1E13D2DC00F8E190 /* VAO.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 3F84CE2E1E13D2DC00F8E190 /* VAO.hpp */; };
-		3F84CEA01E13D2DC00F8E190 /* Tests.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F84CE301E13D2DC00F8E190 /* Tests.h */; };
 		3FFC34261E76887B0045E3C9 /* MathTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F84CDFE1E13D2DC00F8E190 /* MathTest.cpp */; };
 		3FFC34271E7688800045E3C9 /* MemPoolTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F84CE001E13D2DC00F8E190 /* MemPoolTest.cpp */; };
 		3FFC34281E768A8F0045E3C9 /* SomeMath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F84CDBF1E13D2DC00F8E190 /* SomeMath.cpp */; };
@@ -235,8 +234,7 @@
 		3F84CE2C1E13D2DC00F8E190 /* TriangleRenderable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriangleRenderable.h; sourceTree = "<group>"; };
 		3F84CE2D1E13D2DC00F8E190 /* VAO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VAO.cpp; sourceTree = "<group>"; };
 		3F84CE2E1E13D2DC00F8E190 /* VAO.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = VAO.hpp; sourceTree = "<group>"; };
-		3F84CE2F1E13D2DC00F8E190 /* Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tests.cpp; sourceTree = "<group>"; };
-		3F84CE301E13D2DC00F8E190 /* Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tests.h; sourceTree = "<group>"; };
+		3FFC342A1E7714960045E3C9 /* IMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMap.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -387,12 +385,13 @@
 				3F84CDEF1E13D2DC00F8E190 /* BaseGridMap.h */,
 				3F84CDF01E13D2DC00F8E190 /* EntityContainerMap.cpp */,
 				3F84CDF11E13D2DC00F8E190 /* EntityContainerMap.h */,
+				3F84CDF61E13D2DC00F8E190 /* PassMap.cpp */,
+				3F84CDF71E13D2DC00F8E190 /* PassMap.h */,
 				3F84CDF21E13D2DC00F8E190 /* Map.cpp */,
 				3F84CDF31E13D2DC00F8E190 /* Map.h */,
 				3F84CDF41E13D2DC00F8E190 /* MapCell.h */,
 				3F84CDF51E13D2DC00F8E190 /* PassCell.h */,
-				3F84CDF61E13D2DC00F8E190 /* PassMap.cpp */,
-				3F84CDF71E13D2DC00F8E190 /* PassMap.h */,
+				3FFC342A1E7714960045E3C9 /* IMap.h */,
 			);
 			path = map;
 			sourceTree = "<group>";
@@ -415,8 +414,6 @@
 				3F84CDFF1E13D2DC00F8E190 /* MathTest.h */,
 				3F84CE001E13D2DC00F8E190 /* MemPoolTest.cpp */,
 				3F84CE011E13D2DC00F8E190 /* MemPoolTest.h */,
-				3F84CE2F1E13D2DC00F8E190 /* Tests.cpp */,
-				3F84CE301E13D2DC00F8E190 /* Tests.h */,
 			);
 			name = tests;
 			path = ../../../src/tests;
@@ -522,7 +519,6 @@
 				3F84CE741E13D2DC00F8E190 /* BaseRenderable.h in Headers */,
 				3F84CE351E13D2DC00F8E190 /* Matrix4f.h in Headers */,
 				3F84CE581E13D2DC00F8E190 /* Types.h in Headers */,
-				3F84CEA01E13D2DC00F8E190 /* Tests.h in Headers */,
 				3F84CE871E13D2DC00F8E190 /* PolygonRenderable.h in Headers */,
 				3F84CE8F1E13D2DC00F8E190 /* RingRenderable.h in Headers */,
 				3F84CE7E1E13D2DC00F8E190 /* FrameBufferTest.hpp in Headers */,

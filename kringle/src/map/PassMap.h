@@ -19,6 +19,13 @@
 class PassMap : public BaseGridMap<PassCell>
 {
 public:
+    
+    static PassMap * create(int width, int height, float cellSize)
+    {
+        auto map = new PassMap();
+        map->init(width, height, cellSize);
+        return map;
+    }
 	
 	bool isCellPass(Vec2f coords);
 	bool isCellPass(Vec2i coords);

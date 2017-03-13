@@ -13,14 +13,16 @@
 #include "../Common/Vector2f.h"
 #include "../Common/Vec2i.h"
 
+using namespace std;
+
 template <class T>
 class BaseGridMap
 {
 public:
-	BaseGridMap() {;}
+    
+    virtual ~BaseGridMap() { delete [] cells; }
 	
 	//@note: it's half width and half height
-	virtual void InitMap(int width_, int height_, float cell_size_);
 	
 	virtual int getHeight() const { return height; }
 	virtual int getWidth() const { return width; }
@@ -31,23 +33,35 @@ public:
 	
 	virtual Vec2f getCoordsByIndex(Vec2i coords);
 	virtual Vec2f getCoordsByIndex(int x, int y);
+    
+    virtual void implementForEachCell(function<void(T* cell)> lambda);
 	
 protected:
+    
+    BaseGridMap() {;}
+    virtual void init(int width_, int height_, float cell_size_);
 	
 	int width;
 	int height;
 	float cell_size;
+    
+    T * const getCell(int x, int y);
+    
+private:
 	
-	std::map<int, std::map<int, T> > cells;
+	T* cells;
+    size_t cellByteSize;
 	
 };
 
 template <class T>
-void BaseGridMap<T>::InitMap(int width_, int height_, float cell_size_)
+void BaseGridMap<T>::init(int width_, int height_, float cell_size_)
 {
 	height = height_;
 	width = width_;
 	cell_size = cell_size_;
+    cells = new T[height * width];
+    cellByteSize = sizeof(T);
 }
 
 template <class T>
@@ -87,6 +101,19 @@ Vec2f BaseGridMap<T>::getCoordsByIndex(int x, int y)
 {
 	Vec2f result(x * cell_size, y * cell_size);
 	return result;
+}
+
+template <class T>
+T * const BaseGridMap<T>::getCell(int x, int y)
+{
+    return cells + (y * height + x) * cellByteSize;
+}
+
+template <class T>
+void BaseGridMap<T>::implementForEachCell(function<void(T*const cell)> lambda)
+{
+    for(int i = 0; i < width * height; i++)
+        lambda(cells+i*cellByteSize);
 }
 
 

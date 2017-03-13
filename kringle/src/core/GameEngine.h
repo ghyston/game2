@@ -6,9 +6,6 @@
 #include "input/InputProcessor.h"
 #include "input/NewInputProcessor.h"
 
-//@todo: delete this include on release
-#include "tests/Tests.h"
-
 /**
 * Main game manager. Singletone.
 */

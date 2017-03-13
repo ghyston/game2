@@ -16,6 +16,13 @@
 class EntityContainerMap : public BaseGridMap<MapCell>
 {
 public:
+    
+    static EntityContainerMap * create(int width, int height, float cellSize)
+    {
+        auto map = new EntityContainerMap();
+        map->init(width, height, cellSize);
+        return map;
+    }
 	
 	void addEntity(EntityPtr entity);
 	void removeEntityFromCell(EntityPtr entity);

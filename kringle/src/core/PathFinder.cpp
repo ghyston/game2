@@ -23,10 +23,10 @@ bool PathFinder::CalcPathForUnit(std::vector<Vec2i>& points, Vec2f start, Vec2f 
 {
 	PathFinderParams params;
 	Map* map = GameEngine::get_data()->logic->getMap();
-	params.source = map->pass_map.getIndexesByCoords(start);
-	params.destination = map->pass_map.getIndexesByCoords(end);
+	params.source = map->pass_map->getIndexesByCoords(start);
+	params.destination = map->pass_map->getIndexesByCoords(end);
 	params.min_step = 3;
-	params.max_step = map->pass_map.getWidth(); //we just need limit
+	params.max_step = map->pass_map->getWidth(); //we just need limit
 	params.obj_size = 1;
 	params.simplify = false; //@todo: fix, it crash app!
 	
@@ -41,9 +41,9 @@ bool PathFinder::CalcPathForTower(std::vector<Vec2i>& points, Vec2f start, Vec2f
 {
 	PathFinderParams params;
 	Map* map = GameEngine::get_data()->logic->getMap();
-	params.source = map->pass_map.getIndexesByCoords(start);
-	params.destination = map->pass_map.getIndexesByCoords(end);
-	params.min_step = ceil(0.1f / map->pass_map.getCellSize()); //@todo: constant! o.1 is tower size
+	params.source = map->pass_map->getIndexesByCoords(start);
+	params.destination = map->pass_map->getIndexesByCoords(end);
+	params.min_step = ceil(0.1f / map->pass_map->getCellSize()); //@todo: constant! o.1 is tower size
 	params.max_step = 10;
 	params.obj_size = 2;
 	params.simplify = false;
@@ -244,7 +244,7 @@ bool PathFinder::IsCellClear(Vec2i coords, int size/* = 1*/)
 	for(int i = 0; (i < size) && result; i++)
 		for(int j = 0; (j < size) && result; j++)
 		{
-			if(GameEngine::get_data()->logic->getMap()->pass_map.
+			if(GameEngine::get_data()->logic->getMap()->pass_map->
 			   isCellPass(Vec2i(coords.x + i, coords.y + j)))
 				continue;
 			
@@ -256,7 +256,7 @@ bool PathFinder::IsCellClear(Vec2i coords, int size/* = 1*/)
 			
 			// Check, is entities, that blocking cell are on excluded list.
 			Vec2i cell_coords = coords + Vec2i(i, j);
-			Entities& blocking = GameEngine::get_data()->logic->getMap()->pass_map.GetEntitiesFrom(cell_coords);
+			Entities& blocking = GameEngine::get_data()->logic->getMap()->pass_map->GetEntitiesFrom(cell_coords);
 			for(EntityIt it = blocking.begin(); it != blocking.end() && result; it++)
 			{
 				bool founded_on_excluded = false;
