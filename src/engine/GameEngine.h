@@ -79,6 +79,11 @@ public:
 	* Create game engine instance.
 	*/
 	static bool create_instance();
+
+    static string get_classname()
+    {
+        return "GameEngine";    
+    }
 	
 	
 };
