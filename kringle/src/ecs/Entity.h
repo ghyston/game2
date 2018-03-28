@@ -14,13 +14,14 @@
 #include "common/Vector2f.h"
 #include "BaseComponent.h"
 #include "Types.h"
+#include "MemPool.h"
 
 using namespace std;
 
 #define GetCmpt(type,name,entity) type* name = entity->get_component<type>();
 #define HasCmpt(type,entity) entity->has_component<type>()
 
-class Entity/* : public Obj*/
+class Entity
 {
 public:
 	
@@ -29,7 +30,7 @@ public:
 	template <class T>
 	T * add_component()
 	{
-        T * cmp = new T();
+        T * cmp = kringle::MemPool<T>::createObj();
 		components[IComponent::GetType<T>()] = (IComponent*)cmp;
         return cmp;
 	}
@@ -49,7 +50,7 @@ public:
 	template <typename T>
 	void remove_component()
 	{
-		delete components[T::GetType()];
+        kringle::MemPool<T>::delObj(components[T::GetType()]);
 		components.erase(T::GetType());
 	}
 	

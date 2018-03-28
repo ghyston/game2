@@ -12,7 +12,6 @@
 #include <vector>
 #include <list>
 #include <iostream>
-#include "ShrPtr.h"
 #include <memory>
 
 using namespace std;

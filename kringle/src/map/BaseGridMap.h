@@ -10,8 +10,8 @@
 #define __Game2__BaseGridMap__
 
 #include <map>
-#include "../Common/Vector2f.h"
-#include "../Common/Vec2i.h"
+#include "../common/Vector2f.h"
+#include "../common/Vec2i.h"
 
 using namespace std;
 
@@ -23,6 +23,13 @@ public:
     virtual ~BaseGridMap() { delete [] cells; }
 	
 	//@note: it's half width and half height
+    
+    static BaseGridMap<T> * create(int width, int height, float cellSize)
+    {
+        auto map = new BaseGridMap<T>();
+        map->init(width, height, cellSize);
+        return map;
+    }
 	
 	virtual int getHeight() const { return height; }
 	virtual int getWidth() const { return width; }

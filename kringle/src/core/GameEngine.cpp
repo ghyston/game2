@@ -7,8 +7,6 @@
 #include "renderer/HexGrid.h"
 #include "renderer/FrameBufferTest.hpp"
 #include "renderer/DynamicTexture.h"
-#include "tests/MemPoolTest.h"
-#include "tests/MathTest.h"
 
 using namespace kringle;
 

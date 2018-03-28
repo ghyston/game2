@@ -18,6 +18,7 @@ namespace kringle {
     public:
         
         bool init () { return true; }
+        void deinit() {}
         
         void runTests();
         

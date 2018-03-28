@@ -22,12 +22,12 @@ namespace kringle {
         
         static int getCounter() { return refCounter; }
         
-        Foo()
+        explicit Foo()
         {
             Foo::refCounter++;
         }
         
-        Foo(const Foo&)
+        explicit Foo(const Foo&)
         {
             Foo::refCounter++;
         }
@@ -51,6 +51,7 @@ namespace kringle {
     public:
         
         bool init () { return true; }
+        void deinit() {}
     
         void runTests();
         

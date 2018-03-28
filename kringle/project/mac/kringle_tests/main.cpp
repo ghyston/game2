@@ -10,6 +10,7 @@
 #include <stack>
 #include "MathTest.h"
 #include "MemPoolTest.h"
+#include "BaseGridMapTest.h"
 
 using namespace kringle;
 
@@ -20,10 +21,14 @@ int main(int argc, const char * argv[])
     //@note: add new tests here
     tests.push(new MemPoolTest());
     tests.push(new MathTest());
+    tests.push(new BaseGridTest());
+    
     
     while (!tests.empty()) {
         BaseTest * test = tests.top();
+        test->init();
         test->runTests();
+        test->deinit();
         delete test;
         tests.pop();
     }

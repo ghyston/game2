@@ -35,8 +35,6 @@
 		3F84CE4F1E13D2DC00F8E190 /* BaseComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F84CDDA1E13D2DC00F8E190 /* BaseComponent.h */; };
 		3F84CE501E13D2DC00F8E190 /* BaseSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F84CDDB1E13D2DC00F8E190 /* BaseSystem.cpp */; };
 		3F84CE511E13D2DC00F8E190 /* BaseSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F84CDDC1E13D2DC00F8E190 /* BaseSystem.h */; };
-		3F84CE521E13D2DC00F8E190 /* ComponentsContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F84CDDD1E13D2DC00F8E190 /* ComponentsContainer.cpp */; };
-		3F84CE531E13D2DC00F8E190 /* ComponentsContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F84CDDE1E13D2DC00F8E190 /* ComponentsContainer.h */; };
 		3F84CE541E13D2DC00F8E190 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F84CDDF1E13D2DC00F8E190 /* Entity.cpp */; };
 		3F84CE551E13D2DC00F8E190 /* Entity.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F84CDE01E13D2DC00F8E190 /* Entity.h */; };
 		3F84CE561E13D2DC00F8E190 /* GameLogic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F84CDE11E13D2DC00F8E190 /* GameLogic.cpp */; };
@@ -62,7 +60,6 @@
 		3F84CE6A1E13D2DC00F8E190 /* PassMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F84CDF71E13D2DC00F8E190 /* PassMap.h */; };
 		3F84CE6B1E13D2DC00F8E190 /* MemPool.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F84CDF91E13D2DC00F8E190 /* MemPool.h */; };
 		3F84CE6C1E13D2DC00F8E190 /* RefCounter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F84CDFA1E13D2DC00F8E190 /* RefCounter.h */; };
-		3F84CE6D1E13D2DC00F8E190 /* ShrPtr.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F84CDFB1E13D2DC00F8E190 /* ShrPtr.h */; };
 		3F84CE721E13D2DC00F8E190 /* MemPoolTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F84CE011E13D2DC00F8E190 /* MemPoolTest.h */; };
 		3F84CE731E13D2DC00F8E190 /* BaseRenderable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F84CE031E13D2DC00F8E190 /* BaseRenderable.cpp */; };
 		3F84CE741E13D2DC00F8E190 /* BaseRenderable.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F84CE041E13D2DC00F8E190 /* BaseRenderable.h */; };
@@ -108,6 +105,11 @@
 		3F84CE9C1E13D2DC00F8E190 /* TriangleRenderable.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F84CE2C1E13D2DC00F8E190 /* TriangleRenderable.h */; };
 		3F84CE9D1E13D2DC00F8E190 /* VAO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F84CE2D1E13D2DC00F8E190 /* VAO.cpp */; };
 		3F84CE9E1E13D2DC00F8E190 /* VAO.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 3F84CE2E1E13D2DC00F8E190 /* VAO.hpp */; };
+		3FB9016B1E9C19F80016F421 /* ShinyMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FB901691E9C19F80016F421 /* ShinyMap.cpp */; };
+		3FB9016C1E9C19F80016F421 /* ShinyMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FB901691E9C19F80016F421 /* ShinyMap.cpp */; };
+		3FB9016D1E9C19F80016F421 /* ShinyMap.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 3FB9016A1E9C19F80016F421 /* ShinyMap.hpp */; };
+		3FD1A9711E77C420000757EC /* ShrPtr.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FD1A9701E77C420000757EC /* ShrPtr.h */; };
+		3FD1A9741E77C708000757EC /* BaseGridMapTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1A9721E77C708000757EC /* BaseGridMapTest.cpp */; };
 		3FFC34261E76887B0045E3C9 /* MathTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F84CDFE1E13D2DC00F8E190 /* MathTest.cpp */; };
 		3FFC34271E7688800045E3C9 /* MemPoolTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F84CE001E13D2DC00F8E190 /* MemPoolTest.cpp */; };
 		3FFC34281E768A8F0045E3C9 /* SomeMath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F84CDBF1E13D2DC00F8E190 /* SomeMath.cpp */; };
@@ -157,8 +159,6 @@
 		3F84CDDA1E13D2DC00F8E190 /* BaseComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseComponent.h; sourceTree = "<group>"; };
 		3F84CDDB1E13D2DC00F8E190 /* BaseSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseSystem.cpp; sourceTree = "<group>"; };
 		3F84CDDC1E13D2DC00F8E190 /* BaseSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSystem.h; sourceTree = "<group>"; };
-		3F84CDDD1E13D2DC00F8E190 /* ComponentsContainer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ComponentsContainer.cpp; sourceTree = "<group>"; };
-		3F84CDDE1E13D2DC00F8E190 /* ComponentsContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComponentsContainer.h; sourceTree = "<group>"; };
 		3F84CDDF1E13D2DC00F8E190 /* Entity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
 		3F84CDE01E13D2DC00F8E190 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
 		3F84CDE11E13D2DC00F8E190 /* GameLogic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLogic.cpp; sourceTree = "<group>"; };
@@ -184,7 +184,6 @@
 		3F84CDF71E13D2DC00F8E190 /* PassMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PassMap.h; sourceTree = "<group>"; };
 		3F84CDF91E13D2DC00F8E190 /* MemPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemPool.h; sourceTree = "<group>"; };
 		3F84CDFA1E13D2DC00F8E190 /* RefCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefCounter.h; sourceTree = "<group>"; };
-		3F84CDFB1E13D2DC00F8E190 /* ShrPtr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShrPtr.h; sourceTree = "<group>"; };
 		3F84CDFD1E13D2DC00F8E190 /* BaseTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTest.h; sourceTree = "<group>"; };
 		3F84CDFE1E13D2DC00F8E190 /* MathTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MathTest.cpp; sourceTree = "<group>"; };
 		3F84CDFF1E13D2DC00F8E190 /* MathTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathTest.h; sourceTree = "<group>"; };
@@ -234,6 +233,11 @@
 		3F84CE2C1E13D2DC00F8E190 /* TriangleRenderable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriangleRenderable.h; sourceTree = "<group>"; };
 		3F84CE2D1E13D2DC00F8E190 /* VAO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VAO.cpp; sourceTree = "<group>"; };
 		3F84CE2E1E13D2DC00F8E190 /* VAO.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = VAO.hpp; sourceTree = "<group>"; };
+		3FB901691E9C19F80016F421 /* ShinyMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShinyMap.cpp; sourceTree = "<group>"; };
+		3FB9016A1E9C19F80016F421 /* ShinyMap.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ShinyMap.hpp; sourceTree = "<group>"; };
+		3FD1A9701E77C420000757EC /* ShrPtr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShrPtr.h; sourceTree = "<group>"; };
+		3FD1A9721E77C708000757EC /* BaseGridMapTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseGridMapTest.cpp; sourceTree = "<group>"; };
+		3FD1A9731E77C708000757EC /* BaseGridMapTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseGridMapTest.h; sourceTree = "<group>"; };
 		3FFC342A1E7714960045E3C9 /* IMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMap.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -352,8 +356,6 @@
 				3F84CDDA1E13D2DC00F8E190 /* BaseComponent.h */,
 				3F84CDDB1E13D2DC00F8E190 /* BaseSystem.cpp */,
 				3F84CDDC1E13D2DC00F8E190 /* BaseSystem.h */,
-				3F84CDDD1E13D2DC00F8E190 /* ComponentsContainer.cpp */,
-				3F84CDDE1E13D2DC00F8E190 /* ComponentsContainer.h */,
 				3F84CDDF1E13D2DC00F8E190 /* Entity.cpp */,
 				3F84CDE01E13D2DC00F8E190 /* Entity.h */,
 				3F84CDE11E13D2DC00F8E190 /* GameLogic.cpp */,
@@ -392,6 +394,8 @@
 				3F84CDF41E13D2DC00F8E190 /* MapCell.h */,
 				3F84CDF51E13D2DC00F8E190 /* PassCell.h */,
 				3FFC342A1E7714960045E3C9 /* IMap.h */,
+				3FB901691E9C19F80016F421 /* ShinyMap.cpp */,
+				3FB9016A1E9C19F80016F421 /* ShinyMap.hpp */,
 			);
 			path = map;
 			sourceTree = "<group>";
@@ -399,9 +403,9 @@
 		3F84CDF81E13D2DC00F8E190 /* memory */ = {
 			isa = PBXGroup;
 			children = (
+				3FD1A9701E77C420000757EC /* ShrPtr.h */,
 				3F84CDF91E13D2DC00F8E190 /* MemPool.h */,
 				3F84CDFA1E13D2DC00F8E190 /* RefCounter.h */,
-				3F84CDFB1E13D2DC00F8E190 /* ShrPtr.h */,
 			);
 			path = memory;
 			sourceTree = "<group>";
@@ -414,6 +418,8 @@
 				3F84CDFF1E13D2DC00F8E190 /* MathTest.h */,
 				3F84CE001E13D2DC00F8E190 /* MemPoolTest.cpp */,
 				3F84CE011E13D2DC00F8E190 /* MemPoolTest.h */,
+				3FD1A9721E77C708000757EC /* BaseGridMapTest.cpp */,
+				3FD1A9731E77C708000757EC /* BaseGridMapTest.h */,
 			);
 			name = tests;
 			path = ../../../src/tests;
@@ -488,9 +494,7 @@
 				3F84CE391E13D2DC00F8E190 /* ThreadLock.h in Headers */,
 				3F84CE961E13D2DC00F8E190 /* TextureHelper.h in Headers */,
 				3F84CE941E13D2DC00F8E190 /* TextRenderer.h in Headers */,
-				3F84CE6D1E13D2DC00F8E190 /* ShrPtr.h in Headers */,
 				3F84CE3E1E13D2DC00F8E190 /* Vector2f.h in Headers */,
-				3F84CE531E13D2DC00F8E190 /* ComponentsContainer.h in Headers */,
 				3F84CE7A1E13D2DC00F8E190 /* Cursor.h in Headers */,
 				3F84CE681E13D2DC00F8E190 /* PassCell.h in Headers */,
 				3F84CE3C1E13D2DC00F8E190 /* VecShrPtr.h in Headers */,
@@ -522,12 +526,14 @@
 				3F84CE871E13D2DC00F8E190 /* PolygonRenderable.h in Headers */,
 				3F84CE8F1E13D2DC00F8E190 /* RingRenderable.h in Headers */,
 				3F84CE7E1E13D2DC00F8E190 /* FrameBufferTest.hpp in Headers */,
+				3FB9016D1E9C19F80016F421 /* ShinyMap.hpp in Headers */,
 				3F84CE8D1E13D2DC00F8E190 /* Renderer.h in Headers */,
 				3F84CE571E13D2DC00F8E190 /* GameLogic.h in Headers */,
 				3F84CE4A1E13D2DC00F8E190 /* GlobalData.h in Headers */,
 				3F84CE5C1E13D2DC00F8E190 /* NewInputProcessor.h in Headers */,
 				3F84CE5E1E13D2DC00F8E190 /* OutherAPI.h in Headers */,
 				3F84CE481E13D2DC00F8E190 /* GameEngine.h in Headers */,
+				3FD1A9711E77C420000757EC /* ShrPtr.h in Headers */,
 				3F84CE891E13D2DC00F8E190 /* RectGrid.h in Headers */,
 				3F84CE671E13D2DC00F8E190 /* MapCell.h in Headers */,
 				3F84CE601E13D2DC00F8E190 /* TouchTypes.h in Headers */,
@@ -616,8 +622,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FFC34271E7688800045E3C9 /* MemPoolTest.cpp in Sources */,
+				3FD1A9741E77C708000757EC /* BaseGridMapTest.cpp in Sources */,
 				3F06F6341E76854600C7DDFF /* main.cpp in Sources */,
 				3FFC34261E76887B0045E3C9 /* MathTest.cpp in Sources */,
+				3FB9016C1E9C19F80016F421 /* ShinyMap.cpp in Sources */,
 				3FFC34281E768A8F0045E3C9 /* SomeMath.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -636,6 +644,7 @@
 				3F84CE8C1E13D2DC00F8E190 /* Renderer.cpp in Sources */,
 				3F84CE8E1E13D2DC00F8E190 /* RingRenderable.cpp in Sources */,
 				3F84CE971E13D2DC00F8E190 /* TextureRectRenderable.cpp in Sources */,
+				3FB9016B1E9C19F80016F421 /* ShinyMap.cpp in Sources */,
 				3F84CE4B1E13D2DC00F8E190 /* PathFinder.cpp in Sources */,
 				3F84CE9B1E13D2DC00F8E190 /* TriangleRenderable.cpp in Sources */,
 				3F84CE7D1E13D2DC00F8E190 /* FrameBufferTest.cpp in Sources */,
@@ -645,7 +654,6 @@
 				3F84CE5F1E13D2DC00F8E190 /* TouchTypes.cpp in Sources */,
 				3F84CE771E13D2DC00F8E190 /* CircleRenderable.cpp in Sources */,
 				3F84CE501E13D2DC00F8E190 /* BaseSystem.cpp in Sources */,
-				3F84CE521E13D2DC00F8E190 /* ComponentsContainer.cpp in Sources */,
 				3F84CE561E13D2DC00F8E190 /* GameLogic.cpp in Sources */,
 				3F84CE651E13D2DC00F8E190 /* Map.cpp in Sources */,
 				3F84CE9D1E13D2DC00F8E190 /* VAO.cpp in Sources */,
@@ -677,6 +685,7 @@
 		3F06F6351E76854600C7DDFF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -684,6 +693,7 @@
 		3F06F6361E76854600C7DDFF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
