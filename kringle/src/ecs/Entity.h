@@ -11,7 +11,7 @@
 #include <map>
 #include <vector>
 #include <typeinfo>
-#include "common/Vector2f.h"
+#include "math/Vec2f.h"
 #include "BaseComponent.h"
 #include "Types.h"
 #include "MemPool.h"
@@ -64,7 +64,7 @@ public:
 	
 private:
 	
-	// New entities should be created throw create();
+	// New entities should be created through fabric method
 	Entity();
     
     Entity(const Entity &) = delete;

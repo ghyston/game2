@@ -6,7 +6,9 @@
 //  Copyright (c) 2013 Stepanov Ilia. All rights reserved.
 //
 
-#include "Vector2f.h"
+#include "Vec2f.h"
+
+using namespace kringle;
 
 Vec2f operator+ (const Vec2f& vec_1, const Vec2f& vec_2)
 {
@@ -28,13 +30,13 @@ Vec2f operator* (float coeff, const Vec2f& vec)
 	return Vec2f(vec.x * coeff, vec.y * coeff);
 }
 
-float quad_distance(const Vec2f& point_1, const Vec2f& point_2)
+float QuadDistance(const Vec2f& point_1, const Vec2f& point_2)
 {
 	Vec2f s = point_2 - point_1;
 	return s.x * s.x + s.y * s.y;
 }
 
-float distance(const Vec2f& point_1, const Vec2f& point_2)
+float Distance(const Vec2f& point_1, const Vec2f& point_2)
 {
-	return sqrtf(quad_distance(point_1, point_2));
+	return sqrtf(QuadDistance(point_1, point_2));
 }

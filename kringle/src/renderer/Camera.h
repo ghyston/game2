@@ -1,7 +1,7 @@
 #ifndef __CAMERA_H__
 #define __CAMERA_H__
 
-#include "../Common/Vector2f.h"
+#include "../math/Vec2f.h"
 
 class Camera
 {

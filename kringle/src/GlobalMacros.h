@@ -9,8 +9,6 @@
 #ifndef GlobalMacros_h
 #define GlobalMacros_h
 
-#include <iostream>
-
 typedef unsigned int uint;
 typedef unsigned char uchar;
 

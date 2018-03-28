@@ -9,7 +9,7 @@
 #ifndef MemPoolTest_hpp
 #define MemPoolTest_hpp
 
-#include "common/GlobalMacros.h"
+#include "math/GlobalMacros.h"
 #include "memory/MemPool.h"
 #include "tests/BaseTest.h"
 

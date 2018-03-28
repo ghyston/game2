@@ -31,15 +31,15 @@ void BaseRenderable::Draw()
     model_matrix_translate->Translate(coords.x, coords.y, 0.0f);
     model_matrix->Identity();
     temp_matrix->Identity();
-    matrixMultiply(*model_matrix_rotate, *model_matrix_scale, *temp_matrix);
-    matrixMultiply(*model_matrix_translate, *temp_matrix, *model_matrix);
+    MatrixMultiply(*model_matrix_rotate, *model_matrix_scale, *temp_matrix);
+    MatrixMultiply(*model_matrix_translate, *temp_matrix, *model_matrix);
     
     glUseProgram(shader);
     glUniform3f(gFragColorHandle, color.r, color.g, color.b);
     glVertexAttribPointer(gvPositionHandle, 2, GL_FLOAT, GL_FALSE, 0, vertexes);
     glEnableVertexAttribArray(gvPositionHandle);
 
-    glUniformMatrix4fv(gModelHandle, 1, GL_FALSE, model_matrix->get_val());
+    glUniformMatrix4fv(gModelHandle, 1, GL_FALSE, model_matrix->GetValue());
     glDrawArrays(draw_type, 0, vertexes_count);
 }
 

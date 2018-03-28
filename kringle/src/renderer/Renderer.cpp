@@ -324,22 +324,22 @@ void Renderer::setup_ortho(float left, float right, float bottom, float top, flo
 	mx_translate->Translate(tx, ty, tz);
 	mx_scale->Scale(a, b, c);
 	mx_rotate->Identity();
-	matrixMultiply(*mx_scale, *mx_translate, *ortho);
+	MatrixMultiply(*mx_scale, *mx_translate, *ortho);
 	
 	GLint projectionUniform = glGetUniformLocation(simple_shader, "Projection");
 	glUseProgram(simple_shader);
-	glUniformMatrix4fv(projectionUniform, 1, GL_FALSE, ortho->get_val());
+	glUniformMatrix4fv(projectionUniform, 1, GL_FALSE, ortho->GetValue());
 	
 	GLint projectionUniformTex = glGetUniformLocation(_textureShader, "Projection");
 	glUseProgram(_textureShader);
-	glUniformMatrix4fv(projectionUniformTex, 1, GL_FALSE, ortho->get_val());
+	glUniformMatrix4fv(projectionUniformTex, 1, GL_FALSE, ortho->GetValue());
 	
 	GLint projectionUniformBW = glGetUniformLocation(_bwShader, "Projection");
 	glUseProgram(_bwShader);
-	glUniformMatrix4fv(projectionUniformBW, 1, GL_FALSE, ortho->get_val());
+	glUniformMatrix4fv(projectionUniformBW, 1, GL_FALSE, ortho->GetValue());
 	
 	GLint projectionUniformBlur = glGetUniformLocation(_blurShader, "Projection");
 	glUseProgram(_blurShader);
-	glUniformMatrix4fv(projectionUniformBlur, 1, GL_FALSE, ortho->get_val());
+	glUniformMatrix4fv(projectionUniformBlur, 1, GL_FALSE, ortho->GetValue());
 
 }

@@ -10,7 +10,7 @@
 #define __Game2__BaseGridMap__
 
 #include <map>
-#include "../common/Vector2f.h"
+#include "../math/Vec2f.h"
 #include "../common/Vec2i.h"
 
 using namespace std;

@@ -11,7 +11,7 @@
 
 #include "../Common/VecShrPtr.h"
 #include "../Common/Vec2i.h"
-#include "../Common/Vector2f.h"
+#include "../math/Vec2f.h"
 
 #include "PassMap.h"
 #include "EntityContainerMap.h"
@@ -104,7 +104,7 @@ EntityPtr Map::findClosestEntityHasCmp(Vec2f coords)
 					if(!HasCmpt(T, (it->lock())))
 						continue;
 					
-					float quad_dist = quad_distance((it->lock())->pos, coords);
+					float quad_dist = QuadDistance((it->lock())->pos, coords);
 					closest_entities[quad_dist] = *it;
 				}
 			}

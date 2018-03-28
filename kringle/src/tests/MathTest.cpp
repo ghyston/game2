@@ -8,7 +8,7 @@
 
 #include "MathTest.h"
 
-#include "common/Vector2f.h"
+#include "math/Vec2f.h"
 #include "SomeMath.h"
 
 using namespace kringle;

@@ -13,7 +13,7 @@
 #include "GlInclude.h"
 
 #include "../Common/Matrix4f.h"
-#include "../Common/Vector2f.h"
+#include "../math/Vec2f.h"
 #include "../Common/Color3f.h"
 #include "VAO.hpp"
 #include <cstddef>

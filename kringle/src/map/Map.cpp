@@ -110,7 +110,7 @@ void Map::InitGrids()
 						continue;
 					
 					GetCmpt(PositionComponent, pos_com, (it->lock()));
-					float quad_dist = quad_distance(pos_com->position, coords);
+					float quad_dist = QuadDistance(pos_com->position, coords);
 					closest_entities[quad_dist] = *it;
 				}
 			}

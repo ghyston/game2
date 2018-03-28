@@ -108,8 +108,8 @@ void TextureRectRenderable::Draw()
 	model_matrix_translate->Translate(coords.x, coords.y, 0.0f);
 	model_matrix->Identity();
 	temp_matrix->Identity();
-	matrixMultiply(*model_matrix_rotate, *model_matrix_scale, *temp_matrix);
-	matrixMultiply(*model_matrix_translate, *temp_matrix, *model_matrix);
+	MatrixMultiply(*model_matrix_rotate, *model_matrix_scale, *temp_matrix);
+	MatrixMultiply(*model_matrix_translate, *temp_matrix, *model_matrix);
 	
 	glEnable(GL_TEXTURE_2D);
 	
@@ -122,7 +122,7 @@ void TextureRectRenderable::Draw()
 	glBindTexture(GL_TEXTURE_2D, texture2);
 	
 	glUniform3f(gFragColorHandle, color.r, color.g, color.b);
-	glUniformMatrix4fv(gModelHandle, 1, GL_FALSE, model_matrix->get_val());
+	glUniformMatrix4fv(gModelHandle, 1, GL_FALSE, model_matrix->GetValue());
 	
 	glVertexAttribPointer(gvPositionHandle, 2, GL_FLOAT, GL_FALSE, 0, 0);
 	glEnableVertexAttribArray(gvPositionHandle);

@@ -14,7 +14,7 @@
 #include <vector>
 #include "../ECS/Types.h"
 #include "../Common/Vec2i.h"
-#include "../Common/Vector2f.h"
+#include "../math/Vec2f.h"
 
 class PathFinder
 {

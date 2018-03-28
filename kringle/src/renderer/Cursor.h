@@ -9,7 +9,7 @@
 #ifndef __Game2__Cursor__
 #define __Game2__Cursor__
 
-#include "Common/Vector2f.h"
+#include "math/Vec2f.h"
 
 class Cursor
 {

@@ -8,6 +8,8 @@
 
 #include "Vec2i.h"
 
+using namespace kringle;
+
 Vec2i operator+ (const Vec2i& vec_1, const Vec2i& vec_2)
 {
 	return Vec2i (vec_1.x + vec_2.x, vec_1.y + vec_2.y);

@@ -22,8 +22,8 @@
 		3F84CE3A1E13D2DC00F8E190 /* Vec2i.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F84CDC31E13D2DC00F8E190 /* Vec2i.cpp */; };
 		3F84CE3B1E13D2DC00F8E190 /* Vec2i.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F84CDC41E13D2DC00F8E190 /* Vec2i.h */; };
 		3F84CE3C1E13D2DC00F8E190 /* VecShrPtr.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F84CDC51E13D2DC00F8E190 /* VecShrPtr.h */; };
-		3F84CE3D1E13D2DC00F8E190 /* Vector2f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F84CDC61E13D2DC00F8E190 /* Vector2f.cpp */; };
-		3F84CE3E1E13D2DC00F8E190 /* Vector2f.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F84CDC71E13D2DC00F8E190 /* Vector2f.h */; };
+		3F84CE3D1E13D2DC00F8E190 /* Vec2f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F84CDC61E13D2DC00F8E190 /* Vec2f.cpp */; };
+		3F84CE3E1E13D2DC00F8E190 /* Vec2f.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F84CDC71E13D2DC00F8E190 /* Vec2f.h */; };
 		3F84CE471E13D2DC00F8E190 /* GameEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F84CDD11E13D2DC00F8E190 /* GameEngine.cpp */; };
 		3F84CE481E13D2DC00F8E190 /* GameEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F84CDD21E13D2DC00F8E190 /* GameEngine.h */; };
 		3F84CE491E13D2DC00F8E190 /* GlobalData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F84CDD31E13D2DC00F8E190 /* GlobalData.cpp */; };
@@ -146,8 +146,8 @@
 		3F84CDC31E13D2DC00F8E190 /* Vec2i.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vec2i.cpp; sourceTree = "<group>"; };
 		3F84CDC41E13D2DC00F8E190 /* Vec2i.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vec2i.h; sourceTree = "<group>"; };
 		3F84CDC51E13D2DC00F8E190 /* VecShrPtr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VecShrPtr.h; sourceTree = "<group>"; };
-		3F84CDC61E13D2DC00F8E190 /* Vector2f.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector2f.cpp; sourceTree = "<group>"; };
-		3F84CDC71E13D2DC00F8E190 /* Vector2f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector2f.h; sourceTree = "<group>"; };
+		3F84CDC61E13D2DC00F8E190 /* Vec2f.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vec2f.cpp; sourceTree = "<group>"; };
+		3F84CDC71E13D2DC00F8E190 /* Vec2f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vec2f.h; sourceTree = "<group>"; };
 		3F84CDD11E13D2DC00F8E190 /* GameEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameEngine.cpp; sourceTree = "<group>"; };
 		3F84CDD21E13D2DC00F8E190 /* GameEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameEngine.h; sourceTree = "<group>"; };
 		3F84CDD31E13D2DC00F8E190 /* GlobalData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GlobalData.cpp; sourceTree = "<group>"; };
@@ -238,6 +238,7 @@
 		3FD1A9701E77C420000757EC /* ShrPtr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShrPtr.h; sourceTree = "<group>"; };
 		3FD1A9721E77C708000757EC /* BaseGridMapTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseGridMapTest.cpp; sourceTree = "<group>"; };
 		3FD1A9731E77C708000757EC /* BaseGridMapTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseGridMapTest.h; sourceTree = "<group>"; };
+		3FFAA210206C0FB200126662 /* MathMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MathMacros.h; sourceTree = "<group>"; };
 		3FFC342A1E7714960045E3C9 /* IMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMap.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -301,7 +302,8 @@
 		3F84CDB81E13D2DC00F8E190 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				3F84CDB91E13D2DC00F8E190 /* common */,
+				3F84CDBC1E13D2DC00F8E190 /* GlobalMacros.h */,
+				3F84CDB91E13D2DC00F8E190 /* math */,
 				3F84CDC81E13D2DC00F8E190 /* core */,
 				3F84CDD91E13D2DC00F8E190 /* ecs */,
 				3F84CDE41E13D2DC00F8E190 /* input */,
@@ -314,25 +316,22 @@
 			path = ../../src;
 			sourceTree = "<group>";
 		};
-		3F84CDB91E13D2DC00F8E190 /* common */ = {
+		3F84CDB91E13D2DC00F8E190 /* math */ = {
 			isa = PBXGroup;
 			children = (
 				3F84CDBA1E13D2DC00F8E190 /* Color3f.h */,
 				3F84CDBB1E13D2DC00F8E190 /* Color4b.h */,
-				3F84CDBC1E13D2DC00F8E190 /* GlobalMacros.h */,
 				3F84CDBD1E13D2DC00F8E190 /* Matrix4f.cpp */,
 				3F84CDBE1E13D2DC00F8E190 /* Matrix4f.h */,
 				3F84CDBF1E13D2DC00F8E190 /* SomeMath.cpp */,
 				3F84CDC01E13D2DC00F8E190 /* SomeMath.h */,
-				3F84CDC11E13D2DC00F8E190 /* ThreadLock.cpp */,
-				3F84CDC21E13D2DC00F8E190 /* ThreadLock.h */,
 				3F84CDC31E13D2DC00F8E190 /* Vec2i.cpp */,
 				3F84CDC41E13D2DC00F8E190 /* Vec2i.h */,
-				3F84CDC51E13D2DC00F8E190 /* VecShrPtr.h */,
-				3F84CDC61E13D2DC00F8E190 /* Vector2f.cpp */,
-				3F84CDC71E13D2DC00F8E190 /* Vector2f.h */,
+				3F84CDC61E13D2DC00F8E190 /* Vec2f.cpp */,
+				3F84CDC71E13D2DC00F8E190 /* Vec2f.h */,
+				3FFAA210206C0FB200126662 /* MathMacros.h */,
 			);
-			path = common;
+			path = math;
 			sourceTree = "<group>";
 		};
 		3F84CDC81E13D2DC00F8E190 /* core */ = {
@@ -403,6 +402,9 @@
 		3F84CDF81E13D2DC00F8E190 /* memory */ = {
 			isa = PBXGroup;
 			children = (
+				3F84CDC11E13D2DC00F8E190 /* ThreadLock.cpp */,
+				3F84CDC21E13D2DC00F8E190 /* ThreadLock.h */,
+				3F84CDC51E13D2DC00F8E190 /* VecShrPtr.h */,
 				3FD1A9701E77C420000757EC /* ShrPtr.h */,
 				3F84CDF91E13D2DC00F8E190 /* MemPool.h */,
 				3F84CDFA1E13D2DC00F8E190 /* RefCounter.h */,
@@ -494,7 +496,7 @@
 				3F84CE391E13D2DC00F8E190 /* ThreadLock.h in Headers */,
 				3F84CE961E13D2DC00F8E190 /* TextureHelper.h in Headers */,
 				3F84CE941E13D2DC00F8E190 /* TextRenderer.h in Headers */,
-				3F84CE3E1E13D2DC00F8E190 /* Vector2f.h in Headers */,
+				3F84CE3E1E13D2DC00F8E190 /* Vec2f.h in Headers */,
 				3F84CE7A1E13D2DC00F8E190 /* Cursor.h in Headers */,
 				3F84CE681E13D2DC00F8E190 /* PassCell.h in Headers */,
 				3F84CE3C1E13D2DC00F8E190 /* VecShrPtr.h in Headers */,
@@ -667,7 +669,7 @@
 				3F84CE341E13D2DC00F8E190 /* Matrix4f.cpp in Sources */,
 				3F84CE361E13D2DC00F8E190 /* SomeMath.cpp in Sources */,
 				3F84CE691E13D2DC00F8E190 /* PassMap.cpp in Sources */,
-				3F84CE3D1E13D2DC00F8E190 /* Vector2f.cpp in Sources */,
+				3F84CE3D1E13D2DC00F8E190 /* Vec2f.cpp in Sources */,
 				3F84CE881E13D2DC00F8E190 /* RectGrid.cpp in Sources */,
 				3F84CE471E13D2DC00F8E190 /* GameEngine.cpp in Sources */,
 				3F84CE3A1E13D2DC00F8E190 /* Vec2i.cpp in Sources */,

@@ -8,7 +8,7 @@
 
 #include "OutherAPI.h"
 #include "core/GameEngine.h"
-#include "common/Vector2f.h"
+#include "math/Vec2f.h"
 
 void OutherAPI::MoveWorld(float diff_x, float diff_y)
 {

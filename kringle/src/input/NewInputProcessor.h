@@ -9,7 +9,7 @@
 #ifndef __Game2__NewInputProcessor__
 #define __Game2__NewInputProcessor__
 
-#include "../Common/Vector2f.h"
+#include "../math/Vec2f.h"
 
 //@note: it doesn't in use now.
 

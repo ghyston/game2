@@ -9,7 +9,7 @@
 #ifndef __Game2__TouchTypes__
 #define __Game2__TouchTypes__
 
-#include "Common/Vector2f.h"
+#include "math/Vec2f.h"
 #include "ECS/Entity.h"
 
 /**
