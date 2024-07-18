@@ -10,12 +10,12 @@
 
 using namespace kringle;
 
-float AreaTriangle(Vec2f a, Vec2f b, Vec2f c)
+float kringle::AreaTriangle(Vec2f a, Vec2f b, Vec2f c)
 {
 	return (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x);
 }
 
-bool SegmentsIntersected(Vec2f a1, Vec2f a2, Vec2f b1, Vec2f b2)
+bool kringle::SegmentsIntersected(Vec2f a1, Vec2f a2, Vec2f b1, Vec2f b2)
 {
 	Vec2f aBB_min = Vec2f(fmin(a1.x, a2.x), fmin(a1.y, a2.y));
 	Vec2f aBB_max = Vec2f(fmax(a1.x, a2.x), fmax(a1.y, a2.y));
@@ -32,7 +32,7 @@ bool SegmentsIntersected(Vec2f a1, Vec2f a2, Vec2f b1, Vec2f b2)
 		&& (AreaTriangle(b1, b2, a1) * AreaTriangle(b1, b2, a2) <= 0);
 }
 
-void MatrixMultiply(Matrix4f& m1, Matrix4f& m2, Matrix4f& result)
+void kringle::MatrixMultiply(Matrix4f& m1, Matrix4f& m2, Matrix4f& result)
 {
     // Fisrt Column
     result[0] = m1[0]*m2[0] + m1[4]*m2[1] + m1[8]*m2[2] + m1[12]*m2[3];

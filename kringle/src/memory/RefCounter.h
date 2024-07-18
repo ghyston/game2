@@ -13,49 +13,32 @@
 
 namespace kringle {
 
-template <class T>
-class RefCounter
-{
-private:
-    
-    RefCounter() = default;
-    ~RefCounter() = default;
-    RefCounter(const RefCounter&) = default;
-    
-    int counter = 0;
-    T * p = NULL;
-    bool deleted = false;
-    
-public:
-    
-    RefCounter * create(T * p)
+    template <class T>
+    class RefCounter
     {
-        RefCounter * inst = new RefCounter();
-        inst->p = p;
-        return inst;
-    }
+    private:
         
-    /*void inc() { counter++; }
-    
-    void dec()
-    {
-        counter--;
-        if(counter > 0)
-            return;
+        RefCounter() = default;
+        ~RefCounter() = default;
+        RefCounter(const RefCounter&) = default;
         
-        if(p != NULL)
-            MemPool<T>::delObj(p);
+        int counter = 0;
+        T * p = NULL;
+        bool deleted = false;
         
-        MemPool<RefCounter<T> >::delObj(this);
-    }*/
-    
-    //friend class ShrPtr;
-    
-    void markDeleted() { deleted = true; }
-    bool isDeleted() { return deleted; }
-    
-};
-    
+    public:
+        
+        RefCounter * create(T * p)
+        {
+            RefCounter * inst = new RefCounter();
+            inst->p = p;
+            return inst;
+        }
+        
+        void markDeleted() { deleted = true; }
+        bool isDeleted() { return deleted; }
+        
+    };
 }
 
 

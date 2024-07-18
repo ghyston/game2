@@ -45,10 +45,9 @@ namespace kringle
             return *this;
         }
         
-        // @todo: not optimaized!
         void Normalize()
         {
-            float length = this->length();
+            float length = this->Length();
             x /= length;
             y /= length;
         }

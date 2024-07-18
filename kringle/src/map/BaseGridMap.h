@@ -11,9 +11,10 @@
 
 #include <map>
 #include "../math/Vec2f.h"
-#include "../common/Vec2i.h"
+#include "../math/Vec2i.h"
 
 using namespace std;
+using namespace kringle;
 
 template <class T>
 class BaseGridMap
